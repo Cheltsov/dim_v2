@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Beautiful Multifunctional Calendar Plugin For jQuery - PIGNOSE Calender</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js"></script>
+
+    <link rel="stylesheet" href="./node_modules/pg-calendar/dist/css/pignose.calendar.css">
+    <script src="./node_modules/pg-calendar/dist/js/pignose.calendar.full.js"></script>
+    <style>
+         .pignose-calendar-top{
+             padding:20px 0; !important
+         }
+        .pignose-calendar .pignose-calendar-top .pignose-calendar-top-date{
+             padding: 1em 0; !important
+         }
+    </style>
+</head>
+<body>
+
+    <div class="calender" style="border:1px solid red; width:23%; height:320px; font-size:10pt"></div>
+
+    <script>
+       //$('.calender').pignoseCalendar();
+
+
+
+        $('.calender').pignoseCalendar({
+
+            // en, ko, fr, ch, de, jp, pt, fr
+            lang: 'en',
+
+            // You can change auto initialized date at first.
+            date: moment(),
+            //Your first day of week (0: Sunday ~ 6: Saturday).
+            week:1,
+            // light, dark
+            theme: 'blue',
+            // date format
+            format: 'YYYY-MM-DD',
+            select: function(date, context) {
+                alert(date[0]['_i']); // получить дату
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
