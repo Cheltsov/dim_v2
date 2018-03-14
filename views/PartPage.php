@@ -33,6 +33,7 @@ class PartPage
                     <ul type="none">
                         <li><a href="index.php" class="go_to" id="main">Главная</a></li>
                         <li><a href="tranzactions.php" class="go_to" id="tranz">Транзакции</a></li>
+                        <li><a href="#" class="go_to">Долги</a></li>
                         <li><a href="#" class="go_to">Планировщик</a></li>
                         <li><a href="report.php" class="go_to" id="report">Отчеты</a></li>
                         <li><a href="cash.php" class="go_to" id="cash">Счета</a></li>
