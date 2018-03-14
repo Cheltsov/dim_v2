@@ -19,6 +19,10 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
         <option value="1">Расходы</option>
         <option value="2">Доходы</option>
     </select>
+    <select id="chose_schedule">
+        <option value="1">Line</option>
+        <option value="2">Pie</option>
+    </select>
 </div>
     <br>
     <br>
@@ -76,6 +80,11 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
                             beginAtZero: true
                         }
                     }]
+                },
+                events:['click',"mousemove"],
+                onClick: function(){
+                    alert(myLineChart.data.datasets[0].data);
+                    alert(myLineChart.data.labels);
                 }
             }
         });
@@ -125,6 +134,36 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
                    }
                );
            }
+        });
+
+        $("#chose_schedule").change(function(){
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var chart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: ["January", "February", "March", "April", "May"],
+                    datasets: [{
+                        backgroundColor: ["red", "blue","lightblue","green","yellow"],
+                        label: "My First dataset",
+                        borderColor: 'rgb(255, 99, 132)',
+                        data: [10, 5, 20, 30, 45],
+                    }],
+
+                },
+
+                // Configuration options go here
+                options: {
+                    title: {
+                        display: true,
+                        text: 'Predicted world population (millions) in 2050'
+                    }
+                }
+            });
+
+
+
+
+
         });
     </script>
 <?php
