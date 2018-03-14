@@ -20,19 +20,20 @@
 <body>
 
     <div class="calender" style="border:1px solid red; width:23%; height:320px; font-size:10pt"></div>
-
+    <div id="content"> fdf </div>
     <script>
        //$('.calender').pignoseCalendar();
 
-
+        now = getRightDate(new Date());
 
         $('.calender').pignoseCalendar({
 
             // en, ko, fr, ch, de, jp, pt, fr
             lang: 'en',
-
+            //If this option is true, You can set the date range.
+            multiple: true,
             // You can change auto initialized date at first.
-            date: moment(),
+            date: moment(now),
             //Your first day of week (0: Sunday ~ 6: Saturday).
             week:1,
             // light, dark
@@ -40,10 +41,34 @@
             // date format
             format: 'YYYY-MM-DD',
             select: function(date, context) {
-                alert(date[0]['_i']); // получить дату
+                alert(date[0]['_i']);
+               $("#content").append("Start= "+date[0]['_i']+"|| end = "+date[1]['_i']+"<br>");
             }
 
         });
+
+        function getRightDate(data){
+            var d = new Date(data);
+            var curr_date = d.getDate();
+            if(curr_date<10) curr_date="0"+curr_date;
+            var curr_month = d.getMonth() + 1;
+            if(curr_month<10) curr_month="0"+curr_month;
+            var curr_year = d.getFullYear();
+            rightData = curr_year + "-" + curr_month + "-" + curr_date;
+            return rightData;
+        }
+
+       function objDump(object) {
+           var out = "";
+           if(object && typeof(object) == "object"){
+               for (var i in object) {
+                   out += i + ": " + object[i] + "\n";
+               }
+           } else {
+               out = object;
+           }
+           alert(out);
+       }
 
     </script>
 
