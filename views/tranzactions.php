@@ -154,8 +154,8 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
 
 <style>
     .col:hover{
-        background-color:lightgrey;
-    }
+         background-color:lightgrey;
+     }
     th{
         padding:6px;
     }

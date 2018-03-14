@@ -88,7 +88,6 @@ $("#add_tr").click(function(){
         });
 
     $("option").remove();
-
     $("#dialog").dialog('open');
 
 });
