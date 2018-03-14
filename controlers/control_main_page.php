@@ -35,19 +35,40 @@ if(isset($_POST['wanna_all_balance'])){ //Получить баланс по в�
     echo(round($all_balance,2));
 }
 
-if(isset($_POST['getTrMinFromData']) && isset($_POST['data_tr'])){
-    $rez = $con->getTrMinFromData( $id_cur_user, $_POST['data_tr']);
-    echo($rez);
+if(isset($_POST['getTrMinFromData']) && isset($_POST['data_tr_start'])){
+        if($_POST['data_tr_end']!=""){
+            $rez = $con->getTrMinFromDataRange($id_cur_user, $_POST['data_tr_start'],$_POST['data_tr_end']);
+            echo($rez);
+        }
+        else{
+            $rez = $con->getTrMinFromData( $id_cur_user, $_POST['data_tr_start']);
+            echo($rez);
+        }
+
 }
 
-if(isset($_POST['getTrPlusFromData']) && isset($_POST['data_tr'])){
-    $rez = $con->getTrPlusFromData( $id_cur_user, $_POST['data_tr']);
-    echo($rez);
+if(isset($_POST['getTrPlusFromData']) && isset($_POST['data_tr_start'])){
+    if($_POST['data_tr_end']!=""){
+        $rez=$con->getTrPlusFromDataRange($id_cur_user, $_POST['data_tr_start'],$_POST['data_tr_end']);
+        echo($rez);
+    }
+    else{
+        $rez = $con->getTrPlusFromData( $id_cur_user, $_POST['data_tr_start']);
+        echo($rez);
+    }
+
 }
 
-if(isset($_POST['getTransFromData']) && isset($_POST['data_tr'])){
-    $rez = $con->getTranslateFromData( $id_cur_user, $_POST['data_tr']);
-    echo($rez);
+if(isset($_POST['getTransFromData']) && isset($_POST['data_tr_start'])){
+    if($_POST['data_tr_end']!=""){
+        $rez = $con->getTranslateFromDataRange( $id_cur_user, $_POST['data_tr_start'],$_POST['data_tr_end']);
+        echo($rez);
+    }
+    else{
+        $rez = $con->getTranslateFromData( $id_cur_user, $_POST['data_tr_start']);
+        echo($rez);
+    }
+
 }
 
 

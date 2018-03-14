@@ -476,6 +476,29 @@ class Datebase
         echo(json_encode($arr_tmp));
         R::close();
     }
+
+    function getTrMinFromDataRange($id_user,$data1, $data2){
+        $arr_tmp = array();
+        $name_cash = "";
+        $tr = R::findAll('tranzaction',"user_id = $id_user and date(data) >= '$data1' and date(data) <= '$data2'");
+        foreach($tr as $item){
+            if($item->status == "minus"){
+                $cash = R::findAll('cash',"id = $item->cash");
+                foreach($cash as $tmp){
+                    $name_cash = $tmp->name;
+                }
+                $us = R::findAll('users',"id = $item->user_id");
+                foreach($us as $tmp_us){
+                    $us_name = $tmp_us->login;
+                }
+                if($name_cash=="")  $name_cash="Удален";
+                array_push($arr_tmp,$item->id,$item->name,$name_cash,$item->balance,$item->comment,$us_name,$item->data);
+                $name_cash="";
+            }
+        }
+        echo(json_encode($arr_tmp));
+        R::close();
+    }
     /// ///////////////////////////////////////////////////////////////////////////////
 
     function getTrMin_fromID($id_user, $id_cash){
@@ -530,6 +553,29 @@ class Datebase
         $arr_tmp = array();
         $name_cash = "";
         $tr = R::findAll('tranzaction',"user_id = $id_user and date(data) = '$data'");
+        foreach($tr as $item){
+            if($item->status == "plus"){
+                $cash = R::findAll('cash',"id = $item->cash");
+                foreach($cash as $tmp){
+                    $name_cash = $tmp->name;
+                }
+                $us = R::findAll('users',"id = $item->user_id");
+                foreach($us as $tmp_us){
+                    $us_name = $tmp_us->login;
+                }
+                if($name_cash=="")  $name_cash="Удален";
+                array_push($arr_tmp,$item->id,$item->name,$name_cash,$item->balance,$item->comment,$us_name,$item->data);
+                $name_cash="";
+            }
+        }
+        echo(json_encode($arr_tmp));
+        R::close();
+    }
+
+    function getTrPlusFromDataRange($id_user, $data1, $data2){
+        $arr_tmp = array();
+        $name_cash = "";
+        $tr = R::findAll('tranzaction',"user_id = $id_user and date(data) >= '$data1' and date(data) <= '$data2'");
         foreach($tr as $item){
             if($item->status == "plus"){
                 $cash = R::findAll('cash',"id = $item->cash");
@@ -689,6 +735,32 @@ class Datebase
         $name_cash_min="";
         $name_cash_sum="";
         $trans = R::findAll('translate', "id_user = $id_user and date(data) = '$data'");
+        foreach($trans as $item){
+            $cash1 = R::findAll('cash',"id = $item->cash_min");
+            foreach($cash1 as $tmp1){
+                $name_cash_min = $tmp1->name;
+            }
+            $cash2 = R::findAll('cash',"id = $item->cash_sum");
+            foreach($cash2 as $tmp2){
+                $name_cash_sum = $tmp2->name;
+            }
+            $us = R::findAll('users',"id = $item->id_user");
+            foreach($us as $tmp_us){
+                $us_name = $tmp_us->login;
+            }
+            array_push($arr_tmp,$item->id,$item->name,$item->data,$name_cash_min,$item->balance_min,$name_cash_sum,$item->balance_sum,$item->comment,$us_name);
+            $name_cash_sum="";
+            $name_cash_min="";
+        }
+        echo(json_encode($arr_tmp));
+        R::close();
+    }
+
+    function getTranslateFromDataRange($id_user, $data1, $data2){
+        $arr_tmp = array();
+        $name_cash_min="";
+        $name_cash_sum="";
+        $trans = R::findAll('translate', "id_user = $id_user and date(data) >= '$data1' and date(data) <= '$data2'");
         foreach($trans as $item){
             $cash1 = R::findAll('cash',"id = $item->cash_min");
             foreach($cash1 as $tmp1){
