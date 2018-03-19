@@ -18,6 +18,40 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
 
 ?>
 
+<div>
+    <select name="" id="sel_data">
+        <option value="all">All</option>
+        <option value="1">Янв</option>
+        <option value="2">Фев</option>
+        <option value="3">Март</option>
+        <option value="4">Апрель</option>
+        <option value="5">Май</option>
+        <option value="6">Июнь</option>
+        <option value="7">Июль</option>
+        <option value="8">Август</option>
+        <option value="9">Сентябрь</option>
+        <option value="10">Октябрь</option>
+        <option value="11">Ноябрь</option>
+        <option value="12">Декабрь</option>
+    </select>
+</div>
+<pre>
+    <div id="content" style="color:white; max-height:600px; overflow:auto"></div>
+</pre>
+    <script>
+        $(document).ready(function(){
+            $.post(
+                "../controlers/control_forecast.php",
+                {wanna_month_tr : "1"},
+                function(data){
+                    //alert(data);
+                    $("#content").append(data);
+                }
+            );
+        });
+    </script>
+
+
 <?php
 //$part->script_links("../js/index_page.js", "../js/tranz.js");
 $part->foot();// Построение подвала страницы

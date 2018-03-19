@@ -332,28 +332,35 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
         theme: 'blue',
         format: 'YYYY-MM-DD',
         select: function(date, context) {
-            /*$("#minTable").empty();
-            $("#plusTable").empty();
-            $("#transTable").empty();*/
             if(date[0]==null && date[1]==null){
                 window.stop();
                 return;
             }
             if(date[0]==null){
+                clrTable();
                 start = getRightDate(date[1]['_d']);
                 end = "";
             }
             if(date[1]==null){
+                clrTable();
                 start = getRightDate(date[0]['_d']);
                 end = "";
             }
             if(date[0]!=null && date[1]!=null){
+                clrTable();
                 start = getRightDate(date[0]['_d']);
                 end = getRightDate(date[1]['_d']);
             }
             GetAllTr(start,end);
+            //$( "#tabs_tables" ).tabs( "refresh" );
         }
     });
+
+    function clrTable(){
+        $("#minTable").empty();
+        $("#plusTable").empty();
+        $("#transTable").empty();
+    }
 
     $(document).ready(function(){
         now = getRightDate(new Date());
@@ -371,12 +378,11 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
     }
 
     function GetAllTr(start_data, end_data){
-        $("#minTable").empty();
-        $("#plusTable").empty();
-        $("#transTable").empty();
+
         $.post("../controlers/control_main_page.php",
             {getTrMinFromData : "1",data_tr_start : start_data, data_tr_end: end_data},
             function(data){
+                $("#minTable").empty();
                 $("#minTable").append("<tr><th>Имя</th><th>Кошелек</th><th>Сумма</th><th>Коммент</th><th>Пользователь</th><th>Дата</th></tr>");
                 data = JSON.parse(data);
                 for(i=1,j=2,a=3,b=4,c=5,d=6,il=0;i<data.length;i+=7,j+=7,a+=7,b+=7,c+=7,d+=7,il+=7){
@@ -387,6 +393,7 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
         $.post("../controlers/control_main_page.php",
             {getTrPlusFromData : "1",data_tr_start :start_data, data_tr_end: end_data},
             function(data){
+                $("#plusTable").empty();
                 $("#plusTable").append("<tr><th>Имя</th><th>Кошелек</th><th>Сумма</th><th>Коммент</th><th>Пользователь</th><th>Дата</th></tr>");
                 data = JSON.parse(data);
                 for(i=1,j=2,a=3,b=4,c=5,d=6,il=0;i<data.length;i+=7,j+=7,a+=7,b+=7,c+=7,d+=7,il+=7){
@@ -397,6 +404,7 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
         $.post("../controlers/control_main_page.php",
             {getTransFromData : "1", data_tr_start : start_data, data_tr_end: end_data},
             function(data){
+                $("#transTable").empty();
                 $("#transTable").append("<tr><th>Имя</th><th>Кошелек1</th><th>Снято</th><th>Кошелек2</th><th>Зачислено</th><th>Комментарий</th><th>Пользователь</th><th>Дата</th></tr>");
                 data = JSON.parse(data);
                 for(i=1,j=2,a=3,b=4,c=5,d=6,e=7,f=8,il=0;i<data.length;i+=9,j+=9,a+=9,b+=9,c+=9,d+=9,il+=9,e+=9,f+=9){
