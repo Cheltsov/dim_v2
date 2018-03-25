@@ -13,6 +13,7 @@ if(!isset($_COOKIE['SingIN'])){
 }
 require "partpage.php";
 $part = new partPage();
+$part->PreLoader();
 echo("<title>Ledger - Транзакции</title>");
 $part->head();
 echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">');

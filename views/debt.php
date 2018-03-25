@@ -6,7 +6,7 @@ require "../controlers/control_debt.php";
 require "partpage.php";
 
 $part = new partPage();
-
+$part->PreLoader();
 
 echo("<title>Ledger - Долги</title>");
 $part->head(); // Построение шапки страницы

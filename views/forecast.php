@@ -6,7 +6,7 @@ if(!isset($_COOKIE['SingIN'])){
 require "partpage.php";
 
 $part = new partPage();
-
+$part->PreLoader();
 
 echo("<title>Ledger - Планировщик</title>");
 $part->head(); // Построение шапки страницы

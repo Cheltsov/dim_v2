@@ -11,6 +11,7 @@ require "../controlers/control_cash.php";
 
     require "partpage.php";
     $part = new partPage();
+    $part->PreLoader();
     echo("<title>Ledger - Счета</title>");
     $part->head();
     echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">');
@@ -91,7 +92,7 @@ require "../controlers/control_cash.php";
     <div id="content" style="width:800px;float:left"></div>
 
 
-   
+
 
 
 

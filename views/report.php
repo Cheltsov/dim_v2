@@ -8,6 +8,7 @@ require "../controlers/control_report.php";
 
 require "partpage.php";
 $part = new partPage();
+$part->PreLoader();
 echo("<title>Ledger - Отчеты</title>");
 $part->head();
 echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">');

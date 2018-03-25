@@ -5,8 +5,9 @@ if(!isset($_COOKIE['SingIN'])){
 require "../controlers/control_main_page.php";
 require "partpage.php";
 
-$part = new partPage();
+$part = new PartPage();
 
+$part->PreLoader();
 
 echo("<title>Ledger - Главная</title>");
 $part->head(); // Построение шапки страницы
@@ -16,7 +17,14 @@ $part->arr_links("mainPage.css"); //подключить массив фалов
 $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js","../js/partpage.js"); //подключить массив фалов javascript
 echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">');
 
+
+
 ?>
+
+
+
+
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.3.2/flatpickr.min.js"></script>
 <link rel="stylesheet" type="text/css" href="../libs/node_modules/flatpickr/dist/themes/material_blue.css">
