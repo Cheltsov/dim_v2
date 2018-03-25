@@ -30,6 +30,15 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
 <!--<script src="../libs/cellSelection.min.js"></script>-->
 
 <style>
+
+    .but_forCash{
+        border:1px solid white;
+        text-align:left;
+        font-size:16pt;
+        background-color:#009fe3;
+        color:white;
+    }
+
     .accord{
         /* padding-top:50px;*/
         width:100%;
@@ -81,6 +90,20 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
 </style>
 
 
+<div id="menu" class="balance">
+    <button id="all_bal">Все транзакции </button>
+    <br>
+    <button class="but_forCash">Наличные</button>
+    <ul id="hands">
+
+    </ul>
+    <button class="but_forCash">Карта</button>
+    <ul id="cards">
+
+    </ul>
+</div>
+
+<!--
 <div class="balance">
     <button id="all_bal">Все транзакции </button>
     <br>
@@ -98,27 +121,8 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
 
     </div>
 </div>
-
-
-<!--
-<div class="menu">
-    <h3>Доходы</h3>
-    <table id = "plusTable">
-
-    </table>
-    <br>
-    <h3>Расходы</h3>
-    <table id = "minTable">
-
-    </table>
-    <br>
-    <h3>Переводы</h3>
-    <table id = "transTable">
-
-    </table>
-
-</div>
 -->
+
 
 <div id="tabs_tables" class="menu">
     <ul>
@@ -358,37 +362,11 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
 </div>
 
 
+
+<style>
+
+</style>
 <script>
-
-
-</script>
-
-
-
-
-<script>
-/*
-    $(".type").click(function(){
-        tmp_id ="";
-        ind = this.id;
-        str = ind.split('');
-        for(i=5;i<str.length;i++){
-            tmp_id += str[i];
-        }
-
-        $.post("../controlers/control_tranzactions.php",
-            { id_cash : tmp_id, on_cash : "1"},
-            function(data){
-               // data = JSON.parse(data);
-               // alert(data);
-
-                $("#content_test").append(data);
-            }
-        );
-
-    });
-
-*/
 
 </script>
 

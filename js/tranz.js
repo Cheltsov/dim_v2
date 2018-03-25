@@ -1,5 +1,10 @@
 $(document).ready(function(){
     $("#all_bal").click();
+    // меню
+    $("#menu .but_forCash").click(function() {
+        $(this).next().toggle("fast");
+        return false;
+    }).next().slow();
 });
 $(document).ready(function(){
     $.post(
@@ -9,10 +14,10 @@ $(document).ready(function(){
             data = JSON.parse(data);
             for(i=4,n=2,id=0,b=5,t=3;i<data.length;i+=10,n+=10,id+=10,b+=10,t+=10){
                 if(data[i]==1){
-                    $("#hands").append("<button class='type' id='cash_"+data[id]+"'>"+data[n]+":"+data[b]+" ("+data[t]+") </button>");
+                    $("#hands").append("<li><button class='type' id='cash_"+data[id]+"'>"+data[n]+":"+data[b]+" ("+data[t]+") </button></li>");
                 }
                 if(data[i]==2){
-                    $("#cards").append("<button class='type' id='cash_"+data[id]+"'>"+data[n]+":"+data[b]+" ("+data[t]+") </button>");
+                    $("#cards").append("<li><button class='type' id='cash_"+data[id]+"'>"+data[n]+":"+data[b]+" ("+data[t]+") </button></li>");
                 }
             }
 

@@ -31,7 +31,6 @@ require "../controlers/control_cash.php";
            /* padding-top:50px;*/
             width:34%;
             float:left;
-
         }
         .accord h3{
             width:250px;
@@ -63,30 +62,31 @@ require "../controlers/control_cash.php";
             float:left;
             border:1px solid green;
             width:340px;
-
+            margin-right:20px;
         }
         .balance button{
             width:100%;
         }
-
-
+        .but_forCash{
+            border:1px solid white;
+            text-align:left;
+            font-size:16pt;
+            background-color:#009fe3;
+            color:white;
+        }
 
     </style>
 
-    <div class="balance">
-        <h3>Общий баланс: 12312</h3>
-        <div id="accordion" class="accord" >
+<div id="menu" class="balance">
+    <button class="but_forCash">Наличные</button>
+    <ul id="hands">
 
-            <h3>Наличные:</h3>
-            <div id="hands">
-            </div>
-            <h3>Карта:</h3>
-            <div id="cards">
+    </ul>
+    <button class="but_forCash">Карта</button>
+    <ul id="cards">
 
-            </div>
-
-        </div>
-    </div>
+    </ul>
+</div>
 
     <div id="content" style="width:800px;float:left"></div>
 
