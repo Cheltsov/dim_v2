@@ -943,9 +943,9 @@ class Datebase
         R::close();
     }
 
-    function getDataOfTr_Sum($id_user){ // получить дату если статус плюс
+    function getDataOfTr($id_user,$status){ // получить дату если статус плюс
         $arr_tmp = array();
-        $tr = R::find('tranzaction',"user_id = $id_user and status = 'plus' order by data ");
+        $tr = R::find('tranzaction',"user_id = $id_user and status = '$status' order by data ");
 
         foreach($tr as $item){
             array_push($arr_tmp,substr($item->data, 0,10));
@@ -954,16 +954,7 @@ class Datebase
         R::close();
         return($result);
     }
-    function getDataOfTr_Min($id_user){ // получить дату если статус минус
-        $arr_tmp = array();
-        $tr = R::findAll('tranzaction',"user_id = $id_user and status = 'minus'");
-        foreach($tr as $item){
-            array_push($arr_tmp,substr($item->data, 0,10));
-        }
-        $result = array_unique($arr_tmp);
-        R::close();
-        return($result);
-    }
+
 
    function getAllBalanceOfData($id_user, $status){
        $arr_tmp = array();

@@ -19,28 +19,28 @@ class PartPage
 
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
                 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-                
+
                 <script src="../js/partpage.js"></script>
-                
-                
+
+
             </head>
             <body>
-            
+
                 <div class="display_one">
                     <div class="header">
                     <img src="../im/logo.png" alt="">
-            
+
                     <ul type="none">
                         <li><a href="index.php" class="go_to" id="main">Главная</a></li>
                         <li><a href="tranzactions.php" class="go_to" id="tranz">Транзакции</a></li>
                         <li><a href="debt.php" class="go_to" id="debt">Долги</a></li>
-                        <li><a href="control_forecast.php" class="go_to" id="forecast">Планировщик</a></li>
+                        <li><a href="forecast.php" class="go_to" id="forecast">Планировщик</a></li>
                         <li><a href="report.php" class="go_to" id="report">Отчеты</a></li>
                         <li><a href="cash.php" class="go_to" id="cash">Счета</a></li>
                         <li><a href="#" class="go_to" id="il2">Настройки</a></li>
                         <li>
                         <button type="submit" name="exit" id="exit">Выйти</input>
-                            
+
                         </li>
                     </ul>
                 </div>

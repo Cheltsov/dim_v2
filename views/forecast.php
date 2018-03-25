@@ -36,7 +36,8 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
     </select>
 </div>
 <pre>
-    <div id="content" style="color:white; max-height:600px; overflow:auto"></div>
+    <div id="content" style="color:white; max-height:600px; overflow:auto;float:left;margin-right:100px"></div>
+    <div id="content2" style="color:white; max-height:600px; overflow:auto;"></div>
 </pre>
     <script>
         $(document).ready(function(){
@@ -46,6 +47,14 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
                 function(data){
                     //alert(data);
                     $("#content").append(data);
+                }
+            );
+            $.post(
+                "../controlers/control_forecast.php",
+                {wanna_month_tr2 : "1"},
+                function(data){
+                    //alert(data);
+                    $("#content2").append(data);
                 }
             );
         });
