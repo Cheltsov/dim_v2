@@ -7,7 +7,7 @@ require '../config/config_connect_DB.php';
 require 'libs/rb.php';
 require 'moveTo.php';
 require '../models/LineChart.php';
-
+require_once "getCourse.php";
 
 
 class Datebase
@@ -943,7 +943,7 @@ class Datebase
         R::close();
     }
 
-    function getDataOfTr($id_user,$status){ // получить дату если статус плюс
+    function getDataOfTr($id_user,$status){ // получить дату транзакции по статусу
         $arr_tmp = array();
         $tr = R::find('tranzaction',"user_id = $id_user and status = '$status' order by data ");
 
@@ -1023,9 +1023,28 @@ class Datebase
     function getBalanceFromMonth($id_user, $month, $status){ // Подсчитать баланс доходов за один месяц
         //$now_month = date("m");
         $all_bal_from_month = 0;
+
         $tr_plus = R::findAll("tranzaction", "user_id = $id_user and month(data)=$month and status = '$status'");
         foreach($tr_plus as $item){
-            $all_bal_from_month += $item->balance;
+            $cash = R::findAll("cash", "id = $item->cash");
+            foreach($cash as $item2){
+                switch($item2->type_money){
+                    case "UAH":{
+                        $all_bal_from_month += $item->balance;
+                        break;
+                    }
+                    case "USD":{
+                        $usd = getOneCourse("USD");
+                        $all_bal_from_month += $item->balance*$usd['sale'];
+                        break;
+                    }
+                    case "EUR":{
+                        $eur = getOneCourse("EUR");
+                        $all_bal_from_month += $item->balance*$eur['sale'];
+                        break;
+                    }
+                }
+            }
         }
         return $all_bal_from_month;
     }

@@ -22,7 +22,7 @@ if(isset($_POST['wanna_info_tr_plus'])){
     $arr_tr_plus =array();
     $tmp =array();
     $id_cur_user = $con->findIdUser();
-    $data_tr_plus = $con->getDataOfTr_Min($id_cur_user); // получить даты транзакций плюс
+    $data_tr_plus = $con->getDataOfTr($id_cur_user,'plus'); // получить даты транзакций плюс
     echo (json_encode($con->getAllBalanceOfData( $id_cur_user, "plus")));
     //echo("<pre>");
     //print_r($arr_tr_min);
@@ -32,7 +32,7 @@ if(isset($_POST['wanna_info_tr_min'])){
     $arr_tr_min =array();
     $tmp =array();
     $id_cur_user = $con->findIdUser();
-    $data_tr_min = $con->getDataOfTr_Sum($id_cur_user); // получить даты транзакций плюс
+    $data_tr_min = $con->getDataOfTr($id_cur_user,'minus'); // получить даты транзакций плюс
     $datas = $con->getAllBalanceOfData( $id_cur_user, "minus");
    /* for($i=1,$n=2;$i<count($datas);$i+=3,$n+=3){
         for($j=1;$j<count($datas);$j+=3){
