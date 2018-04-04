@@ -24,6 +24,8 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
         <option value="1">Line</option>
         <option value="2">Pie</option>
     </select>
+    <select id="month">
+    </select>
 </div>
     <br>
     <br>
@@ -32,12 +34,37 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
 
 </div>
 
-<div id="content" style="color:black">
+<div id="content" style="color:black;">
     <h3>При нажатии на вершину графика вывести в блок имени транзакции, а также дополнительные параметры</h3>
     <h3>При получении баланса конвертировать валюту</h3>
     <h3>При наведении на вершину убрать квадрат</h3>
     <h3>Добавить круговой график</h3>
 </div>
+
+
+    <script>
+        $(document).ready(function(){
+            var monthNames = ["January", "February", "March", "April", "May", "June",
+                "July", "August", "September", "October", "November", "December"
+            ];
+            //day = new Date();
+           // $("#month").append("<option selected value="+(day.getMonth()+1)+">"+monthNames[parseInt(day.getMonth())]+"</option>");
+            $.post(
+                "../controlers/control_report.php",
+                {cont:"1"},
+                function(data){
+                   var obj = JSON.parse(data);
+                    $("#month").empty();
+                    for(i=0;i<obj.length;i++){
+                        $("#month").append("<option value='"+(i+1)+"'>"+monthNames[parseInt(obj[i])-1]+"</option>");
+                    }
+                });
+
+
+        });
+    </script>
+
+
 
     <script>
         $(document).ready(function(){
@@ -100,14 +127,15 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
                $.post(
                    "../controlers/control_report.php",
                    {
-                       wanna_info_tr_min : "1"
+                       wanna_info_tr_min : "1",
+                      // date:  $("#month").val()
                    },
                    function(data){
+                    $("#content").append("= "+data);
                        var obj = JSON.parse(data);
                        for(i=0;i<obj.length;i++){
                            myLineChart.data.labels[i] = obj[i]["date"];
                            myLineChart.data.datasets[0].data[i] = obj[i]["balance"];
-                           //alert(obj[i]["name"]);
                        }
                        myLineChart.update();
                    }
@@ -166,6 +194,9 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
 
 
         });
+
+
+
     </script>
 <?php
 $part->script_links("../js/report.js");

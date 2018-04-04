@@ -12,8 +12,13 @@ class LineChart
     public $date;
     public $balance;
 
-    function  __construct($name, $date, $balance){
+    /*function  __construct($name, $date, $balance){
         $this->name=$name;
+        $this->date=$date;
+        $this->balance=$balance;
+    }*/
+
+    function  __construct($date, $balance){
         $this->date=$date;
         $this->balance=$balance;
     }
