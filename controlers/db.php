@@ -31,7 +31,9 @@ class Datebase
            $users->date= R::isoDateTime();
            R::store($users);
 
-            //$idUser = $users->id;
+          /* $groups=R::dispense("groups");
+           $groups->id_user =
+          $roups->id_admin =  *///$idUser = $users->id;
 
            /* $user = R::load("users", $idUser);
             $user->iduser=$users->id;
@@ -43,6 +45,14 @@ class Datebase
         //R::freeze(); заморозка
         R::close();
     }
+    function getUsers(){
+        $arr_tmp = array();
+        $users = R::findAll('users');
+        foreach($users as $item){
+            array_push($arr_tmp, $item->email);
+        }
+        return $arr_tmp;
+    }
 
     function findIdUser(){
         $users = R::findAll('users');
@@ -53,7 +63,27 @@ class Datebase
         }
         return  $idUser;
     }
+    function findIdUserFromEmail($email){
+        $user = R::findAll('users',"email = '$email'");
+        foreach($user as $item){
+            return $item->id;
+        }
+    }
 
+    function Create_Cop($id_user, $namew, $type_money, $num_card, $type_cash, $balance,$comment){
+            $cash = R::dispense("cash");
+            $cash->iduser = $id_user;
+            $cash->name = $namew;
+            $cash->type_money = $type_money;
+            $cash->num_card = $num_card;
+            $cash->type_cash = $type_cash;
+            $cash->balance = $balance;
+            $cash->comment = $comment;
+            $cash->date_create = R::isoDateTime();
+            $cash->date_update = R::isoDateTime();
+            R::store($cash);
+            R::close();
+    }
 
     function Insert_Cash($namew, $type_money, $num_card, $type_cash, $balance,$comment){
         try{
@@ -72,26 +102,32 @@ class Datebase
             $cash->date_update = R::isoDateTime();
             R::store($cash);
 
-           // $idCash = $cash->id;
-
-           /* $casher = R::load("cash", $idCash);
-            $casher->idcash=$cash->id;
-            R::store($casher);
-*/
-         /*   $id_cu = R::dispense("usercash");
-
-           $id_cu->iduser = $idUser;
-           $id_cu->idcash = $idCash;
-
-           R::store($id_cu);*/
-
-
-
+            $connect->createCashMonth($tmp_idUser, $namew, $type_money, $type_cash, $balance); // Создание кошелька на месяц
         }
         catch(Exception $e){
             echo($e);
         }
+        R::close();
+    }
 
+    function createCashMonth($id_user, $name, $type_money, $type_cash, $balance){ // Создание кошелька на месяц
+        try{
+            $cash = R::findAll("cash","iduser = $id_user and name = '$name' and type_money = '$type_money' and type_cash = $type_cash");
+            foreach($cash as $item){
+                $tmp_id_cash = $item->id;
+            }
+            $cash_month = R::dispense("cashmonth");
+            $cash_month->id_cash = $tmp_id_cash;
+            $cash_month->id_user = $id_user ;
+            $cash_month->name = $name;
+            $cash_month->type_money = $type_money;
+            $cash_month->type_cash = $type_cash;
+            $cash_month->balance = $balance;
+            R::store($cash_month);
+        }
+        catch(Exception $e){
+            echo($e);
+        }
         R::close();
     }
 
@@ -161,7 +197,7 @@ class Datebase
             $item_login = $login;
         }
         else{
-            echo("<script>alert('Такой пользователь существует');</script>");
+            echo("Такой пользователь существует')");
             $rou->moveToIndex();
         }
         if(strlen($password)<30){
@@ -169,12 +205,14 @@ class Datebase
                 $item_password = md5($password);
             }
             else{
-                echo(" <script> alert('Пароли не совпадают'); </script>");
+                echo("Пароли не совпадают");
             }
         }
         try {
             if(isset($item_login) && isset($item_email) && isset($item_password)){
               $connect->Insert_Registration($item_login,$item_email,$item_password);
+                $id_user = $connect->searchEmail($item_email);
+                $connect->Create_Cop($id_user, "Копилка", "UAH", null, "1", 0,"");
               //echo("<script> alert('Регистрация прошла успешно!'); </script>");
                 echo('Регистрация прошла успешно!');
               //$rou->moveToIndex();
@@ -240,11 +278,23 @@ class Datebase
        }
 
     function getCashList($id_user){
+            $arr_cash = array();
+            $cash = R::find('cash',"iduser = $id_user");
+            foreach($cash as $item){
+                array_push($arr_cash,$item->id,$item->id_user,$item->name,$item->type_money,$item->type_cash,$item->balance, $item->comment, $item->data_create, $item->data_update, $item->num_card);
+            }
+            echo(json_encode($arr_cash));
+            R::close();
+    }
+
+
+
+    function getCashMonth($id_user){
         $arr_cash = array();
-        $cash = R::find('cash',"iduser = $id_user");
-         foreach($cash as $item){
-              array_push($arr_cash,$item->id,$item->id_user,$item->name,$item->type_money,$item->type_cash,$item->balance, $item->comment, $item->data_create, $item->data_update, $item->num_card);
-         }
+        $cash_month = R::findAll('cashmonth', "id_user = $id_user");
+        foreach($cash_month as $item){
+            array_push($arr_cash,$item->id,$item->name,$item->type_money,$item->type_cash, $item->balance);
+        }
         echo(json_encode($arr_cash));
         R::close();
     }
@@ -261,6 +311,20 @@ class Datebase
          }
         //return $arr_cash;
        // print_r($arr_tmp);
+        R::close();
+        return $arr_tmp;
+    }
+
+    function getIdCashMonth($id_cash){
+        $arr_tmp = array();
+        $cash = R::find('cashmonth',"id_cash = $id_cash");
+        foreach($cash as $item){
+            $us = R::findAll('users',"id = $item->id_user");
+            foreach($us as $tmp_us){
+                $us_name = $tmp_us->login;
+            }
+            array_push($arr_tmp,$item->id,$item->id_cash,$us_name,$item->name,$item->type_money,$item->type_cash,$item->balance);
+        }
         R::close();
         return $arr_tmp;
     }
@@ -332,11 +396,20 @@ class Datebase
         R::close();
     }
 
+    function findCashMonthID_from_Cash($tmp_id_cash){
+        $cash_month = R::findAll("cashmonth","id_cash = $tmp_id_cash");
+        foreach($cash_month as $item){
+            $id_cashmonth = $item->id;
+        }
+        return $id_cashmonth;
+    }
+
     function addTranzMin(){
 
         try{
             $numargs = func_num_args();
             $arg_list = func_get_args();
+            $connect = new Datebase();
 
             $tr = R::dispense("tranzaction");
             $tr->name = $arg_list[0];
@@ -351,8 +424,13 @@ class Datebase
             $cash = R::load("cash", $arg_list[1]);
             $cash->balance = $cash->balance - $arg_list[2];
 
+            $id_cash = $connect->findCashMonthID_from_Cash($arg_list[1]);
+            $cash_month = R::load("cashmonth", $id_cash);
+            $cash_month->balance = $cash_month->balance - $arg_list[2];
+
             R::store($tr);
             R::store($cash);
+            R::store($cash_month);
         }
         catch(Exception $e){
             echo($e);
@@ -366,6 +444,7 @@ class Datebase
         try{
             $numargs = func_num_args();
             $arg_list = func_get_args();
+            $connect = new Datebase();
 
             $tr = R::dispense("tranzaction");
             $tr->name = $arg_list[0];
@@ -380,13 +459,17 @@ class Datebase
             $cash = R::load("cash", $arg_list[1]);
             $cash->balance = $cash->balance + $arg_list[2];
 
+            $id_cash = $connect->findCashMonthID_from_Cash($arg_list[1]);
+            $cash_month = R::load("cashmonth", $id_cash);
+            $cash_month->balance = $cash_month->balance + $arg_list[2];
+
             R::store($tr);
             R::store($cash);
+            R::store($cash_month);
         }
         catch(Exception $e){
             echo($e);
         }
-
         R::close();
     }
 
@@ -433,7 +516,7 @@ class Datebase
     function getTrMin($id_user){
         $arr_tmp = array();
         $name_cash = "";
-        $tr = R::findAll('tranzaction',"user_id = $id_user");
+        $tr = R::findAll('tranzaction',"user_id = $id_user order by data");
         foreach($tr as $item){
             if($item->status == "minus"){
                 $cash = R::findAll('cash',"id = $item->cash");
@@ -457,7 +540,7 @@ class Datebase
     function getTrMinFromData($id_user,$data){
         $arr_tmp = array();
         $name_cash = "";
-        $tr = R::findAll('tranzaction',"user_id = $id_user and date(data) = '$data'");
+        $tr = R::findAll('tranzaction',"user_id = $id_user and date(data) = '$data' order by data");
         foreach($tr as $item){
             if($item->status == "minus"){
                 $cash = R::findAll('cash',"id = $item->cash");
@@ -480,7 +563,7 @@ class Datebase
     function getTrMinFromDataRange($id_user,$data1, $data2){
         $arr_tmp = array();
         $name_cash = "";
-        $tr = R::findAll('tranzaction',"user_id = $id_user and date(data) >= '$data1' and date(data) <= '$data2'");
+        $tr = R::findAll('tranzaction',"user_id = $id_user and date(data) >= '$data1' and date(data) <= '$data2' order by data");
         foreach($tr as $item){
             if($item->status == "minus"){
                 $cash = R::findAll('cash',"id = $item->cash");
@@ -528,7 +611,7 @@ class Datebase
     function getTrPlus($id_user){
         $arr_tmp = array();
         $name_cash = "";
-        $tr = R::findAll('tranzaction',"user_id = $id_user");
+        $tr = R::findAll('tranzaction',"user_id = $id_user order by data");
         foreach($tr as $item){
             if($item->status == "plus"){
                 $cash = R::findAll('cash',"id = $item->cash");
@@ -552,7 +635,7 @@ class Datebase
     function getTrPlusFromData($id_user, $data){
         $arr_tmp = array();
         $name_cash = "";
-        $tr = R::findAll('tranzaction',"user_id = $id_user and date(data) = '$data'");
+        $tr = R::findAll('tranzaction',"user_id = $id_user and date(data) = '$data' order by data");
         foreach($tr as $item){
             if($item->status == "plus"){
                 $cash = R::findAll('cash',"id = $item->cash");
@@ -575,7 +658,7 @@ class Datebase
     function getTrPlusFromDataRange($id_user, $data1, $data2){
         $arr_tmp = array();
         $name_cash = "";
-        $tr = R::findAll('tranzaction',"user_id = $id_user and date(data) >= '$data1' and date(data) <= '$data2'");
+        $tr = R::findAll('tranzaction',"user_id = $id_user and date(data) >= '$data1' and date(data) <= '$data2' order by data");
         foreach($tr as $item){
             if($item->status == "plus"){
                 $cash = R::findAll('cash',"id = $item->cash");
@@ -638,6 +721,18 @@ class Datebase
         }
         R::close();
     }
+    function updateBalanceCashMonth($id_cashmonth,$new_bal_month){
+        try{
+            $arr_tmp = "";
+            $cash_month = R::load('cashmonth', $id_cashmonth);
+            $cash_month->balance = $new_bal_month;
+            R::store($cash_month);
+        }
+        catch(Exception $e){
+            echo($e);
+        }
+        R::close();
+    }
 
     function Del_tr($index){
         try{
@@ -667,35 +762,41 @@ class Datebase
         try{
             $numargs = func_num_args();
             $arg_list = func_get_args();
+            $connect = new Datebase();
+
             $trans = R::dispense('translate');
             $trans->name = $arg_list[0];
 
             $cash_min = R::load('cash', $arg_list[2]);
             $cash_min->balance -= $arg_list[3];
 
+            $id_cash_min = $connect->findCashMonthID_from_Cash($arg_list[2]);
+            $cash_month_min = R::load("cashmonth", $id_cash_min);
+            $cash_month_min->balance -= $arg_list[3];
+
             $cash_sum = R::load('cash', $arg_list[5]);
             $cash_sum->balance += $arg_list[6];
+
+            $id_cash_sum = $connect->findCashMonthID_from_Cash($arg_list[5]);
+            $cash_month_sum = R::load("cashmonth", $id_cash_sum);
+            $cash_month_sum->balance += $arg_list[6];
 
             if(!isset($arg_list[1])) $trans->data = R::isoDateTime();
             else $trans->data = $arg_list[1];
 
             $trans->cash_min = $arg_list[2];
-
             $trans->balance_min = $arg_list[3];
-
             $trans->course = $arg_list[4];
-
             $trans->cash_sum = $arg_list[5];
-
             $trans->balance_sum = $arg_list[6];
-
             $trans->comment = $arg_list[7];
             $trans->id_user = $arg_list[8];
 
             R::store($trans);
             R::store($cash_min);
             R::store($cash_sum);
-
+            R::store($cash_month_sum);
+            R::store($cash_month_min);
         }
         catch(Exception $e){
             echo($e);
@@ -820,6 +921,8 @@ class Datebase
     }
 
     function minBalanceTr($id,$id_cash){
+        $connect = new Datebase();
+
         $tr = R::findAll('tranzaction', "id = $id");
         foreach($tr as $item){
            $tr_balance = $item->balance;
@@ -827,13 +930,19 @@ class Datebase
         }
         $cash = R::load('cash', $tr_cash);
         $cash->balance += $tr_balance;
-
         R::store($cash);
+
+        $id_cash_month = $connect->findCashMonthID_from_Cash($tr_cash);
+        $cash_month = R::load("cashmonth", $id_cash_month);
+        $cash_month->balance += $tr_balance;
+        R::store($cash_month);
+
         R::close();
 
     }
 
     function plusBalanceTr($id,$id_cash){
+        $connect = new Datebase();
         $tr = R::findAll('tranzaction', "id = $id");
         foreach($tr as $item){
             $tr_balance = $item->balance;
@@ -841,16 +950,21 @@ class Datebase
         }
         $cash = R::load('cash', $tr_cash);
         $cash->balance -= $tr_balance;
-
         R::store($cash);
-        R::close();
 
+        $id_cash_month = $connect->findCashMonthID_from_Cash($tr_cash);
+        $cash_month = R::load("cashmonth", $id_cash_month);
+        $cash_month->balance -= $tr_balance;
+        R::store($cash_month);
+
+        R::close();
     }
 
     function trUpdateMin(){
         try{
             $numargs = func_num_args();
             $arg_list = func_get_args();
+            $connect = new Datebase();
 
             $tr_new = R::load("tranzaction", $arg_list[0]);
             $tr_new->name = $arg_list[1];
@@ -863,6 +977,11 @@ class Datebase
             $cash = R::load('cash', $arg_list[2]);
             $cash->balance -= $arg_list[3];
             R::store($cash);
+
+            $id_cash = $connect->findCashMonthID_from_Cash($arg_list[2]);
+            $cash_month = R::load("cashmonth", $id_cash);
+            $cash_month->balance -= $arg_list[3];
+            R::store($cash_month);
         }
         catch(Exception $e){
             echo("Не удалось обновить транзакцию");
@@ -874,6 +993,7 @@ class Datebase
         try{
             $numargs = func_num_args();
             $arg_list = func_get_args();
+            $connect = new Datebase();
 
             $tr_new = R::load("tranzaction", $arg_list[0]);
             $tr_new->name = $arg_list[1];
@@ -886,6 +1006,11 @@ class Datebase
             $cash = R::load('cash', $arg_list[2]);
             $cash->balance += $arg_list[3];
             R::store($cash);
+
+            $id_cash = $connect->findCashMonthID_from_Cash($arg_list[2]);
+            $cash_month = R::load("cashmonth", $id_cash);
+            $cash_month->balance += $arg_list[3];
+            R::store($cash_month);
         }
         catch(Exception $e){
             echo("Не удалось обновить транзакцию");
@@ -894,6 +1019,7 @@ class Datebase
     }
 
     function minplusBalanceTrans($id,$id_cash_min,$id_cash_sum){
+        $connect = new Datebase();
         $trans = R::findAll('translate', "id = $id");
         foreach($trans as $item){
             $tran_cash_min = $item->cash_min;
@@ -903,18 +1029,29 @@ class Datebase
         }
         $cash = R::load('cash', $tran_cash_min);
         $cash->balance += $tran_balance_min;
+        R::store($cash);
+
+        $id_cash_min = $connect->findCashMonthID_from_Cash($tran_cash_min);
+        $cash_month = R::load("cashmonth", $id_cash_min);
+        $cash_month->balance += $tran_balance_min;
+        R::store($cash_month);
 
         $cash_new = R::load('cash',  $tran_cash_sum);
         $cash_new->balance -= $tran_balance_sum;
-
-        R::store($cash);
         R::store($cash_new);
+
+        $id_cash_sum = $connect->findCashMonthID_from_Cash($tran_cash_sum);
+        $cash_month_new = R::load("cashmonth", $id_cash_sum);
+        $cash_month_new->balance -= $tran_balance_sum;
+        R::store($cash_month_new);
+
         R::close();
 
     }
 
     function upDate_trans(){
         try{
+            $connect = new Datebase();
             $numargs = func_num_args();
             $arg_list = func_get_args();
 
@@ -933,9 +1070,19 @@ class Datebase
             $cash->balance -= $arg_list[4];
             R::store($cash);
 
+            $id_cash = $connect->findCashMonthID_from_Cash($arg_list[3]);
+            $cash_month = R::load("cashmonth", $id_cash);
+            $cash_month->balance -= $arg_list[4];
+            R::store($cash_month);
+
             $cash_new = R::load('cash',$arg_list[6] );
             $cash_new->balance += $arg_list[7];
             R::store($cash_new);
+
+            $id_cash_new = $connect->findCashMonthID_from_Cash($arg_list[6]);
+            $cash_month_new = R::load("cashmonth", $id_cash_new);
+            $cash_month_new->balance += $arg_list[7];
+            R::store($cash_month_new);
         }
         catch(Exception $e){
             echo("Не удалось обновить транзакцию");
@@ -955,7 +1102,7 @@ class Datebase
         return($result);
     }
 
-
+/*
    function getAllBalanceOfData($id_user, $status){
        $arr_tmp = array();
        $tr = R::getAll("select name, date(data) as data, sum(balance) as balance from tranzaction  where  user_id = $id_user and status = '$status' group by date(data)");
@@ -964,6 +1111,54 @@ class Datebase
        }
        R::close();
        return $arr_tmp;
+   }
+*/
+
+
+   function getAllBalOfData($id_user, $status){
+       $balance = 0;
+       $balances = array();
+       $datas_tr = array();
+       $tr_all_day = array();
+       $data_tr = R::getAll("select date(data) as data from tranzaction where user_id = $id_user and status = '$status' and month(data)='3' group by date(data)");
+       foreach($data_tr as $tmp){
+           array_push($datas_tr,$tmp);
+       }
+       foreach($datas_tr as $item){
+           //$tr = R::getAll("select date(data) as data, balance, cash from tranzaction where user_id = $id_user and status = '$status' and date(data) = '".$item['data']."'");
+           $tr = R::getAll("select date(data) as data, tranzaction.balance, cash, cash.type_money from tranzaction inner join cash on tranzaction.cash=cash.id where user_id = $id_user and status = '$status' and date(data)='".$item['data']."'");
+           foreach($tr as $item){
+
+               switch ($item['type_money']) {
+                   case "UAH": {
+                       $balance += $item['balance'];
+                       break;
+                   }
+                   case "USD": {
+                       //$usd = getOneCourse("USD");
+                       //$balance += $item['balance'] * $usd['sale'];
+                       $balance += $item['balance'] * 26.52;
+                       break;
+                   }
+                   case "EUR": {
+                       //$eur = getOneCourse("EUR");
+                       //$balance += $item['balance'] * $eur['sale'];
+                       $balance += $item['balance'] * 32.68;
+                       break;
+                   }
+                   case "RUR": {
+                       //$rur = getOneCourse("RUR");
+                       //$balance += $item['balance'] * $rur['sale'];
+                       $balance += $item['balance'] * 0.47;
+                       break;
+                   }
+               }
+           }
+           array_push($tr_all_day, new LineChart($item["data"], round($balance,2)));
+           $balance = 0;
+       }
+       R::close();
+       return $tr_all_day;
    }
 
    function addDebt(){
@@ -1023,30 +1218,48 @@ class Datebase
     function getBalanceFromMonth($id_user, $month, $status){ // Подсчитать баланс доходов за один месяц
         //$now_month = date("m");
         $all_bal_from_month = 0;
-
-        $tr_plus = R::findAll("tranzaction", "user_id = $id_user and month(data)=$month and status = '$status'");
+        $tr_plus= R::getAll("select tranzaction.balance, cash, cash.type_money from tranzaction inner join cash on tranzaction.cash=cash.id where user_id = $id_user and status = '$status' and month(data)=$month");
+        //$tr_plus = R::findAll("tranzaction", "user_id = $id_user and month(data)=$month and status = '$status'");
         foreach($tr_plus as $item){
-            $cash = R::findAll("cash", "id = $item->cash");
-            foreach($cash as $item2){
-                switch($item2->type_money){
-                    case "UAH":{
-                        $all_bal_from_month += $item->balance;
-                        break;
-                    }
-                    case "USD":{
-                        $usd = getOneCourse("USD");
-                        $all_bal_from_month += $item->balance*$usd['sale'];
-                        break;
-                    }
-                    case "EUR":{
-                        $eur = getOneCourse("EUR");
-                        $all_bal_from_month += $item->balance*$eur['sale'];
-                        break;
-                    }
+            switch($item['type_money']){
+                case "UAH":{
+                    $all_bal_from_month += $item['balance'];
+                    break;
+                }
+                case "USD":{
+                   // $usd = getOneCourse("USD");
+                    //$all_bal_from_month += $item['balance']*$usd['sale'];
+                    $all_bal_from_month += $item['balance']*26.5;
+                    break;
+                }
+                case "EUR":{
+                   // $eur = getOneCourse("EUR");
+                    $all_bal_from_month += $item['balance']*33.2;
+                    //$all_bal_from_month += $item['balance']*$eur['sale'];
+                    break;
+                }
+                case "RUR": {
+                   // $rur = getOneCourse("RUR");
+                    $all_bal_from_month += $item['balance'] * 0.34;
+                    //$all_bal_from_month += $item['balance'] * $rur['sale'];
+                    break;
                 }
             }
+           // $cash = R::findAll("cash", "id = $item->cash");
+           /* foreach($cash as $item2){
+
+            }*/
         }
         return $all_bal_from_month;
+    }
+
+    function addUserGroup($id_user,$id_guest){
+        $group = R::dispense("groups");
+        //$group->user_id = $id_user;
+        //$group->admin = $id_user;
+        $group->id_guest = $id_guest;
+        R::store($group);
+        R::close();
     }
 
 

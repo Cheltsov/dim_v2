@@ -17,6 +17,10 @@ if(isset($_POST['wanna_info_cash'])){
     $cashs = $con->getCashList($id_cur_user);
 }
 
+if(isset($_POST['wanna_cash_month'])){
+    $cashs = $con->getCashMonth($id_cur_user);
+}
+
 function getTempCash(){
     return $GLOBALS['temp'];
 }
@@ -29,13 +33,13 @@ if(isset($_POST['want_id_cash'])){
 
 if(isset($_POST['name_trMin']) && isset($_POST['cash_trMin']) && isset($_POST['balance_trMin']) && isset($_POST['comment_trMin'])){
     $id_cur_user = $con->findIdUser();
-    $con->addTranzMin($_POST['name_trMin'],$_POST['cash_trMin'],$_POST['balance_trMin'],$_POST['comment_trMin'], $id_cur_user, $_POST['data_trMin']);
+    $con->addTranzMin($_POST['name_trMin'],$_POST['cash_trMin'],$_POST['balance_trMin'],$_POST['comment_trMin'], $id_cur_user, $_POST['data_trMin'], "minus");
     //echo($_POST['name_trMin']."<br>".$_POST['cash_trMin']."<br>".$_POST['balance_trMin']."<br>".$_POST['comment_trMin']."<br>". $id_cur_user);
 }
 
 if(isset($_POST['name_trSum']) && isset($_POST['cash_trSum']) && isset($_POST['balance_trSum']) && isset($_POST['comment_trSum'])){
     $id_cur_user = $con->findIdUser();
-    $con->addTranzSum($_POST['name_trSum'],$_POST['cash_trSum'],$_POST['balance_trSum'],$_POST['comment_trSum'], $id_cur_user, $_POST['data_trSum']);
+    $con->addTranzSum($_POST['name_trSum'],$_POST['cash_trSum'],$_POST['balance_trSum'],$_POST['comment_trSum'], $id_cur_user, $_POST['data_trSum'],"plus");
     //echo($_POST['name_trSum']."<br>".$_POST['cash_trSum']."<br>".$_POST['balance_trSum']."<br>".$_POST['comment_trSum']."<br>". $id_cur_user);
 }
 /*
@@ -47,15 +51,20 @@ if(isset($_POST['tmper'])){
 if(isset($_POST['del_tr']) && isset($_POST['index'])){
     $arr_tr = $con->getTranzFromID($_POST['index']);
 
-    $cash_tr = $con->getIdCash($arr_tr[2]);
+    $cash_tr = $con->getIdCash($arr_tr[2]); //Получить массив значение полей транзации
+    $cash_month = $con->getIdCashMonth($arr_tr[2]);
 
     if($arr_tr[7] == 'minus'){
         $new_bal = $cash_tr[5] + $arr_tr[3];
+        $new_bal_month = $cash_month[6] + $arr_tr[3];
     }
     if($arr_tr[7] == 'plus'){
         $new_bal = $cash_tr[5] - $arr_tr[3];
+        $new_bal_month = $cash_month[6] - $arr_tr[3];
     }
     $con->updateBalanceCash($arr_tr[2], $new_bal);
+    $con->updateBalanceCashMonth($cash_month[0], $new_bal_month);
+
     $flag1 = $con->Del_tr($_POST['index']);
 
     if($flag1){
@@ -71,11 +80,20 @@ if(isset($_POST['del_trans']) && isset($_POST['index_trans'])){
     $cash_tr_one = $con->getIdCash($arr_tran[3]);
     $cash_tr_two = $con->getIdCash($arr_tran[5]);
 
+    $cash_month_tr_one = $con->getIdCashMonth($arr_tran[3]);
+    $cash_month_tr_two = $con->getIdCashMonth($arr_tran[5]);
+
     $new_bal_one = $cash_tr_one[5] + $arr_tran[4];
     $new_bal_two = $cash_tr_two[5] - $arr_tran[6];
 
+    $new_bal_month_one = $cash_month_tr_one[6] + $arr_tran[4];
+    $new_bal_month_two = $cash_month_tr_two[6] - $arr_tran[6];
+
     $con->updateBalanceCash($arr_tran[3], $new_bal_one);
     $con->updateBalanceCash($arr_tran[5], $new_bal_two);
+
+    $con->updateBalanceCashMonth($cash_month_tr_one[0], $new_bal_month_one);
+    $con->updateBalanceCashMonth($cash_month_tr_two[0], $new_bal_month_two);
 
     $flag = $con->Del_translate($_POST['index_trans']);
     if($flag){
@@ -237,4 +255,7 @@ if(isset($_POST['up_trans_index'])){
     $con->upDate_trans($_POST['up_trans_index'],$_POST['up_trans_name'],$_POST['up_trans_data'],$_POST['up_trans_cash_min'],$_POST['up_trans_balance_min'],$_POST['up_course'],$_POST['up_trans_cash_sum'],$_POST['up_trans_balance_sum'],$_POST['up_trans_comment']);
 
 }
+if(isset($_POST['conv'])){
+    $con->getCashList($id_cur_user);
 
+}

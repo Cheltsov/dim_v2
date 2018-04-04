@@ -63,12 +63,13 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
         width:100%;
     }
     .menu{
-        overflow: auto;
         /*height:650px;*/
         /*background-color:white;*/
         width:65%;
         float:left;
-        margin-rigth:20px;
+        margin-right:20px;
+        margin-left: 2px;
+        max-height: 640px;
     }
     .menu td{
         border:1px solid black
@@ -88,6 +89,20 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
         cursor: pointer
 
     }
+    #fragment-1, #fragment-2, #fragment-3{
+    	max-height: 560px;
+    	overflow: auto;
+    }
+    .ui-tabs .ui-tabs-nav{
+    	margin-bottom: 15px; !important
+    }
+    .ui-tabs .ui-tabs-panel{
+    	padding:0 1.4em;
+    }
+    .in_conv{
+        float:right;
+        margin-rigth:10px;
+    }
 </style>
 
 
@@ -100,6 +115,19 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
     </ul>
     <button class="but_forCash">Карта</button>
     <ul id="cards">
+
+    </ul>
+    <br>
+    <div id="conversion">
+        <button>Пересчетать</button>
+    </div>
+    <br>
+    <button class="but_forCash">Наличные</button>
+    <ul id="hands_month">
+
+    </ul>
+    <button class="but_forCash">Карта</button>
+    <ul id="cards_month">
 
     </ul>
 </div>
@@ -195,7 +223,13 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
 </div>
 
 
+<div id="dialog_conv">
+    <h3>Пересчетать финансовые стредства</h3>
+    <br>
+    <form action="" id="name_cash">
 
+    </form>
+</div>
 
 <div id="content_test" style="margin:150px; float:none"></div>
 
@@ -220,7 +254,7 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
                 <p>Название:</p>
                 <input type="text"  required name="name_tr_minus"><br><br>
                 <p>Дата:</p>
-                <input type="text" id="add_data"><br><br>
+                <input type="text" required id="add_data"><br><br>
                 <p>Кошелек:</p>
                 <select name="cash_minus" id="cash_minus_sel" required >
                 </select>
@@ -240,7 +274,7 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
                 <p>Название:</p>
                 <input type="text"  required name="name_tr_sum"><br><br>
                 <p>Дата:</p>
-                <input type="text" id="add_data2"><br><br>
+                <input type="text" required id="add_data2"><br><br>
                 <p>Кошелек:</p>
                 <select name="cash_sum" id="cash_sum_sel" required >
                 </select>
@@ -259,7 +293,7 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
                 <p>Название:</p>
                 <input type="text"  required name="name_trans_cash">
                 <p>Дата:</p>
-                <input type="text" id="add_data3" >
+                <input type="text" required id="add_data3" >
                 <p>Cписать:</p>
                 <select name="cash_trans_min" id="cash_trans_min" >
                 </select>
@@ -368,6 +402,55 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
 
 </style>
 <script>
+
+    $(document).ready(function(){
+        $.post(
+            "../controlers/control_tranzactions.php",
+            {wanna_cash_month: "1"},
+            function(data){
+                data = JSON.parse(data);
+                for(i=0,n=1,tm=2,tc=3,b=4;i<data.length;i+=5,n+=5,tm+=5,tc+=5,b+=5){
+                    if(data[tc]==1){
+                        $("#hands_month").append("<li><button class='type' id='cashm_"+data[i]+"'>"+data[n]+":"+data[b]+" ("+data[tm]+") </button></li>");
+                    }
+                    if(data[tc]==2){
+                        $("#cards_month").append("<li><button class='type' id='cashm_"+data[i]+"'>"+data[n]+":"+data[b]+" ("+data[tm]+") </button></li>");
+                    }
+                }
+            }
+        );
+    });
+
+    $('#dialog_conv').dialog({
+        autoOpen: false,
+        show: {
+            effect: 'drop',
+            duration: 500
+        },
+        hide: {
+            effect: 'clip',
+            duration: 500
+        },
+        width: 500
+    });
+
+    $("#conversion").click(function(){
+        $.post("../controlers/control_tranzactions.php",
+            {conv : "1"},
+            function(data){
+                var obj = JSON.parse(data);
+                for(i=0,j=2,v=3;i<obj.length;i+=10,j+=10,v+=10){
+                    $("#name_cash").append("<label>"+obj[j]+"("+obj[v]+")</label>&nbsp<input type='number' id='cov"+obj[i]+"' class='in_conv' step='any' name='cov_bal'><br><br>");
+                }
+                $("#name_cash").append("<button id = 'add_conv'>Добавить</button>");
+            }
+        );
+        $("#dialog_conv").dialog('open');
+    });
+
+    $("#name_cash").submit(function(){
+        alert($(".in_conv").val());
+    });
 
 </script>
 

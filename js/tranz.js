@@ -4,7 +4,7 @@ $(document).ready(function(){
     $("#menu .but_forCash").click(function() {
         $(this).next().toggle("fast");
         return false;
-    }).next().slow();
+    }).next()
 });
 $(document).ready(function(){
     $.post(
@@ -23,6 +23,8 @@ $(document).ready(function(){
 
         }
     );
+
+
 
 
     $("#hands, #cards").on("click", ".type",function(){
