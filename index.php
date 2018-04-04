@@ -300,8 +300,7 @@
             data: $(this).serialize(),
 
         }).done(function(data){
-            alert('Пользователь был успешно добавлен!');
-            //alert(data);
+            alert(data);
             forr1.style.display = "block";
             forr2.style.display = "none";
             forr3.style.display = "none";

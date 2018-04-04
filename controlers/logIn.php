@@ -8,8 +8,10 @@
 	$mail = new Mail();
 
 	//if(isset($_POST['sing'])){
-if(isset($_POST['first_name']) && isset($_POST['pass']))
-		$con->singIn($_POST['first_name'],$_POST['pass']);
+if(isset($_POST['first_name']) && isset($_POST['pass'])){
+    $con->singIn($_POST['first_name'],$_POST['pass']);
+}
+
 
 	//}
 
@@ -19,7 +21,7 @@ if(isset($_POST['login']) && isset($_POST['email']) && isset($_POST['password'])
 			$con->Registration($_POST['login'],$_POST['email'],$_POST['password'],$_POST['second_password']);
 		}
 		else{
-			echo("<script> alert('Такой пользователь уже есть!'); window.location = '../index.php'; </script> ");
+			echo("Такой пользователь уже есть!");
 		}
 
 	}

@@ -71,4 +71,8 @@ if(isset($_POST['getTransFromData']) && isset($_POST['data_tr_start'])){
 
 }
 
+if(isset($_POST['add_courses'])){
+    setDailyCourse();
+}
+
 
