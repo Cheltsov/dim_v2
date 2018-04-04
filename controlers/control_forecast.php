@@ -26,12 +26,15 @@ if(isset($_POST['wanna_month_tr2'])){
         array_push($arr_tmp,$rez);
     }
 
+    print_r($arr_tmp);
+
     $rezalt = FC_nextMonth($arr_tmp);
 
     echo("Forecasr1= ".$rezalt[0]."<br>");
     echo("Forecasr2= ".$rezalt[1]."<br>");
     if($rezalt[2]<=0) echo("Точность= Некорректные данные");
     else echo("Точность= ".($rezalt[2]*100)."%<br>");
+
 } // Получить прогноз на будущий месяц по расходам
 
 if(isset($_POST['wanna_month_tr'])){
