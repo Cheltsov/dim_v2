@@ -59,12 +59,12 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
         width:100%
     }
     .menu{
-        overflow: auto;
         width:68%;
         float:left;
-        margin-rigth:20px;
+        margin-right:20px;
         margin-left:20px;
-        margin-top:30px
+        margin-top:30px;
+        max-height: 640px;
     }
 
     .courses td{
@@ -90,6 +90,17 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
     }
     .menu table{
         width:100%
+    }
+
+    #fragment-1, #fragment-2, #fragment-3{
+        max-height: 560px;
+        overflow: auto;
+    }
+    .ui-tabs .ui-tabs-nav{
+        margin-bottom: 15px; !important
+    }
+    .ui-tabs .ui-tabs-panel{
+        padding:0 1.4em;
     }
 </style>
 <div style="border:2px solid green; width:19%; float:left">
@@ -318,6 +329,15 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
 
 
 <script>
+
+    $(document).ready(function(){
+        $.post("../controlers/control_main_page.php",
+            {add_courses: "1"},
+            function(data){
+                return 0;
+            }
+        );
+    });
 
 
 

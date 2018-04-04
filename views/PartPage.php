@@ -37,7 +37,7 @@ class PartPage
                         <li><a href="forecast.php" class="go_to" id="forecast">Планировщик</a></li>
                         <li><a href="report.php" class="go_to" id="report">Отчеты</a></li>
                         <li><a href="cash.php" class="go_to" id="cash">Счета</a></li>
-                        <li><a href="#" class="go_to" id="il2">Настройки</a></li>
+                        <li><a href="settings.php" class="go_to" id="setting">Настройки</a></li>
                         <li>
                         <button type="submit" name="exit" id="exit">Выйти</input>
 
