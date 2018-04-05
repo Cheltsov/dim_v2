@@ -334,7 +334,7 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
         $.post("../controlers/control_main_page.php",
             {add_courses: "1"},
             function(data){
-                return 0;
+                alert(data);
             }
         );
     });

@@ -72,7 +72,11 @@ if(isset($_POST['getTransFromData']) && isset($_POST['data_tr_start'])){
 }
 
 if(isset($_POST['add_courses'])){
-    setDailyCourse();
+    $day = date("d");
+    if($day == "01"){
+        clearCourses(); // Удалить записи в таблице
+    }
+    setDailyCourse(); //Добавить курсы валют в бд каждый день
 }
 
 

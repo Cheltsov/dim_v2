@@ -25,7 +25,7 @@ function setDailyCourse(){
     if(!$cour){
         $courses = getCourse();
         $cour = R::dispense("courses");
-        $cour->day = date("Y-m-d");
+        $cour->day = $now;
         $cour->usd_buy = $courses[0]['buy'];
         $cour->usd_sale = $courses[0]['sale'];
         $cour->eur_buy = $courses[1]['buy'];
@@ -34,6 +34,9 @@ function setDailyCourse(){
         $cour->rur_sale = $courses[2]['sale'];
         R::store( $cour);
     }
-    else echo('no');
     R::close();
+}
+
+function clearCourses(){
+    R::wipe('courses');
 }
