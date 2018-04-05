@@ -257,5 +257,11 @@ if(isset($_POST['up_trans_index'])){
 }
 if(isset($_POST['conv'])){
     $con->getCashList($id_cur_user);
+}
 
+if(isset($_POST['test_event'])){ // Посчитать баланс рас/дох за месяц и посчитать разницу
+    $all_tr_balance_minus = $con->getBalanceFromMonth($id_cur_user,"2","minus");
+    $all_tr_balance_plus = $con->getBalanceFromMonth($id_cur_user,"2","plus");
+    $tmp_balance = $all_tr_balance_plus - $all_tr_balance_minus;
+    echo("minus= ".$all_tr_balance_minus." plus= ".$all_tr_balance_plus." Разница= ".$tmp_balance);
 }

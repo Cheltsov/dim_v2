@@ -209,6 +209,9 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
     <br><br>
     <button id="del_tr">Удалить</button>
     <br>
+    <br>
+    <button id="test_tr">Test</button>
+    <br>
 </div>
 
 
@@ -402,6 +405,18 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
 
 </style>
 <script>
+
+    $("#test_tr").click(function(){
+        $.post(
+            "../controlers/control_tranzactions.php",
+            {test_event: "1"},
+            function(data){
+                alert(data);
+            }
+        );
+
+
+    });
 
     $(document).ready(function(){
         $.post(
