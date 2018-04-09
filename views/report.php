@@ -131,6 +131,8 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
                       // date:  $("#month").val()
                    },
                    function(data){
+
+                       alert(data);
                     $("#content").append("= "+data);
                        var obj = JSON.parse(data);
                        for(i=0;i<obj.length;i++){
