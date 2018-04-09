@@ -406,7 +406,11 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
 </style>
 <script>
 
+
+    //-------------------------------------------------------------------------------------
+
     $("#test_tr").click(function(){
+        //Запрос на добавление дополнительной транзакции
         $.post(
             "../controlers/control_tranzactions.php",
             {test_event: "1"},

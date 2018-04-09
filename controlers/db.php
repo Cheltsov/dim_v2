@@ -404,6 +404,44 @@ class Datebase
         return $id_cashmonth;
     }
 
+    function extraTranz($id_user, $balance, $status){
+        try{
+           // $now = date("2018-04-01");
+            $now = date("Y-m-d");
+            $date = new DateTime($now);
+            $date->modify('-1 day');
+            $last_day = $date->format('Y-m-d');
+
+            $cash = R::find("cash","name='Копилка' and iduser = $id_user");
+            foreach($cash as $item){
+                $id_ex_cash = $item->id;
+            }
+
+            $ex_tr = R::dispense("tranzaction");
+            $ex_tr->name = "Дополнительная транзакция";
+            $ex_tr->cash = $id_ex_cash;
+            $ex_tr->balance = $balance;
+            $ex_tr->comment = "Можно изменить";
+            $ex_tr->user_id = $id_user;
+            $ex_tr->data = $last_day." 23:59:59";
+            $ex_tr->status = $status;
+            R::store($ex_tr);
+
+            $cash = R::load("cash",$id_ex_cash);
+            if($status == "minus"){
+                $cash->balance -= $balance;
+            }
+            if($status == "plus"){
+                $cash->balance += $balance;
+            }
+            R::store($cash);
+        }
+        catch(Exception $e){
+            echo($e);
+        }
+        R::close();
+    }
+
     function addTranzMin(){
 
         try{
@@ -411,10 +449,34 @@ class Datebase
             $arg_list = func_get_args();
             $connect = new Datebase();
 
+            $cash = R::find("cash","id = $arg_list[1]");
+            foreach($cash as $item){
+                $cash_type_money = $item->type_money;
+            }
+
+            $date = date_create($arg_list[5]);
+            $tr_day = date_format($date,"Y-m-d");
+            $dayli_course = R::findAll("courses","day = '$tr_day'");
+
+            if(isset($dayli_course)){
+                foreach($dayli_course as $item){
+                    switch($cash_type_money){
+                        case "EUR": $tr_course = $item['eur_sale'];break;
+                        case "USD": $tr_course = $item['usd_sale'];break;
+                        case "RUR": $tr_course = $item['rur_sale'];break;
+                    }
+                }
+            }
+            if($tr_course == 0){
+                $course = getOneCourse($cash_type_money);
+                $tr_course = $course['sale'];
+            }
+
             $tr = R::dispense("tranzaction");
             $tr->name = $arg_list[0];
             $tr->cash = $arg_list[1];
             $tr->balance = $arg_list[2];
+            $tr->course = round($tr_course,2);
             $tr->comment = $arg_list[3];
             $tr->userId = $arg_list[4];
             if(!isset($arg_list[5])) $tr->data = R::isoDateTime();
@@ -446,10 +508,36 @@ class Datebase
             $arg_list = func_get_args();
             $connect = new Datebase();
 
+            $cash = R::find("cash","id = $arg_list[1]");
+            foreach($cash as $item){
+                $cash_type_money = $item->type_money;
+            }
+
+            $date = date_create($arg_list[5]);
+            $tr_day = date_format($date,"Y-m-d");
+            $dayli_course = R::findAll("courses","day = '$tr_day'");
+
+            if(isset($dayli_course)){
+                foreach($dayli_course as $item){
+                    switch($cash_type_money){
+                        case "EUR": $tr_course = $item['eur_sale'];break;
+                        case "USD": $tr_course = $item['usd_sale'];break;
+                        case "RUR": $tr_course = $item['rur_sale'];break;
+                    }
+                }
+            }
+            if($tr_course == 0){
+                $course = getOneCourse($cash_type_money);
+                $tr_course = $course['sale'];
+            }
+
             $tr = R::dispense("tranzaction");
             $tr->name = $arg_list[0];
             $tr->cash = $arg_list[1];
             $tr->balance = $arg_list[2];
+
+            $tr->course = round($tr_course,2);
+
             $tr->comment = $arg_list[3];
             $tr->userId = $arg_list[4];
             if(!isset($arg_list[5])) $tr->data = R::isoDateTime();
@@ -483,10 +571,20 @@ class Datebase
     }
 
     function getTranzFromID($id){ // after return json_encode
+        $now_month = date("m");
+
         $arr_tmp = array();
         $tr = R::findAll('tranzaction',"id = $id");
-        foreach($tr as $item){
-            array_push($arr_tmp,$item->id,$item->name,$item->cash,$item->balance,$item->comment,$item->user_id,$item->data, $item->status);
+        foreach($tr as $item) {
+
+            $up_data_month = date("m", strtotime($item->data));
+            if ($up_data_month != $now_month) {
+                $flag = "false";
+                return $flag;
+            }
+            else {
+                array_push($arr_tmp, $item->id, $item->name, $item->cash, $item->balance, $item->comment, $item->user_id, $item->data, $item->status);
+            }
         }
         R::close();
         return $arr_tmp;
@@ -911,10 +1009,19 @@ class Datebase
     }
 
     function getTranslateFromID($id){
+        $now_month = date("m");
+
         $arr_tmp = array();
         $trans = R::findAll('translate', "id = $id");
         foreach($trans as $item){
-            array_push($arr_tmp,$item->id,$item->name,$item->data,$item->cash_min,$item->balance_min,$item->cash_sum,$item->balance_sum,$item->comment,$item->id_user,$item->course);
+            $up_data_month = date("m", strtotime($item->data));
+            if ($up_data_month != $now_month) {
+                $flag = "false";
+                return $flag;
+            }
+            else{
+                array_push($arr_tmp,$item->id,$item->name,$item->data,$item->cash_min,$item->balance_min,$item->cash_sum,$item->balance_sum,$item->comment,$item->id_user,$item->course);
+            }
         }
         R::close();
         return $arr_tmp;
@@ -1125,40 +1232,66 @@ class Datebase
            array_push($datas_tr,$tmp);
        }
        foreach($datas_tr as $item){
+          /* $usd_sale = 1;
+           $eur_sale = 1;
+           $rur_sale = 1;*/
            //$tr = R::getAll("select date(data) as data, balance, cash from tranzaction where user_id = $id_user and status = '$status' and date(data) = '".$item['data']."'");
            $tr = R::getAll("select date(data) as data, tranzaction.balance, cash, cash.type_money from tranzaction inner join cash on tranzaction.cash=cash.id where user_id = $id_user and status = '$status' and date(data)='".$item['data']."'");
+           //$tr = R::getAll("select date(tranzaction.data) as data, tranzaction.balance, cash, cash.type_money, day(tranzaction.data) as daytr from tranzaction inner join cash on tranzaction.cash=cash.id where user_id = $id_user and status = '$status' and date(data)='".$item['data']."' order by tranzaction.data");
            foreach($tr as $item){
+               // $courses = R::findAll("courses","day(day)=".$item['daytr']);
+                   /* foreach ($courses as $item2) {
+                        if(!isset($item2)){
+                            $usd_sale = $item2['usd_sale'];
+                            $eur_sale = $item2['eur_sale'];
+                            $rur_sale = $item2['rur_sale'];
+                            //echo $usd_sale."||";
+                        }
+                         else {
+                            $usd_sale = 1;
+                            $eur_sale = 1;
+                            $rur_sale = 1;
+                             //echo "nonon||";
+                        }
+                    }*/
 
-               switch ($item['type_money']) {
-                   case "UAH": {
-                       $balance += $item['balance'];
-                       break;
-                   }
-                   case "USD": {
-                       //$usd = getOneCourse("USD");
-                       //$balance += $item['balance'] * $usd['sale'];
-                       $balance += $item['balance'] * 26.52;
-                       break;
-                   }
-                   case "EUR": {
-                       //$eur = getOneCourse("EUR");
-                       //$balance += $item['balance'] * $eur['sale'];
-                       $balance += $item['balance'] * 32.68;
-                       break;
-                   }
-                   case "RUR": {
-                       //$rur = getOneCourse("RUR");
-                       //$balance += $item['balance'] * $rur['sale'];
-                       $balance += $item['balance'] * 0.47;
-                       break;
-                   }
-               }
-           }
+
+
+                    switch ($item['type_money']) {
+                        case "UAH": {
+                            $balance += $item['balance'];
+                            break;
+                        }
+                        case "USD": {
+                            //$usd = getOneCourse("USD");
+                            //$balance += $item['balance'] * $usd['sale'];
+                            $balance += $item['balance'] * 26.52;
+                            //$balance += $item['balance'] * $usd_sale;
+                            break;
+                        }
+                        case "EUR": {
+                            //$eur = getOneCourse("EUR");
+                            //$balance += $item['balance'] * $eur['sale'];
+                             $balance += $item['balance'] * 32.68;
+                            //$balance += $item['balance'] * $eur_sale;
+                            break;
+                        }
+                        case "RUR": {
+                            //$rur = getOneCourse("RUR");
+                            //$balance += $item['balance'] * $rur['sale'];
+                            $balance += $item['balance'] * 0.47;
+                            //$balance += $item['balance'] * $rur_sale;
+                            break;
+                        }
+                    }
+                }
+
            array_push($tr_all_day, new LineChart($item["data"], round($balance,2)));
            $balance = 0;
        }
        R::close();
        return $tr_all_day;
+       //return $courses;
    }
 
    function addDebt(){
@@ -1219,32 +1352,40 @@ class Datebase
         //$now_month = date("m");
         $all_bal_from_month = 0;
         $tr_plus= R::getAll("select tranzaction.balance, cash, cash.type_money from tranzaction inner join cash on tranzaction.cash=cash.id where user_id = $id_user and status = '$status' and month(data)=$month");
-        //$tr_plus = R::findAll("tranzaction", "user_id = $id_user and month(data)=$month and status = '$status'");
+        //$tr_plus= R::getAll("select tranzaction.balance, cash, cash.type_money, day(tranzaction.data) as daytr from tranzaction inner join cash on tranzaction.cash=cash.id where user_id = $id_user and status = '$status' and month(data)= $month order by tranzaction.data");
         foreach($tr_plus as $item){
-            switch($item['type_money']){
-                case "UAH":{
-                    $all_bal_from_month += $item['balance'];
-                    break;
-                }
-                case "USD":{
-                   // $usd = getOneCourse("USD");
-                    //$all_bal_from_month += $item['balance']*$usd['sale'];
-                    $all_bal_from_month += $item['balance']*26.5;
-                    break;
-                }
-                case "EUR":{
-                   // $eur = getOneCourse("EUR");
-                    $all_bal_from_month += $item['balance']*33.2;
-                    //$all_bal_from_month += $item['balance']*$eur['sale'];
-                    break;
-                }
-                case "RUR": {
-                   // $rur = getOneCourse("RUR");
-                    $all_bal_from_month += $item['balance'] * 0.34;
-                    //$all_bal_from_month += $item['balance'] * $rur['sale'];
-                    break;
-                }
+            //$courses = R::findAll("courses","day(day) =".$item['daytr']);
+            //foreach( $courses as $item2){
+                switch($item['type_money']){
+                    case "UAH":{
+                        $all_bal_from_month += $item['balance'];
+                        break;
+                    }
+                    case "USD":{
+                        // $usd = getOneCourse("USD");
+                        //$all_bal_from_month += $item['balance']*$usd['sale'];
+
+                        $all_bal_from_month += $item['balance']*26.17;
+                        //$all_bal_from_month += $item['balance']*$item2['usd_sale'];
+                        break;
+                    }
+                    case "EUR":{
+                        // $eur = getOneCourse("EUR");
+                        $all_bal_from_month += $item['balance']*32.36;
+                       // $all_bal_from_month += $item['balance']*$item2['eur_sale'];
+                        //$all_bal_from_month += $item['balance']*$eur['sale'];
+                        break;
+                    }
+                    case "RUR": {
+                        // $rur = getOneCourse("RUR");
+                        $all_bal_from_month += $item['balance'] * 0.46;
+                        //$all_bal_from_month += $item['balance'] * $item2['rur_sale'];
+                        //$all_bal_from_month += $item['balance'] * $rur['sale'];
+                        break;
+                    }
+                //}
             }
+
            // $cash = R::findAll("cash", "id = $item->cash");
            /* foreach($cash as $item2){
 

@@ -24,6 +24,32 @@ $(document).ready(function(){
         }
     );
 
+/*
+    $("#add_data2").flatpickr({
+        enableTime: true,
+        dateFormat: "Y-m-d H:i",
+        time_24hr: true
+    });
+    $("#add_data3").flatpickr({
+        enableTime: true,
+        dateFormat: "Y-m-d H:i",
+        time_24hr: true
+    });*/
+    $("#add_data4").flatpickr({
+        enableTime: true,
+        dateFormat: "Y-m-d H:i",
+        time_24hr: true
+    });
+    $("#add_data5").flatpickr({
+        enableTime: true,
+        dateFormat: "Y-m-d H:i",
+        time_24hr: true
+    });
+    $("#add_data6").flatpickr({
+        enableTime: true,
+        dateFormat: "Y-m-d H:i",
+        time_24hr: true
+    });
 
 
 
@@ -96,6 +122,30 @@ $("#add_tr").click(function(){
 
     $("option").remove();
     $("#dialog").dialog('open');
+    // Получение текущего месяца и года
+    year = new Date().getFullYear();
+    month = new Date().getMonth()+1;
+    date_now = year+"-"+month;
+    //Ограничить ввод прошеднего месяца
+    $("#add_data").flatpickr({
+        minDate: date_now,
+        enableTime: true,
+        dateFormat: "Y-m-d H:i",
+        time_24hr: true
+    });
+
+    $("#add_data2").flatpickr({
+        minDate: date_now,
+        enableTime: true,
+        dateFormat: "Y-m-d H:i",
+        time_24hr: true
+    });
+    $("#add_data3").flatpickr({
+        minDate: date_now,
+        enableTime: true,
+        dateFormat: "Y-m-d H:i",
+        time_24hr: true
+    });
 
 });
 
@@ -116,37 +166,7 @@ $(function(){
 });
 
 
-$("#add_data").flatpickr({
-    enableTime: true,
-    dateFormat: "Y-m-d H:i",
-    time_24hr: true
-});
 
-$("#add_data2").flatpickr({
-    enableTime: true,
-    dateFormat: "Y-m-d H:i",
-    time_24hr: true
-});
-$("#add_data3").flatpickr({
-    enableTime: true,
-    dateFormat: "Y-m-d H:i",
-    time_24hr: true
-});
-$("#add_data4").flatpickr({
-    enableTime: true,
-    dateFormat: "Y-m-d H:i",
-    time_24hr: true
-});
-$("#add_data5").flatpickr({
-    enableTime: true,
-    dateFormat: "Y-m-d H:i",
-    time_24hr: true
-});
-$("#add_data6").flatpickr({
-    enableTime: true,
-    dateFormat: "Y-m-d H:i",
-    time_24hr: true
-});
 
 
 
@@ -287,7 +307,108 @@ $( "#up_cash_trans_sum" ).selectmenu({
 
 
 
+$(document).ready(function() {
+    tmp_id="";
+    index="";
 
+    $(" #plusTable").on('click', ".col", function(){
+        $(".col").css("backgroundColor", 'white');
+        // index = "";
+        index= this.id;
+        flag_ts = "000";
+        what_tr = "plus";
+        document.getElementById(index).style.backgroundColor = "#009fe3";
+    });
+
+    $("#minTable").on('click', ".col", function(){
+        $(".col").css("backgroundColor", 'white');
+        //index = "";
+        index= this.id;
+        flag_ts = "000";
+        what_tr = "min";
+        document.getElementById(index).style.backgroundColor = "#009fe3";
+    });
+
+    $("#transTable").on('click', ".col", function(){
+        $(".col").css("backgroundColor", 'white');
+        tmp_id ="";
+        index = "";
+        string =  this.id;
+        str = string.split('');
+        for(i=2;i<str.length;i++){
+            tmp_id += str[i];
+        }
+        flag_ts = "111";
+        document.getElementById(string).style.backgroundColor = "#009fe3";
+
+    });
+
+    //Del_tr.click
+    $("#del_tr").click(function(){
+        if(index=="" && tmp_id ==""){
+            alert("Выберите транзакцию!");
+            return;
+        }
+        $("#dialog").dialog('close');
+        $("#dialog2").dialog('close');
+        //$("#dialog_del2").dialog('close');
+
+        if($(".col").css("backgroundColor") != "rgba(0, 0, 0, 0)")  {
+
+            $("#dialog").dialog('close');
+
+            $("#dialog3").dialog('open');
+
+            $("#yes").click(function(){
+                $("#dialog3").dialog('close');
+
+                if(flag_ts == "111"){
+                    $.post("../controlers/control_tranzactions.php", {
+                            del_trans : "1",
+                            index_trans : tmp_id
+                        },
+                        function(data){
+                            if(data === "false"){
+                                alert("Нельзя удалить");
+                            }
+                            else{
+                                location.reload(true);
+                                alert(data);
+                            }
+                        }
+                    );
+                    flag_ts = "";
+                }
+
+                if(flag_ts == "000"){
+                    $.post("../controlers/control_tranzactions.php", {del_tr: "1", index: index},
+                        function(data){
+                            if(data === "false"){
+                                alert("Нельзя удалить");
+                            }
+                            else{
+                                location.reload(true);
+                                alert(data);
+                            }
+                        }
+                    );
+                    flag_ts="";
+                }
+
+            });
+
+            $("#no").click(function(){
+                $("#dialog3").dialog('close');
+            });
+        }
+        else alert("Выберите транзакцию");
+
+
+    });
+
+
+
+} );
 
 
 
@@ -367,98 +488,7 @@ $('#tr_form_sum').submit(function(){
 });
 
 
-$(document).ready(function() {
-        tmp_id="";
-        index="";
 
-    $(" #plusTable").on('click', ".col", function(){
-        $(".col").css("backgroundColor", 'white');
-       // index = "";
-        index= this.id;
-        flag_ts = "000";
-        what_tr = "plus";
-        document.getElementById(index).style.backgroundColor = "#009fe3";
-    });
-
-    $("#minTable").on('click', ".col", function(){
-        $(".col").css("backgroundColor", 'white');
-        //index = "";
-        index= this.id;
-        flag_ts = "000";
-        what_tr = "min";
-        document.getElementById(index).style.backgroundColor = "#009fe3";
-    });
-
-    $("#transTable").on('click', ".col", function(){
-        $(".col").css("backgroundColor", 'white');
-        tmp_id ="";
-        index = "";
-        string =  this.id;
-        str = string.split('');
-        for(i=2;i<str.length;i++){
-            tmp_id += str[i];
-        }
-        flag_ts = "111";
-        document.getElementById(string).style.backgroundColor = "#009fe3";
-
-    });
-
-
-    $("#del_tr").click(function(){
-        if(index=="" && tmp_id ==""){
-            alert("Выберите транзакцию!");
-            return;
-        }
-        $("#dialog").dialog('close');
-        $("#dialog2").dialog('close');
-        //$("#dialog_del2").dialog('close');
-
-        if($(".col").css("backgroundColor") != "rgba(0, 0, 0, 0)")  {
-
-            $("#dialog").dialog('close');
-
-            $("#dialog3").dialog('open');
-
-            $("#yes").click(function(){
-                $("#dialog3").dialog('close');
-
-                if(flag_ts == "111"){
-                     $.post("../controlers/control_tranzactions.php", {
-                            del_trans : "1",
-                            index_trans : tmp_id
-                        },
-                        function(data){
-                            location.reload(true);
-                            alert(data);
-                        }
-                    );
-                    flag_ts = "";
-                }
-
-                if(flag_ts == "000"){
-                    $.post("../controlers/control_tranzactions.php", {del_tr: "1", index: index},
-                        function(data){
-                            location.reload(true);
-                            alert(data);
-                        }
-                    );
-                    flag_ts="";
-                }
-
-            });
-
-            $("#no").click(function(){
-                $("#dialog3").dialog('close');
-            });
-        }
-        else alert("Выберите транзакцию");
-
-
-    });
-
-
-
-} );
 
 $('#dialog3').dialog({
     autoOpen: false,
@@ -532,7 +562,6 @@ function BalanceNew(){
     );
 }
 
-
 $("#up_tr").click(function(){
     if(index=="" && tmp_id ==""){
         alert("Выберите транзакцию!");
@@ -555,7 +584,6 @@ $("#up_tr").click(function(){
 
     $("option").remove();
     if($(".col").css("backgroundColor") != "rgba(0, 0, 0, 0)"){
-        $("#dialog2").dialog('open');
         if(index !=""){
             $("#tabs2").tabs("disable",2);
             $("#tabs2").tabs("enable",0);
@@ -579,49 +607,56 @@ $("#up_tr").click(function(){
             },
             function(data){
                 data = JSON.parse(data);
-                if(index !=""){
-                    if(what_tr == "min"){
-                        $("input[name='up_name_tr_minus']").val(data[1]);
-                        $("#add_data4").val(data[6]);
-                        $("#up_cash_minus_sel").val(data[2]).selectmenu('refresh');
-                        $("input[name='up_balance_minus']").val(data[3]);
-                        $("#up_comment").val(data[4]);
-                        $("input[name='up_name_tr_sum']").val(data[1]);
-                        $("#add_data5").val(data[6]);
-                        $("#up_cash_sum_sel").val(data[2]).selectmenu('refresh');
-                        $("input[name='up_balance_sum']").val(data[3]);
-                        $("#up_comment_sum").val(data[4]);
+                if(data != "false"){
+                    $("#dialog2").dialog('open');
+                    if(index !=""){
+                        if(what_tr == "min"){
+                            $("input[name='up_name_tr_minus']").val(data[1]);
+                            $("#add_data4").val(data[6]);
+                            $("#up_cash_minus_sel").val(data[2]).selectmenu('refresh');
+                            $("input[name='up_balance_minus']").val(data[3]);
+                            $("#up_comment").val(data[4]);
+                            $("input[name='up_name_tr_sum']").val(data[1]);
+                            $("#add_data5").val(data[6]);
+                            $("#up_cash_sum_sel").val(data[2]).selectmenu('refresh');
+                            $("input[name='up_balance_sum']").val(data[3]);
+                            $("#up_comment_sum").val(data[4]);
+                        }
+                        if(what_tr == "plus"){
+                            $("input[name='up_name_tr_sum']").val(data[1]);
+                            $("#add_data5").val(data[6]);
+                            $("#up_cash_sum_sel").val(data[2]).selectmenu('refresh');
+                            $("input[name='up_balance_sum']").val(data[3]);
+                            $("#up_comment_sum").val(data[4]);
+                            $("input[name='up_name_tr_minus']").val(data[1]);
+                            $("#add_data4").val(data[6]);
+                            $("#up_cash_minus_sel").val(data[2]).selectmenu('refresh');
+                            $("input[name='up_balance_minus']").val(data[3]);
+                            $("#up_comment").val(data[4]);
+                        }
+
                     }
-                    if(what_tr == "plus"){
-                        $("input[name='up_name_tr_sum']").val(data[1]);
-                        $("#add_data5").val(data[6]);
-                        $("#up_cash_sum_sel").val(data[2]).selectmenu('refresh');
-                        $("input[name='up_balance_sum']").val(data[3]);
-                        $("#up_comment_sum").val(data[4]);
-                        $("input[name='up_name_tr_minus']").val(data[1]);
-                        $("#add_data4").val(data[6]);
-                        $("#up_cash_minus_sel").val(data[2]).selectmenu('refresh');
-                        $("input[name='up_balance_minus']").val(data[3]);
-                        $("#up_comment").val(data[4]);
+
+                    if(tmp_id !=""){
+                        $("input[name='up_name_trans_cash']").val(data[1]);
+                        $("#add_data6").val(data[2]);
+                        $("#up_cash_trans_min").val(data[3]).selectmenu('refresh');
+                        $("input[name='up_trans_balance_min']").val(data[4]);
+                        $("#up_cash_trans_sum").val(data[5]).selectmenu('refresh');
+                        $("input[name='up_course']").val(data[9]);
+                        $("input[name='up_trans_balance_sum']").val(data[6]);
+                        $("input[name='up_comment_trans']").val(data[7]);
                     }
-
+                    up_ind = index;
+                    //tmp_id ="";
                 }
-
-                if(tmp_id !=""){
-                    $("input[name='up_name_trans_cash']").val(data[1]);
-                    $("#add_data6").val(data[2]);
-                    $("#up_cash_trans_min").val(data[3]).selectmenu('refresh');
-                    $("input[name='up_trans_balance_min']").val(data[4]);
-                    $("#up_cash_trans_sum").val(data[5]).selectmenu('refresh');
-                    $("input[name='up_course']").val(data[9]);
-                    $("input[name='up_trans_balance_sum']").val(data[6]);
-                    $("input[name='up_comment_trans']").val(data[7]);
-
-
+                else{
+                    $("#dialog2").dialog('close');
+                    alert("Нельзя изменить транзакцию");
+                    return ;
                 }
-                up_ind = index;
-                //tmp_id ="";
             }
+
         );
     }
     else alert("Выберите транзакцию!");
@@ -641,7 +676,7 @@ $("#up_tr_form_minus").submit(function(){
             up_index : index
         },
         function(data){
-            alert("Транзакция обновлена!");
+             alert("Транзакция обновлена!");
         }
     );
 });
