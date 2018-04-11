@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="587421d6-895c-4b11-bb89-b090750059ed" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/080d2c86-4aba-4e19-a487-040e4fc54d94.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/080d2c86-4aba-4e19-a487-040e4fc54d94.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controlers/control_tranzactions.php" afterPath="$PROJECT_DIR$/controlers/control_tranzactions.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controlers/db.php" afterPath="$PROJECT_DIR$/controlers/db.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/tranz.js" afterPath="$PROJECT_DIR$/js/tranz.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/tranzactions.php" afterPath="$PROJECT_DIR$/views/tranzactions.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -413,7 +408,7 @@
       <workItem from="1523017903402" duration="3221000" />
       <workItem from="1523264595780" duration="6543000" />
       <workItem from="1523288466184" duration="10069000" />
-      <workItem from="1523443426443" duration="14048000" />
+      <workItem from="1523443426443" duration="14581000" />
     </task>
     <task id="LOCAL-00001" summary="Added preloader">
       <created>1522016997497</created>
@@ -422,11 +417,18 @@
       <option name="project" value="LOCAL" />
       <updated>1522016997497</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Started function Converse">
+      <created>1523458891347</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1523458891347</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="501421000" />
+    <option name="totallyTimeSpent" value="501954000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -507,7 +509,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add preloader" />
     <MESSAGE value="Added preloader" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added preloader" />
+    <MESSAGE value="Started function Converse" />
+    <option name="LAST_COMMIT_MESSAGE" value="Started function Converse" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -786,6 +789,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
           <caret line="11" column="21" lean-forward="true" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
