@@ -570,21 +570,25 @@ class Datebase
         R::close();
     }
 
+   /* function newBalance($id_user,$id_cash,$balance){
+
+    }*/
+
     function getTranzFromID($id){ // after return json_encode
-        $now_month = date("m");
+        //$now_month = date("m");
 
         $arr_tmp = array();
         $tr = R::findAll('tranzaction',"id = $id");
         foreach($tr as $item) {
-
+/*
             $up_data_month = date("m", strtotime($item->data));
             if ($up_data_month != $now_month) {
                 $flag = "false";
                 return $flag;
             }
-            else {
+            else {*/
                 array_push($arr_tmp, $item->id, $item->name, $item->cash, $item->balance, $item->comment, $item->user_id, $item->data, $item->status);
-            }
+           // }
         }
         R::close();
         return $arr_tmp;
@@ -1009,19 +1013,19 @@ class Datebase
     }
 
     function getTranslateFromID($id){
-        $now_month = date("m");
+        //$now_month = date("m");
 
         $arr_tmp = array();
         $trans = R::findAll('translate', "id = $id");
         foreach($trans as $item){
-            $up_data_month = date("m", strtotime($item->data));
+           /* $up_data_month = date("m", strtotime($item->data));
             if ($up_data_month != $now_month) {
                 $flag = "false";
                 return $flag;
-            }
-            else{
+            }*/
+            //else{
                 array_push($arr_tmp,$item->id,$item->name,$item->data,$item->cash_min,$item->balance_min,$item->cash_sum,$item->balance_sum,$item->comment,$item->id_user,$item->course);
-            }
+            //}
         }
         R::close();
         return $arr_tmp;

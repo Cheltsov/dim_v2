@@ -291,3 +291,15 @@ if(isset($_POST['test_event'])){
 
 
 }
+
+if(isset($_POST['na_cashs_josn'])){
+    //newBalance($id_user,$id_cash,$balance)
+    $tmp = json_decode($_POST['na_cashs_josn'],true);
+
+   foreach($tmp as $item){
+       foreach($item as $key=>$value){
+           echo($key."= ".$value.'|');
+       }
+
+   }
+}

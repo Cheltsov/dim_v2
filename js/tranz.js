@@ -24,17 +24,6 @@ $(document).ready(function(){
         }
     );
 
-/*
-    $("#add_data2").flatpickr({
-        enableTime: true,
-        dateFormat: "Y-m-d H:i",
-        time_24hr: true
-    });
-    $("#add_data3").flatpickr({
-        enableTime: true,
-        dateFormat: "Y-m-d H:i",
-        time_24hr: true
-    });*/
     $("#add_data4").flatpickr({
         enableTime: true,
         dateFormat: "Y-m-d H:i",
@@ -128,20 +117,20 @@ $("#add_tr").click(function(){
     date_now = year+"-"+month;
     //Ограничить ввод прошеднего месяца
     $("#add_data").flatpickr({
-        minDate: date_now,
+        //minDate: date_now,
         enableTime: true,
         dateFormat: "Y-m-d H:i",
         time_24hr: true
     });
 
     $("#add_data2").flatpickr({
-        minDate: date_now,
+        //minDate: date_now,
         enableTime: true,
         dateFormat: "Y-m-d H:i",
         time_24hr: true
     });
     $("#add_data3").flatpickr({
-        minDate: date_now,
+        //minDate: date_now,
         enableTime: true,
         dateFormat: "Y-m-d H:i",
         time_24hr: true
