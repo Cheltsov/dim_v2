@@ -1,8 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="587421d6-895c-4b11-bb89-b090750059ed" name="Default" comment="">
+    <list default="true" id="587421d6-895c-4b11-bb89-b090750059ed" name="Default" comment="Изменена структура проекта">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/class/cash.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/class/cashMonth.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/class/translate.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/class/tranzaction.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/class/user.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/controlers/test_conrol.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/singIn.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/test_addUser.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/test_trans.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/controlers/db.php" afterPath="$PROJECT_DIR$/class/db.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/controlers/libs/rb.php" afterPath="$PROJECT_DIR$/class/libs/rb.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/controlers/mail.php" afterPath="$PROJECT_DIR$/class/mail.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/controlers/moveTo.php" afterPath="$PROJECT_DIR$/class/moveTo.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/models/LineChart.php" afterPath="$PROJECT_DIR$/class/LineChart.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/080d2c86-4aba-4e19-a487-040e4fc54d94.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/080d2c86-4aba-4e19-a487-040e4fc54d94.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controlers/control_cash.php" afterPath="$PROJECT_DIR$/controlers/control_cash.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controlers/control_debt.php" afterPath="$PROJECT_DIR$/controlers/control_debt.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controlers/control_forecast.php" afterPath="$PROJECT_DIR$/controlers/control_forecast.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controlers/control_main_page.php" afterPath="$PROJECT_DIR$/controlers/control_main_page.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controlers/control_report.php" afterPath="$PROJECT_DIR$/controlers/control_report.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controlers/control_setting.php" afterPath="$PROJECT_DIR$/controlers/control_setting.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controlers/control_tranzactions.php" afterPath="$PROJECT_DIR$/controlers/control_tranzactions.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controlers/logIn.php" afterPath="$PROJECT_DIR$/controlers/logIn.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.php" afterPath="$PROJECT_DIR$/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/cash.js" afterPath="$PROJECT_DIR$/js/cash.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/index_page.js" afterPath="$PROJECT_DIR$/js/index_page.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/tranz.js" afterPath="$PROJECT_DIR$/js/tranz.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/cash.php" afterPath="$PROJECT_DIR$/views/cash.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/debt.php" afterPath="$PROJECT_DIR$/views/debt.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/index.php" afterPath="$PROJECT_DIR$/views/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/report.php" afterPath="$PROJECT_DIR$/views/report.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/tranzactions.php" afterPath="$PROJECT_DIR$/views/tranzactions.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -36,50 +68,7 @@
     <favorites_list name="Develop_diploma" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="tranz.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/tranz.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="592" column="16" lean-forward="false" selection-start-line="592" selection-start-column="16" selection-end-line="592" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="db.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controlers/db.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
-              <caret line="588" column="20" lean-forward="false" selection-start-line="588" selection-start-column="20" selection-end-line="588" selection-end-column="20" />
-              <folding>
-                <marker date="1523457298885" expanded="true" signature="14496:14497" ph="..." />
-                <marker date="1523457298885" expanded="true" signature="18049:18125" ph="..." />
-                <marker date="1523457298885" expanded="true" signature="18147:18313" ph="..." />
-                <marker date="1523457298885" expanded="true" signature="18152:18313" ph="..." />
-                <marker date="1523457298885" expanded="true" signature="34170:34246" ph="..." />
-                <marker date="1523457298885" expanded="true" signature="34269:34468" ph="..." />
-                <marker date="1523457298885" expanded="true" signature="40634:41013" ph="..." />
-                <marker date="1523457298885" expanded="true" signature="40862:40965" ph="..." />
-                <marker date="1523457298885" expanded="true" signature="41988:42273" ph="..." />
-                <marker date="1523457298885" expanded="true" signature="42309:44362" ph="..." />
-                <marker date="1523457298885" expanded="true" signature="43003:44360" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="control_tranzactions.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/controlers/control_tranzactions.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
-              <caret line="230" column="0" lean-forward="false" selection-start-line="230" selection-start-column="0" selection-end-line="230" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -93,36 +82,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>getCashNEWDouble</find>
-      <find>addt</find>
-      <find>addtrans</find>
-      <find>getCash</find>
-      <find>updateBalanceCash</find>
-      <find>getIdCash($id_cash)</find>
-      <find>findC</find>
-      <find>getIdCash</find>
-      <find>updateba</find>
-      <find>getcas</find>
-      <find>getCashMonth</find>
-      <find>minBalanceTr</find>
-      <find>trUpdateMin</find>
-      <find>upDate_trans</find>
-      <find>trUpdatePlus</find>
-      <find>getbal</find>
-      <find>setdaily</find>
-      <find>setDailyCourse</find>
-      <find>getBalanceFromMonth</find>
-      <find>getAllBalOfData</find>
-      <find>addTranzMin</find>
-      <find>up_name</find>
+      <find>id_tr</find>
+      <find>update_tr</find>
+      <find>getCashList</find>
+      <find>want_id_cashDouble</find>
+      <find>balanc_min_trans</find>
+      <find>wanna_tr_trans_fromID</find>
+      <find>Del_translate</find>
+      <find>wanna_cash_month</find>
+      <find>wanna_tr_trans</find>
+      <find>getNewbalance</find>
+      <find>BalanceNew()</find>
+      <find>wanna_tr_plus_fromID</find>
       <find>addtr</find>
-      <find>name_cash</find>
-      <find>what</find>
-      <find>getTranslateFromID</find>
-      <find>del_trans</find>
-      <find>del_tr</find>
-      <find>getTranzFromID</find>
+      <find>get</find>
+      <find>FromID</find>
+      <find>minBalanceTr</find>
+      <find>name_trans</find>
+      <find>up_data_month</find>
+      <find>iso</find>
+      <find>arr_tmp</find>
       <find>wanna_info_tranz</find>
+      <find>up</find>
+      <find>conv</find>
+      <find>InDB</find>
+      <find>id_trans</find>
+      <find>na_cashs_josn</find>
+      <find>extr</find>
+      <find>test_event</find>
+      <find>getBalance</find>
+      <find>minplusBalanceTrans</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -131,57 +120,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/examples/dataPicker/index.html" />
-        <option value="$PROJECT_DIR$/js/partpage.js" />
-        <option value="$PROJECT_DIR$/config/config_course.php" />
-        <option value="$PROJECT_DIR$/examples/cellSelectionTwo/script.js" />
-        <option value="$PROJECT_DIR$/examples/cellSelectionTwo/ets.html" />
-        <option value="$PROJECT_DIR$/examples/cellSelection/index.html" />
-        <option value="$PROJECT_DIR$/examples/cellSelection/ets.html" />
-        <option value="$PROJECT_DIR$/examples/dataPicker/test2/index.html" />
-        <option value="$PROJECT_DIR$/controlers/exit.php" />
-        <option value="$PROJECT_DIR$/js/exit.js" />
-        <option value="$PROJECT_DIR$/examples/tabs/index.html" />
-        <option value="$PROJECT_DIR$/examples/tabs/script.js" />
-        <option value="$PROJECT_DIR$/style/tranz_style.css" />
-        <option value="$PROJECT_DIR$/style/report_style.css" />
-        <option value="$PROJECT_DIR$/examples/Charts/index.html" />
-        <option value="$PROJECT_DIR$/js/report.js" />
-        <option value="$PROJECT_DIR$/style/cash_style.css" />
-        <option value="$PROJECT_DIR$/style/main.css" />
-        <option value="$PROJECT_DIR$/style/mainPage.css" />
-        <option value="$PROJECT_DIR$/controlers/control_cash.php" />
-        <option value="$PROJECT_DIR$/controlers/moveTo.php" />
         <option value="$PROJECT_DIR$/examples/mainCalendar/index.html" />
         <option value="$PROJECT_DIR$/style/forecast_style.css" />
         <option value="$PROJECT_DIR$/style/debt_style.css" />
-        <option value="$PROJECT_DIR$/controlers/control_debt.php" />
-        <option value="$PROJECT_DIR$/views/debt.php" />
         <option value="$PROJECT_DIR$/controlers/fore" />
         <option value="$PROJECT_DIR$/views/forecast.php" />
         <option value="$PROJECT_DIR$/examples/accordion_test/index.html" />
-        <option value="$PROJECT_DIR$/js/cash.js" />
-        <option value="$PROJECT_DIR$/views/cash.php" />
         <option value="$PROJECT_DIR$/models/LineChart.php" />
         <option value="$PROJECT_DIR$/views/PartPage.php" />
         <option value="$PROJECT_DIR$/style/setting_style.css" />
         <option value="$PROJECT_DIR$/views/settings.php" />
-        <option value="$PROJECT_DIR$/controlers/control_setting.php" />
-        <option value="$PROJECT_DIR$/controlers/control_forecast.php" />
-        <option value="$PROJECT_DIR$/js/index_page.js" />
         <option value="$PROJECT_DIR$/controlers/control_index.php" />
-        <option value="$PROJECT_DIR$/controlers/logIn.php" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/controlers/getCourse.php" />
-        <option value="$PROJECT_DIR$/controlers/control_main_page.php" />
+        <option value="$PROJECT_DIR$/js/index_page.js" />
+        <option value="$PROJECT_DIR$/js/cash.js" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/080d2c86-4aba-4e19-a487-040e4fc54d94/console.sql" />
+        <option value="$PROJECT_DIR$/controlers/class/user.php" />
+        <option value="$PROJECT_DIR$/test_addUser.php" />
+        <option value="$PROJECT_DIR$/views/test_addUser.php" />
+        <option value="$PROJECT_DIR$/controlers/user.php" />
+        <option value="$PROJECT_DIR$/controlers/db.php" />
+        <option value="$PROJECT_DIR$/controlers/cash.php" />
+        <option value="$PROJECT_DIR$/controlers/class/db.php" />
+        <option value="$PROJECT_DIR$/controlers/class/cash.php" />
+        <option value="$PROJECT_DIR$/controlers/class/tranzaction.php" />
+        <option value="$PROJECT_DIR$/controlers/control_setting.php" />
+        <option value="$PROJECT_DIR$/views/index.php" />
+        <option value="$PROJECT_DIR$/controlers/test_conrol.php" />
+        <option value="$PROJECT_DIR$/controlers/control_main_page.php" />
+        <option value="$PROJECT_DIR$/controlers/moveTo.php" />
+        <option value="$PROJECT_DIR$/class/moveTo.php" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/controlers/logIn.php" />
+        <option value="$PROJECT_DIR$/controlers/test_trans.php" />
+        <option value="$PROJECT_DIR$/views/test_trans.php" />
+        <option value="$PROJECT_DIR$/views/debt.php" />
+        <option value="$PROJECT_DIR$/controlers/control_debt.php" />
+        <option value="$PROJECT_DIR$/views/cash.php" />
+        <option value="$PROJECT_DIR$/controlers/control_cash.php" />
+        <option value="$PROJECT_DIR$/controlers/control_forecast.php" />
         <option value="$PROJECT_DIR$/controlers/control_report.php" />
         <option value="$PROJECT_DIR$/views/report.php" />
-        <option value="$PROJECT_DIR$/views/index.php" />
-        <option value="$PROJECT_DIR$/js/tranz.js" />
-        <option value="$PROJECT_DIR$/controlers/control_tranzactions.php" />
+        <option value="$PROJECT_DIR$/class/user.php" />
         <option value="$PROJECT_DIR$/views/tranzactions.php" />
-        <option value="$PROJECT_DIR$/controlers/db.php" />
+        <option value="$PROJECT_DIR$/class/cash.php" />
+        <option value="$PROJECT_DIR$/class/cashMonth.php" />
+        <option value="$PROJECT_DIR$/class/db.php" />
+        <option value="$PROJECT_DIR$/js/tranz.js" />
+        <option value="$PROJECT_DIR$/class/translate.php" />
+        <option value="$PROJECT_DIR$/views/singIn.php" />
+        <option value="$PROJECT_DIR$/controlers/control_tranzactions.php" />
+        <option value="$PROJECT_DIR$/class/tranzaction.php" />
       </list>
     </option>
   </component>
@@ -263,22 +252,27 @@
         <subPane>
           <expand>
             <path>
-              <item name="Diploma" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Diploma" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Develop_diploma" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Develop_diploma" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
-              <item name="Diploma" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Diploma" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Develop_diploma" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Develop_diploma" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="class" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Develop_diploma" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Develop_diploma" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="controlers" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
-              <item name="Diploma" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Diploma" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Develop_diploma" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Develop_diploma" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="js" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
-              <item name="Diploma" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Diploma" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Develop_diploma" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Develop_diploma" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
@@ -291,7 +285,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../nodejs-lessons" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="settings.github" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -299,11 +293,15 @@
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\Develop_diploma\im" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\xampp\htdocs\Develop_diploma\style" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\Develop_diploma\class" />
+      <recent name="C:\xampp\htdocs\Develop_diploma\views" />
+      <recent name="C:\xampp\htdocs\Develop_diploma" />
+      <recent name="C:\xampp\htdocs\Develop_diploma\controlers" />
+      <recent name="C:\xampp\htdocs\Develop_diploma\controlers\class" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -318,11 +316,17 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.routering.php">
+  <component name="RunManager" selected="Node.js.tranz.js">
     <configuration name="routering.php" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/Develop_diploma/controlers/routering.php" />
+    <configuration name="tranz.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="project" path-to-js-file="tranz.js" working-dir="$PROJECT_DIR$/js" />
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.routering.php" />
+      <item index="1" class="java.lang.String" itemvalue="Node.js.tranz.js" />
+    </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.routering.php" />
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="Node.js.tranz.js" />
+        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.routering.php" />
       </list>
     </recent_temporary>
   </component>
@@ -408,7 +412,14 @@
       <workItem from="1523017903402" duration="3221000" />
       <workItem from="1523264595780" duration="6543000" />
       <workItem from="1523288466184" duration="10069000" />
-      <workItem from="1523443426443" duration="14581000" />
+      <workItem from="1523443426443" duration="15923000" />
+      <workItem from="1523520419510" duration="1863000" />
+      <workItem from="1523541037661" duration="1863000" />
+      <workItem from="1523707566798" duration="6232000" />
+      <workItem from="1523733762477" duration="172000" />
+      <workItem from="1524324147653" duration="12018000" />
+      <workItem from="1524401259781" duration="17137000" />
+      <workItem from="1524427696550" duration="19913000" />
     </task>
     <task id="LOCAL-00001" summary="Added preloader">
       <created>1522016997497</created>
@@ -424,11 +435,18 @@
       <option name="project" value="LOCAL" />
       <updated>1523458891347</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Started function Converse">
+      <created>1523459247561</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1523459247561</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="501954000" />
+    <option name="totallyTimeSpent" value="562494000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -440,15 +458,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19440243" sideWeight="0.4868421" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2065053" sideWeight="0.4868421" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5030257" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14220877" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12859304" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6095679" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" x="20" y="184" width="1322" height="478" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.4969743" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1603631" sideWeight="0.5131579" order="2" side_tool="true" content_ui="tabs" />
@@ -457,12 +474,35 @@
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="92" y="92" width="1182" height="584" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5941358" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5030257" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="92" y="92" width="1182" height="584" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6095679" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" x="20" y="184" width="1322" height="478" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.4969743" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5941358" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17473525" sideWeight="0.4868421" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12632374" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1603631" sideWeight="0.5131579" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -510,389 +550,373 @@
     <MESSAGE value="Add preloader" />
     <MESSAGE value="Added preloader" />
     <MESSAGE value="Started function Converse" />
-    <option name="LAST_COMMIT_MESSAGE" value="Started function Converse" />
+    <MESSAGE value="Изменена структура проекта" />
+    <option name="LAST_COMMIT_MESSAGE" value="Изменена структура проекта" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="9" />
+      <option name="time" value="15" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.cashmonth">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.cashmonth">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.cashmonth">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.cashmonth">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.cashmonth">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.cashmonth">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.cashmonth">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.cashmonth">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.cashmonth">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.cashmonth">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.cashmonth">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.cashmonth">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.cashmonth">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.cashmonth">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.cashmonth">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.cashmonth">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.cashmonth">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.cashmonth">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.cashmonth">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.cashmonth">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.cashmonth">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.cashmonth">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.cashmonth">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.cashmonth">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.cashmonth">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.cashmonth">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.cashmonth">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.cashmonth">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.cashmonth">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.cashmonth">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.cashmonth">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.cashmonth">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controlers/control_main_page.php">
+    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.courses" />
+    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.groups" />
+    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.translate" />
+    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.debt" />
+    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.cash" />
+    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.cashmonth" />
+    <entry file="file://$PROJECT_DIR$/js/cash.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="74" column="21" lean-forward="false" selection-start-line="74" selection-start-column="21" selection-end-line="74" selection-end-column="21" />
+        <state relative-caret-position="64">
+          <caret line="70" column="12" lean-forward="false" selection-start-line="70" selection-start-column="4" selection-end-line="70" selection-end-column="12" />
         </state>
       </provider>
     </entry>
+    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.users" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/080d2c86-4aba-4e19-a487-040e4fc54d94/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="14" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="225" />
+          <caret line="0" column="179" lean-forward="false" selection-start-line="0" selection-start-column="179" selection-end-line="0" selection-end-column="179" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controlers/control_forecast.php">
+    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.tranzaction" />
+    <entry file="file://$PROJECT_DIR$/views/PartPage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="19" column="16" lean-forward="true" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="105" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controlers/control_setting.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="1" column="20" lean-forward="false" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controlers/test_conrol.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="19" lean-forward="true" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1282">
+          <caret line="342" column="24" lean-forward="false" selection-start-line="342" selection-start-column="24" selection-end-line="342" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/class/mail.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/report.php">
+    <entry file="file://$PROJECT_DIR$/class/moveTo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="134" column="35" lean-forward="false" selection-start-line="134" selection-start-column="35" selection-end-line="134" selection-end-column="35" />
+        <state relative-caret-position="63">
+          <caret line="8" column="7" lean-forward="false" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controlers/control_report.php">
+    <entry file="file://$PROJECT_DIR$/views/test_addUser.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="26" column="4" lean-forward="false" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="4" />
+          <caret line="0" column="89" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.users">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.cashmonth">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/test_trans.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1309">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/debt.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controlers/control_debt.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="1" column="17" lean-forward="false" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/forecast.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/cash.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/class/LineChart.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controlers/Cookies.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controlers/displayOnOff.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controlers/exit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controlers/fore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controlers/logIn.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="23" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/report.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/class/user.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="82" column="38" lean-forward="false" selection-start-line="82" selection-start-column="20" selection-end-line="82" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.cash">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/index_page.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="23" column="3" lean-forward="false" selection-start-line="23" selection-start-column="3" selection-end-line="23" selection-end-column="3" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret line="336" column="18" lean-forward="false" selection-start-line="336" selection-start-column="18" selection-end-line="336" selection-end-column="18" />
+        <state relative-caret-position="21">
+          <caret line="410" column="30" lean-forward="false" selection-start-line="410" selection-start-column="30" selection-end-line="410" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controlers/getCourse.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
-          <caret line="11" column="21" lean-forward="true" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="21" />
+          <caret line="11" column="9" lean-forward="false" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/tranzactions.php">
+    <entry file="file://$PROJECT_DIR$/class/cashMonth.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1524">
-          <caret line="478" column="21" lean-forward="false" selection-start-line="478" selection-start-column="21" selection-end-line="478" selection-end-column="21" />
-          <folding>
-            <element signature="n#div#6;n#!!top" expanded="false" />
-            <element signature="n#div#7;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controlers/db.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="588" column="20" lean-forward="false" selection-start-line="588" selection-start-column="20" selection-end-line="588" selection-end-column="20" />
-          <folding>
-            <marker date="1523457298885" expanded="true" signature="14496:14497" ph="..." />
-            <marker date="1523457298885" expanded="true" signature="18049:18125" ph="..." />
-            <marker date="1523457298885" expanded="true" signature="18147:18313" ph="..." />
-            <marker date="1523457298885" expanded="true" signature="18152:18313" ph="..." />
-            <marker date="1523457298885" expanded="true" signature="34170:34246" ph="..." />
-            <marker date="1523457298885" expanded="true" signature="34269:34468" ph="..." />
-            <marker date="1523457298885" expanded="true" signature="40634:41013" ph="..." />
-            <marker date="1523457298885" expanded="true" signature="40862:40965" ph="..." />
-            <marker date="1523457298885" expanded="true" signature="41988:42273" ph="..." />
-            <marker date="1523457298885" expanded="true" signature="42309:44362" ph="..." />
-            <marker date="1523457298885" expanded="true" signature="43003:44360" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/tranz.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="592" column="16" lean-forward="false" selection-start-line="592" selection-start-column="16" selection-end-line="592" selection-end-column="32" />
+        <state relative-caret-position="186">
+          <caret line="136" column="20" lean-forward="false" selection-start-line="136" selection-start-column="20" selection-end-line="136" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.tranzaction">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.courses">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.groups">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.translate">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.debt">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.cashmonth">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.cash">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
+    <entry file="file://$PROJECT_DIR$/class/translate.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="233" column="32" lean-forward="false" selection-start-line="233" selection-start-column="32" selection-end-line="233" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controlers/control_tranzactions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="230" column="0" lean-forward="false" selection-start-line="230" selection-start-column="0" selection-end-line="230" selection-end-column="0" />
+        <state relative-caret-position="6342">
+          <caret line="453" column="5" lean-forward="false" selection-start-line="453" selection-start-column="5" selection-end-line="453" selection-end-column="5" />
+          <folding>
+            <element signature="e#511#624#0#PHP" expanded="false" />
+            <element signature="n#getTempCash#0;n#!!top" expanded="false" />
+            <element signature="e#810#920#0#PHP" expanded="false" />
+            <element signature="e#922#1719#0#PHP" expanded="false" />
+            <element signature="e#1721#2519#0#PHP" expanded="false" />
+            <element signature="e#2629#3700#0#PHP" expanded="false" />
+            <element signature="e#3702#5209#0#PHP" expanded="false" />
+            <element signature="e#5480#5607#0#PHP" expanded="false" />
+            <element signature="e#5609#5736#0#PHP" expanded="false" />
+            <element signature="e#5738#5931#0#PHP" expanded="false" />
+            <element signature="e#5933#6126#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/class/tranzaction.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-150">
+          <caret line="144" column="31" lean-forward="false" selection-start-line="144" selection-start-column="31" selection-end-line="144" selection-end-column="31" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.translate">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.tranzaction">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/singIn.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+          <folding>
+            <marker date="1524447338586" expanded="true" signature="854:1451" ph="..." />
+            <marker date="1524447338586" expanded="true" signature="1270:1450" ph="..." />
+            <marker date="1524447338586" expanded="true" signature="1391:1448" ph="..." />
+            <marker date="1524447338586" expanded="true" signature="1613:8248" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/tranzactions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2256">
+          <caret line="415" column="23" lean-forward="false" selection-start-line="415" selection-start-column="13" selection-end-line="415" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/class/cash.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="202" column="23" lean-forward="false" selection-start-line="202" selection-start-column="13" selection-end-line="202" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/class/db.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-222">
+          <caret line="415" column="0" lean-forward="true" selection-start-line="415" selection-start-column="0" selection-end-line="415" selection-end-column="0" />
+          <folding>
+            <marker date="1524438959700" expanded="true" signature="28472:30037" ph="..." />
+            <marker date="1524438959700" expanded="true" signature="46162:46165" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controlers/control_forecast.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="1" column="17" lean-forward="false" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controlers/control_main_page.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11">
+          <caret line="1" column="23" lean-forward="false" selection-start-line="1" selection-start-column="23" selection-end-line="1" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controlers/control_report.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-112">
+          <caret line="1" column="17" lean-forward="false" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controlers/control_cash.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-53">
+          <caret line="1" column="17" lean-forward="false" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/tranz.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4335">
+          <caret line="598" column="23" lean-forward="false" selection-start-line="598" selection-start-column="23" selection-end-line="598" selection-end-column="23" />
+          <folding>
+            <element signature="e#4223#5936#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -103,7 +103,7 @@
                 <p class="text_auto">Авторизируйтесь</p>
 
                 <form action="controlers/logIn.php" method="POST" class="form1" id="loginUp">
-                    <input type="text" placeholder="Введите логин" required name="first_name" maxlength="50" id="login"> <br>
+                    <input type="text" placeholder="Введите логин" required name="first_email" maxlength="50" id="login"> <br>
                     <input type="password"  placeholder="Введите пароль" required name="pass" maxlength="30" id="password"> <br>
                     <input type="submit"  value="Войти" name="sing" id='ding'>
                 </form>
@@ -129,8 +129,8 @@
             <div id="on3_fro" style="display: none;" class="wow fadeInRightBig">
                 <p class="text_auto">Забыли пароль?</p>
 
-                <form action="controlers/logIn.php" method="POST" class="form1">
-                    <input type="email" placeholder="Введите email" required name="email" maxlength="50" > <br>
+                <form  class="form1" id="new_pass">
+                    <input type="email" placeholder="Введите email" required name="email" maxlength="50" id="last_email"> <br>
                     <input type="submit"  value="Обновить пароль" name="singNew">
                 </form>
             </div>
@@ -331,6 +331,17 @@
         });
         return false;
 
+    });
+
+    $("#new_pass").submit(function(){
+        $.ajax({
+            type: 'POST',
+            url: 'controlers/logIn.php',
+            data: $(this).serialize(),
+
+        }).done(function(data){
+            alert(data);
+        });
     });
 
 

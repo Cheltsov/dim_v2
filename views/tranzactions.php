@@ -4,7 +4,7 @@ if(!isset($_COOKIE['SingIN'])){
 }
 require "../controlers/control_main_page.php";
 
-require "../controlers/control_tranzactions.php";
+//require "../controlers/control_tranzactions.php";
 
 
 
@@ -416,6 +416,7 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
             {test_event: "1"},
             function(data){
                 alert(data);
+                location.reload();
             }
         );
 
@@ -478,18 +479,14 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
 
         var obj = {};
         obj[id_cash] = bal;
-
+        ary.push(obj);
         for (var key in ary) {
-            for(var key2 in ary[key]){
+            for (var key2 in ary[key]){
+                console.log("k= "+key2+" rr="+ary[key][key2]);
                 if(key2 == id_cash){
                     ary[key][key2] = bal;
-                    alert("tws");
-                }
-                else{
-                    ary.push(obj);
                 }
             }
-            console.log(ary[key]);
         }
 
 
@@ -514,6 +511,13 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
             }
         );
     });
+
+
+
+
+
+
+
 
 </script>
 

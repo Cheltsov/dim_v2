@@ -1,5 +1,5 @@
 <?php
-require_once "db.php";
+require_once "../class/db.php";
 require_once 'getCourse.php';
 
 $con = new Datebase();
