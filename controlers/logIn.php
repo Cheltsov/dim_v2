@@ -1,47 +1,47 @@
 <?php
+	require_once '../class/mail.php';
+	require_once '../class/user.php';
 
-	require 'db.php';
-	require 'mail.php';
-
-	$con = new Datebase();
-	$con->Connection();
 	$mail = new Mail();
+	$user = new User();
 
-	//if(isset($_POST['sing'])){
-if(isset($_POST['first_name']) && isset($_POST['pass'])){
-    $con->singIn($_POST['first_name'],$_POST['pass']);
+
+if(isset($_POST['first_email']) && isset($_POST['pass'])){
+    $user->setLogin($_POST['first_email']);
+    $user->setPassword($_POST['pass']);
+   $tmp =  $user->SingIn_User();
+   echo($tmp);
 }
 
-
-	//}
-
-	//if(isset($_POST['singIn'])){
-if(isset($_POST['login']) && isset($_POST['email']) && isset($_POST['password']) && isset($_POST['second_password'])){
-		if ($con->searchEmail($_POST['email'])==0 ) {
-			$con->Registration($_POST['login'],$_POST['email'],$_POST['password'],$_POST['second_password']);
-		}
-		else{
-			echo("Такой пользователь уже есть!");
-		}
-
+if(isset($_POST['login']) && isset($_POST['email']) && isset($_POST['password'])){
+		$user->setLogin($_POST['login']);
+		$user->setPassword($_POST['password']);
+        $user->setEmail($_POST['email']);
+        if($user->getIdUserFromEmail() == 0){
+            $tmp = $user->AddUser();
+            if($tmp) echo("Регистрация прошла успешно!");
+            else echo("При регистрации возникли ошибки");
+        }
+        else echo("Такой пользователь уже есть!");
 	}
 
-	if(isset($_POST['singNew'])){
-
-		if($con->searchEmail($_POST['email'])!=0){
-		    //Получить id по email
-			$id = $con->searchEmail($_POST['email']);
-			//Генерировать случайный пароль
+	if(isset($_POST['email'])){
+        $user->setEmail($_POST['email']);
+        $id = $user->getIdUserFromEmail();
+        if($id !=0){
+            //Генерировать случайный пароль
             $pass_key = $mail->randPass();
             // смена значения пароля на '1111'
-			$con->rewriteValue($id, 'password', $pass_key);
+            $user->setId($id);
+            $user->setPassword($pass_key);
+            $user->NewPassword();
             //Отправить пароль на почту
-            $mail->SentMail($_POST['email'], $pass_key);
-			echo("<script> alert('На почту выслан новый пароль'); window.location = '../index.php'; </script> ");
-		}
-		else{
-			echo("<script> alert('Пользователя не существует'); window.location = '../index.php'; </script> ");
-		}
+            $mail->SentMail($user->getEmail(), $pass_key);
+            echo("На почту выслан новый пароль");
+        }
+        else{
+            echo("Пользователя не существует");
+        }
 	}
 
  ?>

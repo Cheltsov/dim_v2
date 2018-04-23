@@ -1,5 +1,5 @@
 <?php
-require_once "db.php";
+require_once "../class/db.php";
 
 $con = new Datebase();
 $con->Connection();
@@ -17,15 +17,19 @@ if(isset($_POST['wanna_month_tr2'])){
             array_push($arr_month,$month);  // Месяца в которых есть транзакции
     }
 
-    echo("Месяца в которых есть транзакции");
+    echo("Месяца в которых есть транзакции<br>");
     print_r($arr_month);
     echo("<br>");
 
-    for($i=(int)$arr_month[0];$i<=(int)date('m');$i++){
+   /* for($i=(int)$arr_month[0];$i<=(int)date('m');$i++){
         $rez = $con->getBalanceFromMonth($id_cur_user, $i, 'minus');
         array_push($arr_tmp,$rez);
+    }*/
+    foreach($arr_month as $item){
+        $rez = $con->getBalanceFromMonth($id_cur_user, $item, 'minus');
+        array_push($arr_tmp,$rez);
     }
-
+    echo("Общий баланс за месяц");
     print_r($arr_tmp);
 
     $rezalt = FC_nextMonth($arr_tmp);
@@ -52,8 +56,12 @@ if(isset($_POST['wanna_month_tr'])){
     print_r($arr_month);
     echo("<br>");
 
-    for($i=(int)$arr_month[0];$i<=(int)date('m');$i++){
+   /* for($i=(int)$arr_month[0];$i<=(int)date('m');$i++){
         $rez = $con->getBalanceFromMonth($id_cur_user, $i, 'plus');
+        array_push($arr_tmp,$rez);
+    }*/
+    foreach($arr_month as $item){
+        $rez = $con->getBalanceFromMonth($id_cur_user, $item, 'plus');
         array_push($arr_tmp,$rez);
     }
 

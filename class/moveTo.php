@@ -6,10 +6,10 @@
  * Time: 18:04
  */
 
-class moveTo
+class MoveTo
 {
     public function moveToIndex(){
-        echo("<script>window.location = '../index.php';</script>");
+        echo("<script>window.location = '../../index.php';</script>");
     }
 
     public function moveToMainPage(){

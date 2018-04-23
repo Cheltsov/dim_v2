@@ -2,7 +2,7 @@
 if(!isset($_COOKIE['SingIN'])){
     header('Location:../index.php');
 }
-require "../controlers/control_debt.php";
+
 require "partpage.php";
 
 $part = new partPage();

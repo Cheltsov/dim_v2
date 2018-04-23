@@ -17,7 +17,7 @@ $(document).ready(function(){
             var obj = JSON.parse(data);
             for(i=0;i<obj.length-1;i++){
                 //$(".courses").append("<tr><td>"+obj[i]['ccy']+"</td><td>"+parseFloat(obj[i]['buy']).toFixed(2)+"</td><td>"+parseFloat(obj[i]['sale']).toFixed(2)+"</td></tr>");
-                $(".courses").append("<tr><td>"+obj[i]['ccy']+"</td><td>"+obj[i]['buy']+"</td><td>"+obj[i]['sale']+"</td></tr>");
+                $(".courses").append("<tr><td>"+obj[i]['ccy']+"</td><td>"+parseFloat(obj[i]['buy']).toFixed(2)+"</td><td>"+parseFloat(obj[i]['sale']).toFixed(2)+"</td></tr>");
             }
         }
     );

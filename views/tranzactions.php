@@ -4,7 +4,7 @@ if(!isset($_COOKIE['SingIN'])){
 }
 require "../controlers/control_main_page.php";
 
-require "../controlers/control_tranzactions.php";
+//require "../controlers/control_tranzactions.php";
 
 
 
@@ -416,6 +416,7 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
             {test_event: "1"},
             function(data){
                 alert(data);
+                location.reload();
             }
         );
 
@@ -458,8 +459,8 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
             {conv : "1"},
             function(data){
                 var obj = JSON.parse(data);
-                for(i=0,j=2,v=3;i<obj.length;i+=10,j+=10,v+=10){
-                    $("#name_cash").append("<label>"+obj[j]+"("+obj[v]+")</label>&nbsp<input type='number' id='cov"+obj[i]+"' class='in_conv' step='any' name='cov_bal'><br><br>");
+                for(i=0,j=2,v=3,b=5;i<obj.length;i+=10,j+=10,v+=10,b+=10){
+                    $("#name_cash").append("<label>"+obj[j]+"("+obj[v]+")</label>&nbsp<input type='number' id='cov"+obj[i]+"' class='in_conv' step='any' name='cov_bal' value='"+obj[b]+"'><br><br>");
                 }
                 $("#name_cash").append("<button id = 'add_conv'>Добавить</button>");
             }
@@ -467,9 +468,56 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
         $("#dialog_conv").dialog('open');
     });
 
-    $("#name_cash").submit(function(){
-        alert($(".in_conv").val());
+    var ary = [];
+    cashs_json = "";
+
+    $("#name_cash").on("click keyup",".in_conv",function(){
+
+
+        id_cash = $(this).attr("id").substring(3);
+        bal = $(this).val();
+
+        var obj = {};
+        obj[id_cash] = bal;
+        ary.push(obj);
+        for (var key in ary) {
+            for (var key2 in ary[key]){
+                console.log("k= "+key2+" rr="+ary[key][key2]);
+                if(key2 == id_cash){
+                    ary[key][key2] = bal;
+                }
+            }
+        }
+
+
+
+
+
+        cashs_json = JSON.stringify(ary);
     });
+
+
+
+
+    $("#name_cash").on("click","#add_conv",function(){
+        $("#name_cash").empty();
+        alert(cashs_json);
+        $.post(
+            "../controlers/control_tranzactions.php",
+            { na_cashs_josn : cashs_json},
+            function(data){
+                alert(data);
+                //location.reload();
+            }
+        );
+    });
+
+
+
+
+
+
+
 
 </script>
 

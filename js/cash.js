@@ -12,10 +12,10 @@ $.post(
         data = JSON.parse(data);
         for(i=4,n=2,id=0,b=5,t=3;i<data.length;i+=10,n+=10,id+=10,b+=10,t+=10){
             if(data[i]==1){
-                $("#hands").append("<li><button class='type' id='"+data[id]+"'>"+data[n]+":"+data[b]+" ("+data[t]+") </button></li>");
+                $("#hands").append("<li><button class='type' id='"+data[id]+"'>"+data[n]+":"+parseFloat(data[b]).toFixed(2)+" ("+data[t]+") </button></li>");
             }
             if(data[i]==2){
-                $("#cards").append("<li><button class='type' id='"+data[id]+"'>"+data[n]+":"+data[b]+" ("+data[t]+") </button></li>");
+                $("#cards").append("<li><button class='type' id='"+data[id]+"'>"+data[n]+":"+parseFloat(data[b]).toFixed(2)+" ("+data[t]+") </button></li>");
             }
         }
     }
@@ -217,7 +217,7 @@ function mores(idbut){
 
             $("#content").append("<br><br>Название: "+data[2]+"<br><br>");
             $("#content").append("Валюта: "+data[3]+"<br><br>");
-            $("#content").append("Баланс: "+data[5]+"<br><br>");
+            $("#content").append("Баланс: "+parseFloat(data[5]).toFixed(2)+"<br><br>");
             $("#content").append("Дата создания: "+data[7]+"<br><br>");
             $("#content").append("Дата изменения: "+data[8]+"<br><br>");
             $("#content").append("Создатель: "+data[1]+"<br><br>");
@@ -259,7 +259,7 @@ $("#up_cash").click(function(){
                 $("#name_cash").val(dataj[2]);
                 $("#number4").val(dataj[3]).selectmenu('refresh');
                 $("#number3").val(dataj[4]).selectmenu('refresh');
-                $("#balance").val(dataj[5]);
+                $("#balance").val(parseFloat(dataj[5]).toFixed(2));
                 $("#comment").val(dataj[6]);
                 if($( "#number3" ).val()==2){
                     //$("#dop_content3").empty();
@@ -277,7 +277,7 @@ $("#update_form").submit(function() {
 
     $.post("../controlers/control_cash.php",
         {
-            newname_cash: $("input[name='new_name_cash']").val(),
+            newname_cash: ucFirst($("input[name='new_name_cash']").val()),
 
             newtype_cash:$("select[name='new_type_cash']").val(),
 
@@ -285,9 +285,9 @@ $("#update_form").submit(function() {
 
             newtype_money:$("select[name='new_type_money']").val(),
 
-            newbalance:$("input[name='new_balance']").val(),
+            newbalance: parseFloat($("input[name='new_balance']").val()).toFixed(2),
 
-            newcomment:$("textarea[name='new_comment']").val(),
+            newcomment: ucFirst($("textarea[name='new_comment']").val()),
 
             id_cash: $("#id_cash").text()
         },
@@ -308,10 +308,15 @@ $( "#number4" ).on( "selectmenuchange", function( event, ui ) {
         {
             last_course : last_course,
             val : $("#number4").val(),
-            bal : $("input[name='new_balance']").val()
+            bal : parseFloat($("input[name='new_balance']").val()).toFixed(2)
         },
         function(data){
             data =  parseFloat(data).toFixed(2);
             $("#balance").val(data);
         });
 } );
+
+function ucFirst(str) {
+    if (!str) return str;
+    return str[0].toUpperCase() + str.slice(1);
+}

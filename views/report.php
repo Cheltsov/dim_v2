@@ -4,7 +4,6 @@ if(!isset($_COOKIE['SingIN'])){
 }
 require "../controlers/control_main_page.php";
 
-require "../controlers/control_report.php";
 
 require "partpage.php";
 $part = new partPage();
