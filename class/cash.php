@@ -117,7 +117,6 @@ class Cash extends Datebase
             $cash = R::find('cash',"iduser = '$this->id_user'");
             foreach($cash as $item){
                 array_push($arr_cash,$item->id,$item->id_user,$item->name,$item->type_money,$item->type_cash,$item->balance, $item->comment, $item->data_create, $item->data_update, $item->num_card);
-
             }
             echo (json_encode($arr_cash));
         }

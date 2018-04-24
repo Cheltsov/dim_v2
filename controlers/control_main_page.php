@@ -1,13 +1,19 @@
 <?php
 require_once "../class/db.php";
+require_once "../class/user.php";
+require_once "../class/tranzaction.php";
+require_once "../class/translate.php";
 require_once 'getCourse.php';
 
 $con = new Datebase();
-$con->Connection();
+
+$user = new User();
+$traz = new Tranzaction();
+$tras = new Translate();
 
 $course = getCourse();
 
-$id_cur_user = $con->findIdUser();
+$id_cur_user = $user->getUserId_Cookie();
 
 if(isset($_POST['wanna_course'])){ // Получить курс валют
     /*$arr_tmp = getCourse();
@@ -36,15 +42,17 @@ if(isset($_POST['wanna_all_balance'])){ //Получить баланс по в�
 }
 
 if(isset($_POST['getTrMinFromData']) && isset($_POST['data_tr_start'])){
-        if($_POST['data_tr_end']!=""){
-            $rez = $con->getTrMinFromDataRange($id_cur_user, $_POST['data_tr_start'],$_POST['data_tr_end']);
-            echo($rez);
-        }
-        else{
-            $rez = $con->getTrMinFromData( $id_cur_user, $_POST['data_tr_start']);
-            echo($rez);
-        }
-
+    $traz->setUser_Id($id_cur_user);
+    $traz->setStatus("minus");
+    if($_POST['data_tr_end']!=""){
+        $rez = $traz->getTranzByRange( $_POST['data_tr_start'],$_POST['data_tr_end']);
+        echo($rez);
+    }
+    else{
+        $traz->setData($_POST['data_tr_start']);
+        $rez = $traz->getTranzFromData();
+        echo($rez);
+    }
 }
 
 if(isset($_POST['getTrPlusFromData']) && isset($_POST['data_tr_start'])){

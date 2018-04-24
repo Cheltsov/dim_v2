@@ -104,9 +104,9 @@ require "../controlers/control_main_page.php";
     </div>
     <div id="dialog" >
         <h3 style="text-align:center; width:100%">Добавите кошелек</h3> <br>
-        <form action="../controlers/control_cash.php" method="post" id="dia_form">
+        <form action="" method="post" id="dia_form">
             <p>Название:</p>
-            <input type="text"  required name="name_cash"><br><br>
+            <input type="text"  required name="name_cash_add"><br><br>
             <p>Тип кошелька:</p>
             <select name="type_cash" id="number1" required >
                 <option value="1">Наличные</option>
@@ -122,7 +122,7 @@ require "../controlers/control_main_page.php";
                 <option value="RUR">RUR</option>
             </select><br><br>
             <p>Начальный баланс:</p>
-            <input type="number"  step="any" name="balance"> <br><br>
+            <input type="number"  step="any" name="balance_add"> <br><br>
             <p>Комментарий:</p>
             <textarea name="comment" id="" cols="20" rows="5" name="comment"></textarea><br><br>
             <input type="submit" value="Добавить" name="add_cash" id="sub">
@@ -191,6 +191,17 @@ require "../controlers/control_main_page.php";
 
 <script>
 
+    $("#dia_form").submit(function(){ //Добавить Кошелек
+        $.ajax({
+            type: 'POST',
+            url: '../controlers/control_cash.php',
+            data: $(this).serialize(),
+
+        }).done(function(data){
+            alert(data);
+            window.location = '../views/cash.php';
+        });
+    });
 
 
 </script>

@@ -1,14 +1,14 @@
 $(document).ready(function(){
     $("#menu .but_forCash").click(function() {
-        $(this).next().toggle("fast");
-        return false;
-    }).next().slow();
+            $(this).next().toggle("fast");
+            return false;
+        }).next().slow();
 });
 $.post(
     "../controlers/control_cash.php",
     {wanna_info_cash : "1"},
     function(data){
-        //alert(data);
+        alert(data);
         data = JSON.parse(data);
         for(i=4,n=2,id=0,b=5,t=3;i<data.length;i+=10,n+=10,id+=10,b+=10,t+=10){
             if(data[i]==1){

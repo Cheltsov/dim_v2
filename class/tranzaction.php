@@ -332,4 +332,17 @@ class Tranzaction extends Datebase{
         return round($all_bal_from_month,2);
     }
 
+    function getDataByTranz(){ // получить дату транзакции по статусу
+        $arr_tmp = array();
+        $now_month = date("m");
+        $tr = R::find('tranzaction',"user_id = $this->id_user and status = '$this->status' and month(data)<$now_month order by data ");
+
+        foreach($tr as $item){
+            array_push($arr_tmp,substr($item->data, 0,10));
+        }
+        $result = array_unique($arr_tmp);
+        R::close();
+        return($result);
+    }
+
 }

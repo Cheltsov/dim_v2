@@ -34,18 +34,16 @@
 require_once "../class/user.php";
 require_once "../class/cash.php";
 require_once "../class/cashmonth.php";
-require_once "../class/tranzaction.php";
-require_once "../class/translate.php";
 
 
 $user = new User();
 $cash = new Cash();
 $cashmonth = new CashMonth();
-$traz = new Tranzaction();
-$tras = new Translate();
+
 
 
 $id_cur_user = $user->getUserId_Cookie();
+
 /*
 if(isset($_POST['first_name']) && isset($_POST['sing'])){
     $user->setLogin($_POST['first_name']);
@@ -64,7 +62,8 @@ if(isset($_POST['test_cash_id'])){
 
 if(isset($_POST['test_cash_id'])) {
 
-
+    $cash->setId_User($id_cur_user);
+    $cash->getListCashFromId_User();
 
 
 

@@ -1,10 +1,12 @@
 <?php
 require_once "../class/db.php";
+require_once "../class/user.php";
 
 $con = new Datebase();
-$con->Connection();
 
-$id_cur_user = $con->findIdUser();
+$user = new User();
+
+$id_cur_user = $user->getUserId_Cookie();
 
 if(isset($_POST['wanna_month_tr2'])){
     $arr_month = array();

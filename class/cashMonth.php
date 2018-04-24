@@ -67,7 +67,7 @@ class CashMonth
 
     public function AddCashMonth(){ //createCashMonth
         try{
-            $cash = R::findAll("cash","iduser = $this->id_user and name = '$this->name' and type_money = $this->type_money and type_cash = $this->type_cash");
+            $cash = R::findAll("cash","iduser = $this->id_user and name = '$this->name' and type_money = '$this->type_money' and type_cash = $this->type_cash");
             foreach($cash as $item){
                 $tmp_id_cash = $item->id;
             }
@@ -121,18 +121,18 @@ class CashMonth
         return $arr_tmp;
     }
 
-   /* public function delCash_FromId(){ //delCash
+    public function delCashMonth_FromId_Cash(){ //delCash
         try{
-            $cash = R::load("cash", $this->id);
-            echo($cash->name);
-            R::trash($cash);
+            $cashmonth = R::load("cashmonth", $this->id);
+            echo($cashmonth->name);
+            R::trash($cashmonth);
             return true;
-            }
+        }
         catch(Exception $e){
             echo($e);
         }
         R::close();
-    }*/
+    }
 
     public function getCashMonthID_from_Cash(){ //findCashMonthID_from_Cash
         $id_cashmonth = 0;
@@ -141,6 +141,21 @@ class CashMonth
             $id_cashmonth = $item->id;
         }
         return $id_cashmonth;
+        R::close();
+    }
+
+    public function UpdateCashMonth(){ //updateCashMonth
+        try{
+            $cash_month = R::load('cashmonth', $this->id);
+            $cash_month->name = $this->name;
+            $cash_month->type_month = $this->type_month;
+            $cash_month->type_cash = $this->type_cash;
+            R::store($cash_month);
+            return true;
+        }
+        catch(Exception $e){
+            echo($e);
+        }
         R::close();
     }
 

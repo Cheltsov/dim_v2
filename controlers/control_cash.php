@@ -1,26 +1,46 @@
 <?php
 require_once "../class/db.php";
+require_once "../class/user.php";
+require_once "../class/cash.php";
+require_once "../class/cashmonth.php";
 require_once "getCourse.php";
 
-$con = new Datebase();
-$con->Connection();
+$user = new User();
+$cash = new Cash();
+$cashmonth = new CashMonth();
 
-$id_cur_user = $con->findIdUser();
+
+$id_cur_user = $user->getUserId_Cookie();
 
 if(isset($_POST['wanna_info_cash'])){
-    $cashs = $con->getCashList($id_cur_user);
+    $cash->setId_User($id_cur_user);
+    $cash->getListCashFromId_User();
 }
 
  // Получить кошельки по id пользователя return массив
 
 
-if(isset($_POST['add_cash'])){
-
+if(isset($_POST['name_cash_add'])){
     try{
         if(!isset($_POST['num_card'])) $_POST['num_card'] ="";
-        $con->Insert_Cash($_POST['name_cash'],$_POST['type_money'],$_POST['num_card'],$_POST['type_cash'],$_POST['balance'],$_POST['comment']);
+        $cash->setName($_POST['name_cash_add']);
+        $cash->setType_Money($_POST['type_money']);
+        $cash->setNum_Card($_POST['num_card']);
+        $cash->setType_Cash($_POST['type_cash']);
+        $cash->setBalance($_POST['balance_add']);
+        $cash->setComment($_POST['comment']);
+        $cash->setId_User($id_cur_user);
+        $cash->Create_Cash();
 
-        echo("<script>alert('Кошелек успешно добавлен!');window.location = '../views/cash.php';</script>");
+        $cashmonth->setName($_POST['name_cash_add']);
+        $cashmonth->setId_User($id_cur_user);
+        $cashmonth->setType_Money($_POST['type_money']);
+        $cashmonth->setType_Cash($_POST['type_cash']);
+        $cashmonth->setBalance($_POST['balance_add']);
+
+        $cashmonth->AddCashMonth();
+
+        echo("Кошелек успешно добавлен!");
     }
     catch (Exception $e){
         echo($e);
@@ -30,30 +50,31 @@ if(isset($_POST['add_cash'])){
 
 
 
-$temp = $con->getCash($id_cur_user);
+//$temp = $con->getCash($id_cur_user);
 
 
-
+/*
 function getTempCash(){
     return $GLOBALS['temp'];
-}
+}*/
 
 
 
 if(isset($_POST['id_but'])){
-    $numberToCash = $_POST['id_but'];
-    $arr_infoFromId = $con->getIdCash($numberToCash);
-
-    $infoToIdCash = $GLOBALS['arr_infoFromId'];
-
-
-
-    echo(json_encode($infoToIdCash));
+    $cash->setId($_POST['id_but']);
+    $tmp = $cash->getCashFromId();
+    echo(json_encode($tmp));
 
 }
 
 if(isset($_POST['num_id'])){
-    $con->delCash($_POST['num_id']);
+    $cash->setId($_POST['num_id']);
+    $cash->delCashFromId();
+
+    $cashmonth->setId_Cash($_POST['num_id']);
+    $id = $cashmonth->getCashMonthID_from_Cash();
+    $cashmonth->setId($id);
+    $cashmonth->delCashMonth_FromId_Cash();
 }
 /*
 if(isset($_POST['queryBut'])){
@@ -62,13 +83,28 @@ if(isset($_POST['queryBut'])){
 }*/
 
 if(isset($_POST['up_cash'])){
-    $id_cash = $_POST['up_cash'];
-    $row_cash = $con->getIdCash($id_cash);
+    $cash->setId($_POST['up_cash']);
+    $row_cash = $cash->getCashFromId();
     echo(json_encode($row_cash));
 }
 
 if(isset($_POST['newname_cash']) && isset($_POST['newtype_cash']) && isset($_POST['newtype_money']) && isset($_POST['newbalance'])){
-    $con->updataCash($_POST['id_cash'],$_POST['newname_cash'],$_POST['newtype_money'],$_POST['newtype_cash'],$_POST['newbalance'], $_POST['newcomment']);
+    $cash->setId($_POST['id_cash']);
+    $cash->setName($_POST['newname_cash']);
+    $cash->setType_Money($_POST['newtype_money']);
+    $cash->setType_Cash($_POST['newtype_cash']);
+    $cash->setBalance($_POST['newbalance']);
+    $cash->setComment($_POST['newcomment']);
+    $cash->UpdateCash();
+
+    $cashmonth->setName($_POST['newname_cash']);
+    $cashmonth->setId_Cash($cash->getId());
+    $cashmonth->setType_Money($_POST['newtype_money']);
+    $cashmonth->setType_Cash($_POST['newtype_cash']);
+
+    $id = $cashmonth->getCashMonthID_from_Cash();
+    $cashmonth->setId($id);
+    $cashmonth->UpdateCashMonth();
 }
 
 
