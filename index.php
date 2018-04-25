@@ -130,7 +130,7 @@
                 <p class="text_auto">Забыли пароль?</p>
 
                 <form  class="form1" id="new_pass">
-                    <input type="email" placeholder="Введите email" required name="email" maxlength="50" id="last_email"> <br>
+                    <input type="email" placeholder="Введите email" required name="email_new" maxlength="50" id="last_email"> <br>
                     <input type="submit"  value="Обновить пароль" name="singNew">
                 </form>
             </div>

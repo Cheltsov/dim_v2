@@ -20,6 +20,7 @@ class Datebase
             exit("Подключение к базе не установлено!");
         }
     }
+
     function Connection(){
         if(! R::testConnection()){
             R::setup('mysql:host='.HOST.'; dbname='.DBNAME.'; charset=utf8', ADMIN, PASS);
@@ -29,236 +30,211 @@ class Datebase
         }
     }
 
+//
+//    //Перенес
+//    function getUsers(){
+//        $arr_tmp = array();
+//        $users = R::findAll('users');
+//        foreach($users as $item){
+//            array_push($arr_tmp, $item->email);
+//        }
+//        return $arr_tmp;
+//    }
+//    //Перенес
+//    function findIdUser(){
+//        $users = R::findAll('users');
+//        foreach($users as $item){
+//            $name = $item->login;
+//            if($name == $_COOKIE['SingIN'])
+//                $idUser = ($item->id);
+//        }
+//        return  $idUser;
+//    }
+//
+//    function findIdUserFromEmail($email){
+//        $user = R::findAll('users',"email = '$email'");
+//        foreach($user as $item){
+//            return $item->id;
+//        }
+//    }
 
-    // Перенес
-    function Insert_Registration($login,$email,$password){
-        try{
-           $users = R::dispense("users");
-           //$users->iduser =$users->id;
-           $users->login =$login;
-           $users->email=$email;
-           $users->password=$password;
-           $users->date= R::isoDateTime();
-           R::store($users);
-
-          /* $groups=R::dispense("groups");
-           $groups->id_user =
-          $roups->id_admin =  *///$idUser = $users->id;
-
-           /* $user = R::load("users", $idUser);
-            $user->iduser=$users->id;
-            R::store($user);*/
-        }
-        catch(Exception $e){
-            echo($e);
-        }
-        //R::freeze(); заморозка
-        R::close();
-    }
-    //Перенес
-    function getUsers(){
-        $arr_tmp = array();
-        $users = R::findAll('users');
-        foreach($users as $item){
-            array_push($arr_tmp, $item->email);
-        }
-        return $arr_tmp;
-    }
-    //Перенес
-    function findIdUser(){
-        $users = R::findAll('users');
-        foreach($users as $item){
-            $name = $item->login;
-            if($name == $_COOKIE['SingIN'])
-                $idUser = ($item->id);
-        }
-        return  $idUser;
-    }
-
-    function findIdUserFromEmail($email){
-        $user = R::findAll('users',"email = '$email'");
-        foreach($user as $item){
-            return $item->id;
-        }
-    }
-
-    function Create_Cop($id_user, $namew, $type_money, $num_card, $type_cash, $balance,$comment){
-            $cash = R::dispense("cash");
-            $cash->iduser = $id_user;
-            $cash->name = $namew;
-            $cash->type_money = $type_money;
-            $cash->num_card = $num_card;
-            $cash->type_cash = $type_cash;
-            $cash->balance = $balance;
-            $cash->comment = $comment;
-            $cash->date_create = R::isoDateTime();
-            $cash->date_update = R::isoDateTime();
-            R::store($cash);
-            R::close();
-    }
-
-    function Insert_Cash($namew, $type_money, $num_card, $type_cash, $balance,$comment){
-        try{
-            $connect = new Datebase();
-            $tmp_idUser = $connect->findIdUser();
-
-            $cash = R::dispense("cash");
-            $cash->iduser = $tmp_idUser;
-            $cash->name = $namew;
-            $cash->type_money = $type_money;
-            $cash->num_card = $num_card;
-            $cash->type_cash = $type_cash;
-            $cash->balance = $balance;
-            $cash->comment = $comment;
-            $cash->date_create = R::isoDateTime();
-            $cash->date_update = R::isoDateTime();
-            R::store($cash);
-
-            $connect->createCashMonth($tmp_idUser, $namew, $type_money, $type_cash, $balance); // Создание кошелька на месяц
-        }
-        catch(Exception $e){
-            echo($e);
-        }
-        R::close();
-    }
-    //Перенес
-    function createCashMonth($id_user, $name, $type_money, $type_cash, $balance){ // Создание кошелька на месяц
-        try{
-            $cash = R::findAll("cash","iduser = $id_user and name = '$name' and type_money = '$type_money' and type_cash = $type_cash");
-            foreach($cash as $item){
-                $tmp_id_cash = $item->id;
-            }
-            $cash_month = R::dispense("cashmonth");
-            $cash_month->id_cash = $tmp_id_cash;
-            $cash_month->id_user = $id_user ;
-            $cash_month->name = $name;
-            $cash_month->type_money = $type_money;
-            $cash_month->type_cash = $type_cash;
-            $cash_month->balance = $balance;
-            R::store($cash_month);
-        }
-        catch(Exception $e){
-            echo($e);
-        }
-        R::close();
-    }
-
-    function Read($login_input){
-       //$loa =  R::load('users','1');
-       // $loads = R::loadAll('users', array());
-       //echo "<pre>"; print_r($loads); echo "</pre>";
-       /* foreach ($loads as $test){
-            echo($test->login);
-            echo("<br>");
-        }*/
-      // Перенес
-    }
-
-    function testLogin($login_input){
-        $names = R::find('users');
-        foreach ( $names as $item) {
-            if($item->login == $login_input){
-                $flag=true;
-            }
-            else{
-                $flag=false;
-            }
-        }
-        if($flag == true){
-            return true;
-        }
-        else{
-            return false;
-        }
-        R:close();
-      //Перенес
-        }
-
-    function searchEmail($email_input){
-        $flag = 0;
-        $e_names = R::findAll('users');
-        foreach ($e_names as $item) {
-            if($item->email == $email_input){
-                $flag = $item->id;
-            }
-        }
-        R::close();
-        return $flag;
-
-    }
-
-
-    function rewriteValue($id, $row, $value){
-        try{
-            $names = R::find('users');
-            $usersAll = R::load("users", $id);
-            $usersAll->$row=md5($value);
-            R::store($usersAll);
-        }
-        catch(Exception $e){
-            echo($e);
-        }
-        //R::freeze(); заморозка
-        R::close();
-    }
-
-//Перенес
-    function Registration($login,$item_email,$password,$second_password){
-        $rou = new moveTo();
-        $connect = new Datebase();
-
-        if(!$connect->testLogin($login)){
-            $item_login = $login;
-        }
-        else{
-            echo("Такой пользователь существует')");
-            $rou->moveToIndex();
-        }
-        if(strlen($password)<30){
-            if($password == $second_password){
-                $item_password = md5($password);
-            }
-            else{
-                echo("Пароли не совпадают");
-            }
-        }
-        try {
-            if(isset($item_login) && isset($item_email) && isset($item_password)){
-              $connect->Insert_Registration($item_login,$item_email,$item_password);
-                $id_user = $connect->searchEmail($item_email);
-                $connect->Create_Cop($id_user, "Копилка", "UAH", null, "1", 0,"");
-              //echo("<script> alert('Регистрация прошла успешно!'); </script>");
-                echo('Регистрация прошла успешно!');
-              //$rou->moveToIndex();
-            }
-        }
-        catch (Exception $e) {
-            echo("Введите поля правильно");
-        }
-    }
-    //Перенес
-    function singIn($login,$password){
-        $rou = new moveTo();
-        $names = R::findAll('users');
-        foreach ($names as $item) {
-            if($login == $item->login) $your_pass = $item->password;
-        }
-        if(!isset($your_pass)){
-            $_SESSION['login'] = "0";
-            echo("<script> alert('Такого пользователя нет'); </script> ");
-            $rou->moveToIndex();
-            exit;
-        }
-        if($your_pass == md5($password)){
-            setcookie("SingIN", $login, time()+60*60*24*365*10, '/');
-            echo(1);
-        }
-        else{
-            $_SESSION['login'] = "1";
-            $rou->moveToIndex();
-        }
-        R::close();
-    }
+//    function Create_Cop($id_user, $namew, $type_money, $num_card, $type_cash, $balance,$comment){
+//            $cash = R::dispense("cash");
+//            $cash->iduser = $id_user;
+//            $cash->name = $namew;
+//            $cash->type_money = $type_money;
+//            $cash->num_card = $num_card;
+//            $cash->type_cash = $type_cash;
+//            $cash->balance = $balance;
+//            $cash->comment = $comment;
+//            $cash->date_create = R::isoDateTime();
+//            $cash->date_update = R::isoDateTime();
+//            R::store($cash);
+//            R::close();
+//    }
+//
+//    function Insert_Cash($namew, $type_money, $num_card, $type_cash, $balance,$comment){
+//        try{
+//            $connect = new Datebase();
+//            $tmp_idUser = $connect->findIdUser();
+//
+//            $cash = R::dispense("cash");
+//            $cash->iduser = $tmp_idUser;
+//            $cash->name = $namew;
+//            $cash->type_money = $type_money;
+//            $cash->num_card = $num_card;
+//            $cash->type_cash = $type_cash;
+//            $cash->balance = $balance;
+//            $cash->comment = $comment;
+//            $cash->date_create = R::isoDateTime();
+//            $cash->date_update = R::isoDateTime();
+//            R::store($cash);
+//
+//            $connect->createCashMonth($tmp_idUser, $namew, $type_money, $type_cash, $balance); // Создание кошелька на месяц
+//        }
+//        catch(Exception $e){
+//            echo($e);
+//        }
+//        R::close();
+//    }
+//    //Перенес
+//    function createCashMonth($id_user, $name, $type_money, $type_cash, $balance){ // Создание кошелька на месяц
+//        try{
+//            $cash = R::findAll("cash","iduser = $id_user and name = '$name' and type_money = '$type_money' and type_cash = $type_cash");
+//            foreach($cash as $item){
+//                $tmp_id_cash = $item->id;
+//            }
+//            $cash_month = R::dispense("cashmonth");
+//            $cash_month->id_cash = $tmp_id_cash;
+//            $cash_month->id_user = $id_user ;
+//            $cash_month->name = $name;
+//            $cash_month->type_money = $type_money;
+//            $cash_month->type_cash = $type_cash;
+//            $cash_month->balance = $balance;
+//            R::store($cash_month);
+//        }
+//        catch(Exception $e){
+//            echo($e);
+//        }
+//        R::close();
+//    }
+//
+//    function Read($login_input){
+//       //$loa =  R::load('users','1');
+//       // $loads = R::loadAll('users', array());
+//       //echo "<pre>"; print_r($loads); echo "</pre>";
+//       /* foreach ($loads as $test){
+//            echo($test->login);
+//            echo("<br>");
+//        }*/
+//      // Перенес
+//    }
+//
+//    function testLogin($login_input){
+//        $names = R::find('users');
+//        foreach ( $names as $item) {
+//            if($item->login == $login_input){
+//                $flag=true;
+//            }
+//            else{
+//                $flag=false;
+//            }
+//        }
+//        if($flag == true){
+//            return true;
+//        }
+//        else{
+//            return false;
+//        }
+//        R:close();
+//      //Перенес
+//        }
+//
+//    function searchEmail($email_input){
+//        $flag = 0;
+//        $e_names = R::findAll('users');
+//        foreach ($e_names as $item) {
+//            if($item->email == $email_input){
+//                $flag = $item->id;
+//            }
+//        }
+//        R::close();
+//        return $flag;
+//
+//    }
+//
+//
+//    function rewriteValue($id, $row, $value){
+//        try{
+//            $names = R::find('users');
+//            $usersAll = R::load("users", $id);
+//            $usersAll->$row=md5($value);
+//            R::store($usersAll);
+//        }
+//        catch(Exception $e){
+//            echo($e);
+//        }
+//        //R::freeze(); заморозка
+//        R::close();
+//    }
+//
+////Перенес
+//    function Registration($login,$item_email,$password,$second_password){
+//        $rou = new moveTo();
+//        $connect = new Datebase();
+//
+//        if(!$connect->testLogin($login)){
+//            $item_login = $login;
+//        }
+//        else{
+//            echo("Такой пользователь существует')");
+//            $rou->moveToIndex();
+//        }
+//        if(strlen($password)<30){
+//            if($password == $second_password){
+//                $item_password = md5($password);
+//            }
+//            else{
+//                echo("Пароли не совпадают");
+//            }
+//        }
+//        try {
+//            if(isset($item_login) && isset($item_email) && isset($item_password)){
+//              $connect->Insert_Registration($item_login,$item_email,$item_password);
+//                $id_user = $connect->searchEmail($item_email);
+//                $connect->Create_Cop($id_user, "Копилка", "UAH", null, "1", 0,"");
+//              //echo("<script> alert('Регистрация прошла успешно!'); </script>");
+//                echo('Регистрация прошла успешно!');
+//              //$rou->moveToIndex();
+//            }
+//        }
+//        catch (Exception $e) {
+//            echo("Введите поля правильно");
+//        }
+//    }
+//    //Перенес
+//    function singIn($login,$password){
+//        $rou = new moveTo();
+//        $names = R::findAll('users');
+//        foreach ($names as $item) {
+//            if($login == $item->login) $your_pass = $item->password;
+//        }
+//        if(!isset($your_pass)){
+//            $_SESSION['login'] = "0";
+//            echo("<script> alert('Такого пользователя нет'); </script> ");
+//            $rou->moveToIndex();
+//            exit;
+//        }
+//        if($your_pass == md5($password)){
+//            setcookie("SingIN", $login, time()+60*60*24*365*10, '/');
+//            echo(1);
+//        }
+//        else{
+//            $_SESSION['login'] = "1";
+//            $rou->moveToIndex();
+//        }
+//        R::close();
+//    }
 
     /* function getIdCash($iduser){
          /*$cashes = R::findAll('usercash');

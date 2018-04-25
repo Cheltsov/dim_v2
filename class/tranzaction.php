@@ -335,7 +335,8 @@ class Tranzaction extends Datebase{
     function getDataByTranz(){ // получить дату транзакции по статусу
         $arr_tmp = array();
         $now_month = date("m");
-        $tr = R::find('tranzaction',"user_id = $this->id_user and status = '$this->status' and month(data)<$now_month order by data ");
+        $tr = R::find('tranzaction',"user_id = $this->user_id and status = '$this->status' and month(data)<$now_month order by data ");
+
 
         foreach($tr as $item){
             array_push($arr_tmp,substr($item->data, 0,10));
@@ -343,6 +344,65 @@ class Tranzaction extends Datebase{
         $result = array_unique($arr_tmp);
         R::close();
         return($result);
+    }
+
+
+    public function getBalanceByData(){
+        $balance = 0;
+        $tr_one_day = Array();
+        $balances = array();
+        $datas_tr = array();
+        $tr_all_day = array();
+        $data_tr = R::getAll("select date(data) as data from tranzaction where user_id = $this->user_id and status = '$this->status' and month(data)='$this->data' group by date(data)");
+        foreach($data_tr as $tmp){
+            array_push($datas_tr,$tmp);
+        }
+        foreach($datas_tr as $item){
+            /* $usd_sale = 1;
+             $eur_sale = 1;
+             $rur_sale = 1;*/
+            //$tr = R::getAll("select date(data) as data, balance, cash from tranzaction where user_id = $id_user and status = '$status' and date(data) = '".$item['data']."'");
+            $tr = R::getAll("select date(data) as data, tranzaction.balance, tranzaction.name as name, cash, cash.type_money, tranzaction.course as course from tranzaction inner join cash on tranzaction.cash=cash.id where user_id = $this->user_id and status = '$this->status' and date(data)='".$item['data']."'");
+            //$tr = R::getAll("select date(tranzaction.data) as data, tranzaction.balance, cash, cash.type_money, day(tranzaction.data) as daytr from tranzaction inner join cash on tranzaction.cash=cash.id where user_id = $id_user and status = '$status' and date(data)='".$item['data']."' order by tranzaction.data");
+            //array_push($tr_one_day, $this->getEachTranzByChart($item['data']));
+            foreach($tr as $item){
+                if($item['course'] != 0){
+                    $balance += $item['balance'] * $item['course'];
+                }
+                else{
+                    $balance += $item['balance'];
+                }
+            }
+
+            array_push($tr_all_day, new LineChart($item["data"], round($balance,2), $item['name']));
+            $balance = 0;
+
+//            //$line_chart->setData($item["data"]);
+//            $line_chart->setBalance(round($balance,2));
+//            array_push($tr_all_day, $line_chart->getData(),$line_chart->getBalance());
+        }
+        R::close();
+        //return $tr_one_day;
+        return $tr_all_day;
+        //return $courses;
+    }
+
+    public function getEachTranzByChart($data){
+        $arr_tmp = Array();
+        $balance = 0;
+        $tr = R::getAll("select date(data) as data, tranzaction.balance as balance, tranzaction.name as name, cash, cash.type_money, tranzaction.course as course from tranzaction inner join cash on tranzaction.cash=cash.id where user_id = $this->user_id and status = '$this->status' and date(data)='$data'");
+        foreach($tr as $item){
+            if($item['course'] != 0){
+                $balance = $item['balance'] * $item['course'];
+            }
+            else{
+                $balance = $item['balance'];
+            }
+            $line_chart = new LineChart($item["data"], round($balance,2), $item['name']);
+            $line_chart->setType_Money($item['type_money']);
+            array_push($arr_tmp, $line_chart);
+        }
+        return $arr_tmp;
     }
 
 }

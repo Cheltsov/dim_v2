@@ -1,12 +1,17 @@
 <?php
 require_once "../class/db.php";
+require_once "../class/user.php";
+require_once "../class/tranzaction.php";
+require_once "../class/linechart.php";
 
 $con = new Datebase();
-$con->Connection();
 
-$id_cur_user = $con->findIdUser();
+$user = new User();
+$traz = new Tranzaction();
 
-$temp = $con->getCash($id_cur_user);
+$id_cur_user = $user->getUserId_Cookie();
+
+//$temp = $con->getCash($id_cur_user);
 /*
 if(isset($_POST['wanna_info_tr'])){
     $all_balance = 0;
@@ -18,50 +23,48 @@ if(isset($_POST['wanna_info_tr'])){
     }
     echo($all_balance);
 }*/
-if(isset($_POST['wanna_info_tr_plus'])){
-    $arr_tr_plus =array();
-    $tmp =array();
-    $id_cur_user = $con->findIdUser();
-    $data_tr_plus = $con->getDataOfTr($id_cur_user,'plus'); // получить даты транзакций плюс
-   // echo (json_encode($con->getAllBalOfData( $id_cur_user, "plus", $month)));
-    echo (json_encode($con->getAllBalOfData( $id_cur_user, "plus")));
-    //echo("<pre>");
-    //print_r($arr_tr_min);
-}
-if(isset($_POST['wanna_info_tr_min'])){
+if(isset($_POST['wanna_info_tr_plus']) && isset($_POST['data'])){
     $rez_1 = '';
     $arr_tr_min =array();
     $tmp =array();
-    //$month = $_POST['date'];
-   /* if( $month == null){
-        $month =(int) date('m');
-    }*/
-    $id_cur_user = $con->findIdUser();
-    $data_tr_min = $con->getDataOfTr($id_cur_user,'minus'); // получить даты транзакций плюс
-    //$datas = $con->getAllBalOfData( $id_cur_user, "minus", $month);
-    $datas = $con->getAllBalOfData( $id_cur_user, "minus");
-   /* for($i=1,$n=2;$i<count($datas);$i+=3,$n+=3){
-        for($j=1;$j<count($datas);$j+=3){
-            if($datas[$i] == $datas[$j]){
-                $rez_1 .= $datas[$n]."|";
-            }
-        }
-    }*/
-    //print_r($datas);
-    //echo($rez_1);
-    //echo($month);
+    $traz->setUser_Id($id_cur_user);
+    $traz->setStatus("plus");
+    $traz->setData($_POST['data']);
+    $data_tr_min = $traz->getDataByTranz(); // получить даты транзакций плюс
+    $datas = $traz->getBalanceByData();
     echo (json_encode($datas));
-    //echo $con->getAllBalanceOfData( $id_cur_user, "minus");
+}
+
+if(isset($_POST['wanna_info_tr_min']) && isset($_POST["data"])){
+
+    $rez_1 = '';
+    $arr_tr_min =array();
+    $tmp =array();
+    $traz->setUser_Id($id_cur_user);
+    $traz->setStatus("minus");
+    //$data_tr_min = $traz->getDataByTranz(); // получить даты транзакций плюс
+    $traz->setData($_POST['data']);
+    $datas = $traz->getBalanceByData();
+    echo (json_encode($datas));
 }
 
 if(isset($_POST['cont'])){
     $tmp_mas = array();
-    $datas_tr = $con->getDataOfTr($id_cur_user,'minus');
+    $traz->setUser_Id($id_cur_user);
+    $traz->setStatus("minus");
+    $datas_tr = $traz->getDataByTranz();
     foreach($datas_tr as $item) {
         array_push($tmp_mas,substr($item,5,2));
     }
     $months = array_unique($tmp_mas);
     sort($months);
     echo(json_encode($months));
-    //echo('1');
+
+}
+
+if(isset($_POST['label'])){
+    $traz->setUser_Id($id_cur_user);
+    $traz->setStatus("minus");
+    $tmp = $traz->getEachTranzByChart($_POST['label']);
+    echo(json_encode($tmp));
 }

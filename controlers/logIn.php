@@ -25,8 +25,8 @@ if(isset($_POST['login']) && isset($_POST['email']) && isset($_POST['password'])
         else echo("Такой пользователь уже есть!");
 	}
 
-	if(isset($_POST['email'])){
-        $user->setEmail($_POST['email']);
+	if(isset($_POST['email_new'])){
+        $user->setEmail($_POST['email_new']);
         $id = $user->getIdUserFromEmail();
         if($id !=0){
             //Генерировать случайный пароль

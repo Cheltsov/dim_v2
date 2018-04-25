@@ -14,6 +14,9 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
 $part->arr_links("mainpage.css", "report_style.css" );
 $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js", "../js/accordion.js", "../js/tabs.js", "../libs/cellSelection.min.js","https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js");
 ?>
+
+    <select id="month" style="position:relative; top:-40px">
+    </select>
 <div>
     <select id="chose">
         <option value="1">Расходы</option>
@@ -23,15 +26,17 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
         <option value="1">Line</option>
         <option value="2">Pie</option>
     </select>
-    <select id="month">
-    </select>
-</div>
-    <br>
-    <br>
-<div style="width:65%;height:500px; color:white; background-color:white">
-    <canvas id="myChart" ></canvas>
 
 </div>
+    <br>
+    <br>
+
+<div style="width:65%;height:500px; color:white; background-color:white; float:left">
+    <canvas id="myChart" ></canvas>
+</div>
+    <div id="tranzaction_label" style="position:relative; left:25px; color:white; font-size:12pt;  border-radius:10px">
+    </div>
+
 
 <div id="content" style="color:black;">
     <h3>При нажатии на вершину графика вывести в блок имени транзакции, а также дополнительные параметры</h3>
@@ -40,8 +45,63 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
     <h3>Добавить круговой график</h3>
 </div>
 
+<div id="test"></div>
+
 
     <script>
+
+        $("#month").change(function(){
+            if( $("#chose").val() == 1){
+                myLineChart.data.datasets[0].data = [];
+                myLineChart.data.labels = [];
+                myLineChart.data.datasets[0].borderColor = 'blue';
+                myLineChart.data.datasets[0].label =  "Расход";
+
+                $.post(
+                    "../controlers/control_report.php",
+                    {
+                        wanna_info_tr_min : "1",
+                        data:  $("#month").val()
+                    },
+                    function(data){
+                        //alert(data);
+                        $("#content").empty();
+                        var obj = JSON.parse(data);
+                        for(i=0;i<obj.length;i++){
+                            myLineChart.data.labels[i] = obj[i]["date"];
+                            myLineChart.data.datasets[0].data[i] = obj[i]["balance"];
+                            $("#content").append("name = "+ucFirst(obj[i]['name'])+" || data = "+obj[i]['date']+" || balance = "+obj[i]["balance"]+"<br>");
+                        }
+                        myLineChart.update();
+                    }
+                );
+            }
+            else if($("#chose").val() == 2){
+                myLineChart.data.datasets[0].data = [];
+                myLineChart.data.labels = [];
+                myLineChart.data.datasets[0].borderColor = 'red';
+                myLineChart.data.datasets[0].label =  "Доход";
+
+                $.post(
+                    "../controlers/control_report.php",
+                    {
+                        wanna_info_tr_plus : "1",
+                        data:  $("#month").val()
+                    },
+                    function(data){
+                        $("#content").empty();
+                        var obj = JSON.parse(data);
+                        for(i=0;i<obj.length;i++){
+                            myLineChart.data.labels[i] = obj[i]["date"];
+                            myLineChart.data.datasets[0].data[i] = obj[i]["balance"];
+                            $("#content").append("name = "+ucFirst(obj[i]['name'])+" || data = "+obj[i]['date']+" || balance = "+obj[i]["balance"]+"<br>");
+                        }
+                        myLineChart.update();
+                    }
+                );
+            }
+        });
+
         $(document).ready(function(){
             var monthNames = ["January", "February", "March", "April", "May", "June",
                 "July", "August", "September", "October", "November", "December"
@@ -109,34 +169,68 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
                     }]
                 },
                 events:['click',"mousemove"],
-                onClick: function(){
-                    alert(myLineChart.data.datasets[0].data);
-                    alert(myLineChart.data.labels);
+                onClick: function(evt){
+//                    alert(myLineChart.data.labels[this]);
+//                    alert(myLineChart.data.labels);
+                    var activePoints = myLineChart.getElementsAtEvent(evt);
+                    if(activePoints.length > 0) {
+                        //get the internal index of slice in pie chart
+                        var clickedElementindex = activePoints[0]["_index"];
+                        //get specific label by index
+                        var label = myLineChart.data.labels[clickedElementindex];
+                        //get value by index
+                        var value = myLineChart.data.datasets[0].data[clickedElementindex];
+                    }
+                    $.post(
+                        "../controlers/control_report.php",
+                        {
+                            label: label,
+                            status: "",
+                        },
+                        function(data){
+                            //alert(data);
+                            var obj = JSON.parse(data);
+
+                            $("#tranzaction_label").empty();
+                            for(i=0;i<obj.length;i++) {
+                                $("#tranzaction_label").append("<br>Название = "+ucFirst(obj[i]["name"])+"<br> Баланс = "+obj[i]['balance']+" ("+obj[i]['type_money']+")<br> Дата = "+obj[i]['date']+"<br>");
+                            }
+                        }
+                    );
                 }
             }
         });
 
+
         $("#chose").change(function(){
+            var date_now = new Date();
+            date_now.setDate(date_now.getMonth() - 1);
+            last_month = date_now.getMonth();
            if( $("#chose").val() == 1){
+
                myLineChart.data.datasets[0].data = [];
                myLineChart.data.labels = [];
                myLineChart.data.datasets[0].borderColor = 'blue';
                myLineChart.data.datasets[0].label =  "Расход";
 
+               $("#month").val(last_month);
                $.post(
                    "../controlers/control_report.php",
                    {
                        wanna_info_tr_min : "1",
-                      // date:  $("#month").val()
+                       data:  last_month,
                    },
                    function(data){
 
-                       alert(data);
-                    $("#content").append("= "+data);
+                       //alert(data);
+                   // $("#content").append("= "+data);
                        var obj = JSON.parse(data);
                        for(i=0;i<obj.length;i++){
                            myLineChart.data.labels[i] = obj[i]["date"];
                            myLineChart.data.datasets[0].data[i] = obj[i]["balance"];
+                           $("#content").append("name = "+ucFirst(obj[i]['name'])+" || data = "+obj[i]['date']+" || balance = "+obj[i]["balance"]+"<br>");
+
+
                        }
                        myLineChart.update();
                    }
@@ -151,7 +245,8 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
                $.post(
                    "../controlers/control_report.php",
                    {
-                       wanna_info_tr_plus : "1"
+                       wanna_info_tr_plus : "1",
+                       data:  last_month,
                    },
                    function(data){
                        var obj = JSON.parse(data);
@@ -196,7 +291,10 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
 
         });
 
-
+        function ucFirst(str) {
+            if (!str) return str;
+            return str[0].toUpperCase() + str.slice(1);
+        }
 
     </script>
 <?php
