@@ -68,3 +68,16 @@ if(isset($_POST['label'])){
     $tmp = $traz->getEachTranzByChart($_POST['label']);
     echo(json_encode($tmp));
 }
+
+if(isset($_POST['getMinus']) && isset ($_POST['getPlus'])){
+    $arr_tmp = array();
+    $traz->setUser_Id($id_cur_user);
+    $traz->setStatus('minus');
+    $tmp1 = $traz->getBalanceByMonth($_POST['month_tr']);
+
+    $traz->setStatus('plus');
+    $tmp2 = $traz->getBalanceByMonth($_POST['month_tr']);
+    array_push($arr_tmp,round($tmp1,2),round($tmp2,2));
+    echo json_encode($arr_tmp);
+    //echo($_POST['month_tr']);
+}

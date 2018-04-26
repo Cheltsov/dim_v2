@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="587421d6-895c-4b11-bb89-b090750059ed" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/class/cash.php" afterPath="$PROJECT_DIR$/class/cash.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/class/tranzaction.php" afterPath="$PROJECT_DIR$/class/tranzaction.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controlers/control_cash.php" afterPath="$PROJECT_DIR$/controlers/control_cash.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controlers/control_report.php" afterPath="$PROJECT_DIR$/controlers/control_report.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/cash.js" afterPath="$PROJECT_DIR$/js/cash.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/cash.php" afterPath="$PROJECT_DIR$/views/cash.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/report.php" afterPath="$PROJECT_DIR$/views/report.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -404,7 +399,7 @@
       <workItem from="1524575168608" duration="7608000" />
       <workItem from="1524636594703" duration="12836000" />
       <workItem from="1524650579805" duration="467000" />
-      <workItem from="1524726831646" duration="9366000" />
+      <workItem from="1524726831646" duration="9589000" />
     </task>
     <task id="LOCAL-00001" summary="Added preloader">
       <created>1522016997497</created>
@@ -448,11 +443,18 @@
       <option name="project" value="LOCAL" />
       <updated>1524650138217</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Доделал страницу Cash">
+      <created>1524736683078</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1524736683078</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="593190000" />
+    <option name="totallyTimeSpent" value="593413000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -559,7 +561,8 @@
     <MESSAGE value="Изменена структура проекта" />
     <MESSAGE value="Подключен контроллер cash" />
     <MESSAGE value="Переписан контроллер report и исправлен линейный график" />
-    <option name="LAST_COMMIT_MESSAGE" value="Переписан контроллер report и исправлен линейный график" />
+    <MESSAGE value="Доделал страницу Cash" />
+    <option name="LAST_COMMIT_MESSAGE" value="Доделал страницу Cash" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -803,6 +806,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="702">
           <caret line="136" column="46" lean-forward="false" selection-start-line="136" selection-start-column="20" selection-end-line="136" selection-end-column="46" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -847,7 +851,6 @@
             <element signature="e#3038#4211#0#HTML" expanded="false" />
             <element signature="e#4364#5198#0#HTML" expanded="false" />
             <element signature="e#5267#5325#0#HTML" expanded="false" />
-            <element signature="e#7664#7773#0#HTML" expanded="false" />
             <element signature="e#7813#8293#0#HTML" expanded="false" />
             <element signature="e#13688#15227#0#HTML" expanded="false" />
             <marker date="1524735275329" expanded="true" signature="4237:4314" ph="/*...*/" />

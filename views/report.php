@@ -33,6 +33,7 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
 
 <div style="width:65%;height:500px; color:white; background-color:white; float:left">
     <canvas id="myChart" ></canvas>
+    <canvas id="secChart" ></canvas>
 </div>
     <div id="tranzaction_label" style="position:relative; left:25px; color:white; font-size:12pt;  border-radius:10px">
     </div>
@@ -51,54 +52,59 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
     <script>
 
         $("#month").change(function(){
-            if( $("#chose").val() == 1){
-                myLineChart.data.datasets[0].data = [];
-                myLineChart.data.labels = [];
-                myLineChart.data.datasets[0].borderColor = 'blue';
-                myLineChart.data.datasets[0].label =  "Расход";
+            if($("#chose_schedule").val()==1){
+                if( $("#chose").val() == 1){
+                    myLineChart.data.datasets[0].data = [];
+                    myLineChart.data.labels = [];
+                    myLineChart.data.datasets[0].borderColor = 'blue';
+                    myLineChart.data.datasets[0].label =  "Расход";
 
-                $.post(
-                    "../controlers/control_report.php",
-                    {
-                        wanna_info_tr_min : "1",
-                        data:  $("#month").val()
-                    },
-                    function(data){
-                        //alert(data);
-                        $("#content").empty();
-                        var obj = JSON.parse(data);
-                        for(i=0;i<obj.length;i++){
-                            myLineChart.data.labels[i] = obj[i]["date"];
-                            myLineChart.data.datasets[0].data[i] = obj[i]["balance"];
-                            $("#content").append("name = "+ucFirst(obj[i]['name'])+" || data = "+obj[i]['date']+" || balance = "+obj[i]["balance"]+"<br>");
+                    $.post(
+                        "../controlers/control_report.php",
+                        {
+                            wanna_info_tr_min : "1",
+                            data:  $("#month").val()
+                        },
+                        function(data){
+                            //alert(data);
+                            $("#content").empty();
+                            var obj = JSON.parse(data);
+                            for(i=0;i<obj.length;i++){
+                                myLineChart.data.labels[i] = obj[i]["date"];
+                                myLineChart.data.datasets[0].data[i] = obj[i]["balance"];
+                                $("#content").append("name = "+ucFirst(obj[i]['name'])+" || data = "+obj[i]['date']+" || balance = "+obj[i]["balance"]+"<br>");
+                            }
+                            myLineChart.update();
                         }
-                        myLineChart.update();
-                    }
-                );
+                    );
+                }
+                else if($("#chose").val() == 2){
+                    myLineChart.data.datasets[0].data = [];
+                    myLineChart.data.labels = [];
+                    myLineChart.data.datasets[0].borderColor = 'red';
+                    myLineChart.data.datasets[0].label =  "Доход";
+
+                    $.post(
+                        "../controlers/control_report.php",
+                        {
+                            wanna_info_tr_plus : "1",
+                            data:  $("#month").val()
+                        },
+                        function(data){
+                            $("#content").empty();
+                            var obj = JSON.parse(data);
+                            for(i=0;i<obj.length;i++){
+                                myLineChart.data.labels[i] = obj[i]["date"];
+                                myLineChart.data.datasets[0].data[i] = obj[i]["balance"];
+                                $("#content").append("name = "+ucFirst(obj[i]['name'])+" || data = "+obj[i]['date']+" || balance = "+obj[i]["balance"]+"<br>");
+                            }
+                            myLineChart.update();
+                        }
+                    );
+                }
             }
-            else if($("#chose").val() == 2){
-                myLineChart.data.datasets[0].data = [];
-                myLineChart.data.labels = [];
-                myLineChart.data.datasets[0].borderColor = 'red';
-                myLineChart.data.datasets[0].label =  "Доход";
-
-                $.post(
-                    "../controlers/control_report.php",
-                    {
-                        wanna_info_tr_plus : "1",
-                        data:  $("#month").val()
-                    },
-                    function(data){
-                        $("#content").empty();
-                        var obj = JSON.parse(data);
-                        for(i=0;i<obj.length;i++){
-                            myLineChart.data.labels[i] = obj[i]["date"];
-                            myLineChart.data.datasets[0].data[i] = obj[i]["balance"];
-                            $("#content").append("name = "+ucFirst(obj[i]['name'])+" || data = "+obj[i]['date']+" || balance = "+obj[i]["balance"]+"<br>");
-                        }
-                        myLineChart.update();
-                    }
-                );
+            if($("#chose_schedule").val()==2){
+                PieChart();
             }
         });
 
@@ -116,6 +122,7 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
                     $("#month").empty();
                     for(i=0;i<obj.length;i++){
                         $("#month").append("<option value='"+(i+1)+"'>"+monthNames[parseInt(obj[i])-1]+"</option>");
+                        $("#month").val((i+1));
                     }
                 });
 
@@ -203,6 +210,9 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
 
 
         $("#chose").change(function(){
+            $("#chose_schedule").val("1");
+            $("#myChart").css("display","block");
+            $("#secChart").css("display","none");
             var date_now = new Date();
             date_now.setDate(date_now.getMonth() - 1);
             last_month = date_now.getMonth();
@@ -221,22 +231,19 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
                        data:  last_month,
                    },
                    function(data){
-
-                       //alert(data);
-                   // $("#content").append("= "+data);
                        var obj = JSON.parse(data);
                        for(i=0;i<obj.length;i++){
                            myLineChart.data.labels[i] = obj[i]["date"];
                            myLineChart.data.datasets[0].data[i] = obj[i]["balance"];
                            $("#content").append("name = "+ucFirst(obj[i]['name'])+" || data = "+obj[i]['date']+" || balance = "+obj[i]["balance"]+"<br>");
-
-
                        }
                        myLineChart.update();
                    }
                );
             }
              else if($("#chose").val() == 2){
+               $("#myChart").css("display","block");
+               $("#secChart").css("display","none");
                myLineChart.data.datasets[0].data = [];
                myLineChart.data.labels = [];
                myLineChart.data.datasets[0].borderColor = 'red';
@@ -253,7 +260,6 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
                        for(i=0;i<obj.length;i++){
                            myLineChart.data.labels[i] = obj[i]["date"];
                            myLineChart.data.datasets[0].data[i] = obj[i]["balance"];
-                           //alert(obj[i]["name"]);
                        }
                        myLineChart.update();
                    }
@@ -262,38 +268,136 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
         });
 
         $("#chose_schedule").change(function(){
-            var ctx = document.getElementById('myChart').getContext('2d');
-            var chart = new Chart(ctx, {
-                type: 'pie',
-                data: {
-                    labels: ["January", "February", "March", "April", "May"],
-                    datasets: [{
-                        backgroundColor: ["red", "blue","lightblue","green","yellow"],
-                        label: "My First dataset",
-                        borderColor: 'rgb(255, 99, 132)',
-                        data: [10, 5, 20, 30, 45],
-                    }],
+            if($("#chose_schedule").val() == 1){
+                $("#myChart").css("display","block");
+                $("#secChart").css("display","none");
+                var date_now = new Date();
+                date_now.setDate(date_now.getMonth() - 1);
+                last_month = date_now.getMonth();
 
-                },
+                myLineChart.data.datasets[0].data = [];
+                myLineChart.data.labels = [];
+                myLineChart.data.datasets[0].borderColor = 'blue';
+                myLineChart.data.datasets[0].label =  "Расход";
 
-                // Configuration options go here
-                options: {
-                    title: {
-                        display: true,
-                        text: 'Predicted world population (millions) in 2050'
+                $("#month").val(last_month);
+                $.post(
+                    "../controlers/control_report.php",
+                    {
+                        wanna_info_tr_min : "1",
+                        data:  last_month,
+                    },
+                    function(data){
+                        var obj = JSON.parse(data);
+                        for(i=0;i<obj.length;i++){
+                            myLineChart.data.labels[i] = obj[i]["date"];
+                            myLineChart.data.datasets[0].data[i] = obj[i]["balance"];
+                            $("#content").append("name = "+ucFirst(obj[i]['name'])+" || data = "+obj[i]['date']+" || balance = "+obj[i]["balance"]+"<br>");
+                        }
+                        myLineChart.update();
                     }
-                }
-            });
+                );
+            }
 
-
-
-
+            if($("#chose_schedule").val() == 2){
+                PieChart();
+            }
 
         });
+
 
         function ucFirst(str) {
             if (!str) return str;
             return str[0].toUpperCase() + str.slice(1);
+        }
+
+
+        function PieChart(){
+            $("#myChart").css("display","none");
+            $("#secChart").css("display","block");
+
+            var ctx = document.getElementById('secChart').getContext('2d');
+            var chart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    datasets: [{
+                        backgroundColor: ["red","green"],
+                        borderColor: 'rgb(255, 99, 132)',
+                        data: [],
+                        fill: false,
+                        lineTension: 0,
+                    }],
+                },
+                // Configuration options go here
+                options: {
+                    title: {
+                        display: false,
+                        text: 'Расходы и доходы'
+                    },
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    showLines: true,
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    },
+                },
+
+                /*events:['click',"mousemove"],
+                onClick: function(evt){
+//                    alert(myLineChart.data.labels[this]);
+//                    alert(myLineChart.data.labels);
+                    var activePoints = myLineChart.getElementsAtEvent(evt);
+                    if(activePoints.length > 0) {
+                        //get the internal index of slice in pie chart
+                        var clickedElementindex = activePoints[0]["_index"];
+                        //get specific label by index
+                        var label = myLineChart.data.labels[clickedElementindex];
+                        //get value by index
+                        var value = myLineChart.data.datasets[0].data[clickedElementindex];
+                    }
+                    $.post(
+                        "../controlers/control_report.php",
+                        {
+                            label: label,
+                            status: "",
+                        },
+                        function(data){
+                            //alert(data);
+                            var obj = JSON.parse(data);
+
+                            $("#tranzaction_label").empty();
+                            for(i=0;i<obj.length;i++) {
+                                $("#tranzaction_label").append("<br>Название = "+ucFirst(obj[i]["name"])+"<br> Баланс = "+obj[i]['balance']+" ("+obj[i]['type_money']+")<br> Дата = "+obj[i]['date']+"<br>");
+                            }
+                        }
+                    );
+                }*/
+
+            });
+
+            chart.data.labels = ["Расход","Доход"];
+
+            chart.data.datasets[0].data = [];
+
+            $.post(
+                "../controlers/control_report.php",
+                {
+                    getMinus:"1",
+                    getPlus:"1",
+                    month_tr:$("#month").val()
+                },
+                function(data){
+                    // alert(data);
+                    obj = JSON.parse(data);
+                    chart.data.datasets[0].data[0] = obj[0];
+                    chart.data.datasets[0].data[1] = obj[1];
+                    chart.update();
+                }
+            );
         }
 
     </script>
