@@ -161,6 +161,7 @@ require "../controlers/control_main_page.php";
 
 <div id="dialog3" style="text-align:center">
     <p >Вы действительно хотите удалить кошелек?</p>
+    <p id="inform_tr"></p>
     <br>
     <button id="yes">Да</button>
     <button id="no">Нет</button>
@@ -202,6 +203,8 @@ require "../controlers/control_main_page.php";
             window.location = '../views/cash.php';
         });
     });
+
+
 
 
 </script>

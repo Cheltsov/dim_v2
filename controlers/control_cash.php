@@ -3,11 +3,13 @@ require_once "../class/db.php";
 require_once "../class/user.php";
 require_once "../class/cash.php";
 require_once "../class/cashmonth.php";
+require_once "../class/tranzaction.php";
 require_once "getCourse.php";
 
 $user = new User();
 $cash = new Cash();
 $cashmonth = new CashMonth();
+$traz = new Tranzaction();
 
 
 $id_cur_user = $user->getUserId_Cookie();
@@ -69,8 +71,7 @@ if(isset($_POST['id_but'])){
 
 if(isset($_POST['num_id'])){
     $cash->setId($_POST['num_id']);
-    $cash->delCashFromId();
-
+   $cash->delCashFromId();
     $cashmonth->setId_Cash($_POST['num_id']);
     $id = $cashmonth->getCashMonthID_from_Cash();
     $cashmonth->setId($id);
@@ -147,4 +148,12 @@ if(isset($_POST['val'])){
     echo($new_bal);*/
 
 
+}
+
+
+if(isset($_POST['get_traz_del_cash'])){
+    $traz->setUser_Id($id_cur_user);
+    $traz->setCash_Tr($_POST['num_id_cash']);
+    $tmp = $traz->getCountTrazByCash();
+    echo($tmp);
 }

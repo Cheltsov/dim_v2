@@ -8,7 +8,7 @@ $.post(
     "../controlers/control_cash.php",
     {wanna_info_cash : "1"},
     function(data){
-        alert(data);
+       // alert(data);
         data = JSON.parse(data);
         for(i=4,n=2,id=0,b=5,t=3;i<data.length;i+=10,n+=10,id+=10,b+=10,t+=10){
             if(data[i]==1){
@@ -30,6 +30,17 @@ $("#del_cash").click(function(){
     $("#dialog").dialog('close');
     $("#dialog2").dialog('close');
     $("#dialog3").dialog('open');
+    var num_id = $("#id_cash").text();
+    $.post(
+        "../controlers/control_cash.php",
+        {get_traz_del_cash:"1",num_id_cash : num_id},
+        function(data){
+            //alert(data);
+            $("#inform_tr").append("Будет удалено "+data+" транзакций(и)");
+        }
+    );
+
+
 });
 
 $('#dialog3').dialog({
@@ -235,6 +246,7 @@ $("#yes").click(function(){
         $.post("../controlers/control_cash.php",
             {num_id : num_id},
             function(data){
+            alert(data);
                 location.reload(true);
                 //alert("Кошелек: "+data+" был удален успешно!");
 

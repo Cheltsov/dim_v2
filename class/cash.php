@@ -150,6 +150,9 @@ class Cash extends Datebase
             $cash = R::load("cash", $this->id);
             echo($cash->name);
             R::trash($cash);
+            //$traz->setCash_Tr($this->id);
+           // $traz->DelTranzByCash();
+
             return true;
         }
         catch(Exception $e){

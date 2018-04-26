@@ -283,6 +283,17 @@ class Tranzaction extends Datebase{
         R::close();
     }
 
+    public function DelTranzByCash(){
+        $tr = R::find("tranzaction", "cash = $this->cash");
+       /* foreach($tr as $item){
+            $tmp = R::load("tranzaction",$item['id']);
+            R::trash($item[$tmp]);
+        }*/
+
+        return $tr;
+        R::close();
+    }
+
     public function getTranz_Balance_Id(){
         $arr_tmp = Array();
         $tr = R::findAll('tranzaction', "id = $this->id");
@@ -404,5 +415,28 @@ class Tranzaction extends Datebase{
         }
         return $arr_tmp;
     }
+
+    public function getCountTrazByCash(){
+        //$tr = R::findAll("tranzaction", "user_id=$this->user_id and cash=$this->cash");
+        $tr = R::getAll("select count(id) as count from tranzaction where user_id=$this->user_id and cash=$this->cash");
+        foreach($tr as $item){
+            echo($item['count']);
+        }
+    }
+
+    public function getBalanceByMonth($month){
+        $balance = 0;
+        $tr = R::getAll("select tranzaction.balance, tranzaction.name as name, cash, cash.type_money, tranzaction.course as course from tranzaction inner join cash on tranzaction.cash=cash.id where user_id = $this->user_id and status = '$this->status' and month(data)=$month");
+        foreach($tr as $item){
+            if($item['course'] != 0){
+                $balance += $item['balance'] * $item['course'];
+            }
+            else{
+                $balance += $item['balance'];
+            }
+        }
+        return $balance;
+    }
+    
 
 }
