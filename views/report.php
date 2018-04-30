@@ -31,22 +31,22 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
     <br>
     <br>
 
-<div style="width:65%;height:500px; color:white; background-color:white; float:left">
+<div style="width:65%;height:500px; color:white; background-color:white; float:left;">
     <canvas id="myChart" ></canvas>
     <canvas id="secChart" ></canvas>
 </div>
-    <div id="tranzaction_label" style="position:relative; left:25px; color:white; font-size:12pt;  border-radius:10px">
+    <div id="tranzaction_label" style="max-height:488px; overflow:auto; background-color:white; float:right; color:black; margin-right:30px; width:30%; font-size:12pt;  border-radius:10px;">
     </div>
 
-
-<div id="content" style="color:black;">
-    <h3>При нажатии на вершину графика вывести в блок имени транзакции, а также дополнительные параметры</h3>
-    <h3>При получении баланса конвертировать валюту</h3>
-    <h3>При наведении на вершину убрать квадрат</h3>
-    <h3>Добавить круговой график</h3>
+    <!--
+    <div id="content" style="color:black;">
+        <h3>При нажатии на вершину графика вывести в блок имени транзакции, а также дополнительные параметры</h3>
+        <h3>При получении баланса конвертировать валюту</h3>
+        <h3>При наведении на вершину убрать квадрат</h3>
+        <h3>Добавить круговой график</h3>
 </div>
+-->
 
-<div id="test"></div>
 
 
     <script>
@@ -72,7 +72,7 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
                             for(i=0;i<obj.length;i++){
                                 myLineChart.data.labels[i] = obj[i]["date"];
                                 myLineChart.data.datasets[0].data[i] = obj[i]["balance"];
-                                $("#content").append("name = "+ucFirst(obj[i]['name'])+" || data = "+obj[i]['date']+" || balance = "+obj[i]["balance"]+"<br>");
+                               // $("#content").append("name = "+ucFirst(obj[i]['name'])+" || data = "+obj[i]['date']+" || balance = "+obj[i]["balance"]+"<br>");
                             }
                             myLineChart.update();
                         }
@@ -96,7 +96,7 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
                             for(i=0;i<obj.length;i++){
                                 myLineChart.data.labels[i] = obj[i]["date"];
                                 myLineChart.data.datasets[0].data[i] = obj[i]["balance"];
-                                $("#content").append("name = "+ucFirst(obj[i]['name'])+" || data = "+obj[i]['date']+" || balance = "+obj[i]["balance"]+"<br>");
+                               // $("#content").append("name = "+ucFirst(obj[i]['name'])+" || data = "+obj[i]['date']+" || balance = "+obj[i]["balance"]+"<br>");
                             }
                             myLineChart.update();
                         }
@@ -199,6 +199,8 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
                             var obj = JSON.parse(data);
 
                             $("#tranzaction_label").empty();
+                            $("#tranzaction_label").css("padding-left","10px");
+                            $("#tranzaction_label").css("padding-bottom","10px");
                             for(i=0;i<obj.length;i++) {
                                 $("#tranzaction_label").append("<br>Название = "+ucFirst(obj[i]["name"])+"<br> Баланс = "+obj[i]['balance']+" ("+obj[i]['type_money']+")<br> Дата = "+obj[i]['date']+"<br>");
                             }
@@ -235,7 +237,7 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
                        for(i=0;i<obj.length;i++){
                            myLineChart.data.labels[i] = obj[i]["date"];
                            myLineChart.data.datasets[0].data[i] = obj[i]["balance"];
-                           $("#content").append("name = "+ucFirst(obj[i]['name'])+" || data = "+obj[i]['date']+" || balance = "+obj[i]["balance"]+"<br>");
+                          // $("#content").append("name = "+ucFirst(obj[i]['name'])+" || data = "+obj[i]['date']+" || balance = "+obj[i]["balance"]+"<br>");
                        }
                        myLineChart.update();
                    }
@@ -292,7 +294,7 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
                         for(i=0;i<obj.length;i++){
                             myLineChart.data.labels[i] = obj[i]["date"];
                             myLineChart.data.datasets[0].data[i] = obj[i]["balance"];
-                            $("#content").append("name = "+ucFirst(obj[i]['name'])+" || data = "+obj[i]['date']+" || balance = "+obj[i]["balance"]+"<br>");
+                          //  $("#content").append("name = "+ucFirst(obj[i]['name'])+" || data = "+obj[i]['date']+" || balance = "+obj[i]["balance"]+"<br>");
                         }
                         myLineChart.update();
                     }
