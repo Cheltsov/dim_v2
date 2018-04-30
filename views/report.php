@@ -320,7 +320,7 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
 
             var ctx = document.getElementById('secChart').getContext('2d');
             var chart = new Chart(ctx, {
-                type: 'pie',
+                type: 'doughnut',//'pie'
                 data: {
                     datasets: [{
                         backgroundColor: ["red","green"],

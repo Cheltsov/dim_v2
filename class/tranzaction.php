@@ -437,6 +437,35 @@ class Tranzaction extends Datebase{
         }
         return $balance;
     }
+
+    function getDataOfTran(){ // получить дату транзакции по статусу
+        $arr_tmp = array();
+        $now_month = date("m");
+        $tr = R::find('tranzaction',"user_id = $this->user_id and status = '$this->status' and month(data)<$now_month order by data ");
+
+        foreach($tr as $item){
+            array_push($arr_tmp,substr($item->data, 0,10));
+        }
+        $result = array_unique($arr_tmp);
+        R::close();
+        return($result);
+    }
+
+    function getBalanceTranByMonth($month){
+        //$now_month = date("m");
+        $all_bal_from_month = 0;
+        $tr_plus= R::getAll("select tranzaction.balance, cash, cash.type_money, tranzaction.course as course from tranzaction inner join cash on tranzaction.cash=cash.id where user_id = $this->user_id and status = '$this->status' and month(data)=$month");
+        foreach($tr_plus as $item){
+            if($item['course'] != 0){
+                $all_bal_from_month += $item['balance'] * $item['course'];
+            }
+            else{
+                $all_bal_from_month += $item['balance'];
+            }
+        }
+        R::close();
+        return round($all_bal_from_month,2);
+    }
     
 
 }
