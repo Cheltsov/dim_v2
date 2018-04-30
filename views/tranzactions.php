@@ -54,9 +54,12 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
         width:244px;
 
     }
+    .but_forCash:hover{
+        border:2px solid blue;
+    }
     .balance{
         float:left;
-        border:1px solid green;
+        /*border:1px solid green;*/
         width:350px;
     }
     .balance button{
@@ -69,7 +72,7 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
         float:left;
         margin-right:20px;
         margin-left: 2px;
-        max-height: 640px;
+        max-height: 620px;
     }
     .menu td{
         border:1px solid black
@@ -90,7 +93,7 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
 
     }
     #fragment-1, #fragment-2, #fragment-3{
-    	max-height: 560px;
+    	max-height: 540px;
     	overflow: auto;
     }
     .ui-tabs .ui-tabs-nav{
@@ -106,9 +109,9 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
 </style>
 
 
-<div id="menu" class="balance">
+<div id="menu" class="balance" style="max-height:610px; overflow:auto; width:23%; margin-right:10px;">
     <button id="all_bal">Все транзакции </button>
-    <br>
+    <br><br>
     <button class="but_forCash">Наличные</button>
     <ul id="hands">
 
@@ -122,11 +125,11 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
         <button>Пересчетать</button>
     </div>
     <br>
-    <button class="but_forCash">Наличные</button>
+    <button class="but_forCash" id="but_forCash_month">Наличные</button>
     <ul id="hands_month">
 
     </ul>
-    <button class="but_forCash">Карта</button>
+    <button class="but_forCash" id="but_forCash_month_card">Карта</button>
     <ul id="cards_month">
 
     </ul>
@@ -428,9 +431,12 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
             "../controlers/control_tranzactions.php",
             {wanna_cash_month: "1"},
             function(data){
+                $("#but_forCash_month").trigger("click");
+                $("#but_forCash_month_card").trigger("click");
                 data = JSON.parse(data);
                 for(i=0,n=1,tm=2,tc=3,b=4;i<data.length;i+=5,n+=5,tm+=5,tc+=5,b+=5){
                     if(data[tc]==1){
+
                         $("#hands_month").append("<li><button class='type' id='cashm_"+data[i]+"'>"+data[n]+":"+data[b]+" ("+data[tm]+") </button></li>");
                     }
                     if(data[tc]==2){

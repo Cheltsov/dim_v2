@@ -5,7 +5,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/class/tranzaction.php" afterPath="$PROJECT_DIR$/class/tranzaction.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/tranz.js" afterPath="$PROJECT_DIR$/js/tranz.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/report.php" afterPath="$PROJECT_DIR$/views/report.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/tranzactions.php" afterPath="$PROJECT_DIR$/views/tranzactions.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -407,7 +406,7 @@
       <workItem from="1524636594703" duration="12836000" />
       <workItem from="1524650579805" duration="467000" />
       <workItem from="1524726831646" duration="9864000" />
-      <workItem from="1525100894875" duration="4265000" />
+      <workItem from="1525100894875" duration="4444000" />
     </task>
     <task id="LOCAL-00001" summary="Added preloader">
       <created>1522016997497</created>
@@ -465,11 +464,18 @@
       <option name="project" value="LOCAL" />
       <updated>1524736811233</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Отформатирована страница отчетов">
+      <created>1525106091531</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1525106091531</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="597953000" />
+    <option name="totallyTimeSpent" value="598132000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -579,7 +585,8 @@
     <MESSAGE value="Переписан контроллер report и исправлен линейный график" />
     <MESSAGE value="Доделал страницу Cash" />
     <MESSAGE value="Сделан график pie" />
-    <option name="LAST_COMMIT_MESSAGE" value="Сделан график pie" />
+    <MESSAGE value="Отформатирована страница отчетов" />
+    <option name="LAST_COMMIT_MESSAGE" value="Отформатирована страница отчетов" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -851,6 +858,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="282">
           <caret line="248" column="22" lean-forward="false" selection-start-line="248" selection-start-column="22" selection-end-line="248" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>

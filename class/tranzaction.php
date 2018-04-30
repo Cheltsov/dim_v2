@@ -167,7 +167,7 @@ class Tranzaction extends Datebase{
         foreach($tr as $item) {
             $up_data_month = date("m", strtotime($item->data));
             if ($up_data_month < $now_month) {
-                $flag = Array();
+                $flag = false;
                 return $flag;
             }
             else {

@@ -600,7 +600,7 @@ $("#up_tr").click(function(){
             },
             function(data){
                 data = JSON.parse(data);
-                if(data != "false"){
+                if(data != false){
                     $("#dialog2").dialog('open');
                     if(index !=""){
                         if(what_tr == "min"){
@@ -644,7 +644,7 @@ $("#up_tr").click(function(){
                     //tmp_id ="";
                 }
                 else{
-                    $("#dialog2").dialog('close');
+                    //$("#dialog2").dialog('close');
                     alert("Нельзя изменить транзакцию");
                     return ;
                 }
