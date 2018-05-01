@@ -25,7 +25,7 @@ if(isset($_POST['wanna_month_tr2'])){
     }
 
     //echo("Месяца в которых есть транзакции<br>");
-    print_r($arr_month);
+    //print_r($arr_month);
     //echo("<br>");
     $traz->setUser_Id($id_cur_user);
     $traz->setStatus('minus');
@@ -38,19 +38,19 @@ if(isset($_POST['wanna_month_tr2'])){
     }
 
     //echo("Общий баланс за месяц");
-    print_r($arr_tmp);
+   // print_r($arr_tmp);
 
     $rezalt = FC_nextMonth($arr_tmp);
 
-    echo("Forecasr1= ".$rezalt[0]."<br>");
-    echo("Forecasr2= ".$rezalt[1]."<br>");
+    //echo("Forecasr1= ".$rezalt[0]."<br>");
+   // echo("Forecasr2= ".$rezalt[1]."<br>");
     if($rezalt[2]<=0){
         $t = null;
-         echo("Точность= Некорректные данные");
+         //echo("Точность= Некорректные данные");
     }
     else{
         $t = $rezalt[2]*100;
-         echo("Точность= ".($t)."%<br>");
+         //echo("Точность= ".($t)."%<br>");
     }
 
 
@@ -102,19 +102,19 @@ if(isset($_POST['wanna_month_tr'])){
     }
 
 //print_r($arr_json);
-    echo("<br><br>");
-    print_r($arr_tmp);
+    //echo("<br><br>");
+    //print_r($arr_tmp);
     $rezalt = FC_nextMonth($arr_tmp);
 
-    echo("Forecasr1= ".$rezalt[0]."<br>");
-    echo("Forecasr2= ".$rezalt[1]."<br>");
+    //echo("Forecasr1= ".$rezalt[0]."<br>");
+   // echo("Forecasr2= ".$rezalt[1]."<br>");
     if($rezalt[2]<=0){
         $t = null;
-        echo("Точность= Некорректные данные");
+       // echo("Точность= Некорректные данные");
     }
     else{
         $t = $rezalt[2]*100;
-        echo("Точность= ".($t)."%<br>");
+        //echo("Точность= ".($t)."%<br>");
     }
     //$tmp = array('month'=>$item,"bal"=>$rez);
     $k = (end($arr_json)["month_d"])+1;

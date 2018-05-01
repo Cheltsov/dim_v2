@@ -17,7 +17,7 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
 echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">');
 
 ?>
-
+    <script src="../js/circularloader.js"></script>
 
 <pre>
     <div id="content" style="color:white; max-height:600px; overflow:auto;float:left;margin-right:100px"></div>
@@ -29,7 +29,14 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
     <canvas id="chartjs-1"></canvas>
 </div>
 
+<div id="loader1" style="width:200px; border:1px solid blue; height:200px; background-color:green"></div>
+<div id="loader2" style="width:200px; border:1px solid blue; height:200px; background-color:green"></div>
+
  <script>
+
+
+
+
 
         var ctx = document.getElementById('secChart').getContext('2d');
         var myBarChart = new Chart(ctx, {
@@ -64,12 +71,6 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
             }
         });
 
-
-        myBarChart.data.label = "cool";
-//myBarChart.data.labels[i] = obj[i]["date"];
-        //myLineChart.data.datasets[0].data[i] = obj[i]["balance"];
-
-
         $(document).ready(function(){
             $.post(
                 "../controlers/control_forecast.php",
@@ -78,17 +79,22 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
                     //alert(data);
                     $("#content").append(data);
                     obj = JSON.parse(data);
-                    $("#content").append("<br>Точность = " + obj[0]['t'] + "%<br>");
+                    press = obj[0]['t'];
+                    $("#content").append("<br>Точность = " + press + "%<br>");
 
-                    if(obj[0]['t']==null){
+                    if(press==null){
+                        press = 0;
                         alert("Некорректные данные для доходов");
+                        Loader2(press);
                         return false;
                     }
                     else{
-                        for (i = 0, j = 1; i < obj.length; i++, j++) {
-                            $("#content").append(obj[j]['month_d'] + "=" + obj[j].bal + "<br>");
-                            myBarChart.data.labels[i] = GetMon(obj[j].month_d);
-                            myBarChart.data.datasets[0].data[i] = obj[j].bal;
+                        Loader2(press);
+                        obj.splice(0, 1);
+                        for (i = 0; i < obj.length; i++) {
+                            $("#content").append(obj[i]['month_d'] + "=" + obj[i].bal + "<br>");
+                            myBarChart.data.labels[i] = GetMon(obj[i].month_d);
+                            myBarChart.data.datasets[0].data[i] = obj[i].bal;
                             myBarChart.data.datasets[0].backgroundColor = "rgba(75, 192, 192, 0.2)";
                             myBarChart.data.datasets[0].borderColor = "rgb(75, 192, 192)";
                         }
@@ -104,22 +110,27 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
                     //alert(data);
                     $("#content").append(data);
                     obj = JSON.parse(data);
-                    $("#content").append("<br>Точность = " + obj[0]['t'] + "%<br>");
-                    if(obj[0]['t']==null){
-                        alert("Некорректные данные для расходов");
+                    pres = obj[0]['t'];
+                    $("#content").append("<br>Точность = " + pres + "%<br>");
+
+                    if(pres==null){
+                        pres = 0;
+                        alert("Некорректные данные для расходов")
+                        Loader1(pres);
                         return false;
                     }
                     else{
-                        for (i = 0, j = 1; i < obj.length; i++, j++) {
-                            $("#content").append(obj[j].month + "=" + obj[j].bal + "<br>");
-                            myBarChart.data.labels[i] = GetMon(obj[j].month);
-                            myBarChart.data.datasets[1].data[i] = obj[j].bal;
+                        Loader1(pres);
+                        obj.splice(0, 1);
+                        for (i = 0; i < obj.length; i++) {
+                            $("#content").append(obj[i].month + "=" + obj[i].bal + "<br>");
+                            myBarChart.data.labels[i] = GetMon(obj[i].month);
+                            myBarChart.data.datasets[1].data[i] = obj[i].bal;
                             myBarChart.data.datasets[1].backgroundColor = "rgba(255, 99, 132, 0.2)";
                             myBarChart.data.datasets[1].borderColor = "rgb(255, 99, 132)";
                         }
                         myBarChart.update();
                     }
-
                 }
             );
         });
@@ -140,6 +151,38 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
                 'Декабрь',
             ];
             return(arr[month-1]);
+        }
+
+
+        function Loader1(perc){
+            $("#loader1").circularloader({
+                backgroundColor: "#ffffff",//background colour of inner circle
+                fontColor: "#000000",//font color of progress text
+                fontSize: "40px",//font size of progress text
+                radius: 70,//radius of circle
+                progressBarBackground: "red",//background colour of circular progress Bar
+                progressBarColor: "blue",//colour of circular progress bar
+                progressBarWidth: 25,//progress bar width
+                progressPercent: perc,//progress percentage out of 100
+                progressValue: perc,//diplay this value instead of percentage
+                showText: true,//show progress text or not
+                title: "Расход",//show header title for the progress bar
+            });
+        }
+        function Loader2(perc){
+            $("#loader2").circularloader({
+                backgroundColor: "#ffffff",//background colour of inner circle
+                fontColor: "#000000",//font color of progress text
+                fontSize: "40px",//font size of progress text
+                radius: 70,//radius of circle
+                progressBarBackground: "red",//background colour of circular progress Bar
+                progressBarColor: "blue",//colour of circular progress bar
+                progressBarWidth: 25,//progress bar width
+                progressPercent: perc,//progress percentage out of 100
+                progressValue: perc,//diplay this value instead of percentage
+                showText: true,//show progress text or not
+                title: "Доход",//show header title for the progress bar
+            });
         }
     </script>
 

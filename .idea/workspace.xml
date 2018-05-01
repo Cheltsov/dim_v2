@@ -54,26 +54,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="report.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/report.php">
+      <file leaf-file-name="control_report.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controlers/control_report.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="298" column="24" lean-forward="true" selection-start-line="298" selection-start-column="24" selection-end-line="298" selection-end-column="45" />
-              <folding>
-                <element signature="e#1200#1357#0#HTML" expanded="true" />
-                <marker date="1525117378597" expanded="true" signature="1660:1703" ph="..." />
-                <marker date="1525117378597" expanded="true" signature="4323:4400" ph="/*...*/" />
-              </folding>
+            <state relative-caret-position="303">
+              <caret line="33" column="39" lean-forward="false" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="control_forecast.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/controlers/control_forecast.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="27" column="4" lean-forward="true" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
-              <folding />
+      <file leaf-file-name="tranzaction" pinned="false" current-in-tab="false">
+        <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.tranzaction">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
             </state>
           </provider>
         </entry>
@@ -81,18 +76,8 @@
       <file leaf-file-name="tranzaction.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/class/tranzaction.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="453" column="34" lean-forward="true" selection-start-line="453" selection-start-column="13" selection-end-line="453" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="db.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/class/db.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="1307" column="8" lean-forward="false" selection-start-line="1307" selection-start-column="8" selection-end-line="1319" selection-end-column="44" />
+            <state relative-caret-position="-255">
+              <caret line="345" column="13" lean-forward="false" selection-start-line="345" selection-start-column="13" selection-end-line="345" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -112,7 +97,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>$now_month = date(&quot;m&quot;);</find>
       <find>getTrMinFromDataRange</find>
       <find>find</find>
       <find>this</find>
@@ -142,6 +126,7 @@
       <find>getBalanceFromMonth</find>
       <find>getDataOfTr</find>
       <find>wanna_month_tr</find>
+      <find>getBalanceByData</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -150,8 +135,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/style/forecast_style.css" />
-        <option value="$PROJECT_DIR$/style/debt_style.css" />
         <option value="$PROJECT_DIR$/controlers/fore" />
         <option value="$PROJECT_DIR$/examples/accordion_test/index.html" />
         <option value="$PROJECT_DIR$/models/LineChart.php" />
@@ -191,16 +174,18 @@
         <option value="$PROJECT_DIR$/class/LineChart.php" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/080d2c86-4aba-4e19-a487-040e4fc54d94/console.sql" />
         <option value="$PROJECT_DIR$/views/cash.php" />
-        <option value="$PROJECT_DIR$/controlers/control_report.php" />
         <option value="$PROJECT_DIR$/js/cash.js" />
         <option value="$PROJECT_DIR$/controlers/control_cash.php" />
         <option value="$PROJECT_DIR$/class/cash.php" />
         <option value="$PROJECT_DIR$/js/tranz.js" />
         <option value="$PROJECT_DIR$/views/tranzactions.php" />
         <option value="$PROJECT_DIR$/class/tranzaction.php" />
-        <option value="$PROJECT_DIR$/views/report.php" />
         <option value="$PROJECT_DIR$/controlers/control_forecast.php" />
+        <option value="$USER_HOME$/Рабочий стол/2.LoadOnSomeEvent.html" />
+        <option value="$USER_HOME$/Рабочий стол/1.SimpleLoader.html" />
         <option value="$PROJECT_DIR$/views/forecast.php" />
+        <option value="$PROJECT_DIR$/controlers/control_report.php" />
+        <option value="$PROJECT_DIR$/views/report.php" />
       </list>
     </option>
   </component>
@@ -455,7 +440,8 @@
       <workItem from="1524650579805" duration="467000" />
       <workItem from="1524726831646" duration="9864000" />
       <workItem from="1525100894875" duration="4665000" />
-      <workItem from="1525116365804" duration="10206000" />
+      <workItem from="1525116365804" duration="10477000" />
+      <workItem from="1525162568427" duration="5495000" />
     </task>
     <task id="LOCAL-00001" summary="Added preloader">
       <created>1522016997497</created>
@@ -527,11 +513,18 @@
       <option name="project" value="LOCAL" />
       <updated>1525106216256</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Оформление страницы прогноза">
+      <created>1525126840844</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1525126840844</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="608559000" />
+    <option name="totallyTimeSpent" value="614325000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -546,10 +539,10 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17927383" sideWeight="0.4868421" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18154311" sideWeight="0.4868421" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5030257" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1354009" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1354009" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.60855263" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" x="20" y="184" width="1322" height="478" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -643,7 +636,8 @@
     <MESSAGE value="Сделан график pie" />
     <MESSAGE value="Отформатирована страница отчетов" />
     <MESSAGE value="Отформатирована страница транзакций" />
-    <option name="LAST_COMMIT_MESSAGE" value="Отформатирована страница транзакций" />
+    <MESSAGE value="Оформление страницы прогноза" />
+    <option name="LAST_COMMIT_MESSAGE" value="Оформление страницы прогноза" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -652,8 +646,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.groups" />
-    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.translate" />
     <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.debt" />
     <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.cash" />
     <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.cashmonth" />
@@ -869,13 +861,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controlers/control_report.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="79" column="53" lean-forward="false" selection-start-line="79" selection-start-column="53" selection-end-line="79" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.cash">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -925,9 +910,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/Рабочий стол/2.LoadOnSomeEvent.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-133">
+          <caret line="20" column="21" lean-forward="true" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/forecast.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1386">
+          <caret line="132" column="21" lean-forward="false" selection-start-line="132" selection-start-column="21" selection-end-line="132" selection-end-column="21" />
+          <folding>
+            <element signature="e#777#859#0#HTML" expanded="true" />
+            <element signature="e#890#943#0#HTML" expanded="true" />
+            <element signature="e#979#1072#0#HTML" expanded="true" />
+            <element signature="e#1173#1253#0#HTML" expanded="true" />
+            <element signature="e#1495#2744#0#HTML" expanded="false" />
+            <element signature="e#5586#5882#0#HTML" expanded="false" />
+            <element signature="e#5960#6788#0#HTML" expanded="false" />
+            <element signature="e#6819#7646#0#HTML" expanded="false" />
+            <marker date="1525167671835" expanded="true" signature="2931:4125" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Рабочий стол/1.SimpleLoader.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="34" lean-forward="true" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controlers/control_forecast.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="109" column="5" lean-forward="false" selection-start-line="109" selection-start-column="5" selection-end-line="109" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/class/db.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
+        <state relative-caret-position="21">
           <caret line="1307" column="8" lean-forward="false" selection-start-line="1307" selection-start-column="8" selection-end-line="1319" selection-end-column="44" />
           <folding />
         </state>
@@ -935,28 +962,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/class/tranzaction.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="453" column="34" lean-forward="true" selection-start-line="453" selection-start-column="13" selection-end-line="453" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/report.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="298" column="24" lean-forward="true" selection-start-line="298" selection-start-column="24" selection-end-line="298" selection-end-column="45" />
-          <folding>
-            <element signature="e#1200#1357#0#HTML" expanded="true" />
-            <marker date="1525117378597" expanded="true" signature="1660:1703" ph="..." />
-            <marker date="1525117378597" expanded="true" signature="4323:4400" ph="/*...*/" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controlers/control_forecast.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="27" column="4" lean-forward="true" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
+        <state relative-caret-position="-255">
+          <caret line="345" column="13" lean-forward="false" selection-start-line="345" selection-start-column="13" selection-end-line="345" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -968,13 +975,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/forecast.php">
+    <entry file="file://$PROJECT_DIR$/controlers/control_report.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-828">
-          <caret line="26" column="109" lean-forward="false" selection-start-line="26" selection-start-column="109" selection-end-line="26" selection-end-column="109" />
+        <state relative-caret-position="303">
+          <caret line="33" column="39" lean-forward="false" selection-start-line="33" selection-start-column="39" selection-end-line="33" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/report.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="233" column="21" lean-forward="true" selection-start-line="233" selection-start-column="21" selection-end-line="233" selection-end-column="21" />
           <folding>
-            <element signature="e#0#5#0#PHP" expanded="false" />
-            <marker date="1525126462762" expanded="true" signature="2820:3840" ph="{...}" />
+            <element signature="e#1763#4410#0#HTML" expanded="false" />
+            <element signature="e#4450#5284#0#HTML" expanded="false" />
+            <element signature="e#5469#6539#0#HTML" expanded="false" />
+            <element signature="e#6586#8606#0#HTML" expanded="false" />
+            <marker date="1525168487643" expanded="true" signature="1660:1703" ph="..." />
+            <marker date="1525168487643" expanded="true" signature="4323:4400" ph="/*...*/" />
           </folding>
         </state>
       </provider>
