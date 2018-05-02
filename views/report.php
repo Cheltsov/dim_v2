@@ -192,17 +192,22 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
                         "../controlers/control_report.php",
                         {
                             label: label,
-                            status: "",
                         },
                         function(data){
-                            //alert(data);
+                           // alert(data);
                             var obj = JSON.parse(data);
 
                             $("#tranzaction_label").empty();
                             $("#tranzaction_label").css("padding-left","10px");
                             $("#tranzaction_label").css("padding-bottom","10px");
                             for(i=0;i<obj.length;i++) {
-                                $("#tranzaction_label").append("<br>Название = "+ucFirst(obj[i]["name"])+"<br> Баланс = "+obj[i]['balance']+" ("+obj[i]['type_money']+")<br> Дата = "+obj[i]['date']+"<br>");
+                                //$tmp = "";
+                               // alert(obj[i]['status']);
+                                if(obj[i]['status'] == "minus") $tmp = "расход";
+                                if(obj[i]['status'] == "plus") $tmp = "доход";
+                                $("#tranzaction_label").append("<br>Название = "+ucFirst(obj[i]["name"])+"<br> Баланс = "+obj[i]['balance']+" ("+obj[i]['type_money']+")<br> Дата = "+obj[i]['date']+"<br> Статус = <span id='typ'>"+$tmp+"</span><br>");
+                               // if($tmp == "расход") $("#typ").css("color","red");
+                                //if($tmp == "доход") $("#typ").css("color","green");
                             }
                         }
                     );
@@ -233,11 +238,12 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
                        data:  last_month,
                    },
                    function(data){
+                       //alert(data);
                        var obj = JSON.parse(data);
                        for(i=0;i<obj.length;i++){
                            myLineChart.data.labels[i] = obj[i]["date"];
                            myLineChart.data.datasets[0].data[i] = obj[i]["balance"];
-                          // $("#content").append("name = "+ucFirst(obj[i]['name'])+" || data = "+obj[i]['date']+" || balance = "+obj[i]["balance"]+"<br>");
+                           $("#content").append("name = "+ucFirst(obj[i]['name'])+" || data = "+obj[i]['date']+" || balance = "+obj[i]["balance"]+"<br>");
                        }
                        myLineChart.update();
                    }
@@ -258,6 +264,7 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
                        data:  last_month,
                    },
                    function(data){
+                       //alert(data);
                        var obj = JSON.parse(data);
                        for(i=0;i<obj.length;i++){
                            myLineChart.data.labels[i] = obj[i]["date"];
@@ -290,6 +297,7 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
                         data:  last_month,
                     },
                     function(data){
+                        //alert(data);
                         var obj = JSON.parse(data);
                         for(i=0;i<obj.length;i++){
                             myLineChart.data.labels[i] = obj[i]["date"];
@@ -320,7 +328,7 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
 
             var ctx = document.getElementById('secChart').getContext('2d');
             var chart = new Chart(ctx, {
-                type: 'doughnut',//'pie'
+                type: 'pie',//'pie'doughnut
                 data: {
                     datasets: [{
                         backgroundColor: ["red","green"],

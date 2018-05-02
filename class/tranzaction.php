@@ -373,7 +373,7 @@ class Tranzaction extends Datebase{
              $eur_sale = 1;
              $rur_sale = 1;*/
             //$tr = R::getAll("select date(data) as data, balance, cash from tranzaction where user_id = $id_user and status = '$status' and date(data) = '".$item['data']."'");
-            $tr = R::getAll("select date(data) as data, tranzaction.balance, tranzaction.name as name, cash, cash.type_money, tranzaction.course as course from tranzaction inner join cash on tranzaction.cash=cash.id where user_id = $this->user_id and status = '$this->status' and date(data)='".$item['data']."'");
+            $tr = R::getAll("select date(data) as data, tranzaction.balance, tranzaction.name as name, tranzaction.course as course from tranzaction inner join cash on tranzaction.cash=cash.id where user_id = $this->user_id and status = '$this->status' and date(data)='".$item['data']."'");
             //$tr = R::getAll("select date(tranzaction.data) as data, tranzaction.balance, cash, cash.type_money, day(tranzaction.data) as daytr from tranzaction inner join cash on tranzaction.cash=cash.id where user_id = $id_user and status = '$status' and date(data)='".$item['data']."' order by tranzaction.data");
             //array_push($tr_one_day, $this->getEachTranzByChart($item['data']));
             foreach($tr as $item){
@@ -384,7 +384,7 @@ class Tranzaction extends Datebase{
                     $balance += $item['balance'];
                 }
             }
-
+//
             array_push($tr_all_day, new LineChart($item["data"], round($balance,2), $item['name']));
             $balance = 0;
 
@@ -401,7 +401,7 @@ class Tranzaction extends Datebase{
     public function getEachTranzByChart($data){
         $arr_tmp = Array();
         $balance = 0;
-        $tr = R::getAll("select date(data) as data, tranzaction.balance as balance, tranzaction.name as name, cash, cash.type_money, tranzaction.course as course from tranzaction inner join cash on tranzaction.cash=cash.id where user_id = $this->user_id and status = '$this->status' and date(data)='$data'");
+        $tr = R::getAll("select status, date(data) as data, tranzaction.balance as balance, tranzaction.name as name, cash.type_money, tranzaction.course as course from tranzaction inner join cash on tranzaction.cash=cash.id where user_id = $this->user_id  and date(data)='$data'");
         foreach($tr as $item){
             if($item['course'] != 0){
                 $balance = $item['balance'] * $item['course'];
@@ -409,7 +409,10 @@ class Tranzaction extends Datebase{
             else{
                 $balance = $item['balance'];
             }
+
             $line_chart = new LineChart($item["data"], round($balance,2), $item['name']);
+            $line_chart->setStatus($item['status']);
+            //$line_chart = $lich->setLineTwo($item["data"], round($balance,2), $item['name']);
             $line_chart->setType_Money($item['type_money']);
             array_push($arr_tmp, $line_chart);
         }

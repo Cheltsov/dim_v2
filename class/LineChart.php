@@ -12,11 +12,19 @@ class LineChart
     public $date;
     public $balance;
     public $type_money;
+    public $status;
 
     function  __construct( $date, $balance,$name){
         $this->date=$date;
         $this->balance=$balance;
         $this->name = $name;
+    }
+
+    function setLineTwo($date, $balance,$name, $status){
+        $this->date=$date;
+        $this->balance=$balance;
+        $this->name = $name;
+        $this->status = $status;
     }
 
     function  setLineChart($date, $balance,$name, $type_money){
@@ -46,5 +54,11 @@ class LineChart
         return $this->type_money;
     }
 
+    public function setStatus($status){
+        $this->status = $status;
+    }
+    public function getStatus(){
+        return $this->$status;
+    }
 
 }

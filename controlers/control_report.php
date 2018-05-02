@@ -64,8 +64,10 @@ if(isset($_POST['cont'])){
 
 if(isset($_POST['label'])){
     $traz->setUser_Id($id_cur_user);
-    $traz->setStatus("minus");
+    //$traz->setStatus($_POST['status']);
     $tmp = $traz->getEachTranzByChart($_POST['label']);
+
+
     echo(json_encode($tmp));
 }
 
