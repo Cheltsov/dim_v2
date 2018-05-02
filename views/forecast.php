@@ -20,22 +20,22 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
     <script src="../js/circularloader.js"></script>
 
 <pre>
-    <div id="content" style="color:white; max-height:600px; overflow:auto;float:left;margin-right:100px"></div>
-    <div id="content2" style="color:white; max-height:600px; overflow:auto;"></div>
+<!--<!--    <div id="content" style="color:white; max-height:600px; overflow:auto;float:left;margin-right:100px"></div>-->
+<!--<!--    <div id="content2" style="color:white; max-height:600px; overflow:auto;"></div>-->
 </pre>
 
-<div id="diargramm" style="background-color:white; width:65%;height:500px; border:1px solid red;margin-top:600px">
+<div id="diargramm" style="background-color:white; width:65%; max-height:500px;float:left; margin-top:-10px; margin-left:35px; ">
     <canvas id="secChart"></canvas>
-    <canvas id="chartjs-1"></canvas>
+<!--    <canvas id="chartjs-1"></canvas>-->
 </div>
-
-<div id="loader1" style="width:200px; border:1px solid blue; height:200px; background-color:green"></div>
-<div id="loader2" style="width:200px; border:1px solid blue; height:200px; background-color:green"></div>
-
+    <div style="display:flex;flex-direction: column-reverse;justify-content: center;-webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; ">
+        <div id="loader2" style="width:180px; height:200px; "></div>
+        <div id="loader1" style="width:180px;  height:200px;  "></div>
+    </div>
  <script>
-
-
-
 
 
         var ctx = document.getElementById('secChart').getContext('2d');
@@ -52,7 +52,7 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
                     borderColor:["rgb(75, 192, 192)"],//,"rgb(255, 99, 132)"
                     borderWidth:1
                 }, {
-                    label: "Рассход",
+                    label: "Расход",
                     data: [],
                     fill: false,
                     backgroundColor: ["rgba(255, 99, 132, 0.2)", "rgba(255, 159, 64, 0.2)", "rgba(255, 205, 86, 0.2)", "rgba(75, 192, 192, 0.2)", "rgba(54, 162, 235, 0.2)", "rgba(153, 102, 255, 0.2)", "rgba(201, 203, 207, 0.2)"],
@@ -77,10 +77,10 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
                 {wanna_month_tr : "1"},
                 function(data) {
                     //alert(data);
-                    $("#content").append(data);
+                   // $("#content").append(data);
                     obj = JSON.parse(data);
                     press = obj[0]['t'];
-                    $("#content").append("<br>Точность = " + press + "%<br>");
+                    //$("#content").append("<br>Точность = " + press + "%<br>");
 
                     if(press==null){
                         press = 0;
@@ -92,10 +92,10 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
                         Loader2(press);
                         obj.splice(0, 1);
                         for (i = 0; i < obj.length; i++) {
-                            $("#content").append(obj[i]['month_d'] + "=" + obj[i].bal + "<br>");
+                            //$("#content").append(obj[i]['month_d'] + "=" + obj[i].bal + "<br>");
                             myBarChart.data.labels[i] = GetMon(obj[i].month_d);
                             myBarChart.data.datasets[0].data[i] = obj[i].bal;
-                            myBarChart.data.datasets[0].backgroundColor = "rgba(75, 192, 192, 0.2)";
+                            myBarChart.data.datasets[0].backgroundColor = "rgba(75, 192, 192, 0.4)";
                             myBarChart.data.datasets[0].borderColor = "rgb(75, 192, 192)";
                         }
                         myBarChart.update();
@@ -108,10 +108,10 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
                 {wanna_month_tr2 : "1"},
                 function(data){
                     //alert(data);
-                    $("#content").append(data);
+                   // $("#content").append(data);
                     obj = JSON.parse(data);
                     pres = obj[0]['t'];
-                    $("#content").append("<br>Точность = " + pres + "%<br>");
+                    //$("#content").append("<br>Точность = " + pres + "%<br>");
 
                     if(pres==null){
                         pres = 0;
@@ -123,10 +123,10 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
                         Loader1(pres);
                         obj.splice(0, 1);
                         for (i = 0; i < obj.length; i++) {
-                            $("#content").append(obj[i].month + "=" + obj[i].bal + "<br>");
+                           // $("#content").append(obj[i].month + "=" + obj[i].bal + "<br>");
                             myBarChart.data.labels[i] = GetMon(obj[i].month);
                             myBarChart.data.datasets[1].data[i] = obj[i].bal;
-                            myBarChart.data.datasets[1].backgroundColor = "rgba(255, 99, 132, 0.2)";
+                            myBarChart.data.datasets[1].backgroundColor = "rgba(255, 99, 132, 0.4)";
                             myBarChart.data.datasets[1].borderColor = "rgb(255, 99, 132)";
                         }
                         myBarChart.update();
@@ -159,30 +159,36 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
                 backgroundColor: "#ffffff",//background colour of inner circle
                 fontColor: "#000000",//font color of progress text
                 fontSize: "40px",//font size of progress text
-                radius: 70,//radius of circle
-                progressBarBackground: "red",//background colour of circular progress Bar
-                progressBarColor: "blue",//colour of circular progress bar
-                progressBarWidth: 25,//progress bar width
+                radius: 60,//radius of circle
+                progressBarBackground: "rgb(75, 192, 192)",//background colour of circular progress Bar
+                progressBarColor: "rgba(255, 99, 132)",//colour of circular progress bar
+                progressBarWidth: 15,//progress bar width
                 progressPercent: perc,//progress percentage out of 100
                 progressValue: perc,//diplay this value instead of percentage
                 showText: true,//show progress text or not
                 title: "Расход",//show header title for the progress bar
             });
+            $("#loader1").find(".clProg").val(Math.round(perc,0)+"%");
+            $("#loader1").find(".titleCircularLoader").css("color","white");
+            $("#loader1").find(".titleCircularLoader").css("font-size","14pt");
         }
         function Loader2(perc){
             $("#loader2").circularloader({
                 backgroundColor: "#ffffff",//background colour of inner circle
                 fontColor: "#000000",//font color of progress text
                 fontSize: "40px",//font size of progress text
-                radius: 70,//radius of circle
-                progressBarBackground: "red",//background colour of circular progress Bar
-                progressBarColor: "blue",//colour of circular progress bar
-                progressBarWidth: 25,//progress bar width
+                radius: 60,//radius of circle
+                progressBarBackground: "rgba(255, 99, 132)",//background colour of circular progress Bar
+                progressBarColor: "rgb(75, 192, 192)",//colour of circular progress bar
+                progressBarWidth: 15,//progress bar width
                 progressPercent: perc,//progress percentage out of 100
                 progressValue: perc,//diplay this value instead of percentage
                 showText: true,//show progress text or not
                 title: "Доход",//show header title for the progress bar
             });
+            $("#loader2").find(".clProg").val(Math.round(perc,0)+"%");
+            $("#loader2").find(".titleCircularLoader").css("color","white");
+            $("#loader2").find(".titleCircularLoader").css("font-size","14pt");
         }
     </script>
 
