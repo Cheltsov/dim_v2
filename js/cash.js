@@ -2,13 +2,12 @@ $(document).ready(function(){
     $("#menu .but_forCash").click(function() {
             $(this).next().toggle("fast");
             return false;
-        }).next().slow();
+        }).next();
 });
 $.post(
     "../controlers/control_cash.php",
     {wanna_info_cash : "1"},
     function(data){
-       // alert(data);
         data = JSON.parse(data);
         for(i=4,n=2,id=0,b=5,t=3;i<data.length;i+=10,n+=10,id+=10,b+=10,t+=10){
             if(data[i]==1){
@@ -17,6 +16,7 @@ $.post(
             if(data[i]==2){
                 $("#cards").append("<li><button class='type' id='"+data[id]+"'>"+data[n]+":"+parseFloat(data[b]).toFixed(2)+" ("+data[t]+") </button></li>");
             }
+            if(id==0) $(".type").trigger("click");
         }
     }
 );

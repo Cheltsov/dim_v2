@@ -4,7 +4,7 @@ require_once "../class/user.php";
 require_once "../class/cash.php";
 require_once "../class/cashmonth.php";
 require_once "../class/tranzaction.php";
-require_once "getCourse.php";
+//require_once "getCourse.php";
 
 $user = new User();
 $cash = new Cash();

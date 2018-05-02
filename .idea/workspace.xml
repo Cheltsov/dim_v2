@@ -3,11 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="587421d6-895c-4b11-bb89-b090750059ed" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/class/db.php" afterPath="$PROJECT_DIR$/class/db.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controlers/control_cash.php" afterPath="$PROJECT_DIR$/controlers/control_cash.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controlers/control_debt.php" afterPath="$PROJECT_DIR$/controlers/control_debt.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/cash.js" afterPath="$PROJECT_DIR$/js/cash.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/debt.php" afterPath="$PROJECT_DIR$/views/debt.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -457,7 +454,7 @@
       <workItem from="1525116365804" duration="10477000" />
       <workItem from="1525162568427" duration="5741000" />
       <workItem from="1525238912995" duration="8924000" />
-      <workItem from="1525260221773" duration="7011000" />
+      <workItem from="1525260221773" duration="7194000" />
     </task>
     <task id="LOCAL-00001" summary="Added preloader">
       <created>1522016997497</created>
@@ -557,11 +554,18 @@
       <option name="project" value="LOCAL" />
       <updated>1525246997862</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Добавление и удаление долгов">
+      <created>1525267495741</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1525267495741</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="630506000" />
+    <option name="totallyTimeSpent" value="630689000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -677,7 +681,8 @@
     <MESSAGE value="Добавлен плагин процента точности прогноза" />
     <MESSAGE value="Поправил графики" />
     <MESSAGE value="Поправил страницу прогнозов" />
-    <option name="LAST_COMMIT_MESSAGE" value="Поправил страницу прогнозов" />
+    <MESSAGE value="Добавление и удаление долгов" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавление и удаление долгов" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -952,6 +957,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
           <caret line="9" column="19" lean-forward="false" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>
