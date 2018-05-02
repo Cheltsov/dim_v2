@@ -1250,60 +1250,6 @@ class Datebase
        //return $courses;
    }
 
-   function addDebt(){
-       $numargs = func_num_args();
-       $arg_list = func_get_args();
-       try{
-           $debt = R::dispense("debt");
-           $debt->name = $arg_list[0];
-           $debt->data = $arg_list[1];
-           $debt->data_end = $arg_list[2];
-           $debt->cash_id = $arg_list[3];
-           $debt->balance= $arg_list[4];
-           $debt->comment = $arg_list[5];
-           $debt->status = $arg_list[6];
-           $debt->user_id = $arg_list[7];
-           R::store($debt);
-           echo("Запись успешно добавлена!");
-       }
-       catch(Exception $e){
-           echo("Ошибка при добавлении... "+$e);
-       }
-       R::close();
-   }
-
-   function getDebtsMinus($id_user){
-       $arr_tmp = array();
-       try{
-           $debts = R::findAll("debt", "user_id = $id_user");
-           foreach($debts as $item){
-               if($item->status == "minus"){
-                   array_push($arr_tmp, $item->id, $item->name, $item->data, $item->data_end, $item->cash_id, $item->balance, $item->comment,$item->user_id);
-               }
-           }
-           return $arr_tmp;
-       }
-       catch(Exception $e){
-           echo($e);
-       }
-   }
-
-    function getDebtsPlus($id_user){
-        $arr_tmp = array();
-        try{
-            $debts = R::findAll("debt", "user_id = $id_user");
-            foreach($debts as $item){
-                if($item->status == "plus"){
-                    array_push($arr_tmp, $item->id, $item->name, $item->data, $item->data_end, $item->cash_id, $item->balance, $item->comment,$item->user_id);
-                }
-            }
-            return $arr_tmp;
-        }
-        catch(Exception $e){
-            echo($e);
-        }
-    }
-
     function getBalanceFromMonth($id_user, $month, $status){ // Подсчитать баланс доходов за один месяц
         //$now_month = date("m");
         $all_bal_from_month = 0;

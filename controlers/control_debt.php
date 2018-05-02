@@ -1,13 +1,11 @@
 <?php
-require_once "../class/db.php";
-//require_once 'getCourse.php';
+require_once "../class/user.php";
+require_once "../class/debt.php";
 
-$con = new Datebase();
-$con->Connection();
+$user = new User();
+$debt = new Debt();
 
-//$course = getCourse();
-
-$id_cur_user = $con->findIdUser();
+$id_cur_user = $user->getUserId_Cookie();
 
 if(isset($_POST['name_debt_minus']) ){
     $name = $_POST['name_debt_minus'];
@@ -18,7 +16,8 @@ if(isset($_POST['name_debt_minus']) ){
     $comment = $_POST['comment_debt_minus'];
     $status = "minus";
 
-    $con->addDebt($name,$data,$data_end,$cash_id,$balance,$comment,$status, $id_cur_user);
+    $debt->setDebt($name,$data,$data_end,$cash_id,$balance,$comment,$status, $id_cur_user);
+    $debt->AddDebt();
 }
 
 if(isset($_POST['name_debt_plus']) ){
@@ -30,14 +29,28 @@ if(isset($_POST['name_debt_plus']) ){
     $comment = $_POST['comment_debt_plus'];
     $status = "plus";
 
-    $con->addDebt($name,$data,$data_end,$cash_id,$balance,$comment,$status, $id_cur_user);
+    $debt->setDebt($name,$data,$data_end,$cash_id,$balance,$comment,$status, $id_cur_user);
+    $tmp = $debt->AddDebt();
+    if($tmp) echo("Запись успешно добавлена!");
+    else echo("Запись не добавлена...");
 }
 
 if(isset($_POST['wanna_get_debts_minus'])){
-    $arr_debts = $con->getDebtsMinus($id_cur_user);
+    $debt->setStatus('minus');
+    $debt->setUser_Id($id_cur_user);
+    $arr_debts = $debt->getDebts();
     echo(json_encode($arr_debts));
 }
 if(isset($_POST['wanna_get_debts_plus'])){
-    $arr_debts = $con->getDebtsPlus($id_cur_user);
+    $debt->setStatus('plus');
+    $debt->setUser_Id($id_cur_user);
+    $arr_debts = $debt->getDebts();
     echo(json_encode($arr_debts));
+}
+
+if(isset($_POST['del_trans']) && isset($_POST['index_debt'])){
+    $debt->setId($_POST['index_debt']);
+    $tmp = $debt->DelDebt();
+    if($tmp) echo("Запись успешно удалена!");
+    else echo("Запись не удалена...");
 }

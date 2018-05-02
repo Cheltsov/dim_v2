@@ -29,11 +29,14 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
         width:85%;
         margin-left:20px;
         float:left;
-        max-height:350px;
+        max-height: 340px;
+    }
+    .if-table{
+        max-height: 260px;
         overflow: auto;
     }
-    .manu table{
-
+    .menu table{
+        width:100%
     }
     .menu td, th{
         border:1px solid black;
@@ -44,7 +47,7 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
         background-color:lightgrey;
     }
     .debt_oper{
-        floate:none;
+        float:none;
     }
     .debt_oper button{
         width:80px;
@@ -59,12 +62,12 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
         <li><a href="#fragment-1">Мне должны</a></li>
         <li><a href="#fragment-2">Я должен</a></li>
     </ul>
-    <div id="fragment-1">
-        <table id = "plusDebt">
+    <div id="fragment-1" class="if-table">
+        <table id = "plusDebt" >
         </table>
     </div>
-    <div id="fragment-2">
-        <table id = "minDebt">
+    <div id="fragment-2" class="if-table">
+        <table id = "minDebt" >
         </table>
     </div>
 </div>
@@ -135,7 +138,74 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
 
 </div>
 
+<div id="dialog3" style="text-align:center">
+    <p >Вы действительно хотите удалить транзакцию?</p>
+    <br>
+    <button id="yes">Да</button>
+    <button id="no">Нет</button>
+
+</div>
+
 <script>
+    tmp_id="";
+
+    $("#plusDebt, #minDebt").on("click",'.debts', function(){
+        var li = $(".debts"), i = li.length;
+        while(i--) {
+            li[i].style.backgroundColor = i%2 ? 'lightgrey' : 'white';
+        }
+        tmp_id ="";
+        index = "";
+        string =  this.id;
+        str = string.split('');
+        for(i=5;i<str.length;i++){
+            tmp_id += str[i];
+        }
+        flag_ts = "111";
+        document.getElementById(string).style.backgroundColor = "#009fe3";
+    });
+
+    $("#del_debt").click(function(){
+        $("#dialog").dialog('close');
+        if(!tmp_id){
+            alert("Выберите транзакцию!");
+            return;
+        }
+        else{
+            $("#dialog3").dialog('open');
+
+            $("#no").click(function(){
+                $("#dialog3").dialog('close');
+            });
+
+            $("#yes").click(function(){
+                if(flag_ts == "111"){
+                    $.post("../controlers/control_debt.php", {
+                            del_trans : "1",
+                            index_debt : tmp_id
+                        },
+                        function(data){
+                            alert(data);
+                            location.reload(true);
+                            $("#dialog3").dialog('close');
+                        }
+                    );
+                    flag_ts = "";
+                }
+            });
+
+        }
+
+    });
+
+
+
+
+    year = new Date().getFullYear();
+    month = new Date().getMonth()+1;
+    day = new Date().getDay();
+    date_now = year+"-"+month+"-"+day;
+
     $( "#tabs_debt" ).tabs({
         active: 0,
         event: "click",
@@ -154,6 +224,13 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
         },
         width: 500
     });
+    $('#dialog3').dialog({
+        autoOpen: false,
+        show: {effect: 'drop', duration: 500},
+        hide: {effect: 'clip', duration: 500},
+        width: 350
+    });
+
     $( "#tabs_dialog" ).tabs({
         active: 0,
         event: "click",
@@ -167,7 +244,8 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
     $("#add_dataEnd_debt_minus").flatpickr({
         enableTime: true,
         dateFormat: "Y-m-d H:i",
-        time_24hr: true
+        time_24hr: true,
+        minDate: date_now,
     });
     $("#add_data_debt_plus").flatpickr({
         enableTime: true,
@@ -177,7 +255,8 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
     $("#add_dataEnd_debt_plus").flatpickr({
         enableTime: true,
         dateFormat: "Y-m-d H:i",
-        time_24hr: true
+        time_24hr: true,
+        minDate: date_now,
     });
 
     $( "#debt_cash_minus_sel" )
@@ -203,7 +282,7 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
 
             function(data){
                 data = JSON.parse(data);
-                for(i=0,j=3,k=6,vl=1;i<data.length;i+=7,j+=7,k+=7,vl+=7){ // получить имя кошльков
+                for(i=2,j=5,k=0,vl=3;i<data.length;i+=10,j+=10,k+=10,vl+=10){ // получить имя кошльков
                     $("#debt_cash_minus_sel").append("<option value='"+data[k]+"'>"+data[i]+" ("+data[j]+" "+data[vl]+")</option>").selectmenu('refresh');
                     $("#debt_cash_plus_sel").append("<option value='"+data[k]+"'>"+data[i]+" ("+data[j]+" "+data[vl]+")</option>").selectmenu('refresh');
                     //$("#cash_trans_sum").append("<option value='"+data[k]+"'>"+data[i]+" ("+data[j]+" "+data[vl]+")</option>").selectmenu('refresh');
@@ -235,7 +314,7 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
                 function(data){
                     alert(data);
                     $("#dialog").dialog('close');
-                   // $( "#tabs_debt" ).tabs( "refresh" );
+                    location.reload(true);
                 }
             );
         }
@@ -260,6 +339,7 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
                 function(data){
                     alert(data);
                     $("#dialog").dialog('close');
+                    location.reload(true);
                 }
             );
         }
@@ -271,10 +351,10 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
             {wanna_get_debts_minus : "1"},
             function(data){
                 //alert(data);
-                $("#plusDebt").append("<tr><th>Название</th><th>Дата</th><th>Дата окончания</th><th>Кошелек</th><th>Сумма</th><th>Комментарий</th><th>Пользователь</th></tr>");
+                $("#plusDebt").append("<tr><th>Название</th><th>Дата</th><th>Дата окончания</th><th>Кошелек</th><th>Сумма</th><th>Комментарий</th></tr>");
                 obj = JSON.parse(data);
                 for(i=1,j=2,a=3,b=4,c=5,d=6,e=7,il=0;i<obj.length;i+=8,j+=8,a+=8,b+=8,c+=8,d+=8,il+=8,e+=8){
-                    $("#plusDebt").append("<tr id='debts"+obj[il]+"' class='debts'>" +"<td id='name'>"+obj[i]+"&nbsp</td>" + "<td id='cash'>"+obj[j]+"</td>"+ "<td>"+obj[a]+"</td>"+  "<td>"+obj[b]+"</td>" + "<td>"+obj[c]+"</td>" +  "<td>"+obj[d]+"</td>"+ "<td>"+obj[e]+"</td>"+"</tr>");
+                    $("#plusDebt").append("<tr id='debts"+obj[il]+"' class='debts'>" +"<td id='name'>"+obj[i]+"&nbsp</td>" + "<td id='cash'>"+obj[j]+"</td>"+ "<td>"+obj[a]+"</td>"+  "<td>"+obj[b]+"</td>" + "<td>"+obj[c]+"</td>" +  "<td>"+obj[d]+"</td>"+"</tr>");
                 }
             }
         );
@@ -283,10 +363,10 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
             {wanna_get_debts_plus : "1"},
             function(data){
                 //alert(data);
-                $("#minDebt").append("<tr><th>Название</th><th>Дата</th><th>Дата окончания</th><th>Кошелек</th><th>Сумма</th><th>Комментарий</th><th>Пользователь</th></tr>");
+                $("#minDebt").append("<tr><th>Название</th><th>Дата</th><th>Дата окончания</th><th>Кошелек</th><th>Сумма</th><th>Комментарий</th></tr>");
                 obj = JSON.parse(data);
                 for(i=1,j=2,a=3,b=4,c=5,d=6,e=7,il=0;i<obj.length;i+=8,j+=8,a+=8,b+=8,c+=8,d+=8,il+=8,e+=8){
-                    $("#minDebt").append("<tr id='debts"+obj[il]+"' class='debts'>" +"<td id='name'>"+obj[i]+"&nbsp</td>" + "<td id='cash'>"+obj[j]+"</td>"+ "<td>"+obj[a]+"</td>"+  "<td>"+obj[b]+"</td>" + "<td>"+obj[c]+"</td>" +  "<td>"+obj[d]+"</td>"+ "<td>"+obj[e]+"</td>"+"</tr>");
+                    $("#minDebt").append("<tr id='debts"+obj[il]+"' class='debts'>" +"<td id='name'>"+obj[i]+"&nbsp</td>" + "<td id='cash'>"+obj[j]+"</td>"+ "<td>"+obj[a]+"</td>"+  "<td>"+obj[b]+"</td>" + "<td>"+obj[c]+"</td>" +  "<td>"+obj[d]+"</td>"+"</tr>");
                 }
             }
         );
