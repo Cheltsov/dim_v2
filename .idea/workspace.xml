@@ -2,9 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="587421d6-895c-4b11-bb89-b090750059ed" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/class/pay.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/080d2c86-4aba-4e19-a487-040e4fc54d94.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/080d2c86-4aba-4e19-a487-040e4fc54d94.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controlers/control_cash.php" afterPath="$PROJECT_DIR$/controlers/control_cash.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/cash.js" afterPath="$PROJECT_DIR$/js/cash.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/class/debt.php" afterPath="$PROJECT_DIR$/class/debt.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/class/tranzaction.php" afterPath="$PROJECT_DIR$/class/tranzaction.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controlers/control_debt.php" afterPath="$PROJECT_DIR$/controlers/control_debt.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/debt.php" afterPath="$PROJECT_DIR$/views/debt.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -31,6 +36,12 @@
         <item name="ledger1@localhost" type="e3449647:DbNodeDescriptor" />
         <item name="ledger1" type="e3449647:DbNodeDescriptor" />
       </path>
+      <path>
+        <item name="" type="eadb38e5:DatabaseStructure$Root" />
+        <item name="ledger1@localhost" type="e3449647:DbNodeDescriptor" />
+        <item name="ledger1" type="e3449647:DbNodeDescriptor" />
+        <item name="tranzaction" type="e3449647:DbNodeDescriptor" />
+      </path>
     </expand>
     <select />
   </component>
@@ -38,14 +49,28 @@
     <favorites_list name="Develop_diploma" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="debt.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/debt.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4">
-              <caret line="151" column="22" lean-forward="false" selection-start-line="151" selection-start-column="22" selection-end-line="151" selection-end-column="22" />
+            <state relative-caret-position="-838">
+              <caret line="318" column="41" lean-forward="false" selection-start-line="318" selection-start-column="41" selection-end-line="318" selection-end-column="41" />
               <folding>
-                <element signature="n#div#2;n#!!top" expanded="false" />
+                <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
+                <element signature="n#div#3;n#!!top" expanded="false" />
+                <element signature="n#div#4;n#!!top" expanded="false" />
+                <element signature="n#div#5;n#!!top" expanded="false" />
+                <element signature="e#12120#13869#0#HTML" expanded="false" />
+                <element signature="e#12448#13073#0#HTML" expanded="false" />
+                <element signature="e#13114#13735#0#HTML" expanded="false" />
+                <element signature="e#13914#14616#0#HTML" expanded="false" />
+                <element signature="e#14661#15801#0#HTML" expanded="false" />
+                <element signature="e#16848#17728#0#HTML" expanded="false" />
+                <element signature="e#21059#22211#0#HTML" expanded="false" />
+                <element signature="e#22264#23398#0#HTML" expanded="false" />
+                <element signature="e#25453#25542#0#HTML" expanded="false" />
+                <marker date="1525311236548" expanded="true" signature="10407:10487" ph="//..." />
+                <marker date="1525311236548" expanded="true" signature="11483:12079" ph="//..." />
               </folding>
             </state>
           </provider>
@@ -54,9 +79,18 @@
       <file leaf-file-name="control_debt.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controlers/control_debt.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="53" column="42" lean-forward="true" selection-start-line="53" selection-start-column="42" selection-end-line="53" selection-end-column="42" />
+            <state relative-caret-position="1869">
+              <caret line="89" column="2" lean-forward="false" selection-start-line="89" selection-start-column="2" selection-end-line="89" selection-end-column="2" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="debt" pinned="false" current-in-tab="false">
+        <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.debt">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
             </state>
           </provider>
         </entry>
@@ -64,8 +98,8 @@
       <file leaf-file-name="debt.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/class/debt.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="130" column="30" lean-forward="false" selection-start-line="130" selection-start-column="30" selection-end-line="130" selection-end-column="30" />
+            <state relative-caret-position="308">
+              <caret line="189" column="10" lean-forward="false" selection-start-line="189" selection-start-column="10" selection-end-line="189" selection-end-column="10" />
               <folding>
                 <element signature="e#6#92#0#PHP" expanded="false" />
               </folding>
@@ -76,20 +110,21 @@
       <file leaf-file-name="tranzaction.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/class/tranzaction.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="274" column="8" lean-forward="false" selection-start-line="274" selection-start-column="8" selection-end-line="282" selection-end-column="19" />
+            <state relative-caret-position="177">
+              <caret line="77" column="26" lean-forward="false" selection-start-line="77" selection-start-column="20" selection-end-line="77" selection-end-column="26" />
               <folding>
-                <marker date="1525246446975" expanded="true" signature="12288:12289" ph="..." />
+                <marker date="1525309756243" expanded="true" signature="12672:12673" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="debt" pinned="false" current-in-tab="false">
-        <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.debt">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
+      <file leaf-file-name="control_tranzactions.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controlers/control_tranzactions.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="54" column="4" lean-forward="true" selection-start-line="54" selection-start-column="4" selection-end-line="60" selection-end-column="53" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -108,27 +143,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>del</find>
-      <find>border</find>
-      <find>getTranzFrom_Id</find>
-      <find>wanna_info_tranz</find>
-      <find>up_tr</find>
-      <find>test_tr</find>
-      <find>getBalanceFromMonth</find>
-      <find>getDataOfTr</find>
-      <find>wanna_month_tr</find>
-      <find>getBalanceByData</find>
-      <find>content2</find>
-      <find>chose</find>
-      <find>расс</find>
-      <find>LineChart</find>
-      <find>wanna_info_tr_min</find>
-      <find>add</find>
-      <find>wanna_get_debts_minus</find>
-      <find>#fragment-1</find>
-      <find>reload</find>
-      <find>add_tr_debt_two</find>
-      <find>col</find>
       <find>click</find>
       <find>#dialog3</find>
       <find>yes</find>
@@ -138,6 +152,27 @@
       <find>debt</find>
       <find>tras</find>
       <find>relo</find>
+      <find>opti</find>
+      <find>minDebt</find>
+      <find>tabs2</find>
+      <find>debt_up_form_minus</find>
+      <find>up</find>
+      <find>debt_name_up_minus</find>
+      <find>upda</find>
+      <find>debts_plus</find>
+      <find>want_id_cash</find>
+      <find>option</find>
+      <find>selectmenu</find>
+      <find>расс</find>
+      <find>add</find>
+      <find>find</find>
+      <find>findTr</find>
+      <find>add_tr_debt_one</find>
+      <find>add_pay_name_m</find>
+      <find>add_debt_id</find>
+      <find>add_pay_comment_min</find>
+      <find>add_pay_one_m</find>
+      <find>wanna_get_debts_minus</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -146,7 +181,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/examples/accordion_test/index.html" />
         <option value="$PROJECT_DIR$/models/LineChart.php" />
         <option value="$PROJECT_DIR$/views/PartPage.php" />
         <option value="$PROJECT_DIR$/style/setting_style.css" />
@@ -179,7 +213,6 @@
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/controlers/logIn.php" />
         <option value="$PROJECT_DIR$/class/cash.php" />
-        <option value="$PROJECT_DIR$/js/tranz.js" />
         <option value="$PROJECT_DIR$/views/tranzactions.php" />
         <option value="$PROJECT_DIR$/controlers/control_forecast.php" />
         <option value="$USER_HOME$/Рабочий стол/2.LoadOnSomeEvent.html" />
@@ -189,14 +222,16 @@
         <option value="$PROJECT_DIR$/controlers/control_report.php" />
         <option value="$PROJECT_DIR$/views/report.php" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/080d2c86-4aba-4e19-a487-040e4fc54d94/console.sql" />
-        <option value="$PROJECT_DIR$/class/tranzaction.php" />
         <option value="$PROJECT_DIR$/controlers/control_cash.php" />
         <option value="$PROJECT_DIR$/views/cash.php" />
         <option value="$PROJECT_DIR$/js/cash.js" />
         <option value="$PROJECT_DIR$/class/db.php" />
-        <option value="$PROJECT_DIR$/controlers/control_debt.php" />
+        <option value="$PROJECT_DIR$/js/tranz.js" />
+        <option value="$PROJECT_DIR$/class/pay.php" />
+        <option value="$PROJECT_DIR$/class/tranzaction.php" />
         <option value="$PROJECT_DIR$/class/debt.php" />
         <option value="$PROJECT_DIR$/views/debt.php" />
+        <option value="$PROJECT_DIR$/controlers/control_debt.php" />
       </list>
     </option>
   </component>
@@ -274,6 +309,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -306,7 +342,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -454,7 +489,8 @@
       <workItem from="1525116365804" duration="10477000" />
       <workItem from="1525162568427" duration="5741000" />
       <workItem from="1525238912995" duration="8924000" />
-      <workItem from="1525260221773" duration="7194000" />
+      <workItem from="1525260221773" duration="7430000" />
+      <workItem from="1525296505904" duration="14673000" />
     </task>
     <task id="LOCAL-00001" summary="Added preloader">
       <created>1522016997497</created>
@@ -561,11 +597,18 @@
       <option name="project" value="LOCAL" />
       <updated>1525267495741</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Убраны ошибки">
+      <created>1525267710031</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1525267710031</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="630689000" />
+    <option name="totallyTimeSpent" value="645598000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -580,10 +623,10 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18078668" sideWeight="0.4868421" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18305598" sideWeight="0.4868421" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5030257" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1354009" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1354009" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.60855263" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" x="20" y="184" width="1322" height="478" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -682,7 +725,8 @@
     <MESSAGE value="Поправил графики" />
     <MESSAGE value="Поправил страницу прогнозов" />
     <MESSAGE value="Добавление и удаление долгов" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавление и удаление долгов" />
+    <MESSAGE value="Убраны ошибки" />
+    <option name="LAST_COMMIT_MESSAGE" value="Убраны ошибки" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -691,273 +735,227 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.cashmonth" />
-    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.users" />
-    <entry file="das://table:/798e254a/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.tranzaction" />
-    <entry file="file://$PROJECT_DIR$/views/PartPage.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="19" column="16" lean-forward="true" selection-start-line="19" selection-start-column="16" selection-end-line="19" selection-end-column="105" />
+    <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.debt">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/class/mail.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+    <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.debt">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/class/moveTo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="8" column="7" lean-forward="false" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+    <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.debt">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/test_addUser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="89" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="89" />
+    <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.debt">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/test_trans.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1309">
-          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+    <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.debt">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controlers/fore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+    <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.debt">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/index_page.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="23" column="3" lean-forward="false" selection-start-line="23" selection-start-column="3" selection-end-line="23" selection-end-column="3" />
+    <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.debt">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.debt">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.debt">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.debt">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.debt">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.debt">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.debt">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.debt">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.debt">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.debt">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.debt">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.debt">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.debt">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.debt">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.debt">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="410" column="30" lean-forward="false" selection-start-line="410" selection-start-column="30" selection-end-line="410" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/class/translate.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="233" column="32" lean-forward="false" selection-start-line="233" selection-start-column="32" selection-end-line="233" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.translate">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/singIn.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="65" column="36" lean-forward="false" selection-start-line="65" selection-start-column="36" selection-end-line="65" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controlers/control_setting.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" column="20" lean-forward="false" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controlers/test_conrol.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="19" lean-forward="true" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controlers/getCourse.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="9" lean-forward="false" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controlers/displayOnOff.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="-6633">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controlers/exit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/class/Cookies.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controlers/control_main_page.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="54" column="5" lean-forward="false" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="127" column="0" lean-forward="true" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controlers/logIn.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="28" column="41" lean-forward="false" selection-start-line="28" selection-start-column="41" selection-end-line="28" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/report.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-805">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/class/user.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1722">
-          <caret line="82" column="38" lean-forward="false" selection-start-line="82" selection-start-column="20" selection-end-line="82" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/class/cashMonth.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="702">
-          <caret line="136" column="46" lean-forward="false" selection-start-line="136" selection-start-column="20" selection-end-line="136" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/class/cash.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="153" column="13" lean-forward="false" selection-start-line="153" selection-start-column="13" selection-end-line="153" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Рабочий стол/2.LoadOnSomeEvent.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-133">
-          <caret line="20" column="21" lean-forward="true" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Рабочий стол/1.SimpleLoader.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="11" column="34" lean-forward="true" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/controlers/control_forecast.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="109" column="5" lean-forward="false" selection-start-line="109" selection-start-column="5" selection-end-line="109" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.cashmonth">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/forecast.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-991">
+        <state relative-caret-position="714">
           <caret line="54" column="30" lean-forward="false" selection-start-line="54" selection-start-column="30" selection-end-line="54" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.cash">
+    <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.debt">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/class/LineChart.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="49" column="20" lean-forward="false" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/080d2c86-4aba-4e19-a487-040e4fc54d94/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="163" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.tranzaction">
+    <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.debt">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controlers/control_report.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="46" column="32" lean-forward="false" selection-start-line="46" selection-start-column="32" selection-end-line="46" selection-end-column="32" />
+    <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.debt">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.debt">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/report.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="64" column="45" lean-forward="false" selection-start-line="64" selection-start-column="28" selection-end-line="64" selection-end-column="45" />
+        <state relative-caret-position="64">
+          <caret line="318" column="8" lean-forward="true" selection-start-line="318" selection-start-column="8" selection-end-line="321" selection-end-column="9" />
+          <folding>
+            <marker date="1525245338808" expanded="true" signature="1660:1703" ph="..." />
+            <marker date="1525245338808" expanded="true" signature="4323:4400" ph="/*...*/" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/cash.php">
+    <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="207" column="0" lean-forward="false" selection-start-line="207" selection-start-column="0" selection-end-line="207" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/cash.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="19" lean-forward="false" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+        <state relative-caret-position="105">
+          <caret line="313" column="8" lean-forward="true" selection-start-line="313" selection-start-column="8" selection-end-line="318" selection-end-column="31" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.debt">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.debt">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -969,35 +967,99 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/class/cash.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="113" column="20" lean-forward="false" selection-start-line="113" selection-start-column="20" selection-end-line="113" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/tranz.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="371" column="17" lean-forward="true" selection-start-line="355" selection-start-column="16" selection-end-line="371" selection-end-column="17" />
+        <state relative-caret-position="179">
+          <caret line="287" column="3" lean-forward="true" selection-start-line="287" selection-start-column="3" selection-end-line="287" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/tranzactions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="222" column="0" lean-forward="false" selection-start-line="222" selection-start-column="0" selection-end-line="228" selection-end-column="6" />
+        <state relative-caret-position="206">
+          <caret line="331" column="37" lean-forward="false" selection-start-line="331" selection-start-column="34" selection-end-line="331" selection-end-column="37" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/class/pay.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.debt">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/controlers/control_tranzactions.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="17" selection-end-column="41" />
+        <state relative-caret-position="240">
+          <caret line="54" column="4" lean-forward="true" selection-start-line="54" selection-start-column="4" selection-end-line="60" selection-end-column="53" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/class/db.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="1251" column="4" lean-forward="false" selection-start-line="1251" selection-start-column="4" selection-end-line="1251" selection-end-column="4" />
-          <folding />
+    <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.debt">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.debt">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.debt">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.debt">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.debt">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.debt">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.debt">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -1010,18 +1072,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/class/tranzaction.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="274" column="8" lean-forward="false" selection-start-line="274" selection-start-column="8" selection-end-line="282" selection-end-column="19" />
+        <state relative-caret-position="177">
+          <caret line="77" column="26" lean-forward="false" selection-start-line="77" selection-start-column="20" selection-end-line="77" selection-end-column="26" />
           <folding>
-            <marker date="1525246446975" expanded="true" signature="12288:12289" ph="..." />
+            <marker date="1525309756243" expanded="true" signature="12672:12673" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/6f10b568/080d2c86-4aba-4e19-a487-040e4fc54d94/ledger1.debt">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/class/debt.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="130" column="30" lean-forward="false" selection-start-line="130" selection-start-column="30" selection-end-line="130" selection-end-column="30" />
+        <state relative-caret-position="308">
+          <caret line="189" column="10" lean-forward="false" selection-start-line="189" selection-start-column="10" selection-end-line="189" selection-end-column="10" />
           <folding>
             <element signature="e#6#92#0#PHP" expanded="false" />
           </folding>
@@ -1030,18 +1099,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/controlers/control_debt.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="53" column="42" lean-forward="true" selection-start-line="53" selection-start-column="42" selection-end-line="53" selection-end-column="42" />
+        <state relative-caret-position="1869">
+          <caret line="89" column="2" lean-forward="false" selection-start-line="89" selection-start-column="2" selection-end-line="89" selection-end-column="2" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/debt.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4">
-          <caret line="151" column="22" lean-forward="false" selection-start-line="151" selection-start-column="22" selection-end-line="151" selection-end-column="22" />
+        <state relative-caret-position="-838">
+          <caret line="318" column="41" lean-forward="false" selection-start-line="318" selection-start-column="41" selection-end-line="318" selection-end-column="41" />
           <folding>
-            <element signature="n#div#2;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#div#3;n#!!top" expanded="false" />
+            <element signature="n#div#4;n#!!top" expanded="false" />
+            <element signature="n#div#5;n#!!top" expanded="false" />
+            <element signature="e#12120#13869#0#HTML" expanded="false" />
+            <element signature="e#12448#13073#0#HTML" expanded="false" />
+            <element signature="e#13114#13735#0#HTML" expanded="false" />
+            <element signature="e#13914#14616#0#HTML" expanded="false" />
+            <element signature="e#14661#15801#0#HTML" expanded="false" />
+            <element signature="e#16848#17728#0#HTML" expanded="false" />
+            <element signature="e#21059#22211#0#HTML" expanded="false" />
+            <element signature="e#22264#23398#0#HTML" expanded="false" />
+            <element signature="e#25453#25542#0#HTML" expanded="false" />
+            <marker date="1525311236548" expanded="true" signature="10407:10487" ph="//..." />
+            <marker date="1525311236548" expanded="true" signature="11483:12079" ph="//..." />
           </folding>
         </state>
       </provider>

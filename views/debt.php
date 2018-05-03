@@ -56,6 +56,9 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
         margin-right:20px;
         border:1px solid red;
     }
+    .add_pay{
+        text-align:center
+    }
 </style>
 <div id="tabs_debt" class="menu" >
     <ul>
@@ -80,12 +83,19 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
     <button id="del_debt" style="margin-top:15px;">Удалить</button>
     <br>
 </div>
-<!--
+
 <div id="tab_tabl" style="background-color:white;width:85%; margin-left:20px; border:1px solid red; position:relative;top:300px">
     <p>Выплаты</p>
 
+    <div>
+        <button id="add_pay">Добавить</button>
+        <button id="up_pay">Изменить</button>
+        <button id="del_pay">Удалить</button>
+    </div>
 </div>
--->
+
+
+
 
 <div id="dialog" >
 
@@ -104,11 +114,15 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
                 <input type="text" id="add_data_debt_minus" required><br><br>
                 <p>Дата окончания:</p>
                 <input type="text" id="add_dataEnd_debt_minus" required><br><br>
-                <p>Зачислить на счет:</p>
-                <select name="cash_minus" id="debt_cash_minus_sel" required >
+                <p>Валюта:</p>
+                <select name="val_minus" id="add_val_min" required >
+                    <option value="EUR">EUR</option>
+                    <option value="USD">USD</option>
+                    <option value="UAH">UAH</option>
+                    <option value="RUR">RUR</option>
                 </select>
                 <br><br>
-                <p>Сумма:</p>
+                <p>Сумма к выплате:</p>
                 <input type="number" required step="any" name="debt_balance_minus"> <br><br>
                 <p>Комментарий:</p>
                 <textarea id="dent_comment_minusid" cols="20" rows="5" name="dent_comment_minus"></textarea><br><br>
@@ -122,17 +136,78 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
             <input type="text" id="add_data_debt_plus"><br><br>
             <p>Дата окончания:</p>
             <input type="text" id="add_dataEnd_debt_plus"><br><br>
-            <p>Списать со счета:</p>
-            <select name="cash_minus" id="debt_cash_plus_sel" required >
+            <p>Валюта:</p>
+            <select name="val_plus" id="val_plus" required >
+                <option value="EUR">EUR</option>
+                <option value="USD">USD</option>
+                <option value="UAH">UAH</option>
+                <option value="RUR">RUR</option>
             </select>
             <br><br>
-            <p>Сумма:</p>
+            <p>Сумма к выплате:</p>
             <input type="number" required step="any" name="debt_balance_plus"> <br><br>
             <p>Комментарий:</p>
             <textarea id="dent_comment_plusid" cols="20" rows="5" name="dent_comment_plus"></textarea><br><br>
             <input type="submit" value="Добавить" id="add_tr_debt_two">
         </div>
 
+    </div>
+
+
+</div>
+
+<div id="dialog2" >
+    <h3 align="center">Изменить </h3>
+    <div id="tabs2">
+        <ul>
+            <li><a href="#fragment-1">Мне должны</a></li>
+            <li><a href="#fragment-2">Я должен</a></li>
+        </ul>
+        <div id="fragment-1">
+                <p>Название:</p>
+                <input type="text"  required name="debt_name_up_minus"><br><br>
+                <p>Дата:</p>
+                <input type="text" id="up_data_debt_minus" required><br><br>
+                <p>Дата окончания:</p>
+                <input type="text" id="up_dataEnd_debt_minus" required><br><br>
+                <p>Валюта:</p>
+                <select name="val_minus" id="up_val_min" required >
+                    <option value="EUR">EUR</option>
+                    <option value="USD">USD</option>
+                    <option value="UAH">UAH</option>
+                    <option value="RUR">RUR</option>
+                </select>
+                <br><br>
+                <p>Сумма к выплате:</p>
+                <input type="number" required step="any" name="debt_up_balance_minus"> <br><br>
+                <p>Комментарий:</p>
+                <textarea id="dent_comment_minusid" cols="20" rows="5" name="dent_up_comment_minus"></textarea><br><br>
+                <input type="submit" value="Изменить" id="up_tr_debt_one">
+        </div>
+        <div id="fragment-2">
+            <form action="" method="post" id="debt_up_form_plus">
+                <p>Название:</p>
+                <input type="text"  required name="debt_name_up_plus"><br><br>
+                <p>Дата:</p>
+                <input type="text" id="up_data_debt_plus" required><br><br>
+                <p>Дата окончания:</p>
+                <input type="text" id="up_dataEnd_debt_plus" required><br><br>
+                <p>Валюта:</p>
+                <select name="val_plus" id="up_val_plus" required >
+                    <option value="EUR">EUR</option>
+                    <option value="USD">USD</option>
+                    <option value="UAH">UAH</option>
+                    <option value="RUR">RUR</option>
+                </select>
+                <br><br>
+                <p>Сумма к выплате:</p>
+                <input type="number" required step="any" name="debt_up_balance_plus"> <br><br>
+                <p>Комментарий:</p>
+                <textarea id="dent_comment_plusid" cols="20" rows="5" name="dent_up_comment_plus"></textarea><br><br>
+                <input type="submit" value="Изменить" id="up_tr_debt_two">
+            </form>
+
+        </div>
     </div>
 
 
@@ -146,7 +221,208 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
 
 </div>
 
+<div id="dialog4" >
+
+    <h3 style="text-align:center; width:100%">Добавить выплату</h3>
+
+    <div id="tabs_dialog4">
+        <ul>
+            <li><a href="#fragment-1">Расход</a></li>
+            <li><a href="#fragment-2">Доход</a></li>
+        </ul>
+        <div id="fragment-1">
+            <form action="" method="post" id="add_pay_m">
+                <p>Название:</p>
+                <input type="text" required name="add_pay_name_m"><br><br>
+                <p>Дата:</p>
+                <input type="text" id="add_pay_data_m" required><br><br>
+                <p>Кошелек:</p>
+                <select name="val_minus" id="add_pay_cash_m" required>
+                </select>
+                <br><br>
+                <p>Сумма</p>
+                <input type="number" required step="any" name="add_pay_sum_m"> <br><br>
+                <p>Комментарий:</p>
+                <textarea id="add_pay_comment_min" cols="20" rows="5" name="add_pay_comment_m"></textarea><br><br>
+                <input type="submit" value="Добавить" id="add_pay_one_m">
+            </form>
+        </div>
+        <div id="fragment-2">
+            <form action="" method="post" id="add_pay_p">
+                <p>Название:</p>
+                <input type="text" required name="add_pay_name_p"><br><br>
+                <p>Дата:</p>
+                <input type="text" id="add_pay_data_p" required><br><br>
+                <p>Кошелек:</p>
+                <select name="val_minus" id="add_pay_cash_p" required>
+                </select>
+                <br><br>
+                <p>Сумма</p>
+                <input type="number" required step="any" name="add_pay_sum_p"> <br><br>
+                <p>Комментарий:</p>
+                <textarea id="dent_comment_minusid" cols="20" rows="5" name="add_pay_comment_p"></textarea><br><br>
+                <input type="submit" value="Добавить" id="add_pay_one_p">
+            </form>
+        </div>
+    </div>
+
+
+</div>
+
+
 <script>
+
+//    $( "#add_pay_cash_m" )
+//        .selectmenu()
+//        .selectmenu( "menuWidget" )
+//        .addClass( "overflow" );
+//
+//    $( "#add_pay_cash_m" ).selectmenu({
+//        width: 315
+//    });
+//
+//    $( "#add_pay_cash_p" )
+//        .selectmenu()
+//        .selectmenu( "menuWidget" )
+//        .addClass( "overflow" );
+//
+//    $( "#add_pay_cash_p" ).selectmenu({
+//        width: 315
+//    });
+
+    $("#add_pay").click(function(){
+        if(tmp_id !=""){
+            $.post(
+                "../controlers/control_debt.php",
+                {
+                    getCash: "1"
+                },
+                function(data){
+                    data = JSON.parse(data);
+                    $("#add_pay_cash_p").empty();
+                    $("#add_pay_cash_m").empty();
+                    for(i=2,j=5,k=0,vl=3;i<data.length;i+=10,j+=10,k+=10,vl+=10) { // получить имя кошльков
+//                        $("#add_pay_cash_p").append("<option value='" + data[k] + "'>" + data[i] + " (" + parseFloat(data[j]).toFixed(2) + " " + data[vl] + ")</option>").selectmenu('refresh');
+//                        $("#add_pay_cash_m").append("<option value='" + data[k] + "'>" + data[i] + " (" + parseFloat(data[j]).toFixed(2) + " " + data[vl] + ")</option>").selectmenu('refresh');
+                        $("#add_pay_cash_p").append("<option value='" + data[k] + "'>" + data[i] + " (" + parseFloat(data[j]).toFixed(2) + " " + data[vl] + ")</option>");
+                        $("#add_pay_cash_m").append("<option value='" + data[k] + "'>" + data[i] + " (" + parseFloat(data[j]).toFixed(2) + " " + data[vl] + ")</option>");
+                    }
+                }
+            );
+            $("#dialog4").dialog("open");
+        }
+        else alert("Выберите долг");
+    });
+
+
+
+    $("#add_pay_one_m").click(function(){
+        $.post(
+            "../controlers/control_debt.php",
+            {
+                add_debt_id : tmp_id,
+                add_pay_name_m : $("input[name='add_pay_name_m']").val(),
+                add_pay_data_m : $("#add_pay_data_m").val(),
+                add_pay_cash_m : $("#add_pay_cash_m").val(),
+                add_pay_sum_m : $("input[name='add_pay_sum_m']").val(),
+                add_pay_comment_m : $("#add_pay_comment_min").val()
+            },
+            function(data){
+                alert(data);
+            }
+        );
+    });
+
+
+    $("#update_debt").click(function(){
+        if(tmp_id != ""){
+            $.post(
+                "../controlers/control_debt.php",
+                {
+                    update_index : tmp_id,
+                },
+                function(data){
+                    alert(data);
+                    obj = JSON.parse(data);
+                    if(obj[9] == 'minus'){
+                        $("#tabs2").tabs("disable",1);
+                        $("#tabs2").tabs("enable",0);
+                        $( "#tabs2" ).tabs( "option", "active", 0 );
+                        $("input[name='debt_name_up_minus']").val(ucFirst(obj[1]));
+                        $("#up_data_debt_minus").val(obj[2]);
+                        $("#up_dataEnd_debt_minus").val(obj[3]);
+                        $("#up_val_min").val(obj[4]);
+                        $("input[name='debt_up_balance_minus']").val(obj[5]);
+                        $("textarea[name='dent_up_comment_minus']").val(obj[7]);
+                    }
+                    if(obj[9] == 'plus'){
+                        $("#tabs2").tabs("disable",0);
+                        $("#tabs2").tabs("enable",1);
+                        $( "#tabs2" ).tabs( "option", "active", 1 );
+                        $("input[name='debt_name_up_plus']").val(ucFirst(obj[1]));
+                        $("#up_data_debt_plus").val(obj[2]);
+                        $("#up_dataEnd_debt_plus").val(obj[3]);
+                        $("#up_val_plus").val(obj[4]);
+                        $("input[name='debt_up_balance_plus']").val(obj[5]);
+                        $("textarea[name='dent_up_comment_plus']").val(obj[7]);
+                    }
+                }
+            );
+            $("#dialog2").dialog("open");
+        }
+        else alert("Выберите транзакцию");
+    });
+
+    $("#up_tr_debt_one").click(function(){
+        $.post(
+            "../controlers/control_debt.php",
+            {
+                up_id_debt: tmp_id,
+                up_name_debt : $("input[name='debt_name_up_minus']").val(),
+                up_data_start_debt  : $("#up_data_debt_minus").val(),
+                up_data_end_debt  : $("#up_dataEnd_debt_minus").val(),
+                up_type_money_debt  : $("#up_val_min").val(),
+                up_balance_debt  : $("input[name='debt_up_balance_minus']").val(),
+                up_comment_debt  : $("textarea[name='dent_up_comment_minus']").val()
+            },
+            function(data){
+                alert(data);
+                location.reload(true);
+            }
+        );
+    });
+
+    $("#up_tr_debt_two").click(function(){
+
+            alert($("input[name='debt_name_up_plus']").val());
+            alert( $("#up_data_debt_plus").val());
+            alert($("#up_dataEnd_debt_plus").val());
+            alert( $("#up_val_plus").val());
+            alert($("input[name='debt_up_balance_plus']").val());
+            alert($("textarea[name='dent_up_comment_plus']").val());
+        $.post(
+            "../controlers/control_debt.php",
+            {
+                up_id_debt_minus: tmp_id,
+                up_name_debt_minus : $("input[name='debt_name_up_plus']").val(),
+                up_data_start_debt_minus  : $("#up_data_debt_plus").val(),
+                up_data_end_debt_minus  : $("#up_dataEnd_debt_plus").val(),
+                up_type_money_debt_minus  : $("#up_val_plus").val(),
+                up_balance_debt_minus  : $("input[name='debt_up_balance_plus']").val(),
+                up_comment_debt_minus  : $("textarea[name='dent_up_comment_plus']").val()
+            },
+            function(data){
+                alert(data);
+                alert("Запись успешно обновлена!");
+                location.reload(true);
+            }
+        );
+    });
+
+
+
+
+
     tmp_id="";
 
     $("#plusDebt, #minDebt").on("click",'.debts', function(){
@@ -156,14 +432,33 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
         }
         tmp_id ="";
         index = "";
-        string =  this.id;
+        string = this.id;
         str = string.split('');
         for(i=5;i<str.length;i++){
             tmp_id += str[i];
         }
         flag_ts = "111";
         document.getElementById(string).style.backgroundColor = "#009fe3";
+
+
+
     });
+
+    /*$("#minDebt").on("click",'.debts_plus', function(){
+        var li = $(".debts_plus"), i = li.length;
+        while(i--) {
+            li[i].style.backgroundColor = i%2 ? 'lightgrey' : 'white';
+        }
+        tmp_id ="";
+        index = "";
+        string = this.id;
+        str = string.split('');
+        for(i=5;i<str.length;i++){
+            tmp_id += str[i];
+        }
+        flag_ts = "111";
+        document.getElementById(string).style.backgroundColor = "#009fe3";
+    });*/
 
     $("#del_debt").click(function(){
         $("#dialog").dialog('close');
@@ -224,6 +519,33 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
         },
         width: 500
     });
+
+    $('#dialog4').dialog({
+        autoOpen: false,
+        show: {
+            effect: 'drop',
+            duration: 500
+        },
+        hide: {
+            effect: 'clip',
+            duration: 500
+        },
+        width: 500
+    });
+
+    $('#dialog2').dialog({
+        autoOpen: false,
+        show: {
+            effect: 'drop',
+            duration: 500
+        },
+        hide: {
+            effect: 'clip',
+            duration: 500
+        },
+        width: 500
+    });
+
     $('#dialog3').dialog({
         autoOpen: false,
         show: {effect: 'drop', duration: 500},
@@ -231,16 +553,68 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
         width: 350
     });
 
+    $( "#tabs2" ).tabs({
+        active: 0,
+        event: "click",
+        heightStyle: 'content'
+    });
+
     $( "#tabs_dialog" ).tabs({
         active: 0,
         event: "click",
         heightStyle: 'content'
     });
+    $( "#tabs_dialog4" ).tabs({
+        active: 0,
+        event: "click",
+        heightStyle: 'content'
+    });
+
     $("#add_data_debt_minus").flatpickr({
         enableTime: true,
         dateFormat: "Y-m-d H:i",
         time_24hr: true
     });
+
+    $("#add_pay_data_m").flatpickr({
+    enableTime: true,
+    dateFormat: "Y-m-d H:i",
+    time_24hr: true
+});
+
+$("#add_pay_data_p").flatpickr({
+    enableTime: true,
+    dateFormat: "Y-m-d H:i",
+    time_24hr: true
+});
+
+$("#up_data_debt_minus").flatpickr({
+    enableTime: true,
+    dateFormat: "Y-m-d H:i",
+    time_24hr: true
+});
+
+$("#up_dataEnd_debt_minus").flatpickr({
+    enableTime: true,
+    dateFormat: "Y-m-d H:i",
+    time_24hr: true
+});
+
+
+    $("#up_data_debt_plus").flatpickr({
+        enableTime: true,
+        dateFormat: "Y-m-d H:i",
+        time_24hr: true
+    });
+
+    $("#up_dataEnd_debt_plus").flatpickr({
+        enableTime: true,
+        dateFormat: "Y-m-d H:i",
+        time_24hr: true
+    });
+
+
+
     $("#add_dataEnd_debt_minus").flatpickr({
         enableTime: true,
         dateFormat: "Y-m-d H:i",
@@ -277,20 +651,6 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
     });
 
     $("#add_debt").click(function(){
-        $.post("../controlers/control_tranzactions.php",
-            {want_id_cash: "1"},
-
-            function(data){
-                data = JSON.parse(data);
-                for(i=2,j=5,k=0,vl=3;i<data.length;i+=10,j+=10,k+=10,vl+=10){ // получить имя кошльков
-                    $("#debt_cash_minus_sel").append("<option value='"+data[k]+"'>"+data[i]+" ("+data[j]+" "+data[vl]+")</option>").selectmenu('refresh');
-                    $("#debt_cash_plus_sel").append("<option value='"+data[k]+"'>"+data[i]+" ("+data[j]+" "+data[vl]+")</option>").selectmenu('refresh');
-                    //$("#cash_trans_sum").append("<option value='"+data[k]+"'>"+data[i]+" ("+data[j]+" "+data[vl]+")</option>").selectmenu('refresh');
-                    //$("#cash_trans_min").append("<option value='"+data[k]+"'>"+data[i]+" ("+data[j]+" "+data[vl]+")</option>").selectmenu('refresh');
-                }
-            });
-
-        $("option").remove();
         $("#dialog").dialog('open');
     });
 
@@ -307,7 +667,7 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
                     name_debt_minus: $("input[name='debt_name_tr_minus']").val(),
                     data1_debt_minus: $("#add_data_debt_minus").val(),
                     data2_debtend_minus: $("#add_dataEnd_debt_minus").val(),
-                    cash_debt_minus: $("#debt_cash_minus_sel").val(),
+                    type_money_minus: $("#add_val_min").val(),
                     balance_debt_minus: $("input[name='debt_balance_minus']").val(),
                     comment_debt_minus: $("#dent_comment_minusid").val(),
                 },
@@ -318,7 +678,7 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
                 }
             );
         }
-    });
+    }); // cin
 
     $("#add_tr_debt_two").click(function(){
         data1=1;data2=1;data3=1;
@@ -332,7 +692,7 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
                     name_debt_plus: $("input[name='debt_name_tr_plus']").val(),
                     data1_debt_plus: $("#add_data_debt_plus").val(),
                     data2_debtend_plus: $("#add_dataEnd_debt_plus").val(),
-                    cash_debt_plus: $("#debt_cash_plus_sel").val(),
+                    type_money_plus: $("#val_plus").val(),
                     balance_debt_plus: $("input[name='debt_balance_plus']").val(),
                     comment_debt_plus: $("#dent_comment_plusid").val(),
                 },
@@ -343,18 +703,19 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
                 }
             );
         }
-    });
+    }); //cin
 
     $(document).ready(function(){
         $.post( // plusDebt == minus
             "../controlers/control_debt.php",
             {wanna_get_debts_minus : "1"},
             function(data){
-                //alert(data);
-                $("#plusDebt").append("<tr><th>Название</th><th>Дата</th><th>Дата окончания</th><th>Кошелек</th><th>Сумма</th><th>Комментарий</th></tr>");
+                $("#plusDebt").append("<tr><th>Название</th><th>Сумма к выплате</th><th>Выплачено</th><th>Остаток</th><th>Процент</th><th>Дата</th><th>Дата окончания</th><th>Комментарий</th></tr>");
                 obj = JSON.parse(data);
-                for(i=1,j=2,a=3,b=4,c=5,d=6,e=7,il=0;i<obj.length;i+=8,j+=8,a+=8,b+=8,c+=8,d+=8,il+=8,e+=8){
-                    $("#plusDebt").append("<tr id='debts"+obj[il]+"' class='debts'>" +"<td id='name'>"+obj[i]+"&nbsp</td>" + "<td id='cash'>"+obj[j]+"</td>"+ "<td>"+obj[a]+"</td>"+  "<td>"+obj[b]+"</td>" + "<td>"+obj[c]+"</td>" +  "<td>"+obj[d]+"</td>"+"</tr>");
+                for(i=1,j=2,a=3,b=4,c=5,d=6,e=7,il=0;i<obj.length;i+=9,j+=9,a+=9,b+=9,c+=9,d+=9,il+=9,e+=9){
+                    var pay_del = obj[c] - obj[d];
+                    var prec =100/(obj[c]/obj[d]);
+                    $("#plusDebt").append("<tr id='debts"+obj[il]+"' class='debts'>" +"<td id='name'>"+ucFirst(obj[i])+"&nbsp</td>"  + "<td>"+obj[c]+" ("+obj[b]+")</td>" + "<td>"+obj[d]+"</td><td>"+pay_del+"</td>"+"<td>"+prec+"%</td>"+"<td>"+obj[j]+"</td>"+ "<td>"+obj[a]+"</td>"+ "<td>"+ucFirst(obj[e])+"</td>"+"</tr>");
                 }
             }
         );
@@ -363,14 +724,23 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
             {wanna_get_debts_plus : "1"},
             function(data){
                 //alert(data);
-                $("#minDebt").append("<tr><th>Название</th><th>Дата</th><th>Дата окончания</th><th>Кошелек</th><th>Сумма</th><th>Комментарий</th></tr>");
+                $("#minDebt").append("<tr><th>Название</th><th>Сумма к выплате</th><th>Выплачено</th><th>Остаток</th><th>Процент</th><th>Дата</th><th>Дата окончания</th><th>Комментарий</th></tr>");
                 obj = JSON.parse(data);
-                for(i=1,j=2,a=3,b=4,c=5,d=6,e=7,il=0;i<obj.length;i+=8,j+=8,a+=8,b+=8,c+=8,d+=8,il+=8,e+=8){
-                    $("#minDebt").append("<tr id='debts"+obj[il]+"' class='debts'>" +"<td id='name'>"+obj[i]+"&nbsp</td>" + "<td id='cash'>"+obj[j]+"</td>"+ "<td>"+obj[a]+"</td>"+  "<td>"+obj[b]+"</td>" + "<td>"+obj[c]+"</td>" +  "<td>"+obj[d]+"</td>"+"</tr>");
+                for(i=1,j=2,a=3,b=4,c=5,d=6,e=7,il=0;i<obj.length;i+=9,j+=9,a+=9,b+=9,c+=9,d+=9,il+=9,e+=9){
+                    var pay_del = obj[c] - obj[d];
+                    var prec =100/(obj[c]/obj[d]);
+                    $("#minDebt").append("<tr id='debts"+obj[il]+"' class='debts'>" +"<td id='name'>"+ucFirst(obj[i])+"&nbsp</td>"  + "<td>"+obj[c]+" ("+obj[b]+")</td>" + "<td>"+obj[d]+"</td><td>"+pay_del+"</td>"+"<td>"+prec+"%</td>"+"<td>"+obj[j]+"</td>"+ "<td>"+obj[a]+"</td>"+ "<td>"+ucFirst(obj[e])+"</td>"+"</tr>");
                 }
             }
         );
-    });
+    }); // cout
+
+
+
+    function ucFirst(str) {
+        if (!str) return str;
+        return str[0].toUpperCase() + str.slice(1);
+    }
 
 </script>
 

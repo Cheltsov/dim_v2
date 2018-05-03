@@ -75,6 +75,19 @@ class Tranzaction extends Datebase{
         return $this->status;
     }
 
+    public function FindTr(){
+        try{
+            $traz = R::find("tranzaction","name = $this->name and cash = $this->cash and user_id=$this->user_id and $this->data and status=$this->status");
+            foreach($traz as $item){
+                return $item['id'];
+            }
+        }
+        catch(Exception $e){
+            echo($e);
+        }
+        R::close();
+    }
+
     public function AddTranz(){
         try{
             $tr_course = 0;

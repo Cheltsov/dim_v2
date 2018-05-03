@@ -12,17 +12,18 @@ class Debt extends Datebase{
     private $name;
     private $data;
     private $data_end;
-    private $cash_id;
+    private $type_money;
     private $balance;
     private $comment;
     private $status;
     private $user_id;
+    private $pay;
 
-    public function setDebt($name,$data,$data_end,$cash_id,$balance,$comment,$status,$user_id){
+    public function setDebt($name,$data,$data_end,$type_money,$balance,$comment,$status,$user_id){
         $this->name = $name;
         $this->data = $data;
         $this->data_end = $data_end;
-        $this->cash_id = $cash_id;
+        $this->type_money = $type_money;
         $this->balance = $balance;
         $this->comment = $comment;
         $this->status = $status;
@@ -57,11 +58,11 @@ class Debt extends Datebase{
         return $this->data_end;
     }
 
-    public function setCash_Id($cash_id){
-        $this->cash_id = $cash_id;
+    public function setType_Money($type_money){
+        $this->type_money = $type_money;
     }
-    public function getCash_Id(){
-        return $this->cash_id;
+    public function getType_Money(){
+        return $this->type_money;
     }
 
     public function setBalance($balance){
@@ -69,6 +70,13 @@ class Debt extends Datebase{
     }
     public function getBalance(){
         return $this->balance;
+    }
+
+    public function setPay($pay){
+        $this->pay = $pay;
+    }
+    public function getPay(){
+        return $this->pay;
     }
 
     public function setComment($comment){
@@ -98,7 +106,7 @@ class Debt extends Datebase{
             $debts = R::findAll("debt", "user_id = $this->user_id");
             foreach($debts as $item){
                 if($item->status == $this->status){
-                    array_push($arr_tmp, $item->id, $item->name, $item->data, $item->data_end, $item->cash_id, $item->balance, $item->comment,$item->user_id);
+                    array_push($arr_tmp, $item->id, $item->name, $item->data, $item->data_end, $item->type_money, $item->balance, $item->pay ,$item->comment,$item->user_id);
                 }
             }
             return $arr_tmp;
@@ -114,11 +122,13 @@ class Debt extends Datebase{
             $debt->name = $this->name;
             $debt->data = $this->data;
             $debt->data_end = $this->data_end;
-            $debt->cash_id = $this->cash_id;
-            $debt->balance= $this->balance;
+            $debt->type_money = $this->type_money;
+            $debt->balance = $this->balance;
+            $debt->pay = 0;
             $debt->comment = $this->comment;
             $debt->status = $this->status;
             $debt->user_id = $this->user_id;
+            $debt->tr = "";
             R::store($debt);
             return true;
         }
@@ -138,6 +148,49 @@ class Debt extends Datebase{
             echo($e);
         }
         R::close();
+    }
+
+    public function getDebtById(){
+        try{
+            $arr_tmp = array();
+            $debt = R::find('debt',"id=$this->id and user_id = $this->user_id");
+            foreach($debt as $item){
+                array_push($arr_tmp, $item->id, $item->name, $item->data, $item->data_end, $item->type_money, $item->balance, $item->pay ,$item->comment,$item->user_id, $item->status);
+            }
+            return $arr_tmp;
+        }
+        catch(Exception $e){
+            echo($e);
+        }
+        R::close();
+    }
+
+    public function UpdateDebt(){
+        try{
+            $debt = R::load('debt',$this->id);
+            $debt->name = $this->name;
+            $debt->data = $this->data;
+            $debt->data_end = $this->data_end;
+            $debt->type_money = $this->type_money;
+            $debt->balance = $this->balance;
+            $debt->comment = $this->comment;
+            R::store($debt);
+            return true;
+        }
+        catch(Exception $e){
+            echo($e);
+        }
+        R::close();
+    }
+
+    public function NewPay($bal){
+        $debt=R::load("debt","id=$this->id");
+        $debt->pay += $bal;
+        $debt->balance -= $bal;
+        //$debt->tr .= ",".$tr;
+        R::store($debt);
+        R::close();
+
     }
 
 }
