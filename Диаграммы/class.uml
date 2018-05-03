@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>PHP</ID>
+  <OriginalElement>C:/xampp/htdocs/Develop_diploma/class</OriginalElement>
+  <nodes>
+    <node x="230.0" y="89.0">\Tranzaction</node>
+    <node x="444.0" y="89.0">\CashMonth</node>
+    <node x="344.0" y="89.0">\Translate</node>
+    <node x="121.0" y="163.0">\LineChart</node>
+    <node x="1.0" y="242.0">\Cookies</node>
+    <node x="244.0" y="161.0">\Mail</node>
+    <node x="189.25" y="0.0">\Datebase</node>
+    <node x="0.0" y="163.0">\MoveTo</node>
+    <node x="75.0" y="89.0">\Cash</node>
+    <node x="153.0" y="89.0">\Debt</node>
+    <node x="0.0" y="89.0">\User</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="\User" target="\Datebase">
+      <point x="0.0" y="-14.5" />
+      <point x="27.5" y="49.0" />
+      <point x="195.91666666666663" y="49.0" />
+      <point x="-33.33333333333334" y="14.5" />
+    </edge>
+    <edge source="\Cash" target="\Datebase">
+      <point x="0.0" y="-14.5" />
+      <point x="104.0" y="59.0" />
+      <point x="209.25" y="59.0" />
+      <point x="-20.0" y="14.5" />
+    </edge>
+    <edge source="\Debt" target="\Datebase">
+      <point x="0.0" y="-14.5" />
+      <point x="181.5" y="69.0" />
+      <point x="222.58333333333331" y="69.0" />
+      <point x="-6.666666666666657" y="14.5" />
+    </edge>
+    <edge source="\CashMonth" target="\Datebase">
+      <point x="0.0" y="-14.5" />
+      <point x="491.0" y="49.0" />
+      <point x="262.58333333333337" y="49.0" />
+      <point x="33.33333333333337" y="14.5" />
+    </edge>
+    <edge source="\Tranzaction" target="\Datebase">
+      <point x="0.0" y="-14.5" />
+      <point x="277.0" y="69.0" />
+      <point x="235.91666666666669" y="69.0" />
+      <point x="6.666666666666686" y="14.5" />
+    </edge>
+    <edge source="\Cookies" target="\MoveTo">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="\Translate" target="\Datebase">
+      <point x="0.0" y="-14.5" />
+      <point x="384.0" y="59.0" />
+      <point x="249.25" y="59.0" />
+      <point x="20.0" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="269.5" y="-67.0" />
+  <SelectedNodes />
+  <Categories />
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

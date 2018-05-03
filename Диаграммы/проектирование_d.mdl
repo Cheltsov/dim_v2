@@ -462,15 +462,16 @@
 			quidu      	"59AFAD1F033C")))
 	    (object UseCase "Формування pdf"
 		quid       	"5AEABAE10179"
+		superclasses 	(list inheritance_relationship_list
+		    (object Inheritance_Relationship
+			quid       	"5AEB052A033E"
+			supplier   	"Use Case View::Друк звітів в pdf"
+			quidu      	"5AEAB82D02BA"))
 		visible_modules 	(list dependency_list
 		    (object Dependency_Relationship
 			quid       	"5AEABAFB022A"
 			supplier   	"Use Case View::Вибір дати"
-			quidu      	"5AEAB7EF02FC")
-		    (object Dependency_Relationship
-			quid       	"5AEABB0E002D"
-			supplier   	"Use Case View::Друк звітів в pdf"
-			quidu      	"5AEAB82D02BA")))
+			quidu      	"5AEAB7EF02FC")))
 	    (object UseCase "Вихід"
 		quid       	"5AEABB6C03E1"
 		visible_modules 	(list dependency_list
@@ -2013,7 +2014,7 @@
 		max_height 	28350
 		max_width  	21600
 		origin_x   	0
-		origin_y   	1037
+		origin_y   	2860
 		items      	(list diagram_item_list
 		    (object UseCaseView "Use Case View::Програма Ledger" @5
 			location   	(2364, 1714)
@@ -2177,7 +2178,7 @@
 				supplier   	@9
 				vertices   	(list Points
 				    (1173, 660)
-				    (1117, 758))
+				    (1117, 757))
 				line_style 	0)
 			    (object RoleView "$UNNAMED$8" @12
 				Parent_View 	@10
@@ -2189,7 +2190,7 @@
 				supplier   	@7
 				vertices   	(list Points
 				    (1173, 660)
-				    (1230, 563))
+				    (1230, 559))
 				line_style 	0)))
 		    (object DependencyView "" @13
 			stereotype 	TRUE
@@ -2199,7 +2200,7 @@
 			supplier   	@9
 			vertices   	(list Points
 			    (2264, 1644)
-			    (1209, 912))
+			    (1339, 1002))
 			line_style 	0)
 		    (object AssociationViewNew "$UNNAMED$9" @14
 			location   	(663, 729)
@@ -2227,7 +2228,7 @@
 				supplier   	@9
 				vertices   	(list Points
 				    (663, 729)
-				    (962, 796))
+				    (962, 795))
 				line_style 	0)
 			    (object RoleView "$UNNAMED$11" @16
 				Parent_View 	@14
@@ -2292,7 +2293,7 @@
 				supplier   	@17
 				vertices   	(list Points
 				    (496, 528)
-				    (628, 442))
+				    (744, 368))
 				line_style 	0)
 			    (object RoleView "$UNNAMED$17" @20
 				Parent_View 	@18
@@ -2304,7 +2305,7 @@
 				supplier   	@8
 				vertices   	(list Points
 				    (496, 528)
-				    (364, 614))
+				    (364, 612))
 				line_style 	0)))
 		    (object AssociationViewNew "$UNNAMED$18" @21
 			location   	(945, 639)
@@ -2332,7 +2333,7 @@
 				supplier   	@9
 				vertices   	(list Points
 				    (945, 639)
-				    (1033, 758))
+				    (1030, 757))
 				line_style 	0)
 			    (object RoleView "$UNNAMED$20" @23
 				Parent_View 	@21
@@ -2344,7 +2345,7 @@
 				supplier   	@17
 				vertices   	(list Points
 				    (945, 639)
-				    (857, 521))
+				    (864, 531))
 				line_style 	0)))
 		    (object UseCaseView "Use Case View::Транзакцiї" @24
 			location   	(2659, 1049)
@@ -2554,7 +2555,7 @@
 			supplier   	@6
 			vertices   	(list Points
 			    (609, 2433)
-			    (1403, 2046))
+			    (1202, 2146))
 			line_style 	0)
 		    (object DependencyView "" @33
 			stereotype 	TRUE
@@ -2563,7 +2564,7 @@
 			client     	@30
 			supplier   	@6
 			vertices   	(list Points
-			    (713, 1668)
+			    (730, 1675)
 			    (1404, 1942))
 			line_style 	0)
 		    (object UseCaseView "Use Case View::Перегляд всього балансу" @34
@@ -2683,7 +2684,7 @@
 			client     	@38
 			supplier   	@6
 			vertices   	(list Points
-			    (1029, 1549)
+			    (1025, 1546)
 			    (1449, 1927))
 			line_style 	0)
 		    (object DependencyView "" @40
@@ -2703,7 +2704,7 @@
 			client     	@37
 			supplier   	@6
 			vertices   	(list Points
-			    (1339, 1485)
+			    (1336, 1482)
 			    (1497, 1925))
 			line_style 	0)
 		    (object UseCaseView "Use Case View::Додавання транзації" @42
@@ -2798,7 +2799,7 @@
 			client     	@43
 			supplier   	@24
 			vertices   	(list Points
-			    (3358, 849)
+			    (3148, 909)
 			    (2767, 1014))
 			line_style 	0)
 		    (object DependencyView "" @47
@@ -2843,7 +2844,7 @@
 			client     	@48
 			supplier   	@24
 			vertices   	(list Points
-			    (3150, 665)
+			    (3154, 662)
 			    (2727, 990))
 			line_style 	0)
 		    (object UseCaseView "Use Case View::Відображення транзакції за певним гаманцем" @50
@@ -2878,7 +2879,7 @@
 			client     	@50
 			supplier   	@24
 			vertices   	(list Points
-			    (2196, 491)
+			    (2169, 459)
 			    (2608, 989))
 			line_style 	0)
 		    (object UseCaseView "Use Case View::Відображення списку гаманців" @52
@@ -2938,7 +2939,7 @@
 			client     	@52
 			supplier   	@24
 			vertices   	(list Points
-			    (2229, 798)
+			    (2223, 795)
 			    (2559, 990))
 			line_style 	0)
 		    (object DependencyView "" @55
@@ -2948,7 +2949,7 @@
 			client     	@53
 			supplier   	@24
 			vertices   	(list Points
-			    (2604, 370)
+			    (2601, 338)
 			    (2651, 990))
 			line_style 	0)
 		    (object UseCaseView "Use Case View::Додавання запису про борг" @56
@@ -3034,7 +3035,7 @@
 			supplier   	@25
 			vertices   	(list Points
 			    (1080, 2987)
-			    (1776, 2675))
+			    (1567, 2772))
 			line_style 	0)
 		    (object DependencyView "" @60
 			stereotype 	TRUE
@@ -3044,7 +3045,7 @@
 			supplier   	@25
 			vertices   	(list Points
 			    (2603, 2890)
-			    (1996, 2669))
+			    (2208, 2744))
 			line_style 	0)
 		    (object DependencyView "" @61
 			stereotype 	TRUE
@@ -3092,7 +3093,7 @@
 			    (1996, 2622))
 			line_style 	0)
 		    (object UseCaseView "Use Case View::Перерахунов всіх гаманців" @64
-			location   	(3128, 244)
+			location   	(3214, 253)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -3105,7 +3106,7 @@
 			    default_color 	TRUE)
 			label      	(object ItemLabel
 			    Parent_View 	@64
-			    location   	(3128, 382)
+			    location   	(3214, 391)
 			    anchor_loc 	1
 			    nlines     	2
 			    max_width  	630
@@ -3123,8 +3124,8 @@
 			client     	@64
 			supplier   	@24
 			vertices   	(list Points
-			    (3028, 410)
-			    (2688, 991))
+			    (3099, 416)
+			    (2696, 990))
 			line_style 	0)
 		    (object UseCaseView "Use Case View::Відображення транзакцій по виплаті боргів" @66
 			location   	(1335, 3334)
@@ -3159,7 +3160,7 @@
 			supplier   	@25
 			vertices   	(list Points
 			    (1377, 3276)
-			    (1826, 2701))
+			    (1759, 2794))
 			line_style 	0)
 		    (object UseCaseView "Use Case View::Видалення транзакції" @68
 			location   	(2716, 3399)
@@ -3244,7 +3245,7 @@
 			supplier   	@25
 			vertices   	(list Points
 			    (1782, 3436)
-			    (1863, 2797))
+			    (1863, 2794))
 			line_style 	0)
 		    (object DependencyView "" @72
 			stereotype 	TRUE
@@ -3254,7 +3255,7 @@
 			supplier   	@25
 			vertices   	(list Points
 			    (2254, 3418)
-			    (1947, 2758))
+			    (1963, 2794))
 			line_style 	0)
 		    (object DependencyView "" @73
 			stereotype 	TRUE
@@ -3264,7 +3265,7 @@
 			supplier   	@25
 			vertices   	(list Points
 			    (2653, 3341)
-			    (1950, 2687))
+			    (2065, 2794))
 			line_style 	0)
 		    (object UseCaseView "Use Case View::Відображення точності прогнозу по доходах" @74
 			location   	(4748, 1027)
@@ -3373,7 +3374,7 @@
 			client     	@77
 			supplier   	@26
 			vertices   	(list Points
-			    (4162, 680)
+			    (4156, 648)
 			    (4212, 954))
 			line_style 	0)
 		    (object DependencyView "" @79
@@ -3383,7 +3384,7 @@
 			client     	@76
 			supplier   	@26
 			vertices   	(list Points
-			    (4569, 539)
+			    (4592, 507)
 			    (4266, 953))
 			line_style 	0)
 		    (object DependencyView "" @80
@@ -3393,7 +3394,7 @@
 			client     	@75
 			supplier   	@26
 			vertices   	(list Points
-			    (4683, 789)
+			    (4597, 832)
 			    (4336, 956))
 			line_style 	0)
 		    (object DependencyView "" @81
@@ -3499,7 +3500,7 @@
 			supplier   	@83
 			vertices   	(list Points
 			    (4614, 3147)
-			    (3822, 2893))
+			    (4034, 2961))
 			line_style 	0)
 		    (object UseCaseView "Use Case View::Побудова кругового графіка" @87
 			location   	(4306, 3402)
@@ -3534,7 +3535,7 @@
 			supplier   	@83
 			vertices   	(list Points
 			    (4240, 3344)
-			    (3823, 2960))
+			    (3893, 3024))
 			line_style 	0)
 		    (object UseCaseView "Use Case View::Друк звітів в pdf" @89
 			location   	(3810, 3620)
@@ -3569,7 +3570,7 @@
 			supplier   	@27
 			vertices   	(list Points
 			    (3648, 2802)
-			    (3435, 2608))
+			    (3553, 2715))
 			line_style 	0)
 		    (object UseCaseView "Use Case View::Відображення короткої інформації про траназакцій" @91
 			location   	(3275, 3274)
@@ -3604,7 +3605,7 @@
 			supplier   	@83
 			vertices   	(list Points
 			    (3331, 3215)
-			    (3601, 2963))
+			    (3543, 3024))
 			line_style 	0)
 		    (object UseCaseView "Use Case View::Додавання гаманця" @93
 			location   	(5119, 1762)
@@ -3689,7 +3690,7 @@
 			supplier   	@28
 			vertices   	(list Points
 			    (5020, 1704)
-			    (4754, 1546))
+			    (4934, 1653))
 			line_style 	0)
 		    (object DependencyView "" @97
 			stereotype 	TRUE
@@ -3828,7 +3829,7 @@
 			client     	@101
 			supplier   	@29
 			vertices   	(list Points
-			    (4059, 1890)
+			    (4062, 1887)
 			    (3873, 2071))
 			line_style 	0)
 		    (object DependencyView "" @105
@@ -3884,7 +3885,7 @@
 			supplier   	@29
 			vertices   	(list Points
 			    (4032, 2379)
-			    (3928, 2257))
+			    (3957, 2292))
 			line_style 	0)
 		    (object DependencyView "" @109
 			stereotype 	TRUE
@@ -3893,7 +3894,7 @@
 			client     	@24
 			supplier   	@5
 			vertices   	(list Points
-			    (2582, 1215)
+			    (2584, 1212)
 			    (2391, 1644))
 			line_style 	0)
 		    (object DependencyView "" @110
@@ -3904,7 +3905,7 @@
 			supplier   	@5
 			vertices   	(list Points
 			    (1639, 1950)
-			    (2242, 1747))
+			    (2043, 1815))
 			line_style 	0)
 		    (object DependencyView "" @111
 			stereotype 	TRUE
@@ -3914,7 +3915,7 @@
 			supplier   	@5
 			vertices   	(list Points
 			    (1913, 2573)
-			    (2265, 1892))
+			    (2267, 1889))
 			line_style 	0)
 		    (object DependencyView "" @112
 			stereotype 	TRUE
@@ -3924,7 +3925,7 @@
 			supplier   	@5
 			vertices   	(list Points
 			    (3300, 2493)
-			    (2535, 1854))
+			    (2576, 1889))
 			line_style 	0)
 		    (object DependencyView "" @113
 			stereotype 	TRUE
@@ -3933,7 +3934,7 @@
 			client     	@26
 			supplier   	@5
 			vertices   	(list Points
-			    (4078, 1065)
+			    (3907, 1129)
 			    (2484, 1665))
 			line_style 	0)
 		    (object DependencyView "" @114
@@ -3954,7 +3955,7 @@
 			supplier   	@5
 			vertices   	(list Points
 			    (3707, 2092)
-			    (2484, 1745))
+			    (2684, 1803))
 			line_style 	0)
 		    (object UseCaseView "Use Case View::Формування pdf" @116
 			location   	(3756, 3269)
@@ -3989,19 +3990,9 @@
 			supplier   	@83
 			vertices   	(list Points
 			    (3746, 3211)
-			    (3729, 3027))
+			    (3729, 3024))
 			line_style 	0)
-		    (object DependencyView "" @118
-			stereotype 	TRUE
-			line_color 	3342489
-			quidu      	"5AEABB0E002D"
-			client     	@116
-			supplier   	@89
-			vertices   	(list Points
-			    (3780, 3435)
-			    (3798, 3561))
-			line_style 	0)
-		    (object UseCaseView "Use Case View::Вихід" @119
+		    (object UseCaseView "Use Case View::Вихід" @118
 			location   	(4549, 1945)
 			font       	(object Font
 			    size       	10
@@ -4014,7 +4005,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@119
+			    Parent_View 	@118
 			    location   	(4549, 2083)
 			    anchor_loc 	1
 			    nlines     	2
@@ -4026,15 +4017,25 @@
 			fill_color 	13434879
 			quidu      	"5AEABB6C03E1"
 			height     	118)
-		    (object DependencyView "" @120
+		    (object DependencyView "" @119
 			stereotype 	TRUE
 			line_color 	3342489
 			quidu      	"5AEABB73031F"
-			client     	@119
+			client     	@118
 			supplier   	@29
 			vertices   	(list Points
-			    (4438, 1970)
+			    (4228, 2024)
 			    (3927, 2098))
+			line_style 	0)
+		    (object InheritView "" @120
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"5AEB052A033E"
+			client     	@116
+			supplier   	@89
+			vertices   	(list Points
+			    (3779, 3432)
+			    (3798, 3561))
 			line_style 	0)))
 	    (object InteractionDiagram "Authorization"
 		mechanism_ref 	@1
@@ -10848,7 +10849,7 @@
 			    location   	(2008, 713)
 			    anchor_loc 	1
 			    nlines     	2
-			    max_width  	381
+			    max_width  	389
 			    justify    	0
 			    label      	"")
 			icon       	"Actor"
@@ -10878,7 +10879,7 @@
 			    location   	(1508, 1154)
 			    anchor_loc 	1
 			    nlines     	2
-			    max_width  	381
+			    max_width  	389
 			    justify    	0
 			    label      	"")
 			icon       	"Actor"
@@ -11660,7 +11661,7 @@
 			    location   	(301, 597)
 			    anchor_loc 	1
 			    nlines     	2
-			    max_width  	389
+			    max_width  	395
 			    justify    	0
 			    label      	"")
 			icon       	"Actor"
@@ -11690,7 +11691,7 @@
 			    location   	(2919, 1832)
 			    anchor_loc 	1
 			    nlines     	2
-			    max_width  	389
+			    max_width  	395
 			    justify    	0
 			    label      	"")
 			icon       	"Actor"
@@ -13011,7 +13012,7 @@
 			    location   	(2685, 2061)
 			    anchor_loc 	1
 			    nlines     	2
-			    max_width  	395
+			    max_width  	403
 			    justify    	0
 			    label      	"")
 			icon       	"Actor"
@@ -13041,7 +13042,7 @@
 			    location   	(564, 341)
 			    anchor_loc 	1
 			    nlines     	2
-			    max_width  	395
+			    max_width  	403
 			    justify    	0
 			    label      	"")
 			icon       	"Actor"
@@ -14588,7 +14589,7 @@
 			    location   	(3077, 2279)
 			    anchor_loc 	1
 			    nlines     	2
-			    max_width  	403
+			    max_width  	411
 			    justify    	0
 			    label      	"")
 			icon       	"Actor"
@@ -14618,7 +14619,7 @@
 			    location   	(323, 294)
 			    anchor_loc 	1
 			    nlines     	2
-			    max_width  	403
+			    max_width  	411
 			    justify    	0
 			    label      	"")
 			icon       	"Actor"
@@ -16286,9 +16287,118 @@
 	logical_models 	(list unit_reference_list
 	    (object Class "Users"
 		quid       	"5AEAC3200363"
+		superclasses 	(list inheritance_relationship_list
+		    (object Inheritance_Relationship
+			quid       	"5AEB56D403A3"
+			supplier   	"Logical View::Datebase"
+			quidu      	"5AEB4BD80269"))
 		operations 	(list Operations
-		    (object Operation "a"
+		    (object Operation "setUser"
 			quid       	"5AEAC3D2025E"
+			parameters 	(list Parameters
+			    (object Parameter "id"
+				quid       	"5AEB4A8F03C4")
+			    (object Parameter "login"
+				quid       	"5AEB4A9901CB")
+			    (object Parameter "email"
+				quid       	"5AEB4AC40305")
+			    (object Parameter "password"
+				quid       	"5AEB4AD70052")
+			    (object Parameter "date"
+				quid       	"5AEB4AE802B4"))
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setId"
+			quid       	"5AEB4AFC02AB"
+			parameters 	(list Parameters
+			    (object Parameter "id"
+				quid       	"5AEB4C050350"))
+			concurrency 	"Guarded"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getId"
+			quid       	"5AEB4B050334"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setLogin"
+			quid       	"5AEB4B0A0075"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getLogin"
+			quid       	"5AEB4B110094"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setEmail"
+			quid       	"5AEB4B15000D"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getEmail"
+			quid       	"5AEB4B1C0038"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setPassword"
+			quid       	"5AEB4B2400A8"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getPassword"
+			quid       	"5AEB4B290121"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setDate"
+			quid       	"5AEB4B30003A"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getDate"
+			quid       	"5AEB4B3501FD"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getUserId_Cookie"
+			quid       	"5AEB4B5101CC"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "AddUser"
+			quid       	"5AEB4B3B003B"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getEmailsUsers"
+			quid       	"5AEB4B4500B4"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getIdUserFromEmail"
+			quid       	"5AEB4B63015F"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "NewPassword"
+			quid       	"5AEB4B7903B1"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "CheckUserLogin"
+			quid       	"5AEB4B840180"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "SingIn_User"
+			quid       	"5AEB4B9000B3"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getUserlogin_FromId"
+			quid       	"5AEB4B9A0144"
 			concurrency 	"Sequential"
 			opExportControl 	"Public"
 			uid        	0))
@@ -16301,25 +16411,1061 @@
 			quid       	"5AEAC33701D0")
 		    (object ClassAttribute "password"
 			quid       	"5AEAC344027C")
+		    (object ClassAttribute "date"
+			quid       	"5AEAC3BE0064")))
+	    (object Class "Datebase"
+		quid       	"5AEB4BD80269"
+		operations 	(list Operations
+		    (object Operation "Connection"
+			quid       	"5AEB4BE303B4"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)))
+	    (object Class "Translate"
+		quid       	"5AEB4C2A036A"
+		superclasses 	(list inheritance_relationship_list
+		    (object Inheritance_Relationship
+			quid       	"5AEB56D7014D"
+			supplier   	"Logical View::Datebase"
+			quidu      	"5AEB4BD80269"))
+		operations 	(list Operations
+		    (object Operation "setId"
+			quid       	"5AEB4C9500B6"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getId"
+			quid       	"5AEB4C9C020C"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setName"
+			quid       	"5AEB4CA10070"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getName"
+			quid       	"5AEB4CA502E1"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setData"
+			quid       	"5AEB4CA803CC"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getData"
+			quid       	"5AEB4CAD0080"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setId_Cash"
+			quid       	"5AEB4CB00236"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getId_Cash"
+			quid       	"5AEB4CB8018D"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setCash_Min"
+			quid       	"5AEB4CC10042"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getCash_Min"
+			quid       	"5AEB4CCB0298"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setBalance_Min"
+			quid       	"5AEB4CDD00FB"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getBalance_Min"
+			quid       	"5AEB4CEE022A"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setCourse"
+			quid       	"5AEB4D0F00E0"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getCourse"
+			quid       	"5AEB4D13016A"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setCash_Sum"
+			quid       	"5AEB4D1A0080"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getCash_Sum"
+			quid       	"5AEB4D2B0160"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setBalance_Sum"
+			quid       	"5AEB4D2E03B0"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getBalance_Sum"
+			quid       	"5AEB4D380111"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setComment"
+			quid       	"5AEB4D4F037D"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getComment"
+			quid       	"5AEB4D57003F"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setId_User"
+			quid       	"5AEB4D6003BA"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getId_User"
+			quid       	"5AEB4D680048"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "AddTrans"
+			quid       	"5AEB4D720111"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getTrans"
+			quid       	"5AEB4D790162"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getTransFromData"
+			quid       	"5AEB4D8103D3"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getTransFromDataRange"
+			quid       	"5AEB4D8E01DB"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getTransFromId_User_Id_Cash"
+			quid       	"5AEB4DA103B7"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getTransFromId"
+			quid       	"5AEB4DB902F6"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "UpdateTrans"
+			quid       	"5AEB4DC30324"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "DelTrans"
+			quid       	"5AEB4DCA0200"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0))
+		class_attributes 	(list class_attribute_list
+		    (object ClassAttribute "cash_min"
+			quid       	"5AEB4C3B02E7")
+		    (object ClassAttribute "cash_sum"
+			quid       	"5AEB4C40029D")
+		    (object ClassAttribute "balance_sum"
+			quid       	"5AEB4C4800FF")
+		    (object ClassAttribute "balance_min"
+			quid       	"5AEB4C4E0044")
 		    (object ClassAttribute "data"
-			quid       	"5AEAC3BE0064"))))
+			quid       	"5AEB4C530322")
+		    (object ClassAttribute "user_id"
+			quid       	"5AEB4C570229")
+		    (object ClassAttribute "name"
+			quid       	"5AEB4C5E00FC")
+		    (object ClassAttribute "course"
+			quid       	"5AEB4C660041")
+		    (object ClassAttribute "comment"
+			quid       	"5AEB4C6D0274")
+		    (object ClassAttribute "id"
+			quid       	"5AEB4C710013")
+		    (object ClassAttribute "id_cash"
+			quid       	"5AEB4C75009F")))
+	    (object Class "CashMonth"
+		quid       	"5AEB4E1100EA"
+		superclasses 	(list inheritance_relationship_list
+		    (object Inheritance_Relationship
+			quid       	"5AEB56D90378"
+			supplier   	"Logical View::Datebase"
+			quidu      	"5AEB4BD80269"))
+		operations 	(list Operations
+		    (object Operation "setId"
+			quid       	"5AEB4EBB0229"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getId"
+			quid       	"5AEB4EC00094"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setId_Cash"
+			quid       	"5AEB4EC20323"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getId_Cash"
+			quid       	"5AEB4ECC0279"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setUser_Id"
+			quid       	"5AEB4ED803A8"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getUser_Id"
+			quid       	"5AEB4EE1016C"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setName"
+			quid       	"5AEB4EE503A1"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getName"
+			quid       	"5AEB4EED0260"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setType_Money"
+			quid       	"5AEB4EF10389"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getType_Money"
+			quid       	"5AEB4EFF0110"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setType_Cash"
+			quid       	"5AEB4F050168"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getType_Cash"
+			quid       	"5AEB4F0D036F"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setBalance"
+			quid       	"5AEB4F1F0344"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getBalance"
+			quid       	"5AEB4F25020C"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "AddCashMonth"
+			quid       	"5AEB4F3402F8"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getCashMonth_FromId_User"
+			quid       	"5AEB4F3F0217"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getCashMonth_FromCash"
+			quid       	"5AEB4F4F017B"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "delCashMonth_FromId_Cash"
+			quid       	"5AEB4F6101F2"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getCashMonthID_from_Cash"
+			quid       	"5AEB4F8701E3"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "UpdateCashMonth"
+			quid       	"5AEB4F9B01F6"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "UpdateCashMonth_Balance"
+			quid       	"5AEB4FA40365"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "UpdateCashMonth_BalanceMin"
+			quid       	"5AEB4FB900ED"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "UpdateCashMonth_BalancePlus"
+			quid       	"5AEB4FC10024"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0))
+		class_attributes 	(list class_attribute_list
+		    (object ClassAttribute "type_money"
+			quid       	"5AEB4E8603BE")
+		    (object ClassAttribute "balance"
+			quid       	"5AEB4E8C01A5")
+		    (object ClassAttribute "type_cash"
+			quid       	"5AEB4E9101E0")
+		    (object ClassAttribute "name"
+			quid       	"5AEB4E9700F3")
+		    (object ClassAttribute "id"
+			quid       	"5AEB4E9A0110")
+		    (object ClassAttribute "id_cash"
+			quid       	"5AEB4E9D021F")
+		    (object ClassAttribute "id_user"
+			quid       	"5AEB4EA10201")))
+	    (object Class "Cash"
+		quid       	"5AEB500802A3"
+		superclasses 	(list inheritance_relationship_list
+		    (object Inheritance_Relationship
+			quid       	"5AEB56DF016A"
+			supplier   	"Logical View::Datebase"
+			quidu      	"5AEB4BD80269"))
+		operations 	(list Operations
+		    (object Operation "setId"
+			quid       	"5AEB506200E0"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getId"
+			quid       	"5AEB50660025"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setId_User"
+			quid       	"5AEB5069028C"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getId_User"
+			quid       	"5AEB506F029C"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setName"
+			quid       	"5AEB50750116"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getName"
+			quid       	"5AEB507C01EA"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setType_Money"
+			quid       	"5AEB507F0209"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getType_Money"
+			quid       	"5AEB50880395"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setType_Cash"
+			quid       	"5AEB508F00D6"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getType_Cash"
+			quid       	"5AEB5096029B"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setBalance"
+			quid       	"5AEB509D0374"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getBalance"
+			quid       	"5AEB50A200E4"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setComment"
+			quid       	"5AEB50A803DC"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getComment"
+			quid       	"5AEB50AC039D"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setNum_Card"
+			quid       	"5AEB50B50041"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getNum_Card"
+			quid       	"5AEB50BC0313"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setData_Create"
+			quid       	"5AEB50D00321"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getData_Create"
+			quid       	"5AEB50D9016C"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setData_Update"
+			quid       	"5AEB50E0017C"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getData_Update"
+			quid       	"5AEB50E80126"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "Create_Cash"
+			quid       	"5AEB50EC0239"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getListCashFromId_User"
+			quid       	"5AEB50F002DA"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getCashFromId"
+			quid       	"5AEB50FF01D7"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "delCashFromId"
+			quid       	"5AEB510F003B"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "UpdateCash"
+			quid       	"5AEB51140044"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getType_MoneyInDB"
+			quid       	"5AEB511E0102"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "UpdateCash_BalanceMin"
+			quid       	"5AEB512F0200"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "UpdateCash_BalanceSum"
+			quid       	"5AEB514101BE"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getBalance_FromId_Cash"
+			quid       	"5AEB51530153"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "UpdateBalance"
+			quid       	"5AEB516300E3"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0))
+		class_attributes 	(list class_attribute_list
+		    (object ClassAttribute "type_money"
+			quid       	"5AEB50240027")
+		    (object ClassAttribute "balance"
+			quid       	"5AEB502F0141")
+		    (object ClassAttribute "type_cash"
+			quid       	"5AEB50330131")
+		    (object ClassAttribute "date_create"
+			quid       	"5AEB503803D1")
+		    (object ClassAttribute "date_update"
+			quid       	"5AEB503D01CE")
+		    (object ClassAttribute "name"
+			quid       	"5AEB5043025B")
+		    (object ClassAttribute "num_card"
+			quid       	"5AEB504701DE")
+		    (object ClassAttribute "comment"
+			quid       	"5AEB504E0308")
+		    (object ClassAttribute "id"
+			quid       	"5AEB5051024D")
+		    (object ClassAttribute "id_user"
+			quid       	"5AEB5053029B")))
+	    (object Class "Tranzaction"
+		quid       	"5AEB5198017E"
+		superclasses 	(list inheritance_relationship_list
+		    (object Inheritance_Relationship
+			quid       	"5AEB56DC01A6"
+			supplier   	"Logical View::Datebase"
+			quidu      	"5AEB4BD80269"))
+		operations 	(list Operations
+		    (object Operation "setId"
+			quid       	"5AEB51C800C8"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getId"
+			quid       	"5AEB51CC0130"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setName"
+			quid       	"5AEB51D0001C"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getName"
+			quid       	"5AEB51D2019D"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setCash_Tr"
+			quid       	"5AEB51D60221"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getCash_Tr"
+			quid       	"5AEB51E00259"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setBalance"
+			quid       	"5AEB51E50042"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getBalance"
+			quid       	"5AEB51EB0045"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setCourse"
+			quid       	"5AEB51ED0161"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getCourse"
+			quid       	"5AEB51F40065"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setComment"
+			quid       	"5AEB51F7031B"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getComment"
+			quid       	"5AEB51FB0372"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setUser_Id"
+			quid       	"5AEB52060299"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getUser_Id"
+			quid       	"5AEB520E02AC"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setData"
+			quid       	"5AEB521403B9"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getData"
+			quid       	"5AEB52180390"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setStatus"
+			quid       	"5AEB521C0358"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getStatus"
+			quid       	"5AEB5220021A"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "FindTr"
+			quid       	"5AEB5225027A"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "AddTranz"
+			quid       	"5AEB522B0102"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "ExtraTranzaction"
+			quid       	"5AEB522F00FB"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getTranzFrom_Id"
+			quid       	"5AEB523C020B"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getDataByTranz"
+			quid       	"5AEB52E5012E"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getBalanceByData"
+			quid       	"5AEB52F101AC"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getEachTranzByChart"
+			quid       	"5AEB52FD007D"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getCountTranzByCash"
+			quid       	"5AEB531000E0"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getBalanceByMonth"
+			quid       	"5AEB53210075"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getDataOfTran"
+			quid       	"5AEB53310036"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getBalanceTranByMonth"
+			quid       	"5AEB53460373"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getTranz"
+			quid       	"5AEB524A0299"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getTranzFromData"
+			quid       	"5AEB52500314"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getTranzByRange"
+			quid       	"5AEB5259039F"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getTranzFrom_Cash_User"
+			quid       	"5AEB52690066"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "DelTranz"
+			quid       	"5AEB52790116"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "DelTranzByCash"
+			quid       	"5AEB527D0213"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getTranz_Balance_Id"
+			quid       	"5AEB5298023A"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "UpdateTranz"
+			quid       	"5AEB52B60358"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getTranzBalanceFromMonth"
+			quid       	"5AEB52D80261"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0))
+		class_attributes 	(list class_attribute_list
+		    (object ClassAttribute "balance"
+			quid       	"5AEB51A001AF")
+		    (object ClassAttribute "data"
+			quid       	"5AEB51A30344")
+		    (object ClassAttribute "user_id"
+			quid       	"5AEB51A50367")
+		    (object ClassAttribute "name"
+			quid       	"5AEB51AA0085")
+		    (object ClassAttribute "course"
+			quid       	"5AEB51B30126")
+		    (object ClassAttribute "comment"
+			quid       	"5AEB51B800A4")
+		    (object ClassAttribute "id"
+			quid       	"5AEB51BA0392")
+		    (object ClassAttribute "cash"
+			quid       	"5AEB51BD00B4")
+		    (object ClassAttribute "status"
+			quid       	"5AEB51BF01DC")))
+	    (object Class "Debt"
+		quid       	"5AEB53BA000C"
+		superclasses 	(list inheritance_relationship_list
+		    (object Inheritance_Relationship
+			quid       	"5AEB56E2028C"
+			supplier   	"Logical View::Datebase"
+			quidu      	"5AEB4BD80269"))
+		operations 	(list Operations
+		    (object Operation "setDebt"
+			quid       	"5AEB54050055"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setId"
+			quid       	"5AEB540B0272"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getId"
+			quid       	"5AEB540E01ED"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setName"
+			quid       	"5AEB541302DA"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getName"
+			quid       	"5AEB5418001F"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setData"
+			quid       	"5AEB541B0220"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getData"
+			quid       	"5AEB541F019F"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setData_End"
+			quid       	"5AEB542303D6"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getData_End"
+			quid       	"5AEB542A0150"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setType_Money"
+			quid       	"5AEB543302F4"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getType_Money"
+			quid       	"5AEB543B0055"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setBalance"
+			quid       	"5AEB543F0111"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getBalance"
+			quid       	"5AEB54440271"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setPay"
+			quid       	"5AEB54490211"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getPay"
+			quid       	"5AEB544C0368"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setComment"
+			quid       	"5AEB544F0287"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getComment"
+			quid       	"5AEB54540344"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setUser_Id"
+			quid       	"5AEB545802D7"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getUser_Id"
+			quid       	"5AEB54610107"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setStatus"
+			quid       	"5AEB546603C1"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getStatus"
+			quid       	"5AEB546C01CD"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getDebts"
+			quid       	"5AEB547401AE"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "AddDebt"
+			quid       	"5AEB54770328"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "DelDebt"
+			quid       	"5AEB547C02D8"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getDebtById"
+			quid       	"5AEB54820263"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "UpdateDebt"
+			quid       	"5AEB548B027D"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "newPay"
+			quid       	"5AEB54930363"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0))
+		class_attributes 	(list class_attribute_list
+		    (object ClassAttribute "data_end"
+			quid       	"5AEB53D4030D")
+		    (object ClassAttribute "data"
+			quid       	"5AEB53DD020B")
+		    (object ClassAttribute "name"
+			quid       	"5AEB53DF0141")
+		    (object ClassAttribute "type_money"
+			quid       	"5AEB53E2001C")
+		    (object ClassAttribute "balance"
+			quid       	"5AEB53E90158")
+		    (object ClassAttribute "user_id"
+			quid       	"5AEB53ED02E6")
+		    (object ClassAttribute "pay"
+			quid       	"5AEB53F20111")
+		    (object ClassAttribute "comment"
+			quid       	"5AEB53F600B3")
+		    (object ClassAttribute "id"
+			quid       	"5AEB53FA0364")
+		    (object ClassAttribute "status"
+			quid       	"5AEB53FD0180")))
+	    (object Class "LineChart"
+		quid       	"5AEB54B8013D"
+		operations 	(list Operations
+		    (object Operation "setLineTwo"
+			quid       	"5AEB5550003B"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setLineChart"
+			quid       	"5AEB55570116"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setData"
+			quid       	"5AEB555E01AE"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getData"
+			quid       	"5AEB556300BC"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setBalance"
+			quid       	"5AEB556700C8"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getBalance"
+			quid       	"5AEB556C0335"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setType_Money"
+			quid       	"5AEB55790135"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getType_Money"
+			quid       	"5AEB558401FC"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "setStatus"
+			quid       	"5AEB5588024A"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "getStatus"
+			quid       	"5AEB558F01FD"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0))
+		class_attributes 	(list class_attribute_list
+		    (object ClassAttribute "date"
+			quid       	"5AEB54C100F2")
+		    (object ClassAttribute "type_money"
+			quid       	"5AEB54C301F2")
+		    (object ClassAttribute "balance"
+			quid       	"5AEB54C800D3")
+		    (object ClassAttribute "name"
+			quid       	"5AEB54CC018E")
+		    (object ClassAttribute "status"
+			quid       	"5AEB54D00146")))
+	    (object Class "MoveTo"
+		quid       	"5AEB55AD0380"
+		operations 	(list Operations
+		    (object Operation "moveToIndex"
+			quid       	"5AEB55BF0174"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "moveToMainPage"
+			quid       	"5AEB55C7023A"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)))
+	    (object Class "Cookie"
+		quid       	"5AEB55E600A3"
+		superclasses 	(list inheritance_relationship_list
+		    (object Inheritance_Relationship
+			quid       	"5AEB572B0155"
+			supplier   	"Logical View::MoveTo"
+			quidu      	"5AEB55AD0380"))
+		operations 	(list Operations
+		    (object Operation "checkCookie"
+			quid       	"5AEB55F1039F"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "addCookie"
+			quid       	"5AEB55FA017E"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "delCookie"
+			quid       	"5AEB55FF0075"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)))
+	    (object Class "Mail"
+		quid       	"5AEB562200C6"
+		operations 	(list Operations
+		    (object Operation "SentMail"
+			quid       	"5AEB562B0066"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)
+		    (object Operation "randPass"
+			quid       	"5AEB56300227"
+			concurrency 	"Sequential"
+			opExportControl 	"Public"
+			uid        	0)))
+	    (object Association "$UNNAMED$29"
+		quid       	"5AEB57D900FD"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$30"
+			quid       	"5AEB57D902CD"
+			supplier   	"Logical View::LineChart"
+			quidu      	"5AEB54B8013D"
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$31"
+			quid       	"5AEB57D902D1"
+			supplier   	"Logical View::Translate"
+			quidu      	"5AEB4C2A036A")))
+	    (object Association "$UNNAMED$32"
+		quid       	"5AEB585A0043"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$33"
+			quid       	"5AEB585A03B1"
+			supplier   	"Logical View::Cookie"
+			quidu      	"5AEB55E600A3"
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$34"
+			quid       	"5AEB585A03B5"
+			supplier   	"Logical View::Users"
+			quidu      	"5AEAC3200363")))
+	    (object Association "$UNNAMED$35"
+		quid       	"5AEB586302E9"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$36"
+			quid       	"5AEB586400AE"
+			supplier   	"Logical View::Mail"
+			quidu      	"5AEB562200C6"
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$37"
+			quid       	"5AEB586400B1"
+			supplier   	"Logical View::Users"
+			quidu      	"5AEAC3200363"))))
 	logical_presentations 	(list unit_reference_list
 	    (object ClassDiagram "Main"
 		quid       	"59AFA158006A"
 		title      	"Main"
-		zoom       	100
+		zoom       	35
 		max_height 	28350
 		max_width  	21600
 		origin_x   	0
-		origin_y   	0
+		origin_y   	5037
 		items      	(list diagram_item_list
-		    (object ClassView "Class" "Logical View::Users" @855
+		    (object ClassView "Class" "Logical View::Datebase" @855
 			ShowCompartmentStereotypes 	TRUE
 			IncludeAttribute 	TRUE
 			IncludeOperation 	TRUE
-			location   	(1178, 481)
+			location   	(5326, 1965)
 			font       	(object Font
-			    size       	10
+			    size       	18
 			    face       	"Arial"
 			    charSet    	204
 			    bold       	FALSE
@@ -16330,21 +17476,21 @@
 			    default_color 	TRUE)
 			label      	(object ItemLabel
 			    Parent_View 	@855
-			    location   	(1069, 275)
+			    location   	(5061, 1826)
 			    fill_color 	13434879
 			    nlines     	1
-			    max_width  	218
+			    max_width  	530
 			    justify    	0
-			    label      	"Users")
+			    label      	"Datebase")
 			icon_style 	"Icon"
 			line_color 	3342489
 			fill_color 	13434879
-			quidu      	"5AEAC3200363"
+			quidu      	"5AEB4BD80269"
 			compartment 	(object Compartment
 			    Parent_View 	@855
-			    location   	(1069, 336)
+			    location   	(5061, 1926)
 			    font       	(object Font
-				size       	10
+				size       	18
 				face       	"Arial"
 				charSet    	204
 				bold       	FALSE
@@ -16356,13 +17502,703 @@
 			    icon_style 	"Icon"
 			    fill_color 	13434879
 			    anchor     	2
-			    nlines     	7
-			    max_width  	216
+			    nlines     	2
+			    max_width  	527
 			    justify    	1)
-			width      	236
-			height     	436
+			width      	548
+			height     	322
 			annotation 	8
-			autoResize 	TRUE)))))
+			autoResize 	TRUE)
+		    (object ClassView "Class" "Logical View::CashMonth" @856
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(3077, 4937)
+			font       	(object Font
+			    size       	18
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@856
+			    location   	(2499, 3507)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	1156
+			    justify    	0
+			    label      	"CashMonth")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEB4E1100EA"
+			compartment 	(object Compartment
+			    Parent_View 	@856
+			    location   	(2499, 3607)
+			    font       	(object Font
+				size       	18
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    icon_style 	"Icon"
+			    fill_color 	13434879
+			    anchor     	2
+			    nlines     	31
+			    max_width  	1200
+			    justify    	1)
+			width      	1174
+			height     	2904
+			annotation 	8
+			autoResize 	TRUE)
+		    (object ClassView "Class" "Logical View::Cash" @857
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(8249, 4568)
+			font       	(object Font
+			    size       	18
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@857
+			    location   	(7761, 2693)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	976
+			    justify    	0
+			    label      	"Cash")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEB500802A3"
+			compartment 	(object Compartment
+			    Parent_View 	@857
+			    location   	(7761, 2793)
+			    font       	(object Font
+				size       	18
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    icon_style 	"Icon"
+			    fill_color 	13434879
+			    anchor     	2
+			    nlines     	41
+			    max_width  	996
+			    justify    	1)
+			width      	994
+			height     	3794
+			annotation 	8
+			autoResize 	TRUE)
+		    (object ClassView "Class" "Logical View::Tranzaction" @858
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(1366, 3968)
+			font       	(object Font
+			    size       	18
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@858
+			    location   	(842, 1782)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	1048
+			    justify    	0
+			    label      	"Tranzaction")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEB5198017E"
+			compartment 	(object Compartment
+			    Parent_View 	@858
+			    location   	(842, 1882)
+			    font       	(object Font
+				size       	18
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    icon_style 	"Icon"
+			    fill_color 	13434879
+			    anchor     	2
+			    nlines     	48
+			    max_width  	1059
+			    justify    	1)
+			width      	1066
+			height     	4416
+			annotation 	8
+			autoResize 	TRUE)
+		    (object ClassView "Class" "Logical View::Debt" @859
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(9420, 2485)
+			font       	(object Font
+			    size       	18
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@859
+			    location   	(9084, 744)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	672
+			    justify    	0
+			    label      	"Debt")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEB53BA000C"
+			compartment 	(object Compartment
+			    Parent_View 	@859
+			    location   	(9084, 844)
+			    font       	(object Font
+				size       	18
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    icon_style 	"Icon"
+			    fill_color 	13434879
+			    anchor     	2
+			    nlines     	38
+			    max_width  	670
+			    justify    	1)
+			width      	690
+			height     	3526
+			annotation 	8
+			autoResize 	TRUE)
+		    (object ClassView "Class" "Logical View::MoveTo" @860
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(5170, 8053)
+			font       	(object Font
+			    size       	18
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@860
+			    location   	(4803, 7870)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	734
+			    justify    	0
+			    label      	"MoveTo")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEB55AD0380"
+			compartment 	(object Compartment
+			    Parent_View 	@860
+			    location   	(4803, 7970)
+			    font       	(object Font
+				size       	18
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    icon_style 	"Icon"
+			    fill_color 	13434879
+			    anchor     	2
+			    nlines     	3
+			    max_width  	732
+			    justify    	1)
+			width      	752
+			height     	410
+			annotation 	8
+			autoResize 	TRUE)
+		    (object InheritView "" @861
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"5AEB56D90378"
+			client     	@856
+			supplier   	@855
+			vertices   	(list Points
+			    (3664, 4158)
+			    (5202, 2126))
+			line_style 	0)
+		    (object InheritView "" @862
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"5AEB56DF016A"
+			client     	@857
+			supplier   	@855
+			vertices   	(list Points
+			    (7751, 4125)
+			    (5507, 2126))
+			line_style 	0)
+		    (object InheritView "" @863
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"5AEB56E2028C"
+			client     	@859
+			supplier   	@855
+			vertices   	(list Points
+			    (9074, 2440)
+			    (5600, 1999))
+			line_style 	0)
+		    (object InheritView "" @864
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"5AEB56DC01A6"
+			client     	@858
+			supplier   	@855
+			vertices   	(list Points
+			    (1899, 3696)
+			    (5051, 2102))
+			line_style 	0)
+		    (object ClassView "Class" "Logical View::Translate" @865
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(5750, 4951)
+			font       	(object Font
+			    size       	18
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@865
+			    location   	(5177, 3032)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	1146
+			    justify    	0
+			    label      	"Translate")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEB4C2A036A"
+			compartment 	(object Compartment
+			    Parent_View 	@865
+			    location   	(5177, 3132)
+			    font       	(object Font
+				size       	18
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    icon_style 	"Icon"
+			    fill_color 	13434879
+			    anchor     	2
+			    nlines     	42
+			    max_width  	1156
+			    justify    	1)
+			width      	1164
+			height     	3882
+			annotation 	8
+			autoResize 	TRUE)
+		    (object InheritView "" @866
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"5AEB56D7014D"
+			client     	@865
+			supplier   	@855
+			vertices   	(list Points
+			    (5473, 3009)
+			    (5347, 2126))
+			line_style 	0)
+		    (object ClassView "Class" "Logical View::LineChart" @867
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(7104, 5701)
+			font       	(object Font
+			    size       	18
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@867
+			    location   	(6768, 4939)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	672
+			    justify    	0
+			    label      	"LineChart")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEB54B8013D"
+			compartment 	(object Compartment
+			    Parent_View 	@867
+			    location   	(6768, 5039)
+			    font       	(object Font
+				size       	18
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    icon_style 	"Icon"
+			    fill_color 	13434879
+			    anchor     	2
+			    nlines     	16
+			    max_width  	670
+			    justify    	1)
+			width      	690
+			height     	1568
+			annotation 	8
+			autoResize 	TRUE)
+		    (object AssociationViewNew "$UNNAMED$29" @868
+			location   	(6545, 5391)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"5AEB57D900FD"
+			roleview_list 	(list RoleViews
+			    (object RoleView "$UNNAMED$30" @869
+				Parent_View 	@868
+				location   	(795, 440)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"5AEB57D902CD"
+				client     	@868
+				supplier   	@867
+				vertices   	(list Points
+				    (6545, 5391)
+				    (6758, 5509))
+				line_style 	0)
+			    (object RoleView "$UNNAMED$31" @870
+				Parent_View 	@868
+				location   	(795, 440)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"5AEB57D902D1"
+				client     	@868
+				supplier   	@865
+				vertices   	(list Points
+				    (6545, 5391)
+				    (6332, 5273))
+				line_style 	0)))
+		    (object ClassView "Class" "Logical View::Cookie" @871
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(4844, 7357)
+			font       	(object Font
+			    size       	18
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@871
+			    location   	(4553, 7129)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	582
+			    justify    	0
+			    label      	"Cookie")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEB55E600A3"
+			compartment 	(object Compartment
+			    Parent_View 	@871
+			    location   	(4553, 7229)
+			    font       	(object Font
+				size       	18
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    icon_style 	"Icon"
+			    fill_color 	13434879
+			    anchor     	2
+			    nlines     	4
+			    max_width  	581
+			    justify    	1)
+			width      	600
+			height     	500
+			annotation 	8
+			autoResize 	TRUE)
+		    (object InheritView "" @872
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"5AEB572B0155"
+			client     	@871
+			supplier   	@860
+			vertices   	(list Points
+			    (4960, 7607)
+			    (5072, 7847))
+			line_style 	0)
+		    (object ClassView "Class" "Logical View::Users" @873
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(4519, 5160)
+			font       	(object Font
+			    size       	18
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@873
+			    location   	(4107, 3997)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	824
+			    justify    	0
+			    label      	"Users")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEAC3200363"
+			compartment 	(object Compartment
+			    Parent_View 	@873
+			    location   	(4107, 4097)
+			    font       	(object Font
+				size       	18
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    icon_style 	"Icon"
+			    fill_color 	13434879
+			    anchor     	2
+			    nlines     	25
+			    max_width  	822
+			    justify    	1)
+			width      	842
+			height     	2370
+			annotation 	8
+			autoResize 	TRUE)
+		    (object InheritView "" @874
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"5AEB56D403A3"
+			client     	@873
+			supplier   	@855
+			vertices   	(list Points
+			    (4816, 3974)
+			    (5284, 2126))
+			line_style 	0)
+		    (object AssociationViewNew "$UNNAMED$32" @875
+			location   	(4749, 6725)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"5AEB585A0043"
+			roleview_list 	(list RoleViews
+			    (object RoleView "$UNNAMED$33" @876
+				Parent_View 	@875
+				location   	(230, 1565)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"5AEB585A03B1"
+				client     	@875
+				supplier   	@871
+				vertices   	(list Points
+				    (4749, 6725)
+				    (4805, 7106))
+				line_style 	0)
+			    (object RoleView "$UNNAMED$34" @877
+				Parent_View 	@875
+				location   	(230, 1565)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"5AEB585A03B5"
+				client     	@875
+				supplier   	@873
+				vertices   	(list Points
+				    (4749, 6725)
+				    (4693, 6345))
+				line_style 	0)))
+		    (object ClassView "Class" "Logical View::Mail" @878
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(4049, 7397)
+			font       	(object Font
+			    size       	18
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@878
+			    location   	(3811, 7214)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	476
+			    justify    	0
+			    label      	"Mail")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEB562200C6"
+			compartment 	(object Compartment
+			    Parent_View 	@878
+			    location   	(3811, 7314)
+			    font       	(object Font
+				size       	18
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    icon_style 	"Icon"
+			    fill_color 	13434879
+			    anchor     	2
+			    nlines     	3
+			    max_width  	473
+			    justify    	1)
+			width      	494
+			height     	410
+			annotation 	8
+			autoResize 	TRUE)
+		    (object AssociationViewNew "$UNNAMED$35" @879
+			location   	(4180, 6768)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"5AEB586302E9"
+			roleview_list 	(list RoleViews
+			    (object RoleView "$UNNAMED$36" @880
+				Parent_View 	@879
+				location   	(-339, 1608)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"5AEB586400AE"
+				client     	@879
+				supplier   	@878
+				vertices   	(list Points
+				    (4180, 6768)
+				    (4091, 7191))
+				line_style 	0)
+			    (object RoleView "$UNNAMED$37" @881
+				Parent_View 	@879
+				location   	(-339, 1608)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"5AEB586400B1"
+				client     	@879
+				supplier   	@873
+				vertices   	(list Points
+				    (4180, 6768)
+				    (4269, 6345))
+				line_style 	0)))))))
     root_subsystem 	(object SubSystem "Component View"
 	quid       	"59AFA1570230"
 	physical_models 	(list unit_reference_list)

@@ -6,7 +6,7 @@
  * Time: 16:16
  */
 
-class CashMonth
+class CashMonth extends Datebase
 {
     private $id;
     private $id_cash;
