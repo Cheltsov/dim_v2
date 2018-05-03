@@ -175,7 +175,7 @@
 			quid       	"5AEAB99B0149"
 			supplier   	"Use Case View::Програма Ledger"
 			quidu      	"59AFA37B0344")))
-	    (object UseCase "Регiстрацiя"
+	    (object UseCase "Реєгiстрацiя"
 		quid       	"5AEAB30F0065"
 		visible_modules 	(list dependency_list
 		    (object Dependency_Relationship
@@ -217,7 +217,7 @@
 			quid       	"5AEAB4AA02DF"
 			supplier   	"Use Case View::Головна"
 			quidu      	"5AEAB2B80100")))
-	    (object UseCase "Перегляд поточних курсов валют"
+	    (object UseCase "Перегляд поточних курсів валют"
 		quid       	"5AEAB48F013A"
 		visible_modules 	(list dependency_list
 		    (object Dependency_Relationship
@@ -395,7 +395,7 @@
 			quid       	"5AEAB819012D"
 			supplier   	"Use Case View::Вибір дати"
 			quidu      	"5AEAB7EF02FC")))
-	    (object UseCase "Побудова кругового графіка"
+	    (object UseCase "Побудова кругового графіку"
 		quid       	"5AEAB81D0327"
 		visible_modules 	(list dependency_list
 		    (object Dependency_Relationship
@@ -448,6 +448,11 @@
 			quidu      	"59AFAD1F033C")))
 	    (object UseCase "Скидання даних"
 		quid       	"5AEAB8F00092"
+		superclasses 	(list inheritance_relationship_list
+		    (object Inheritance_Relationship
+			quid       	"5AEB751D01C9"
+			supplier   	"Use Case View::Видалення користувача"
+			quidu      	"5AEAB91B02E3"))
 		visible_modules 	(list dependency_list
 		    (object Dependency_Relationship
 			quid       	"5AEAB927015D"
@@ -544,7 +549,7 @@
 		roles      	(list role_list
 		    (object Role "$UNNAMED$16"
 			quid       	"5AEAB3170322"
-			supplier   	"Use Case View::Регiстрацiя"
+			supplier   	"Use Case View::Реєгiстрацiя"
 			quidu      	"5AEAB30F0065"
 			is_navigable 	TRUE)
 		    (object Role "$UNNAMED$17"
@@ -561,7 +566,7 @@
 			is_navigable 	TRUE)
 		    (object Role "$UNNAMED$20"
 			quid       	"5AEAB3BE00C5"
-			supplier   	"Use Case View::Регiстрацiя"
+			supplier   	"Use Case View::Реєгiстрацiя"
 			quidu      	"5AEAB30F0065")))
 	    (object Mechanism @1
 		logical_models 	(list unit_reference_list
@@ -2013,8 +2018,8 @@
 		zoom       	66
 		max_height 	28350
 		max_width  	21600
-		origin_x   	0
-		origin_y   	2860
+		origin_x   	8054
+		origin_y   	2861
 		items      	(list diagram_item_list
 		    (object UseCaseView "Use Case View::Програма Ledger" @5
 			location   	(2364, 1714)
@@ -2178,7 +2183,7 @@
 				supplier   	@9
 				vertices   	(list Points
 				    (1173, 660)
-				    (1117, 757))
+				    (1117, 758))
 				line_style 	0)
 			    (object RoleView "$UNNAMED$8" @12
 				Parent_View 	@10
@@ -2190,7 +2195,7 @@
 				supplier   	@7
 				vertices   	(list Points
 				    (1173, 660)
-				    (1230, 559))
+				    (1230, 563))
 				line_style 	0)))
 		    (object DependencyView "" @13
 			stereotype 	TRUE
@@ -2200,7 +2205,7 @@
 			supplier   	@9
 			vertices   	(list Points
 			    (2264, 1644)
-			    (1339, 1002))
+			    (1209, 912))
 			line_style 	0)
 		    (object AssociationViewNew "$UNNAMED$9" @14
 			location   	(663, 729)
@@ -2228,7 +2233,7 @@
 				supplier   	@9
 				vertices   	(list Points
 				    (663, 729)
-				    (962, 795))
+				    (962, 796))
 				line_style 	0)
 			    (object RoleView "$UNNAMED$11" @16
 				Parent_View 	@14
@@ -2242,8 +2247,8 @@
 				    (663, 729)
 				    (364, 663))
 				line_style 	0)))
-		    (object UseCaseView "Use Case View::Регiстрацiя" @17
-			location   	(744, 368)
+		    (object UseCaseView "Use Case View::Реєгiстрацiя" @17
+			location   	(743, 367)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -2256,19 +2261,19 @@
 			    default_color 	TRUE)
 			label      	(object ItemLabel
 			    Parent_View 	@17
-			    location   	(744, 506)
+			    location   	(743, 505)
 			    anchor_loc 	1
 			    nlines     	2
 			    max_width  	630
 			    justify    	0
-			    label      	"Регiстрацiя")
+			    label      	"Реєгiстрацiя")
 			icon_style 	"Icon"
 			line_color 	3342489
 			fill_color 	13434879
 			quidu      	"5AEAB30F0065"
 			height     	118)
 		    (object AssociationViewNew "$UNNAMED$15" @18
-			location   	(496, 528)
+			location   	(495, 527)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -2285,30 +2290,30 @@
 			roleview_list 	(list RoleViews
 			    (object RoleView "$UNNAMED$16" @19
 				Parent_View 	@18
-				location   	(293, -92)
+				location   	(292, -93)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"5AEAB3170322"
 				client     	@18
 				supplier   	@17
 				vertices   	(list Points
-				    (496, 528)
-				    (744, 368))
+				    (495, 527)
+				    (627, 441))
 				line_style 	0)
 			    (object RoleView "$UNNAMED$17" @20
 				Parent_View 	@18
-				location   	(293, -92)
+				location   	(292, -93)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"5AEAB3170324"
 				client     	@18
 				supplier   	@8
 				vertices   	(list Points
-				    (496, 528)
-				    (364, 612))
+				    (495, 527)
+				    (364, 614))
 				line_style 	0)))
 		    (object AssociationViewNew "$UNNAMED$18" @21
-			location   	(945, 639)
+			location   	(944, 639)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -2325,27 +2330,27 @@
 			roleview_list 	(list RoleViews
 			    (object RoleView "$UNNAMED$19" @22
 				Parent_View 	@21
-				location   	(216, 292)
+				location   	(215, 292)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"5AEAB3BE00B6"
 				client     	@21
 				supplier   	@9
 				vertices   	(list Points
-				    (945, 639)
-				    (1030, 757))
+				    (944, 639)
+				    (1032, 758))
 				line_style 	0)
 			    (object RoleView "$UNNAMED$20" @23
 				Parent_View 	@21
-				location   	(216, 292)
+				location   	(215, 292)
 				stereotype 	TRUE
 				line_color 	3342489
 				quidu      	"5AEAB3BE00C5"
 				client     	@21
 				supplier   	@17
 				vertices   	(list Points
-				    (945, 639)
-				    (864, 531))
+				    (944, 639)
+				    (856, 521))
 				line_style 	0)))
 		    (object UseCaseView "Use Case View::Транзакцiї" @24
 			location   	(2659, 1049)
@@ -2522,7 +2527,7 @@
 			fill_color 	13434879
 			quidu      	"5AEAB42D018B"
 			height     	118)
-		    (object UseCaseView "Use Case View::Перегляд поточних курсов валют" @31
+		    (object UseCaseView "Use Case View::Перегляд поточних курсів валют" @31
 			location   	(501, 2489)
 			font       	(object Font
 			    size       	10
@@ -2541,7 +2546,7 @@
 			    nlines     	2
 			    max_width  	630
 			    justify    	0
-			    label      	"Перегляд поточних курсов валют")
+			    label      	"Перегляд поточних курсів валют")
 			icon_style 	"Icon"
 			line_color 	3342489
 			fill_color 	13434879
@@ -2555,7 +2560,7 @@
 			supplier   	@6
 			vertices   	(list Points
 			    (609, 2433)
-			    (1202, 2146))
+			    (1403, 2046))
 			line_style 	0)
 		    (object DependencyView "" @33
 			stereotype 	TRUE
@@ -2564,7 +2569,7 @@
 			client     	@30
 			supplier   	@6
 			vertices   	(list Points
-			    (730, 1675)
+			    (713, 1668)
 			    (1404, 1942))
 			line_style 	0)
 		    (object UseCaseView "Use Case View::Перегляд всього балансу" @34
@@ -2684,7 +2689,7 @@
 			client     	@38
 			supplier   	@6
 			vertices   	(list Points
-			    (1025, 1546)
+			    (1029, 1549)
 			    (1449, 1927))
 			line_style 	0)
 		    (object DependencyView "" @40
@@ -2704,7 +2709,7 @@
 			client     	@37
 			supplier   	@6
 			vertices   	(list Points
-			    (1336, 1482)
+			    (1339, 1485)
 			    (1497, 1925))
 			line_style 	0)
 		    (object UseCaseView "Use Case View::Додавання транзації" @42
@@ -2799,7 +2804,7 @@
 			client     	@43
 			supplier   	@24
 			vertices   	(list Points
-			    (3148, 909)
+			    (3358, 849)
 			    (2767, 1014))
 			line_style 	0)
 		    (object DependencyView "" @47
@@ -2844,7 +2849,7 @@
 			client     	@48
 			supplier   	@24
 			vertices   	(list Points
-			    (3154, 662)
+			    (3150, 665)
 			    (2727, 990))
 			line_style 	0)
 		    (object UseCaseView "Use Case View::Відображення транзакції за певним гаманцем" @50
@@ -2879,7 +2884,7 @@
 			client     	@50
 			supplier   	@24
 			vertices   	(list Points
-			    (2169, 459)
+			    (2196, 491)
 			    (2608, 989))
 			line_style 	0)
 		    (object UseCaseView "Use Case View::Відображення списку гаманців" @52
@@ -2939,7 +2944,7 @@
 			client     	@52
 			supplier   	@24
 			vertices   	(list Points
-			    (2223, 795)
+			    (2229, 798)
 			    (2559, 990))
 			line_style 	0)
 		    (object DependencyView "" @55
@@ -2949,7 +2954,7 @@
 			client     	@53
 			supplier   	@24
 			vertices   	(list Points
-			    (2601, 338)
+			    (2604, 370)
 			    (2651, 990))
 			line_style 	0)
 		    (object UseCaseView "Use Case View::Додавання запису про борг" @56
@@ -3035,7 +3040,7 @@
 			supplier   	@25
 			vertices   	(list Points
 			    (1080, 2987)
-			    (1567, 2772))
+			    (1776, 2675))
 			line_style 	0)
 		    (object DependencyView "" @60
 			stereotype 	TRUE
@@ -3045,7 +3050,7 @@
 			supplier   	@25
 			vertices   	(list Points
 			    (2603, 2890)
-			    (2208, 2744))
+			    (1996, 2669))
 			line_style 	0)
 		    (object DependencyView "" @61
 			stereotype 	TRUE
@@ -3124,7 +3129,7 @@
 			client     	@64
 			supplier   	@24
 			vertices   	(list Points
-			    (3099, 416)
+			    (3098, 419)
 			    (2696, 990))
 			line_style 	0)
 		    (object UseCaseView "Use Case View::Відображення транзакцій по виплаті боргів" @66
@@ -3160,7 +3165,7 @@
 			supplier   	@25
 			vertices   	(list Points
 			    (1377, 3276)
-			    (1759, 2794))
+			    (1826, 2701))
 			line_style 	0)
 		    (object UseCaseView "Use Case View::Видалення транзакції" @68
 			location   	(2716, 3399)
@@ -3245,7 +3250,7 @@
 			supplier   	@25
 			vertices   	(list Points
 			    (1782, 3436)
-			    (1863, 2794))
+			    (1863, 2797))
 			line_style 	0)
 		    (object DependencyView "" @72
 			stereotype 	TRUE
@@ -3255,7 +3260,7 @@
 			supplier   	@25
 			vertices   	(list Points
 			    (2254, 3418)
-			    (1963, 2794))
+			    (1947, 2758))
 			line_style 	0)
 		    (object DependencyView "" @73
 			stereotype 	TRUE
@@ -3265,7 +3270,7 @@
 			supplier   	@25
 			vertices   	(list Points
 			    (2653, 3341)
-			    (2065, 2794))
+			    (1950, 2687))
 			line_style 	0)
 		    (object UseCaseView "Use Case View::Відображення точності прогнозу по доходах" @74
 			location   	(4748, 1027)
@@ -3374,7 +3379,7 @@
 			client     	@77
 			supplier   	@26
 			vertices   	(list Points
-			    (4156, 648)
+			    (4162, 680)
 			    (4212, 954))
 			line_style 	0)
 		    (object DependencyView "" @79
@@ -3384,7 +3389,7 @@
 			client     	@76
 			supplier   	@26
 			vertices   	(list Points
-			    (4592, 507)
+			    (4569, 539)
 			    (4266, 953))
 			line_style 	0)
 		    (object DependencyView "" @80
@@ -3394,7 +3399,7 @@
 			client     	@75
 			supplier   	@26
 			vertices   	(list Points
-			    (4597, 832)
+			    (4683, 789)
 			    (4336, 956))
 			line_style 	0)
 		    (object DependencyView "" @81
@@ -3500,9 +3505,9 @@
 			supplier   	@83
 			vertices   	(list Points
 			    (4614, 3147)
-			    (4034, 2961))
+			    (3822, 2893))
 			line_style 	0)
-		    (object UseCaseView "Use Case View::Побудова кругового графіка" @87
+		    (object UseCaseView "Use Case View::Побудова кругового графіку" @87
 			location   	(4306, 3402)
 			font       	(object Font
 			    size       	10
@@ -3521,7 +3526,7 @@
 			    nlines     	2
 			    max_width  	630
 			    justify    	0
-			    label      	"Побудова кругового графіка")
+			    label      	"Побудова кругового графіку")
 			icon_style 	"Icon"
 			line_color 	3342489
 			fill_color 	13434879
@@ -3535,7 +3540,7 @@
 			supplier   	@83
 			vertices   	(list Points
 			    (4240, 3344)
-			    (3893, 3024))
+			    (3823, 2960))
 			line_style 	0)
 		    (object UseCaseView "Use Case View::Друк звітів в pdf" @89
 			location   	(3810, 3620)
@@ -3570,7 +3575,7 @@
 			supplier   	@27
 			vertices   	(list Points
 			    (3648, 2802)
-			    (3553, 2715))
+			    (3435, 2608))
 			line_style 	0)
 		    (object UseCaseView "Use Case View::Відображення короткої інформації про траназакцій" @91
 			location   	(3275, 3274)
@@ -3605,7 +3610,7 @@
 			supplier   	@83
 			vertices   	(list Points
 			    (3331, 3215)
-			    (3543, 3024))
+			    (3601, 2963))
 			line_style 	0)
 		    (object UseCaseView "Use Case View::Додавання гаманця" @93
 			location   	(5119, 1762)
@@ -3690,7 +3695,7 @@
 			supplier   	@28
 			vertices   	(list Points
 			    (5020, 1704)
-			    (4934, 1653))
+			    (4754, 1546))
 			line_style 	0)
 		    (object DependencyView "" @97
 			stereotype 	TRUE
@@ -3699,7 +3704,7 @@
 			client     	@94
 			supplier   	@28
 			vertices   	(list Points
-			    (5211, 1195)
+			    (5379, 1105)
 			    (4756, 1432))
 			line_style 	0)
 		    (object DependencyView "" @98
@@ -3709,7 +3714,7 @@
 			client     	@95
 			supplier   	@28
 			vertices   	(list Points
-			    (5156, 1368)
+			    (5365, 1319)
 			    (4763, 1459))
 			line_style 	0)
 		    (object UseCaseView "Use Case View::Відображення інформації про гаманець" @99
@@ -3829,7 +3834,7 @@
 			client     	@101
 			supplier   	@29
 			vertices   	(list Points
-			    (4062, 1887)
+			    (4059, 1890)
 			    (3873, 2071))
 			line_style 	0)
 		    (object DependencyView "" @105
@@ -3870,34 +3875,24 @@
 		    (object DependencyView "" @107
 			stereotype 	TRUE
 			line_color 	3342489
-			quidu      	"5AEAB927015D"
-			client     	@103
-			supplier   	@106
-			vertices   	(list Points
-			    (4565, 2467)
-			    (4191, 2443))
-			line_style 	0)
-		    (object DependencyView "" @108
-			stereotype 	TRUE
-			line_color 	3342489
 			quidu      	"5AEAB92901CA"
 			client     	@106
 			supplier   	@29
 			vertices   	(list Points
 			    (4032, 2379)
-			    (3957, 2292))
+			    (3928, 2257))
 			line_style 	0)
-		    (object DependencyView "" @109
+		    (object DependencyView "" @108
 			stereotype 	TRUE
 			line_color 	3342489
 			quidu      	"5AEAB98301BB"
 			client     	@24
 			supplier   	@5
 			vertices   	(list Points
-			    (2584, 1212)
+			    (2582, 1215)
 			    (2391, 1644))
 			line_style 	0)
-		    (object DependencyView "" @110
+		    (object DependencyView "" @109
 			stereotype 	TRUE
 			line_color 	3342489
 			quidu      	"5AEAB99B0149"
@@ -3905,9 +3900,9 @@
 			supplier   	@5
 			vertices   	(list Points
 			    (1639, 1950)
-			    (2043, 1815))
+			    (2242, 1747))
 			line_style 	0)
-		    (object DependencyView "" @111
+		    (object DependencyView "" @110
 			stereotype 	TRUE
 			line_color 	3342489
 			quidu      	"5AEAB9AC0272"
@@ -3915,9 +3910,9 @@
 			supplier   	@5
 			vertices   	(list Points
 			    (1913, 2573)
-			    (2267, 1889))
+			    (2265, 1892))
 			line_style 	0)
-		    (object DependencyView "" @112
+		    (object DependencyView "" @111
 			stereotype 	TRUE
 			line_color 	3342489
 			quidu      	"5AEAB9CA03D2"
@@ -3925,19 +3920,19 @@
 			supplier   	@5
 			vertices   	(list Points
 			    (3300, 2493)
-			    (2576, 1889))
+			    (2535, 1854))
 			line_style 	0)
-		    (object DependencyView "" @113
+		    (object DependencyView "" @112
 			stereotype 	TRUE
 			line_color 	3342489
 			quidu      	"5AEAB9E30225"
 			client     	@26
 			supplier   	@5
 			vertices   	(list Points
-			    (3907, 1129)
+			    (4078, 1065)
 			    (2484, 1665))
 			line_style 	0)
-		    (object DependencyView "" @114
+		    (object DependencyView "" @113
 			stereotype 	TRUE
 			line_color 	3342489
 			quidu      	"59AFAD380127"
@@ -3947,7 +3942,7 @@
 			    (4545, 1498)
 			    (2484, 1699))
 			line_style 	0)
-		    (object DependencyView "" @115
+		    (object DependencyView "" @114
 			stereotype 	TRUE
 			line_color 	3342489
 			quidu      	"59AFAD9400DD"
@@ -3955,9 +3950,9 @@
 			supplier   	@5
 			vertices   	(list Points
 			    (3707, 2092)
-			    (2684, 1803))
+			    (2484, 1745))
 			line_style 	0)
-		    (object UseCaseView "Use Case View::Формування pdf" @116
+		    (object UseCaseView "Use Case View::Формування pdf" @115
 			location   	(3756, 3269)
 			font       	(object Font
 			    size       	10
@@ -3970,7 +3965,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@116
+			    Parent_View 	@115
 			    location   	(3756, 3407)
 			    anchor_loc 	1
 			    nlines     	2
@@ -3982,17 +3977,17 @@
 			fill_color 	13434879
 			quidu      	"5AEABAE10179"
 			height     	118)
-		    (object DependencyView "" @117
+		    (object DependencyView "" @116
 			stereotype 	TRUE
 			line_color 	3342489
 			quidu      	"5AEABAFB022A"
-			client     	@116
+			client     	@115
 			supplier   	@83
 			vertices   	(list Points
 			    (3746, 3211)
-			    (3729, 3024))
+			    (3729, 3027))
 			line_style 	0)
-		    (object UseCaseView "Use Case View::Вихід" @118
+		    (object UseCaseView "Use Case View::Вихід" @117
 			location   	(4549, 1945)
 			font       	(object Font
 			    size       	10
@@ -4005,7 +4000,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@118
+			    Parent_View 	@117
 			    location   	(4549, 2083)
 			    anchor_loc 	1
 			    nlines     	2
@@ -4017,25 +4012,35 @@
 			fill_color 	13434879
 			quidu      	"5AEABB6C03E1"
 			height     	118)
-		    (object DependencyView "" @119
+		    (object DependencyView "" @118
 			stereotype 	TRUE
 			line_color 	3342489
 			quidu      	"5AEABB73031F"
-			client     	@118
+			client     	@117
 			supplier   	@29
 			vertices   	(list Points
-			    (4228, 2024)
+			    (4438, 1970)
 			    (3927, 2098))
+			line_style 	0)
+		    (object InheritView "" @119
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"5AEB052A033E"
+			client     	@115
+			supplier   	@89
+			vertices   	(list Points
+			    (3780, 3435)
+			    (3798, 3561))
 			line_style 	0)
 		    (object InheritView "" @120
 			stereotype 	TRUE
 			line_color 	3342489
-			quidu      	"5AEB052A033E"
-			client     	@116
-			supplier   	@89
+			quidu      	"5AEB751D01C9"
+			client     	@103
+			supplier   	@106
 			vertices   	(list Points
-			    (3779, 3432)
-			    (3798, 3561))
+			    (4565, 2467)
+			    (4191, 2443))
 			line_style 	0)))
 	    (object InteractionDiagram "Authorization"
 		mechanism_ref 	@1
@@ -10849,7 +10854,7 @@
 			    location   	(2008, 713)
 			    anchor_loc 	1
 			    nlines     	2
-			    max_width  	389
+			    max_width  	392
 			    justify    	0
 			    label      	"")
 			icon       	"Actor"
@@ -10879,7 +10884,7 @@
 			    location   	(1508, 1154)
 			    anchor_loc 	1
 			    nlines     	2
-			    max_width  	389
+			    max_width  	392
 			    justify    	0
 			    label      	"")
 			icon       	"Actor"
@@ -11661,7 +11666,7 @@
 			    location   	(301, 597)
 			    anchor_loc 	1
 			    nlines     	2
-			    max_width  	395
+			    max_width  	399
 			    justify    	0
 			    label      	"")
 			icon       	"Actor"
@@ -11691,7 +11696,7 @@
 			    location   	(2919, 1832)
 			    anchor_loc 	1
 			    nlines     	2
-			    max_width  	395
+			    max_width  	399
 			    justify    	0
 			    label      	"")
 			icon       	"Actor"
@@ -13012,7 +13017,7 @@
 			    location   	(2685, 2061)
 			    anchor_loc 	1
 			    nlines     	2
-			    max_width  	403
+			    max_width  	407
 			    justify    	0
 			    label      	"")
 			icon       	"Actor"
@@ -13042,7 +13047,7 @@
 			    location   	(564, 341)
 			    anchor_loc 	1
 			    nlines     	2
-			    max_width  	403
+			    max_width  	407
 			    justify    	0
 			    label      	"")
 			icon       	"Actor"
@@ -14589,7 +14594,7 @@
 			    location   	(3077, 2279)
 			    anchor_loc 	1
 			    nlines     	2
-			    max_width  	411
+			    max_width  	415
 			    justify    	0
 			    label      	"")
 			icon       	"Actor"
@@ -14619,7 +14624,7 @@
 			    location   	(323, 294)
 			    anchor_loc 	1
 			    nlines     	2
-			    max_width  	411
+			    max_width  	415
 			    justify    	0
 			    label      	"")
 			icon       	"Actor"
@@ -17457,7 +17462,7 @@
 		max_height 	28350
 		max_width  	21600
 		origin_x   	0
-		origin_y   	5037
+		origin_y   	5039
 		items      	(list diagram_item_list
 		    (object ClassView "Class" "Logical View::Datebase" @855
 			ShowCompartmentStereotypes 	TRUE
@@ -17799,67 +17804,7 @@
 			    (1899, 3696)
 			    (5051, 2102))
 			line_style 	0)
-		    (object ClassView "Class" "Logical View::Translate" @865
-			ShowCompartmentStereotypes 	TRUE
-			IncludeAttribute 	TRUE
-			IncludeOperation 	TRUE
-			location   	(5750, 4951)
-			font       	(object Font
-			    size       	18
-			    face       	"Arial"
-			    charSet    	204
-			    bold       	FALSE
-			    italics    	FALSE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			label      	(object ItemLabel
-			    Parent_View 	@865
-			    location   	(5177, 3032)
-			    fill_color 	13434879
-			    nlines     	1
-			    max_width  	1146
-			    justify    	0
-			    label      	"Translate")
-			icon_style 	"Icon"
-			line_color 	3342489
-			fill_color 	13434879
-			quidu      	"5AEB4C2A036A"
-			compartment 	(object Compartment
-			    Parent_View 	@865
-			    location   	(5177, 3132)
-			    font       	(object Font
-				size       	18
-				face       	"Arial"
-				charSet    	204
-				bold       	FALSE
-				italics    	FALSE
-				underline  	FALSE
-				strike     	FALSE
-				color      	0
-				default_color 	TRUE)
-			    icon_style 	"Icon"
-			    fill_color 	13434879
-			    anchor     	2
-			    nlines     	42
-			    max_width  	1156
-			    justify    	1)
-			width      	1164
-			height     	3882
-			annotation 	8
-			autoResize 	TRUE)
-		    (object InheritView "" @866
-			stereotype 	TRUE
-			line_color 	3342489
-			quidu      	"5AEB56D7014D"
-			client     	@865
-			supplier   	@855
-			vertices   	(list Points
-			    (5473, 3009)
-			    (5347, 2126))
-			line_style 	0)
-		    (object ClassView "Class" "Logical View::LineChart" @867
+		    (object ClassView "Class" "Logical View::LineChart" @865
 			ShowCompartmentStereotypes 	TRUE
 			IncludeAttribute 	TRUE
 			IncludeOperation 	TRUE
@@ -17875,7 +17820,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@867
+			    Parent_View 	@865
 			    location   	(6768, 4939)
 			    fill_color 	13434879
 			    nlines     	1
@@ -17887,7 +17832,7 @@
 			fill_color 	13434879
 			quidu      	"5AEB54B8013D"
 			compartment 	(object Compartment
-			    Parent_View 	@867
+			    Parent_View 	@865
 			    location   	(6768, 5039)
 			    font       	(object Font
 				size       	18
@@ -17909,6 +17854,66 @@
 			height     	1568
 			annotation 	8
 			autoResize 	TRUE)
+		    (object ClassView "Class" "Logical View::Translate" @866
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(5750, 4951)
+			font       	(object Font
+			    size       	18
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@866
+			    location   	(5177, 3032)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	1146
+			    justify    	0
+			    label      	"Translate")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEB4C2A036A"
+			compartment 	(object Compartment
+			    Parent_View 	@866
+			    location   	(5177, 3132)
+			    font       	(object Font
+				size       	18
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    icon_style 	"Icon"
+			    fill_color 	13434879
+			    anchor     	2
+			    nlines     	42
+			    max_width  	1156
+			    justify    	1)
+			width      	1164
+			height     	3882
+			annotation 	8
+			autoResize 	TRUE)
+		    (object InheritView "" @867
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"5AEB56D7014D"
+			client     	@866
+			supplier   	@855
+			vertices   	(list Points
+			    (5473, 3009)
+			    (5347, 2126))
+			line_style 	0)
 		    (object AssociationViewNew "$UNNAMED$29" @868
 			location   	(6545, 5391)
 			font       	(object Font
@@ -17932,7 +17937,7 @@
 				line_color 	3342489
 				quidu      	"5AEB57D902CD"
 				client     	@868
-				supplier   	@867
+				supplier   	@865
 				vertices   	(list Points
 				    (6545, 5391)
 				    (6758, 5509))
@@ -17944,7 +17949,7 @@
 				line_color 	3342489
 				quidu      	"5AEB57D902D1"
 				client     	@868
-				supplier   	@865
+				supplier   	@866
 				vertices   	(list Points
 				    (6545, 5391)
 				    (6332, 5273))
@@ -18000,77 +18005,6 @@
 			annotation 	8
 			autoResize 	TRUE)
 		    (object InheritView "" @872
-			stereotype 	TRUE
-			line_color 	3342489
-			quidu      	"5AEB572B0155"
-			client     	@871
-			supplier   	@860
-			vertices   	(list Points
-			    (4960, 7607)
-			    (5072, 7847))
-			line_style 	0)
-		    (object ClassView "Class" "Logical View::Users" @873
-			ShowCompartmentStereotypes 	TRUE
-			IncludeAttribute 	TRUE
-			IncludeOperation 	TRUE
-			location   	(4519, 5160)
-			font       	(object Font
-			    size       	18
-			    face       	"Arial"
-			    charSet    	204
-			    bold       	FALSE
-			    italics    	FALSE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			label      	(object ItemLabel
-			    Parent_View 	@873
-			    location   	(4107, 3997)
-			    fill_color 	13434879
-			    nlines     	1
-			    max_width  	824
-			    justify    	0
-			    label      	"Users")
-			icon_style 	"Icon"
-			line_color 	3342489
-			fill_color 	13434879
-			quidu      	"5AEAC3200363"
-			compartment 	(object Compartment
-			    Parent_View 	@873
-			    location   	(4107, 4097)
-			    font       	(object Font
-				size       	18
-				face       	"Arial"
-				charSet    	204
-				bold       	FALSE
-				italics    	FALSE
-				underline  	FALSE
-				strike     	FALSE
-				color      	0
-				default_color 	TRUE)
-			    icon_style 	"Icon"
-			    fill_color 	13434879
-			    anchor     	2
-			    nlines     	25
-			    max_width  	822
-			    justify    	1)
-			width      	842
-			height     	2370
-			annotation 	8
-			autoResize 	TRUE)
-		    (object InheritView "" @874
-			stereotype 	TRUE
-			line_color 	3342489
-			quidu      	"5AEB56D403A3"
-			client     	@873
-			supplier   	@855
-			vertices   	(list Points
-			    (4816, 3974)
-			    (5284, 2126))
-			line_style 	0)
-		    (object AssociationViewNew "$UNNAMED$32" @875
-			location   	(4749, 6725)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -18083,33 +18017,14 @@
 			    default_color 	TRUE)
 			stereotype 	TRUE
 			line_color 	3342489
-			quidu      	"5AEB585A0043"
-			roleview_list 	(list RoleViews
-			    (object RoleView "$UNNAMED$33" @876
-				Parent_View 	@875
-				location   	(230, 1565)
-				stereotype 	TRUE
-				line_color 	3342489
-				quidu      	"5AEB585A03B1"
-				client     	@875
-				supplier   	@871
-				vertices   	(list Points
-				    (4749, 6725)
-				    (4805, 7106))
-				line_style 	0)
-			    (object RoleView "$UNNAMED$34" @877
-				Parent_View 	@875
-				location   	(230, 1565)
-				stereotype 	TRUE
-				line_color 	3342489
-				quidu      	"5AEB585A03B5"
-				client     	@875
-				supplier   	@873
-				vertices   	(list Points
-				    (4749, 6725)
-				    (4693, 6345))
-				line_style 	0)))
-		    (object ClassView "Class" "Logical View::Mail" @878
+			quidu      	"5AEB572B0155"
+			client     	@871
+			supplier   	@860
+			vertices   	(list Points
+			    (4960, 7607)
+			    (5072, 7847))
+			line_style 	0)
+		    (object ClassView "Class" "Logical View::Mail" @873
 			ShowCompartmentStereotypes 	TRUE
 			IncludeAttribute 	TRUE
 			IncludeOperation 	TRUE
@@ -18125,7 +18040,7 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@878
+			    Parent_View 	@873
 			    location   	(3811, 7214)
 			    fill_color 	13434879
 			    nlines     	1
@@ -18137,7 +18052,7 @@
 			fill_color 	13434879
 			quidu      	"5AEB562200C6"
 			compartment 	(object Compartment
-			    Parent_View 	@878
+			    Parent_View 	@873
 			    location   	(3811, 7314)
 			    font       	(object Font
 				size       	18
@@ -18159,6 +18074,106 @@
 			height     	410
 			annotation 	8
 			autoResize 	TRUE)
+		    (object ClassView "Class" "Logical View::Users" @874
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(4519, 5160)
+			font       	(object Font
+			    size       	18
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@874
+			    location   	(4107, 3997)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	824
+			    justify    	0
+			    label      	"Users")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEAC3200363"
+			compartment 	(object Compartment
+			    Parent_View 	@874
+			    location   	(4107, 4097)
+			    font       	(object Font
+				size       	18
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    icon_style 	"Icon"
+			    fill_color 	13434879
+			    anchor     	2
+			    nlines     	25
+			    max_width  	822
+			    justify    	1)
+			width      	842
+			height     	2370
+			annotation 	8
+			autoResize 	TRUE)
+		    (object InheritView "" @875
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"5AEB56D403A3"
+			client     	@874
+			supplier   	@855
+			vertices   	(list Points
+			    (4816, 3974)
+			    (5284, 2126))
+			line_style 	0)
+		    (object AssociationViewNew "$UNNAMED$32" @876
+			location   	(4749, 6725)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"5AEB585A0043"
+			roleview_list 	(list RoleViews
+			    (object RoleView "$UNNAMED$33" @877
+				Parent_View 	@876
+				location   	(230, 1565)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"5AEB585A03B1"
+				client     	@876
+				supplier   	@871
+				vertices   	(list Points
+				    (4749, 6725)
+				    (4805, 7106))
+				line_style 	0)
+			    (object RoleView "$UNNAMED$34" @878
+				Parent_View 	@876
+				location   	(230, 1565)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"5AEB585A03B5"
+				client     	@876
+				supplier   	@874
+				vertices   	(list Points
+				    (4749, 6725)
+				    (4692, 6345))
+				line_style 	0)))
 		    (object AssociationViewNew "$UNNAMED$35" @879
 			location   	(4180, 6768)
 			font       	(object Font
@@ -18182,10 +18197,10 @@
 				line_color 	3342489
 				quidu      	"5AEB586400AE"
 				client     	@879
-				supplier   	@878
+				supplier   	@873
 				vertices   	(list Points
 				    (4180, 6768)
-				    (4091, 7191))
+				    (4090, 7191))
 				line_style 	0)
 			    (object RoleView "$UNNAMED$37" @881
 				Parent_View 	@879
@@ -18194,10 +18209,10 @@
 				line_color 	3342489
 				quidu      	"5AEB586400B1"
 				client     	@879
-				supplier   	@873
+				supplier   	@874
 				vertices   	(list Points
 				    (4180, 6768)
-				    (4269, 6345))
+				    (4267, 6345))
 				line_style 	0)))))))
     root_subsystem 	(object SubSystem "Component View"
 	quid       	"59AFA1570230"
