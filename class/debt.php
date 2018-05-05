@@ -150,6 +150,19 @@ class Debt extends Datebase{
         R::close();
     }
 
+    public function getStatusById($id){
+        try{
+            $debt = R::find("debt","id = $id");
+            foreach($debt as $item){
+                return $item['status'];
+            }
+        }
+        catch(Exception $e){
+            echo($e);
+        }
+        R::close();
+    }
+
     public function getDebtById(){
         try{
             $arr_tmp = array();
@@ -183,14 +196,40 @@ class Debt extends Datebase{
         R::close();
     }
 
-    public function NewPay($bal){
-        $debt=R::load("debt","id=$this->id");
-        $debt->pay += $bal;
-        $debt->balance -= $bal;
-        //$debt->tr .= ",".$tr;
-        R::store($debt);
+    public function NewPay($bal,$tr){
+        try{
+            $debt = R::load("debt",$this->id);
+            if($this->status == "plus"){
+                $debt->pay += $bal;
+                //$debt->balance -= $bal;
+            }
+            if($this->status == "minus"){
+                $debt->pay += $bal;
+               // $debt->balance -= $bal;
+            }
+            $debt->td_ids .= ",".$tr;
+            R::store($debt);
+            return true;
+        }
+        catch(Exception $e){
+            echo($e);
+        }
         R::close();
+    }
 
+    public function getListEnum($id){
+        $arr_tr_id = Array();
+        $arr_rez = Array();
+        $test = R::find( 'debt', "id = $id");
+        foreach($test as $item){
+            $str_tr_id = $item['td_ids'];
+        }
+        $arr_tr_id = explode(",",$str_tr_id);
+        for($i=1;$i<count($arr_tr_id);$i++){
+            array_push($arr_rez,$arr_tr_id[$i]);
+        }
+        return $arr_rez;
+        R::close();
     }
 
 }

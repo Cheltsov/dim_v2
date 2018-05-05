@@ -4,6 +4,7 @@ if(!isset($_COOKIE['SingIN'])){
 }
 
 require "partpage.php";
+require_once "../controlers/control_debt.php";
 
 $part = new partPage();
 $part->PreLoader();
@@ -29,10 +30,11 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
         width:85%;
         margin-left:20px;
         float:left;
-        max-height: 340px;
+        height: 290px;
+        margin-bottom:20px;
     }
     .if-table{
-        max-height: 260px;
+        max-height: 200px;
         overflow: auto;
     }
     .menu table{
@@ -46,6 +48,22 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
     .menu tr:nth-child(2n+1){
         background-color:lightgrey;
     }
+
+    .minTa{
+        height: 300px;
+    }
+
+    #minTable{
+        width:100%;
+    }
+    #minTable td, th{
+        border:1px solid black;
+        padding:6px;
+        text-align:center
+    }
+    #minTable tr:nth-child(2n+1){
+        background-color:lightgrey;
+    }
     .debt_oper{
         float:none;
     }
@@ -54,7 +72,15 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
         height:30px;
         float:right;
         margin-right:20px;
-        border:1px solid red;
+    }
+    .tranz_oper{
+        float:none;
+    }
+    .tranz_oper button{
+        width:80px;
+        height:30px;
+        float:right;
+        margin-right:20px;
     }
     .add_pay{
         text-align:center
@@ -84,14 +110,25 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
     <br>
 </div>
 
-<div id="tab_tabl" style="background-color:white;width:85%; margin-left:20px; border:1px solid red; position:relative;top:300px">
-    <p>Выплаты</p>
 
-    <div>
-        <button id="add_pay">Добавить</button>
-        <button id="up_pay">Изменить</button>
-        <button id="del_pay">Удалить</button>
+<div id="tab_tabl" style="width:100%; margin-left:20px; ">
+    <div style="background-color:white; width:85%; float:left" id="tabs_traz" class="minTa">
+        <ul>
+            <li><a href="#fragment-1">Выплаты</a></li>
+        </ul>
+        <div id="fragment-1" class="if-table">
+            <table id = "minTable" >
+            </table>
+        </div>
     </div>
+    <div class="tranz_oper" style="height:30px; float:right; width:8%; padding-right:45px;margin-top:60px">
+        <button id="add_pay">Добавить</button>
+        <br><br>
+        <button id="up_pay" style="margin-top:10px;">Изменить</button>
+        <br><br>
+        <button id="del_pay" style="margin-top:15px;">Удалить</button>
+    </div>
+    <div id="test"></div>
 </div>
 
 
@@ -107,7 +144,7 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
             <li><a href="#fragment-2">Дать в долг</a></li>
         </ul>
         <div id="fragment-1">
-            <form action="" method="post" id="debt_tr_form_minus">
+            <form action=""  id="debt_tr_form_minus">
                 <p>Название:</p>
                 <input type="text"  required name="debt_name_tr_minus"><br><br>
                 <p>Дата:</p>
@@ -185,7 +222,7 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
                 <input type="submit" value="Изменить" id="up_tr_debt_one">
         </div>
         <div id="fragment-2">
-            <form action="" method="post" id="debt_up_form_plus">
+            <form action=""  id="debt_up_form_plus">
                 <p>Название:</p>
                 <input type="text"  required name="debt_name_up_plus"><br><br>
                 <p>Дата:</p>
@@ -214,7 +251,7 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
 </div>
 
 <div id="dialog3" style="text-align:center">
-    <p >Вы действительно хотите удалить транзакцию?</p>
+    <p >Вы действительно хотите удалить долг?</p>
     <br>
     <button id="yes">Да</button>
     <button id="no">Нет</button>
@@ -231,7 +268,7 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
             <li><a href="#fragment-2">Доход</a></li>
         </ul>
         <div id="fragment-1">
-            <form action="" method="post" id="add_pay_m">
+            <form action=""  id="add_pay_m">
                 <p>Название:</p>
                 <input type="text" required name="add_pay_name_m"><br><br>
                 <p>Дата:</p>
@@ -248,7 +285,7 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
             </form>
         </div>
         <div id="fragment-2">
-            <form action="" method="post" id="add_pay_p">
+            <form action=""  id="add_pay_p">
                 <p>Название:</p>
                 <input type="text" required name="add_pay_name_p"><br><br>
                 <p>Дата:</p>
@@ -260,8 +297,36 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
                 <p>Сумма</p>
                 <input type="number" required step="any" name="add_pay_sum_p"> <br><br>
                 <p>Комментарий:</p>
-                <textarea id="dent_comment_minusid" cols="20" rows="5" name="add_pay_comment_p"></textarea><br><br>
+                <textarea id="dent_comment_plus" cols="20" rows="5" name="add_pay_comment_p"></textarea><br><br>
                 <input type="submit" value="Добавить" id="add_pay_one_p">
+            </form>
+        </div>
+    </div>
+
+
+</div>
+
+<div id="dialog5" >
+    <h3 align="center">Изменить </h3>
+    <div id="tabs5">
+        <ul>
+            <li><a href="#fragment-1">Транзакция</a></li>
+        </ul>
+        <div id="fragment-1">
+            <form action="" method="post" id="up_tr_form_minus">
+                <p>Название:</p>
+                <input type="text"  required name="up_name_tr_minus"><br><br>
+                <p>Дата:</p>
+                <input type="text" id="add_data4"><br><br>
+                <p>Кошелек:</p>
+                <select name="cash_minus" id="up_cash_minus_sel" required >
+                </select>
+                <br><br>
+                <p>Сумма:</p>
+                <input type="number" required step="any" name="up_balance_minus"> <br><br>
+                <p>Комментарий:</p>
+                <textarea id="up_comment" cols="20" rows="5" name="up_comment_minus"></textarea><br><br>
+                <input type="submit" value="Изменить" name="add_tr_minus" id="up_sub">
             </form>
         </div>
     </div>
@@ -272,23 +337,71 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
 
 <script>
 
-//    $( "#add_pay_cash_m" )
-//        .selectmenu()
-//        .selectmenu( "menuWidget" )
-//        .addClass( "overflow" );
-//
-//    $( "#add_pay_cash_m" ).selectmenu({
-//        width: 315
-//    });
-//
-//    $( "#add_pay_cash_p" )
-//        .selectmenu()
-//        .selectmenu( "menuWidget" )
-//        .addClass( "overflow" );
-//
-//    $( "#add_pay_cash_p" ).selectmenu({
-//        width: 315
-//    });
+
+    $("#up_pay").click(function(){
+
+        $("#dialog2").dialog('close');
+        $("#dialog3").dialog('close');
+        $("#dialog4").dialog('close');
+        $("#dialog1").dialog('close');
+        $.post("../controlers/control_tranzactions.php",
+            {want_id_cash: "1"},
+
+            function(data){
+                $("#up_cash_minus_sel").empty();
+                data = JSON.parse(data);
+                for(i=2,j=5,k=0,vl=3;i<data.length;i+=10,j+=10,k+=10,vl+=10){ // получить имя кошльков
+                    $("#up_cash_minus_sel").append("<option value='"+data[k]+"'>"+data[i]+" ("+parseFloat(data[j]).toFixed(2)+" "+data[vl]+")</option>").selectmenu('refresh');
+                }
+            });
+
+        //$("option").remove();
+        $("#dialog5").dialog('open');
+        /*if($(".col").css("backgroundColor") != "rgba(0, 0, 0, 0)"){
+            if(index !=""){
+                $("#tabs5").tabs("disable",2);
+                $("#tabs5").tabs("enable",0);
+                $("#tabs5").tabs("enable",1);
+                if(what_tr == "min") $( "#tabs5" ).tabs( "option", "active", 0);
+                if(what_tr == "plus") $( "#tabs5" ).tabs( "option", "active", 1 );
+            }
+
+            $.post(
+                "../controlers/control_tranzactions.php",
+                {
+                    wanna_info_tranz : "1",
+                    id_tr : id_tr,
+                },
+                function(data){
+                    data = JSON.parse(data);
+                    if(data != false){
+
+                        if(index !=""){
+                            if(what_tr == "min"){
+                                $("input[name='up_name_tr_minus']").val(data[1]);
+                                $("#add_data4").val(data[6]);
+                                $("#up_cash_minus_sel").val(data[2]).selectmenu('refresh');
+                                $("input[name='up_balance_minus']").val(data[3]);
+                                $("#up_comment").val(data[4]);
+                                $("input[name='up_name_tr_sum']").val(data[1]);
+                                $("#add_data5").val(data[6]);
+                                $("#up_cash_sum_sel").val(data[2]).selectmenu('refresh');
+                                $("input[name='up_balance_sum']").val(data[3]);
+                                $("#up_comment_sum").val(data[4]);
+                            }
+                        }
+                    }
+                    else{
+                        alert("Нельзя изменить транзакцию");
+                        return ;
+                    }
+                }
+            );
+        }
+        else alert("Выберите транзакцию!");*/
+
+    });
+
 
     $("#add_pay").click(function(){
         if(tmp_id !=""){
@@ -302,10 +415,39 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
                     $("#add_pay_cash_p").empty();
                     $("#add_pay_cash_m").empty();
                     for(i=2,j=5,k=0,vl=3;i<data.length;i+=10,j+=10,k+=10,vl+=10) { // получить имя кошльков
-//                        $("#add_pay_cash_p").append("<option value='" + data[k] + "'>" + data[i] + " (" + parseFloat(data[j]).toFixed(2) + " " + data[vl] + ")</option>").selectmenu('refresh');
-//                        $("#add_pay_cash_m").append("<option value='" + data[k] + "'>" + data[i] + " (" + parseFloat(data[j]).toFixed(2) + " " + data[vl] + ")</option>").selectmenu('refresh');
                         $("#add_pay_cash_p").append("<option value='" + data[k] + "'>" + data[i] + " (" + parseFloat(data[j]).toFixed(2) + " " + data[vl] + ")</option>");
                         $("#add_pay_cash_m").append("<option value='" + data[k] + "'>" + data[i] + " (" + parseFloat(data[j]).toFixed(2) + " " + data[vl] + ")</option>");
+                    }
+                }
+            );
+
+            $.post(
+                "../controlers/control_debt.php",
+                {getDebt:"1", id_debt_st:tmp_id},
+                function(data){
+                    obj = JSON.parse(data);
+                    $("#add_pay_data_m").flatpickr({
+                        enableTime: true,
+                        dateFormat: "Y-m-d H:i",
+                        time_24hr: true,
+                        minDate: obj[2]
+                    });
+                }
+            );
+
+            $.post(
+                "../controlers/control_debt.php",
+                {getSt :"1", id_debt_status:tmp_id},
+                function(data){
+                    if(data == "plus"){
+                        $("#tabs_dialog4").tabs("disable", 1);
+                        $("#tabs_dialog4").tabs("enable", 0);
+                        $("#tabs_dialog4").tabs("option", "active", 0);
+                    }
+                    if(data == "minus"){
+                        $("#tabs_dialog4").tabs("disable", 0);
+                        $("#tabs_dialog4").tabs("enable", 1);
+                        $("#tabs_dialog4").tabs("option", "active", 1);
                     }
                 }
             );
@@ -317,20 +459,73 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
 
 
     $("#add_pay_one_m").click(function(){
+        if($('#add_pay_data_m').val() == "") alert("Введите дату");
+        else{
+            $.post(
+                "../controlers/control_debt.php",
+                {
+                    add_pay_name_m : $("input[name='add_pay_name_m']").val(),
+                    add_pay_data_m : $("#add_pay_data_m").val(),
+                    add_pay_cash_m : $("#add_pay_cash_m").val(),
+                    add_pay_sum_m : $("input[name='add_pay_sum_m']").val(),
+                    add_pay_comment_m : $("#add_pay_comment_min").val(),
+                    add_debt_id : tmp_id,
+                },
+                function(data){
+                    alert(data);
+                    $("#test").append(data);
+                }
+            );
+        }
+    });
+
+$("#add_pay_one_p").click(function(){
+    if($('#add_pay_data_p').val() == "") alert("Введите дату");
+    else{
         $.post(
             "../controlers/control_debt.php",
             {
+                add_pay_name_p : $("input[name='add_pay_name_p']").val(),
+                add_pay_data_p : $("#add_pay_data_p").val(),
+                add_pay_cash_p : $("#add_pay_cash_p").val(),
+                add_pay_sum_p : $("input[name='add_pay_sum_p']").val(),
+                add_pay_comment_p : $("#dent_comment_plus").val(),
                 add_debt_id : tmp_id,
-                add_pay_name_m : $("input[name='add_pay_name_m']").val(),
-                add_pay_data_m : $("#add_pay_data_m").val(),
-                add_pay_cash_m : $("#add_pay_cash_m").val(),
-                add_pay_sum_m : $("input[name='add_pay_sum_m']").val(),
-                add_pay_comment_m : $("#add_pay_comment_min").val()
             },
             function(data){
                 alert(data);
             }
         );
+    }
+});
+
+    $("#minTable").on("click",'.col', function(){
+        if($(this).css("background-color") == 'rgb(0, 159, 227)'){
+            var li = $(".col"), i = li.length;
+            while(i--) {
+                li[i].style.backgroundColor = i%2 ? 'lightgrey' : 'white';
+                tmp_id ="";
+                index = "";
+            }
+            return false;
+        }
+        else{
+            var li = $(".col"), i = li.length;
+            while(i--) {
+                li[i].style.backgroundColor = i%2 ? 'lightgrey' : 'white';
+            }
+            id_tr ="";
+            index = "";
+            string = this.id;
+            str = string.split('');
+            for(i=2;i<str.length;i++){
+               id_tr += str[i];
+            }
+            flag_ts = "111";
+            document.getElementById(string).style.backgroundColor = "#009fe3";
+        }
+
+
     });
 
 
@@ -342,7 +537,6 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
                     update_index : tmp_id,
                 },
                 function(data){
-                    alert(data);
                     obj = JSON.parse(data);
                     if(obj[9] == 'minus'){
                         $("#tabs2").tabs("disable",1);
@@ -370,7 +564,7 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
             );
             $("#dialog2").dialog("open");
         }
-        else alert("Выберите транзакцию");
+        else alert("Выберите долг!");
     });
 
     $("#up_tr_debt_one").click(function(){
@@ -393,13 +587,6 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
     });
 
     $("#up_tr_debt_two").click(function(){
-
-            alert($("input[name='debt_name_up_plus']").val());
-            alert( $("#up_data_debt_plus").val());
-            alert($("#up_dataEnd_debt_plus").val());
-            alert( $("#up_val_plus").val());
-            alert($("input[name='debt_up_balance_plus']").val());
-            alert($("textarea[name='dent_up_comment_plus']").val());
         $.post(
             "../controlers/control_debt.php",
             {
@@ -420,50 +607,63 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
     });
 
 
-
-
-
     tmp_id="";
+    id_tr ="";
 
     $("#plusDebt, #minDebt").on("click",'.debts', function(){
-        var li = $(".debts"), i = li.length;
-        while(i--) {
-            li[i].style.backgroundColor = i%2 ? 'lightgrey' : 'white';
+        if($(this).css("background-color") == 'rgb(0, 159, 227)'){
+            var li = $(".debts"), i = li.length;
+            while(i--) {
+                li[i].style.backgroundColor = i%2 ? 'lightgrey' : 'white';
+                tmp_id ="";
+                index = "";
+                $("#minTable").empty();
+            }
+            return false;
         }
-        tmp_id ="";
-        index = "";
-        string = this.id;
-        str = string.split('');
-        for(i=5;i<str.length;i++){
-            tmp_id += str[i];
-        }
-        flag_ts = "111";
-        document.getElementById(string).style.backgroundColor = "#009fe3";
+        else{
+            var li = $(".debts"), i = li.length;
+            while(i--) {
+                li[i].style.backgroundColor = i%2 ? 'lightgrey' : 'white';
+            }
+            tmp_id ="";
+            index = "";
+            string = this.id;
+            str = string.split('');
+            for(i=5;i<str.length;i++){
+                tmp_id += str[i];
+            }
+            flag_ts = "111";
+            document.getElementById(string).style.backgroundColor = "#009fe3";
 
+            $.post(
+                "../controlers/control_debt.php",
+                {
+                    getEnumTr : "1",
+                    debt_id:tmp_id
+                },
+                function(data){
+                    $("#minTable").empty();
+                    $("#minTable").append("<tr><th>Название</th><th>Кошелек</th><th>Сумма</th><th>Комментарий</th><th>Дата</th></tr>");
+                    data = JSON.parse(data);
+                    for(item=0;item<data.length;item++){
+                        for(i=1,j=2,a=3,b=4,c=7,d=6,il=0;i<data.length;i+=7,j+=7,a+=7,b+=7,c+=7,d+=7,il+=7){
+                            $("#minTable").append("<tr id='tr"+data[item][il]+"' class='col'>" +"<td id='name'>"+ucFirst(data[item][i])+"&nbsp</td>" + "<td id='cash'>"+ucFirst(data[item][j])+"</td>"+ "<td>"+parseFloat(data[item][a]).toFixed(2)+"</td>"+  "<td>"+ucFirst(data[item][b])+"</td>" + "<td>"+data[item][d]+"</td>"+"</tr>");
+                        }
+                    }
+
+                }
+            );
+        }
 
 
     });
 
-    /*$("#minDebt").on("click",'.debts_plus', function(){
-        var li = $(".debts_plus"), i = li.length;
-        while(i--) {
-            li[i].style.backgroundColor = i%2 ? 'lightgrey' : 'white';
-        }
-        tmp_id ="";
-        index = "";
-        string = this.id;
-        str = string.split('');
-        for(i=5;i<str.length;i++){
-            tmp_id += str[i];
-        }
-        flag_ts = "111";
-        document.getElementById(string).style.backgroundColor = "#009fe3";
-    });*/
 
     $("#del_debt").click(function(){
         $("#dialog").dialog('close');
         if(!tmp_id){
-            alert("Выберите транзакцию!");
+            alert("Выберите долг!");
             return;
         }
         else{
@@ -493,7 +693,7 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
 
     });
 
-
+//alert($("#tabs_debt").tabs( "option" ));
 
 
     year = new Date().getFullYear();
@@ -502,6 +702,13 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
     date_now = year+"-"+month+"-"+day;
 
     $( "#tabs_debt" ).tabs({
+        active: 0,
+        event: "click",
+        heightStyle: 'content'
+    });
+
+
+    $("#tabs_traz").tabs({
         active: 0,
         event: "click",
         heightStyle: 'content'
@@ -521,6 +728,19 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
     });
 
     $('#dialog4').dialog({
+        autoOpen: false,
+        show: {
+            effect: 'drop',
+            duration: 500
+        },
+        hide: {
+            effect: 'clip',
+            duration: 500
+        },
+        width: 500
+    });
+
+    $('#dialog5').dialog({
         autoOpen: false,
         show: {
             effect: 'drop',
@@ -559,6 +779,12 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
         heightStyle: 'content'
     });
 
+    $( "#tabs5" ).tabs({
+        active: 0,
+        event: "click",
+        heightStyle: 'content'
+    });
+
     $( "#tabs_dialog" ).tabs({
         active: 0,
         event: "click",
@@ -576,11 +802,7 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
         time_24hr: true
     });
 
-    $("#add_pay_data_m").flatpickr({
-    enableTime: true,
-    dateFormat: "Y-m-d H:i",
-    time_24hr: true
-});
+
 
 $("#add_pay_data_p").flatpickr({
     enableTime: true,
@@ -715,7 +937,9 @@ $("#up_dataEnd_debt_minus").flatpickr({
                 for(i=1,j=2,a=3,b=4,c=5,d=6,e=7,il=0;i<obj.length;i+=9,j+=9,a+=9,b+=9,c+=9,d+=9,il+=9,e+=9){
                     var pay_del = obj[c] - obj[d];
                     var prec =100/(obj[c]/obj[d]);
-                    $("#plusDebt").append("<tr id='debts"+obj[il]+"' class='debts'>" +"<td id='name'>"+ucFirst(obj[i])+"&nbsp</td>"  + "<td>"+obj[c]+" ("+obj[b]+")</td>" + "<td>"+obj[d]+"</td><td>"+pay_del+"</td>"+"<td>"+prec+"%</td>"+"<td>"+obj[j]+"</td>"+ "<td>"+obj[a]+"</td>"+ "<td>"+ucFirst(obj[e])+"</td>"+"</tr>");
+                    if(prec<0) prec=0;
+                    if(prec>100) prec =100;
+                    $("#plusDebt").append("<tr id='debts"+obj[il]+"' class='debts'>" +"<td id='name'>"+ucFirst(obj[i])+"&nbsp</td>"  + "<td>"+parseInt(obj[c]).toFixed(2)+" ("+obj[b]+")</td>" + "<td>"+parseInt(obj[d]).toFixed(2)+"</td><td>"+parseInt(pay_del).toFixed(2)+"</td>"+"<td>"+prec.toFixed(2)+"%</td>"+"<td>"+obj[j]+"</td>"+ "<td>"+obj[a]+"</td>"+ "<td>"+ucFirst(obj[e])+"</td>"+"</tr>");
                 }
             }
         );
@@ -729,12 +953,23 @@ $("#up_dataEnd_debt_minus").flatpickr({
                 for(i=1,j=2,a=3,b=4,c=5,d=6,e=7,il=0;i<obj.length;i+=9,j+=9,a+=9,b+=9,c+=9,d+=9,il+=9,e+=9){
                     var pay_del = obj[c] - obj[d];
                     var prec =100/(obj[c]/obj[d]);
-                    $("#minDebt").append("<tr id='debts"+obj[il]+"' class='debts'>" +"<td id='name'>"+ucFirst(obj[i])+"&nbsp</td>"  + "<td>"+obj[c]+" ("+obj[b]+")</td>" + "<td>"+obj[d]+"</td><td>"+pay_del+"</td>"+"<td>"+prec+"%</td>"+"<td>"+obj[j]+"</td>"+ "<td>"+obj[a]+"</td>"+ "<td>"+ucFirst(obj[e])+"</td>"+"</tr>");
+                    if(prec<0) prec=0;
+                    if(prec>100) prec =100;
+                    $("#minDebt").append("<tr id='debts"+obj[il]+"' class='debts'>" +"<td id='name'>"+ucFirst(obj[i])+"&nbsp</td>"  + "<td>"+parseInt(obj[c]).toFixed(2)+" ("+obj[b]+")</td>" + "<td>"+parseInt(obj[d]).toFixed(2)+"</td><td>"+parseInt(pay_del).toFixed(2)+"</td>"+"<td>"+prec.toFixed(2)+"%</td>"+"<td>"+obj[j]+"</td>"+ "<td>"+obj[a]+"</td>"+ "<td>"+ucFirst(obj[e])+"</td>"+"</tr>");
                 }
             }
         );
     }); // cout
 
+
+    $( "#up_cash_minus_sel" )
+        .selectmenu()
+        .selectmenu( "menuWidget" )
+        .addClass( "overflow" );
+
+    $( "#up_cash_minus_sel" ).selectmenu({
+        width: 315
+    });
 
 
     function ucFirst(str) {

@@ -77,7 +77,7 @@ class Tranzaction extends Datebase{
 
     public function FindTr(){
         try{
-            $traz = R::find("tranzaction","name = $this->name and cash = $this->cash and user_id=$this->user_id and $this->data and status=$this->status");
+            $traz = R::find("tranzaction","name = '$this->name' and cash = $this->cash and user_id=$this->user_id and data = '$this->data' and status='$this->status'");
             foreach($traz as $item){
                 return $item['id'];
             }
@@ -173,7 +173,25 @@ class Tranzaction extends Datebase{
         R::close();
     }
 
-    public function getTranzFrom_Id(){
+    public function getTranzacionById(){
+        $arr_tmp = array();
+        $tr = R::findAll('tranzaction',"id = $this->id");
+        foreach($tr as $item) {
+            $cash = R::findAll('cash',"id = $item->cash");
+            foreach($cash as $tmp){
+                $name_cash = $tmp->name;
+            }
+            if($name_cash=="")  $name_cash="Удален";
+
+            if($item['status'] == 'minus') $st = "Расход";
+            if($item['status'] == 'plus') $st = "Доход";
+            array_push($arr_tmp, $item->id, $item->name, $name_cash, $item->balance, $item->comment, $item->user_id, $item->data, $st);
+        }
+        R::close();
+        return $arr_tmp;
+    }
+
+    public function getTranzFrom_Id_and_CurMonth(){
         $now_month = date("m");
         $arr_tmp = array();
         $tr = R::findAll('tranzaction',"id = $this->id");

@@ -93,7 +93,7 @@ if(isset($_POST['tmper'])){
 
 if(isset($_POST['del_tr']) && isset($_POST['index'])){
     $traz->setId($_POST['index']);
-    $arr_tmp = $traz->getTranzFrom_Id();
+    $arr_tmp = $traz->getTranzFrom_Id_and_CurMonth();
 
     if($arr_tmp != Array()){
         $cash->setId($arr_tmp[2]);
@@ -221,7 +221,7 @@ if(isset($_POST['test'])){
 if(isset($_POST['update_tr']) && isset($_POST['index'])){
 
  /*   $traz->setId($_POST['index']);
-    $rez = $traz->getTranzFrom_Id();
+    $rez = $traz->getTranzFrom_Id_and_CurMonth();
 */
     //$rez = $con->getTranzFromID($_POST['index']);
     //echo(json_encode($rez));
@@ -317,7 +317,7 @@ if(isset($_POST['getNewbalance'])){
 if(isset($_POST['wanna_info_tranz'])){
     if($_POST['id_tr'] != ""){
         $traz->setId($_POST['id_tr']);
-        $rez = $traz->getTranzFrom_Id();
+        $rez = $traz->getTranzFrom_Id_and_CurMonth();
         echo(json_encode($rez));
     }
     else{
