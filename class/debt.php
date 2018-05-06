@@ -232,4 +232,56 @@ class Debt extends Datebase{
         R::close();
     }
 
+    public function getDebtPayById(){
+        $debt = R::find("debt",$this->id);
+        foreach($debt as $item){
+            return $item->pay;
+        }
+        R::close();
+    }
+
+    public function UpdateDebtPayMinus(){
+        $debt = R::load("debt",$this->id);
+        $debt->pay -= $this->pay;
+        R::store($debt);
+        R::close();
+        return true;
+    }
+
+    public function UpdateDebtPayPlus(){
+
+        $debt = R::load("debt",$this->id);
+        $debt->pay += $this->pay;
+        R::store($debt);
+        R::close();
+        return true;
+    }
+
+    public function delEnum($id_tr){
+        try{
+            $arr_enum = array();
+            $debt = R::find("debt","id = $this->id");
+            foreach($debt as $item){
+                $enum = $item->td_ids;
+            }
+            $arr_enum = explode(",",$enum);
+            for($i=0;$i<count($arr_enum);$i++){
+                if($arr_enum[$i] == $id_tr){
+                    unset($arr_enum[$i]);
+                    sort($arr_enum);
+                }
+            }
+            $str = implode(",", $arr_enum);
+
+            $debt_load = R::load("debt",$this->id);
+            $debt_load->td_ids = $str;
+            R::store($debt_load);
+            return true;
+        }
+        catch(Exception $e){
+            echo($e);
+        }
+        R::close();
+    }
+
 }

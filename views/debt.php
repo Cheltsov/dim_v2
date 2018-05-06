@@ -313,7 +313,7 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
             <li><a href="#fragment-1">Транзакция</a></li>
         </ul>
         <div id="fragment-1">
-            <form action="" method="post" id="up_tr_form_minus">
+            <form action=""  id="up_tr_form_minus">
                 <p>Название:</p>
                 <input type="text"  required name="up_name_tr_minus"><br><br>
                 <p>Дата:</p>
@@ -337,34 +337,65 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
 
 <script>
 
+    $("#del_pay").click(function(){
+        $.post("../controlers/control_debt.php", {
+                delete_pay : "1",
+                id_tmp_debt : tmp_id,
+                id_tr : id_tr
+            },
+            function(data){
+                if(data === "false"){
+                    alert("Нельзя удалить");
+                }
+                else{
+                    location.reload(true);
+                    alert(data);
+                }
+            }
+        );
+    });
+
+    $("#up_sub").click(function(){
+        $.post("../controlers/control_debt.php",
+            {
+                up_name : ucFirst($("input[name='up_name_tr_minus']").val()),
+                up_data : $("#add_data4").val(),
+                up_cash_min : $("#up_cash_minus_sel").val(),
+                up_balance_min : parseFloat($("input[name='up_balance_minus']").val()).toFixed(2),
+                up_comment :  ucFirst($("#up_comment").val()),
+                up_index : id_tr,
+                up_debt :tmp_id,
+                update_tranzaction:"1"
+            },
+            function(data){
+                alert("Транзакция обновлена!");
+            }
+        );
+    });
+
 
     $("#up_pay").click(function(){
 
         $("#dialog2").dialog('close');
         $("#dialog3").dialog('close');
         $("#dialog4").dialog('close');
-        $("#dialog1").dialog('close');
-        $.post("../controlers/control_tranzactions.php",
-            {want_id_cash: "1"},
+        $("#dialog").dialog('close');
 
-            function(data){
-                $("#up_cash_minus_sel").empty();
-                data = JSON.parse(data);
-                for(i=2,j=5,k=0,vl=3;i<data.length;i+=10,j+=10,k+=10,vl+=10){ // получить имя кошльков
-                    $("#up_cash_minus_sel").append("<option value='"+data[k]+"'>"+data[i]+" ("+parseFloat(data[j]).toFixed(2)+" "+data[vl]+")</option>").selectmenu('refresh');
-                }
-            });
+        if(id_tr!=""){
+            $.post(
+                "../controlers/control_tranzactions.php",
+                {
+                    want_id_cash: "1"
+                },
+                function(data){
+                    $("#up_cash_minus_sel").empty();
+                    data = JSON.parse(data);
+                    for(i=2,j=5,k=0,vl=3;i<data.length;i+=10,j+=10,k+=10,vl+=10){ // получить имя кошльков
+                        $("#up_cash_minus_sel").append("<option value='"+data[k]+"'>"+data[i]+" ("+parseFloat(data[j]).toFixed(2)+" "+data[vl]+")</option>").selectmenu('refresh');
+                    }
+                });
 
-        //$("option").remove();
-        $("#dialog5").dialog('open');
-        /*if($(".col").css("backgroundColor") != "rgba(0, 0, 0, 0)"){
-            if(index !=""){
-                $("#tabs5").tabs("disable",2);
-                $("#tabs5").tabs("enable",0);
-                $("#tabs5").tabs("enable",1);
-                if(what_tr == "min") $( "#tabs5" ).tabs( "option", "active", 0);
-                if(what_tr == "plus") $( "#tabs5" ).tabs( "option", "active", 1 );
-            }
+            $("option").remove();
 
             $.post(
                 "../controlers/control_tranzactions.php",
@@ -375,21 +406,16 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
                 function(data){
                     data = JSON.parse(data);
                     if(data != false){
-
-                        if(index !=""){
-                            if(what_tr == "min"){
-                                $("input[name='up_name_tr_minus']").val(data[1]);
-                                $("#add_data4").val(data[6]);
-                                $("#up_cash_minus_sel").val(data[2]).selectmenu('refresh');
-                                $("input[name='up_balance_minus']").val(data[3]);
-                                $("#up_comment").val(data[4]);
-                                $("input[name='up_name_tr_sum']").val(data[1]);
-                                $("#add_data5").val(data[6]);
-                                $("#up_cash_sum_sel").val(data[2]).selectmenu('refresh');
-                                $("input[name='up_balance_sum']").val(data[3]);
-                                $("#up_comment_sum").val(data[4]);
-                            }
-                        }
+                        $("input[name='up_name_tr_minus']").val(ucFirst(data[1]));
+                        $("#add_data4").val(data[6]);
+                        $("#up_cash_minus_sel").val(data[2]).selectmenu('refresh');
+                        $("input[name='up_balance_minus']").val(data[3]);
+                        $("#up_comment").val(ucFirst(data[4]));
+                        $("input[name='up_name_tr_sum']").val(data[1]);
+                        $("#add_data5").val(data[6]);
+                        $("#up_cash_sum_sel").val(data[2]).selectmenu('refresh');
+                        $("input[name='up_balance_sum']").val(data[3]);
+                        $("#up_comment_sum").val(ucFirst(data[4]));
                     }
                     else{
                         alert("Нельзя изменить транзакцию");
@@ -397,9 +423,9 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
                     }
                 }
             );
+            $("#dialog5").dialog('open');
         }
-        else alert("Выберите транзакцию!");*/
-
+        else alert("Выберите транзакцию!");
     });
 
 
@@ -600,7 +626,6 @@ $("#add_pay_one_p").click(function(){
             },
             function(data){
                 alert(data);
-                alert("Запись успешно обновлена!");
                 location.reload(true);
             }
         );
@@ -643,11 +668,12 @@ $("#add_pay_one_p").click(function(){
                     debt_id:tmp_id
                 },
                 function(data){
+
                     $("#minTable").empty();
                     $("#minTable").append("<tr><th>Название</th><th>Кошелек</th><th>Сумма</th><th>Комментарий</th><th>Дата</th></tr>");
                     data = JSON.parse(data);
                     for(item=0;item<data.length;item++){
-                        for(i=1,j=2,a=3,b=4,c=7,d=6,il=0;i<data.length;i+=7,j+=7,a+=7,b+=7,c+=7,d+=7,il+=7){
+                        for(i=1,j=2,a=3,b=4,c=7,d=6,il=0;il<data.length;i+=7,j+=7,a+=7,b+=7,c+=7,d+=7,il+=7){
                             $("#minTable").append("<tr id='tr"+data[item][il]+"' class='col'>" +"<td id='name'>"+ucFirst(data[item][i])+"&nbsp</td>" + "<td id='cash'>"+ucFirst(data[item][j])+"</td>"+ "<td>"+parseFloat(data[item][a]).toFixed(2)+"</td>"+  "<td>"+ucFirst(data[item][b])+"</td>" + "<td>"+data[item][d]+"</td>"+"</tr>");
                         }
                     }
@@ -835,7 +861,11 @@ $("#up_dataEnd_debt_minus").flatpickr({
         time_24hr: true
     });
 
-
+    $("#add_data4").flatpickr({
+        enableTime: true,
+        dateFormat: "Y-m-d H:i",
+        time_24hr: true
+    });
 
     $("#add_dataEnd_debt_minus").flatpickr({
         enableTime: true,

@@ -175,6 +175,7 @@ class Tranzaction extends Datebase{
 
     public function getTranzacionById(){
         $arr_tmp = array();
+        $st = "";
         $tr = R::findAll('tranzaction',"id = $this->id");
         foreach($tr as $item) {
             $cash = R::findAll('cash',"id = $item->cash");
@@ -344,7 +345,7 @@ class Tranzaction extends Datebase{
             $tr_new->cash = $this->cash;
             $tr_new->balance = $this->balance;
             $tr_new->comment = $this->comment;
-            $tr_new->status = $this->status;
+            if($this->status != "") $tr_new->status = $this->status;
             if($this->data == "") $tr_new->data = date("Y-m-d H:m");
             else $tr_new->data = $this->data;
             R::store($tr_new);
@@ -499,6 +500,22 @@ class Tranzaction extends Datebase{
         }
         R::close();
         return round($all_bal_from_month,2);
+    }
+
+    public function getBalanceById(){
+        $tr = R::find("tranzaction","id=$this->id");
+        foreach($tr as $item){
+            return $item['balance'];
+        }
+        R::close();
+    }
+
+    public function getStatusById(){
+        $tr = R::find("tranzaction","id=$this->id");
+        foreach($tr as $item){
+            return $item['status'];
+        }
+        R::close();
     }
     
 

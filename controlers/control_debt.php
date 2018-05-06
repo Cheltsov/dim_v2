@@ -186,3 +186,105 @@ if(isset($_POST['id_traz']) && isset($_POST['wanna_update'])){
         echo(json_encode($rez));
     }
 }
+
+if(isset($_POST['update_tranzaction'])){
+    $traz->setId($_POST['up_index']);
+    $traz->setCash_Tr($_POST['up_cash_min']);
+    $status_tr = $traz->getStatusById();
+    if($status_tr =="minus"){
+        $cash->setId($traz->getCash_Tr());
+        $cash->setBalance($traz->getBalanceById());
+        $tmp2 = $cash->UpdateCash_BalancePlus();
+        $cashmonth->setId_Cash($traz->getCash_Tr());
+        $cashmonth->setBalance($traz->getBalanceById());
+        $tmp3 = $cashmonth->UpdateCashMonth_BalancePlus();
+        $debt->setId($_POST['up_debt']);
+        $debt->setPay($traz->getBalanceById());
+        $debt->UpdateDebtPayPlus();
+    }
+    if($status_tr =="plus"){
+        $cash->setId($traz->getCash_Tr());
+        $cash->setBalance($traz->getBalanceById());
+        $tmp2 = $cash->UpdateCash_BalanceMin();
+        $cashmonth->setId_Cash($traz->getCash_Tr());
+        $cashmonth->setBalance($traz->getBalanceById());
+        $tmp3 = $cashmonth->UpdateCashMonth_BalanceMin();
+        $debt->setId($_POST['up_debt']);
+        $debt->setPay($traz->getBalanceById());
+        $debt->UpdateDebtPayMinus();
+    }
+    $traz->setName($_POST['up_name']);
+    $traz->setBalance($_POST['up_balance_min']);
+    $traz->setComment($_POST['up_comment']);
+    $traz->setData($_POST['up_data']);
+    $traz->setStatus("");
+    $tmp1 = $traz->UpdateTranz();
+    if($status_tr =="plus"){
+        $cash->setId($traz->getCash_Tr());
+        $cash->setBalance($traz->getBalance());
+        $tmp2 = $cash->UpdateCash_BalancePlus();
+        $cashmonth->setId_Cash($traz->getCash_Tr());
+        $cashmonth->setBalance($traz->getBalance());
+        $tmp3 = $cashmonth->UpdateCashMonth_BalancePlus();
+        $debt->setId($_POST['up_debt']);
+        $debt->setPay($traz->getBalance());
+        $debt->UpdateDebtPayPlus();
+    }
+    if($status_tr =="minus"){
+        $cash->setId($traz->getCash_Tr());
+        $cash->setBalance($traz->getBalance());
+        $tmp2 = $cash->UpdateCash_BalanceMin();
+        $cashmonth->setId_Cash($traz->getCash_Tr());
+        $cashmonth->setBalance($traz->getBalance());
+        $tmp3 = $cashmonth->UpdateCashMonth_BalanceMin();
+        $debt->setId($_POST['up_debt']);
+        $debt->setPay($traz->getBalance());
+        $debt->UpdateDebtPayMinus();
+    }
+}
+
+
+if(isset($_POST["delete_pay"])){
+    $traz->setId($_POST['id_tr']);
+    $arr_tmp = $traz->getTranzFrom_Id_and_CurMonth();
+
+    if($arr_tmp != Array()){
+        $cash->setId($arr_tmp[2]);
+        $cash_tr = $cash->getCashFromId();
+
+        $debt->setId($_POST['id_tmp_debt']);
+        $debt->setPay($arr_tmp[3]);
+
+        $cashmonth->setId_Cash($arr_tmp[2]);
+        $cashmonth_tr = $cashmonth->getCashMonth_FromCash();
+
+        if($arr_tmp[7] == "minus"){
+            $new_bal = $cash_tr[5] + $arr_tmp[3];
+            $new_bal_month = $cashmonth_tr[6] + $arr_tmp[3];
+            $flag2 = $debt->UpdateDebtPayPlus();
+        }
+        if($arr_tmp[7] == 'plus'){
+            $new_bal = $cash_tr[5] - $arr_tmp[3];
+            $new_bal_month = $cashmonth_tr[6] - $arr_tmp[3];
+            $flag2 = $debt->UpdateDebtPayMinus();
+        }
+        $debt->setId($_POST['id_tmp_debt']);
+        $flag3 = $debt->delEnum($_POST['id_tr']);
+
+        $cash->setBalance($new_bal);
+        $cash->setId($arr_tmp[2]);
+        $cash->UpdataBalance();
+
+        $cashmonth->setBalance($new_bal_month);
+        $cashmonth->setId($cashmonth_tr[0]);
+        $cashmonth->UpdateCashMonth_Balance();
+
+        $flag1 = $traz->DelTranz();
+
+        if($flag1 && $flag2 && $flag3){
+            echo("Успешно!");
+        }
+        else echo("Не удачно...");
+    }
+    else echo("false");
+}

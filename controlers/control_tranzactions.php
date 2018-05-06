@@ -91,8 +91,8 @@ if(isset($_POST['tmper'])){
     $con->getTranz($id_cur_user);
 }*/
 
-if(isset($_POST['del_tr']) && isset($_POST['index'])){
-    $traz->setId($_POST['index']);
+if(isset($_POST['del_tr']) && isset($_POST['id_tr'])){
+    $traz->setId($_POST['id_tr']);
     $arr_tmp = $traz->getTranzFrom_Id_and_CurMonth();
 
     if($arr_tmp != Array()){
@@ -330,14 +330,23 @@ if(isset($_POST['wanna_info_tranz'])){
 }
 
 if(isset($_POST['up_name'])){
+
     $traz->setId($_POST['up_index']);
-    $traz->setName($_POST['up_name']);
     $traz->setCash_Tr($_POST['up_cash_min']);
+
+    $cash->setId($traz->getCash_Tr());
+    $cash->setBalance($traz->getBalanceById());
+    $tmp2 = $cash->UpdateCash_BalancePlus();
+
+    $cashmonth->setId_Cash($traz->getCash_Tr());
+    $cashmonth->setBalance($traz->getBalanceById());
+    $tmp3 = $cashmonth->UpdateCashMonth_BalancePlus();
+
+    $traz->setName($_POST['up_name']);
     $traz->setBalance($_POST['up_balance_min']);
     $traz->setComment($_POST['up_comment']);
     $traz->setData($_POST['up_data']);
     $traz->setStatus("minus");
-
     $tmp1 = $traz->UpdateTranz();
 
     $cash->setId($traz->getCash_Tr());
@@ -355,8 +364,18 @@ if(isset($_POST['up_name'])){
 
 if(isset($_POST['up_name_sum'])){
     $traz->setId($_POST['up_index_sum']);
-    $traz->setName($_POST['up_name_sum']);
     $traz->setCash_Tr($_POST['up_cash_sum']);
+
+    $cash->setId($traz->getCash_Tr());
+    $cash->setBalance($traz->getBalanceById());
+    $tmp2 = $cash->UpdateCash_BalanceMin();
+
+    $cashmonth->setId_Cash($traz->getCash_Tr());
+    $cashmonth->setBalance($traz->getBalanceById());
+    $tmp3 = $cashmonth->UpdateCashMonth_BalanceMin();
+
+    $traz->setName($_POST['up_name_sum']);
+
     $traz->setBalance($_POST['up_balance_sum']);
     $traz->setComment($_POST['up_comment_sum']);
     $traz->setData($_POST['up_data_sum']);
