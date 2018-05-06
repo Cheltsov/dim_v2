@@ -3633,7 +3633,7 @@
 			max_height 	28350
 			max_width  	21600
 			origin_x   	394
-			origin_y   	0
+			origin_y   	6599
 			items      	(list diagram_item_list
 			    (object InterObjView "$UNNAMED$23" @70
 				location   	(180, 225)
@@ -9300,10 +9300,10 @@
 				location   	(180, 764)
 				line_color 	3342489
 				fill_color 	13434879)))
-		    (object InteractionDiagram "Счета - отображенние"
+		    (object InteractionDiagram "Счета - отображенние_работа"
 			mechanism_ref 	@5
 			quid       	"5AEC1E820102"
-			title      	"Счета - отображенние"
+			title      	"Счета - отображенние_работа"
 			zoom       	100
 			max_height 	28350
 			max_width  	21600
@@ -28850,6 +28850,11 @@
 			quid       	"5AEB54D00146")))
 	    (object Class "MoveTo"
 		quid       	"5AEB55AD0380"
+		superclasses 	(list inheritance_relationship_list
+		    (object Inheritance_Relationship
+			quid       	"5AEC24DC011A"
+			supplier   	"Logical View::Cookie"
+			quidu      	"5AEB55E600A3"))
 		operations 	(list Operations
 		    (object Operation "moveToIndex"
 			quid       	"5AEB55BF0174"
@@ -28863,11 +28868,6 @@
 			uid        	0)))
 	    (object Class "Cookie"
 		quid       	"5AEB55E600A3"
-		superclasses 	(list inheritance_relationship_list
-		    (object Inheritance_Relationship
-			quid       	"5AEB572B0155"
-			supplier   	"Logical View::MoveTo"
-			quidu      	"5AEB55AD0380"))
 		operations 	(list Operations
 		    (object Operation "checkCookie"
 			quid       	"5AEB55F1039F"
@@ -28898,41 +28898,65 @@
 			opExportControl 	"Public"
 			uid        	0)))
 	    (object Association "$UNNAMED$39"
-		quid       	"5AEB57D900FD"
+		quid       	"5AEC2ABC0011"
 		roles      	(list role_list
 		    (object Role "$UNNAMED$40"
-			quid       	"5AEB57D902CD"
-			supplier   	"Logical View::LineChart"
-			quidu      	"5AEB54B8013D"
-			is_navigable 	TRUE)
-		    (object Role "$UNNAMED$41"
-			quid       	"5AEB57D902D1"
-			supplier   	"Logical View::Translate"
-			quidu      	"5AEB4C2A036A")))
-	    (object Association "$UNNAMED$42"
-		quid       	"5AEB585A0043"
-		roles      	(list role_list
-		    (object Role "$UNNAMED$43"
-			quid       	"5AEB585A03B1"
+			quid       	"5AEC2ABC024D"
 			supplier   	"Logical View::Cookie"
 			quidu      	"5AEB55E600A3"
 			is_navigable 	TRUE)
-		    (object Role "$UNNAMED$44"
-			quid       	"5AEB585A03B5"
+		    (object Role "$UNNAMED$41"
+			quid       	"5AEC2ABC0255"
 			supplier   	"Logical View::Users"
 			quidu      	"5AEAC3200363")))
-	    (object Association "$UNNAMED$45"
-		quid       	"5AEB586302E9"
+	    (object Association "$UNNAMED$42"
+		quid       	"5AEC2AC103CA"
 		roles      	(list role_list
-		    (object Role "$UNNAMED$46"
-			quid       	"5AEB586400AE"
+		    (object Role "$UNNAMED$43"
+			quid       	"5AEC2AC202D7"
 			supplier   	"Logical View::Mail"
 			quidu      	"5AEB562200C6"
 			is_navigable 	TRUE)
-		    (object Role "$UNNAMED$47"
-			quid       	"5AEB586400B1"
+		    (object Role "$UNNAMED$44"
+			quid       	"5AEC2AC202DF"
 			supplier   	"Logical View::Users"
-			quidu      	"5AEAC3200363"))))
+			quidu      	"5AEAC3200363")))
+	    (object Association "$UNNAMED$45"
+		quid       	"5AED82B8001F"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$46"
+			quid       	"5AED82B80157"
+			supplier   	"Logical View::LineChart"
+			quidu      	"5AEB54B8013D"
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$47"
+			quid       	"5AED82B80196"
+			supplier   	"Logical View::Tranzaction"
+			quidu      	"5AEB5198017E")))
+	    (object Association "$UNNAMED$48"
+		quid       	"5AED82D10290"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$49"
+			quid       	"5AED82D2001F"
+			supplier   	"Logical View::Cash"
+			quidu      	"5AEB500802A3"
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$50"
+			quid       	"5AED82D2002F"
+			supplier   	"Logical View::Tranzaction"
+			quidu      	"5AEB5198017E")))
+	    (object Association "$UNNAMED$51"
+		quid       	"5AED82D50371"
+		roles      	(list role_list
+		    (object Role "$UNNAMED$52"
+			quid       	"5AED82D60270"
+			supplier   	"Logical View::CashMonth"
+			quidu      	"5AEB4E1100EA"
+			is_navigable 	TRUE)
+		    (object Role "$UNNAMED$53"
+			quid       	"5AED82D60280"
+			supplier   	"Logical View::Tranzaction"
+			quidu      	"5AEB5198017E"))))
 	logical_presentations 	(list unit_reference_list
 	    (object ClassDiagram "Main"
 		quid       	"59AFA158006A"
@@ -28940,8 +28964,8 @@
 		zoom       	35
 		max_height 	28350
 		max_width  	21600
-		origin_x   	0
-		origin_y   	5039
+		origin_x   	1108
+		origin_y   	8915
 		items      	(list diagram_item_list
 		    (object ClassView "Class" "Logical View::Datebase" @1442
 			ShowCompartmentStereotypes 	TRUE
@@ -28993,11 +29017,11 @@
 			height     	322
 			annotation 	8
 			autoResize 	TRUE)
-		    (object ClassView "Class" "Logical View::CashMonth" @1443
+		    (object ClassView "Class" "Logical View::Debt" @1443
 			ShowCompartmentStereotypes 	TRUE
 			IncludeAttribute 	TRUE
 			IncludeOperation 	TRUE
-			location   	(3077, 4937)
+			location   	(8233, 1862)
 			font       	(object Font
 			    size       	18
 			    face       	"Arial"
@@ -29010,157 +29034,7 @@
 			    default_color 	TRUE)
 			label      	(object ItemLabel
 			    Parent_View 	@1443
-			    location   	(2499, 3507)
-			    fill_color 	13434879
-			    nlines     	1
-			    max_width  	1156
-			    justify    	0
-			    label      	"CashMonth")
-			icon_style 	"Icon"
-			line_color 	3342489
-			fill_color 	13434879
-			quidu      	"5AEB4E1100EA"
-			compartment 	(object Compartment
-			    Parent_View 	@1443
-			    location   	(2499, 3607)
-			    font       	(object Font
-				size       	18
-				face       	"Arial"
-				charSet    	204
-				bold       	FALSE
-				italics    	FALSE
-				underline  	FALSE
-				strike     	FALSE
-				color      	0
-				default_color 	TRUE)
-			    icon_style 	"Icon"
-			    fill_color 	13434879
-			    anchor     	2
-			    nlines     	31
-			    max_width  	1200
-			    justify    	1)
-			width      	1174
-			height     	2904
-			annotation 	8
-			autoResize 	TRUE)
-		    (object ClassView "Class" "Logical View::Cash" @1444
-			ShowCompartmentStereotypes 	TRUE
-			IncludeAttribute 	TRUE
-			IncludeOperation 	TRUE
-			location   	(8249, 4568)
-			font       	(object Font
-			    size       	18
-			    face       	"Arial"
-			    charSet    	204
-			    bold       	FALSE
-			    italics    	FALSE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			label      	(object ItemLabel
-			    Parent_View 	@1444
-			    location   	(7761, 2693)
-			    fill_color 	13434879
-			    nlines     	1
-			    max_width  	976
-			    justify    	0
-			    label      	"Cash")
-			icon_style 	"Icon"
-			line_color 	3342489
-			fill_color 	13434879
-			quidu      	"5AEB500802A3"
-			compartment 	(object Compartment
-			    Parent_View 	@1444
-			    location   	(7761, 2793)
-			    font       	(object Font
-				size       	18
-				face       	"Arial"
-				charSet    	204
-				bold       	FALSE
-				italics    	FALSE
-				underline  	FALSE
-				strike     	FALSE
-				color      	0
-				default_color 	TRUE)
-			    icon_style 	"Icon"
-			    fill_color 	13434879
-			    anchor     	2
-			    nlines     	41
-			    max_width  	996
-			    justify    	1)
-			width      	994
-			height     	3794
-			annotation 	8
-			autoResize 	TRUE)
-		    (object ClassView "Class" "Logical View::Tranzaction" @1445
-			ShowCompartmentStereotypes 	TRUE
-			IncludeAttribute 	TRUE
-			IncludeOperation 	TRUE
-			location   	(1366, 3968)
-			font       	(object Font
-			    size       	18
-			    face       	"Arial"
-			    charSet    	204
-			    bold       	FALSE
-			    italics    	FALSE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			label      	(object ItemLabel
-			    Parent_View 	@1445
-			    location   	(842, 1782)
-			    fill_color 	13434879
-			    nlines     	1
-			    max_width  	1048
-			    justify    	0
-			    label      	"Tranzaction")
-			icon_style 	"Icon"
-			line_color 	3342489
-			fill_color 	13434879
-			quidu      	"5AEB5198017E"
-			compartment 	(object Compartment
-			    Parent_View 	@1445
-			    location   	(842, 1882)
-			    font       	(object Font
-				size       	18
-				face       	"Arial"
-				charSet    	204
-				bold       	FALSE
-				italics    	FALSE
-				underline  	FALSE
-				strike     	FALSE
-				color      	0
-				default_color 	TRUE)
-			    icon_style 	"Icon"
-			    fill_color 	13434879
-			    anchor     	2
-			    nlines     	48
-			    max_width  	1059
-			    justify    	1)
-			width      	1066
-			height     	4416
-			annotation 	8
-			autoResize 	TRUE)
-		    (object ClassView "Class" "Logical View::Debt" @1446
-			ShowCompartmentStereotypes 	TRUE
-			IncludeAttribute 	TRUE
-			IncludeOperation 	TRUE
-			location   	(9420, 2485)
-			font       	(object Font
-			    size       	18
-			    face       	"Arial"
-			    charSet    	204
-			    bold       	FALSE
-			    italics    	FALSE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			label      	(object ItemLabel
-			    Parent_View 	@1446
-			    location   	(9084, 744)
+			    location   	(7897, 121)
 			    fill_color 	13434879
 			    nlines     	1
 			    max_width  	672
@@ -29171,8 +29045,8 @@
 			fill_color 	13434879
 			quidu      	"5AEB53BA000C"
 			compartment 	(object Compartment
-			    Parent_View 	@1446
-			    location   	(9084, 844)
+			    Parent_View 	@1443
+			    location   	(7897, 221)
 			    font       	(object Font
 				size       	18
 				face       	"Arial"
@@ -29193,11 +29067,11 @@
 			height     	3526
 			annotation 	8
 			autoResize 	TRUE)
-		    (object ClassView "Class" "Logical View::MoveTo" @1447
+		    (object ClassView "Class" "Logical View::MoveTo" @1444
 			ShowCompartmentStereotypes 	TRUE
 			IncludeAttribute 	TRUE
 			IncludeOperation 	TRUE
-			location   	(5170, 8053)
+			location   	(2224, 7342)
 			font       	(object Font
 			    size       	18
 			    face       	"Arial"
@@ -29209,8 +29083,8 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@1447
-			    location   	(4803, 7870)
+			    Parent_View 	@1444
+			    location   	(1857, 7159)
 			    fill_color 	13434879
 			    nlines     	1
 			    max_width  	734
@@ -29221,8 +29095,8 @@
 			fill_color 	13434879
 			quidu      	"5AEB55AD0380"
 			compartment 	(object Compartment
-			    Parent_View 	@1447
-			    location   	(4803, 7970)
+			    Parent_View 	@1444
+			    location   	(1857, 7259)
 			    font       	(object Font
 				size       	18
 				face       	"Arial"
@@ -29243,51 +29117,21 @@
 			height     	410
 			annotation 	8
 			autoResize 	TRUE)
-		    (object InheritView "" @1448
-			stereotype 	TRUE
-			line_color 	3342489
-			quidu      	"5AEB56D90378"
-			client     	@1443
-			supplier   	@1442
-			vertices   	(list Points
-			    (3664, 4158)
-			    (5202, 2126))
-			line_style 	0)
-		    (object InheritView "" @1449
-			stereotype 	TRUE
-			line_color 	3342489
-			quidu      	"5AEB56DF016A"
-			client     	@1444
-			supplier   	@1442
-			vertices   	(list Points
-			    (7751, 4125)
-			    (5507, 2126))
-			line_style 	0)
-		    (object InheritView "" @1450
+		    (object InheritView "" @1445
 			stereotype 	TRUE
 			line_color 	3342489
 			quidu      	"5AEB56E2028C"
-			client     	@1446
+			client     	@1443
 			supplier   	@1442
 			vertices   	(list Points
-			    (9074, 2440)
-			    (5600, 1999))
+			    (7887, 1873)
+			    (5600, 1954))
 			line_style 	0)
-		    (object InheritView "" @1451
-			stereotype 	TRUE
-			line_color 	3342489
-			quidu      	"5AEB56DC01A6"
-			client     	@1445
-			supplier   	@1442
-			vertices   	(list Points
-			    (1899, 3696)
-			    (5051, 2102))
-			line_style 	0)
-		    (object ClassView "Class" "Logical View::LineChart" @1452
+		    (object ClassView "Class" "Logical View::Cookie" @1446
 			ShowCompartmentStereotypes 	TRUE
 			IncludeAttribute 	TRUE
 			IncludeOperation 	TRUE
-			location   	(7104, 5701)
+			location   	(2277, 6655)
 			font       	(object Font
 			    size       	18
 			    face       	"Arial"
@@ -29299,161 +29143,11 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@1452
-			    location   	(6768, 4939)
+			    Parent_View 	@1446
+			    location   	(1974, 6408)
 			    fill_color 	13434879
 			    nlines     	1
-			    max_width  	672
-			    justify    	0
-			    label      	"LineChart")
-			icon_style 	"Icon"
-			line_color 	3342489
-			fill_color 	13434879
-			quidu      	"5AEB54B8013D"
-			compartment 	(object Compartment
-			    Parent_View 	@1452
-			    location   	(6768, 5039)
-			    font       	(object Font
-				size       	18
-				face       	"Arial"
-				charSet    	204
-				bold       	FALSE
-				italics    	FALSE
-				underline  	FALSE
-				strike     	FALSE
-				color      	0
-				default_color 	TRUE)
-			    icon_style 	"Icon"
-			    fill_color 	13434879
-			    anchor     	2
-			    nlines     	16
-			    max_width  	670
-			    justify    	1)
-			width      	690
-			height     	1568
-			annotation 	8
-			autoResize 	TRUE)
-		    (object ClassView "Class" "Logical View::Translate" @1453
-			ShowCompartmentStereotypes 	TRUE
-			IncludeAttribute 	TRUE
-			IncludeOperation 	TRUE
-			location   	(5750, 4951)
-			font       	(object Font
-			    size       	18
-			    face       	"Arial"
-			    charSet    	204
-			    bold       	FALSE
-			    italics    	FALSE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			label      	(object ItemLabel
-			    Parent_View 	@1453
-			    location   	(5177, 3032)
-			    fill_color 	13434879
-			    nlines     	1
-			    max_width  	1146
-			    justify    	0
-			    label      	"Translate")
-			icon_style 	"Icon"
-			line_color 	3342489
-			fill_color 	13434879
-			quidu      	"5AEB4C2A036A"
-			compartment 	(object Compartment
-			    Parent_View 	@1453
-			    location   	(5177, 3132)
-			    font       	(object Font
-				size       	18
-				face       	"Arial"
-				charSet    	204
-				bold       	FALSE
-				italics    	FALSE
-				underline  	FALSE
-				strike     	FALSE
-				color      	0
-				default_color 	TRUE)
-			    icon_style 	"Icon"
-			    fill_color 	13434879
-			    anchor     	2
-			    nlines     	42
-			    max_width  	1156
-			    justify    	1)
-			width      	1164
-			height     	3882
-			annotation 	8
-			autoResize 	TRUE)
-		    (object InheritView "" @1454
-			stereotype 	TRUE
-			line_color 	3342489
-			quidu      	"5AEB56D7014D"
-			client     	@1453
-			supplier   	@1442
-			vertices   	(list Points
-			    (5473, 3009)
-			    (5347, 2126))
-			line_style 	0)
-		    (object AssociationViewNew "$UNNAMED$39" @1455
-			location   	(6545, 5391)
-			font       	(object Font
-			    size       	10
-			    face       	"Arial"
-			    charSet    	204
-			    bold       	FALSE
-			    italics    	FALSE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			stereotype 	TRUE
-			line_color 	3342489
-			quidu      	"5AEB57D900FD"
-			roleview_list 	(list RoleViews
-			    (object RoleView "$UNNAMED$40" @1456
-				Parent_View 	@1455
-				location   	(795, 440)
-				stereotype 	TRUE
-				line_color 	3342489
-				quidu      	"5AEB57D902CD"
-				client     	@1455
-				supplier   	@1452
-				vertices   	(list Points
-				    (6545, 5391)
-				    (6758, 5509))
-				line_style 	0)
-			    (object RoleView "$UNNAMED$41" @1457
-				Parent_View 	@1455
-				location   	(795, 440)
-				stereotype 	TRUE
-				line_color 	3342489
-				quidu      	"5AEB57D902D1"
-				client     	@1455
-				supplier   	@1453
-				vertices   	(list Points
-				    (6545, 5391)
-				    (6332, 5273))
-				line_style 	0)))
-		    (object ClassView "Class" "Logical View::Cookie" @1458
-			ShowCompartmentStereotypes 	TRUE
-			IncludeAttribute 	TRUE
-			IncludeOperation 	TRUE
-			location   	(4844, 7357)
-			font       	(object Font
-			    size       	18
-			    face       	"Arial"
-			    charSet    	204
-			    bold       	FALSE
-			    italics    	FALSE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			label      	(object ItemLabel
-			    Parent_View 	@1458
-			    location   	(4553, 7129)
-			    fill_color 	13434879
-			    nlines     	1
-			    max_width  	582
+			    max_width  	607
 			    justify    	0
 			    label      	"Cookie")
 			icon_style 	"Icon"
@@ -29461,8 +29155,8 @@
 			fill_color 	13434879
 			quidu      	"5AEB55E600A3"
 			compartment 	(object Compartment
-			    Parent_View 	@1458
-			    location   	(4553, 7229)
+			    Parent_View 	@1446
+			    location   	(1974, 6508)
 			    font       	(object Font
 				size       	18
 				face       	"Arial"
@@ -29477,37 +29171,27 @@
 			    fill_color 	13434879
 			    anchor     	2
 			    nlines     	4
-			    max_width  	581
+			    max_width  	594
 			    justify    	1)
-			width      	600
-			height     	500
+			width      	625
+			height     	538
 			annotation 	8
 			autoResize 	TRUE)
-		    (object InheritView "" @1459
-			font       	(object Font
-			    size       	10
-			    face       	"Arial"
-			    charSet    	204
-			    bold       	FALSE
-			    italics    	FALSE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
+		    (object InheritView "" @1447
 			stereotype 	TRUE
 			line_color 	3342489
-			quidu      	"5AEB572B0155"
-			client     	@1458
-			supplier   	@1447
+			quidu      	"5AEC24DC011A"
+			client     	@1444
+			supplier   	@1446
 			vertices   	(list Points
-			    (4960, 7607)
-			    (5072, 7847))
+			    (2239, 7136)
+			    (2254, 6924))
 			line_style 	0)
-		    (object ClassView "Class" "Logical View::Mail" @1460
+		    (object ClassView "Class" "Logical View::Users" @1448
 			ShowCompartmentStereotypes 	TRUE
 			IncludeAttribute 	TRUE
 			IncludeOperation 	TRUE
-			location   	(4049, 7397)
+			location   	(2590, 4613)
 			font       	(object Font
 			    size       	18
 			    face       	"Arial"
@@ -29519,58 +29203,8 @@
 			    color      	0
 			    default_color 	TRUE)
 			label      	(object ItemLabel
-			    Parent_View 	@1460
-			    location   	(3811, 7214)
-			    fill_color 	13434879
-			    nlines     	1
-			    max_width  	476
-			    justify    	0
-			    label      	"Mail")
-			icon_style 	"Icon"
-			line_color 	3342489
-			fill_color 	13434879
-			quidu      	"5AEB562200C6"
-			compartment 	(object Compartment
-			    Parent_View 	@1460
-			    location   	(3811, 7314)
-			    font       	(object Font
-				size       	18
-				face       	"Arial"
-				charSet    	204
-				bold       	FALSE
-				italics    	FALSE
-				underline  	FALSE
-				strike     	FALSE
-				color      	0
-				default_color 	TRUE)
-			    icon_style 	"Icon"
-			    fill_color 	13434879
-			    anchor     	2
-			    nlines     	3
-			    max_width  	473
-			    justify    	1)
-			width      	494
-			height     	410
-			annotation 	8
-			autoResize 	TRUE)
-		    (object ClassView "Class" "Logical View::Users" @1461
-			ShowCompartmentStereotypes 	TRUE
-			IncludeAttribute 	TRUE
-			IncludeOperation 	TRUE
-			location   	(4519, 5160)
-			font       	(object Font
-			    size       	18
-			    face       	"Arial"
-			    charSet    	204
-			    bold       	FALSE
-			    italics    	FALSE
-			    underline  	FALSE
-			    strike     	FALSE
-			    color      	0
-			    default_color 	TRUE)
-			label      	(object ItemLabel
-			    Parent_View 	@1461
-			    location   	(4107, 3997)
+			    Parent_View 	@1448
+			    location   	(2178, 3450)
 			    fill_color 	13434879
 			    nlines     	1
 			    max_width  	824
@@ -29581,8 +29215,8 @@
 			fill_color 	13434879
 			quidu      	"5AEAC3200363"
 			compartment 	(object Compartment
-			    Parent_View 	@1461
-			    location   	(4107, 4097)
+			    Parent_View 	@1448
+			    location   	(2178, 3550)
 			    font       	(object Font
 				size       	18
 				face       	"Arial"
@@ -29603,18 +29237,18 @@
 			height     	2370
 			annotation 	8
 			autoResize 	TRUE)
-		    (object InheritView "" @1462
+		    (object InheritView "" @1449
 			stereotype 	TRUE
 			line_color 	3342489
 			quidu      	"5AEB56D403A3"
-			client     	@1461
+			client     	@1448
 			supplier   	@1442
 			vertices   	(list Points
-			    (4816, 3974)
-			    (5284, 2126))
+			    (3011, 4204)
+			    (5157, 2126))
 			line_style 	0)
-		    (object AssociationViewNew "$UNNAMED$42" @1463
-			location   	(4749, 6725)
+		    (object AssociationViewNew "$UNNAMED$39" @1450
+			location   	(2361, 6091)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -29627,34 +29261,84 @@
 			    default_color 	TRUE)
 			stereotype 	TRUE
 			line_color 	3342489
-			quidu      	"5AEB585A0043"
+			quidu      	"5AEC2ABC0011"
 			roleview_list 	(list RoleViews
-			    (object RoleView "$UNNAMED$43" @1464
-				Parent_View 	@1463
-				location   	(230, 1565)
+			    (object RoleView "$UNNAMED$40" @1451
+				Parent_View 	@1450
+				location   	(-2158, 931)
 				stereotype 	TRUE
 				line_color 	3342489
-				quidu      	"5AEB585A03B1"
-				client     	@1463
-				supplier   	@1458
+				quidu      	"5AEC2ABC024D"
+				client     	@1450
+				supplier   	@1446
 				vertices   	(list Points
-				    (4749, 6725)
-				    (4805, 7106))
+				    (2361, 6091)
+				    (2317, 6385))
 				line_style 	0)
-			    (object RoleView "$UNNAMED$44" @1465
-				Parent_View 	@1463
-				location   	(230, 1565)
+			    (object RoleView "$UNNAMED$41" @1452
+				Parent_View 	@1450
+				location   	(-2158, 931)
 				stereotype 	TRUE
 				line_color 	3342489
-				quidu      	"5AEB585A03B5"
-				client     	@1463
-				supplier   	@1461
+				quidu      	"5AEC2ABC0255"
+				client     	@1450
+				supplier   	@1448
 				vertices   	(list Points
-				    (4749, 6725)
-				    (4692, 6345))
+				    (2361, 6091)
+				    (2406, 5798))
 				line_style 	0)))
-		    (object AssociationViewNew "$UNNAMED$45" @1466
-			location   	(4180, 6768)
+		    (object ClassView "Class" "Logical View::Mail" @1453
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(1281, 6565)
+			font       	(object Font
+			    size       	18
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@1453
+			    location   	(1043, 6382)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	476
+			    justify    	0
+			    label      	"Mail")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEB562200C6"
+			compartment 	(object Compartment
+			    Parent_View 	@1453
+			    location   	(1043, 6482)
+			    font       	(object Font
+				size       	18
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    icon_style 	"Icon"
+			    fill_color 	13434879
+			    anchor     	2
+			    nlines     	3
+			    max_width  	473
+			    justify    	1)
+			width      	494
+			height     	410
+			annotation 	8
+			autoResize 	TRUE)
+		    (object AssociationViewNew "$UNNAMED$42" @1454
+			location   	(1792, 5798)
 			font       	(object Font
 			    size       	10
 			    face       	"Arial"
@@ -29667,35 +29351,747 @@
 			    default_color 	TRUE)
 			stereotype 	TRUE
 			line_color 	3342489
-			quidu      	"5AEB586302E9"
+			quidu      	"5AEC2AC103CA"
 			roleview_list 	(list RoleViews
-			    (object RoleView "$UNNAMED$46" @1467
-				Parent_View 	@1466
-				location   	(-339, 1608)
+			    (object RoleView "$UNNAMED$43" @1455
+				Parent_View 	@1454
+				location   	(-2727, 638)
 				stereotype 	TRUE
 				line_color 	3342489
-				quidu      	"5AEB586400AE"
-				client     	@1466
+				quidu      	"5AEC2AC202D7"
+				client     	@1454
+				supplier   	@1453
+				vertices   	(list Points
+				    (1792, 5798)
+				    (1417, 6359))
+				line_style 	0)
+			    (object RoleView "$UNNAMED$44" @1456
+				Parent_View 	@1454
+				location   	(-2727, 638)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"5AEC2AC202DF"
+				client     	@1454
+				supplier   	@1448
+				vertices   	(list Points
+				    (1792, 5798)
+				    (2168, 5238))
+				line_style 	0)))
+		    (object ClassView "Class" "Logical View::Translate" @1457
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(1205, 3238)
+			font       	(object Font
+			    size       	18
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@1457
+			    location   	(632, 1319)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	1146
+			    justify    	0
+			    label      	"Translate")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEB4C2A036A"
+			compartment 	(object Compartment
+			    Parent_View 	@1457
+			    location   	(632, 1419)
+			    font       	(object Font
+				size       	18
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    icon_style 	"Icon"
+			    fill_color 	13434879
+			    anchor     	2
+			    nlines     	42
+			    max_width  	1156
+			    justify    	1)
+			width      	1164
+			height     	3882
+			annotation 	8
+			autoResize 	TRUE)
+		    (object InheritView "" @1458
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"5AEB56D7014D"
+			client     	@1457
+			supplier   	@1442
+			vertices   	(list Points
+			    (1787, 3056)
+			    (5051, 2049))
+			line_style 	0)
+		    (object ClassView "Class" "Logical View::LineChart" @1459
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(3586, 5353)
+			font       	(object Font
+			    size       	18
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@1459
+			    location   	(3250, 4591)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	672
+			    justify    	0
+			    label      	"LineChart")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEB54B8013D"
+			compartment 	(object Compartment
+			    Parent_View 	@1459
+			    location   	(3250, 4691)
+			    font       	(object Font
+				size       	18
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    icon_style 	"Icon"
+			    fill_color 	13434879
+			    anchor     	2
+			    nlines     	16
+			    max_width  	670
+			    justify    	1)
+			width      	690
+			height     	1568
+			annotation 	8
+			autoResize 	TRUE)
+		    (object ClassView "Class" "Logical View::Cash" @1460
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(6908, 5584)
+			font       	(object Font
+			    size       	18
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@1460
+			    location   	(6420, 3709)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	976
+			    justify    	0
+			    label      	"Cash")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEB500802A3"
+			compartment 	(object Compartment
+			    Parent_View 	@1460
+			    location   	(6420, 3809)
+			    font       	(object Font
+				size       	18
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    icon_style 	"Icon"
+			    fill_color 	13434879
+			    anchor     	2
+			    nlines     	41
+			    max_width  	996
+			    justify    	1)
+			width      	994
+			height     	3794
+			annotation 	8
+			autoResize 	TRUE)
+		    (object InheritView "" @1461
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"5AEB56DF016A"
+			client     	@1460
+			supplier   	@1442
+			vertices   	(list Points
+			    (6410, 4447)
+			    (5395, 2126))
+			line_style 	0)
+		    (object ClassView "Class" "Logical View::Tranzaction" @1462
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(4859, 6049)
+			font       	(object Font
+			    size       	18
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@1462
+			    location   	(4335, 3863)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	1048
+			    justify    	0
+			    label      	"Tranzaction")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEB5198017E"
+			compartment 	(object Compartment
+			    Parent_View 	@1462
+			    location   	(4335, 3963)
+			    font       	(object Font
+				size       	18
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    icon_style 	"Icon"
+			    fill_color 	13434879
+			    anchor     	2
+			    nlines     	48
+			    max_width  	1059
+			    justify    	1)
+			width      	1066
+			height     	4416
+			annotation 	8
+			autoResize 	TRUE)
+		    (object InheritView "" @1463
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"5AEB56DC01A6"
+			client     	@1462
+			supplier   	@1442
+			vertices   	(list Points
+			    (5109, 3840)
+			    (5306, 2126))
+			line_style 	0)
+		    (object AssociationViewNew "$UNNAMED$45" @1464
+			location   	(4128, 5648)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"5AED82B8001F"
+			roleview_list 	(list RoleViews
+			    (object RoleView "$UNNAMED$46" @1465
+				Parent_View 	@1464
+				location   	(-1016, -437)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"5AED82B80157"
+				client     	@1464
+				supplier   	@1459
+				vertices   	(list Points
+				    (4128, 5648)
+				    (3931, 5541))
+				line_style 	0)
+			    (object RoleView "$UNNAMED$47" @1466
+				Parent_View 	@1464
+				location   	(-1016, -437)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"5AED82B80196"
+				client     	@1464
+				supplier   	@1462
+				vertices   	(list Points
+				    (4128, 5648)
+				    (4325, 5756))
+				line_style 	0)))
+		    (object AssociationViewNew "$UNNAMED$48" @1467
+			location   	(5901, 5811)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"5AED82D10290"
+			roleview_list 	(list RoleViews
+			    (object RoleView "$UNNAMED$49" @1468
+				Parent_View 	@1467
+				location   	(1239, -272)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"5AED82D2001F"
+				client     	@1467
 				supplier   	@1460
 				vertices   	(list Points
-				    (4180, 6768)
-				    (4090, 7191))
+				    (5901, 5811)
+				    (6410, 5696))
 				line_style 	0)
-			    (object RoleView "$UNNAMED$47" @1468
-				Parent_View 	@1466
-				location   	(-339, 1608)
+			    (object RoleView "$UNNAMED$50" @1469
+				Parent_View 	@1467
+				location   	(1239, -272)
 				stereotype 	TRUE
 				line_color 	3342489
-				quidu      	"5AEB586400B1"
-				client     	@1466
-				supplier   	@1461
+				quidu      	"5AED82D2002F"
+				client     	@1467
+				supplier   	@1462
 				vertices   	(list Points
-				    (4180, 6768)
-				    (4267, 6345))
+				    (5901, 5811)
+				    (5392, 5926))
+				line_style 	0)))
+		    (object ClassView "Class" "Logical View::CashMonth" @1470
+			ShowCompartmentStereotypes 	TRUE
+			IncludeAttribute 	TRUE
+			IncludeOperation 	TRUE
+			location   	(9210, 4960)
+			font       	(object Font
+			    size       	18
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@1470
+			    location   	(8632, 3530)
+			    fill_color 	13434879
+			    nlines     	1
+			    max_width  	1156
+			    justify    	0
+			    label      	"CashMonth")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEB4E1100EA"
+			compartment 	(object Compartment
+			    Parent_View 	@1470
+			    location   	(8632, 3630)
+			    font       	(object Font
+				size       	18
+				face       	"Arial"
+				charSet    	204
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    icon_style 	"Icon"
+			    fill_color 	13434879
+			    anchor     	2
+			    nlines     	31
+			    max_width  	1200
+			    justify    	1)
+			width      	1174
+			height     	2904
+			annotation 	8
+			autoResize 	TRUE)
+		    (object InheritView "" @1471
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"5AEB56D90378"
+			client     	@1470
+			supplier   	@1442
+			vertices   	(list Points
+			    (8622, 4506)
+			    (5535, 2126))
+			line_style 	0)
+		    (object AssociationViewNew "$UNNAMED$51" @1472
+			location   	(7889, 7940)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"5AED82D50371"
+			roleview_list 	(list RoleViews
+			    (object RoleView "$UNNAMED$52" @1473
+				Parent_View 	@1472
+				location   	(3227, 1857)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"5AED82D60270"
+				client     	@1472
+				supplier   	@1470
+				vertices   	(list Points
+				    (7889, 7940)
+				    (9315, 7976)
+				    (9259, 6412))
+				line_style 	0)
+			    (object RoleView "$UNNAMED$53" @1474
+				Parent_View 	@1472
+				location   	(3227, 1857)
+				stereotype 	TRUE
+				line_color 	3342489
+				quidu      	"5AED82D60280"
+				client     	@1472
+				supplier   	@1462
+				vertices   	(list Points
+				    (7889, 7940)
+				    (5814, 7887)
+				    (5392, 7076))
 				line_style 	0)))))))
     root_subsystem 	(object SubSystem "Component View"
 	quid       	"59AFA1570230"
-	physical_models 	(list unit_reference_list)
+	physical_models 	(list unit_reference_list
+	    (object module "RedBeanPHP" "NotAModuleType" "NotAModulePart"
+		quid       	"5AEC3865026D"
+		stereotype 	""
+		visible_modules 	(list dependency_list
+		    (object Module_Visibility_Relationship
+			quid       	"5AEC3865026E"
+			supplier   	"Component View::db.php"
+			quidu      	"5AEC38650271"
+			supplier_is_spec 	TRUE))
+		language   	"")
+	    (object module "db.php" "NotAModuleType" "NotAModulePart"
+		quid       	"5AEC38650271"
+		stereotype 	""
+		visible_modules 	(list dependency_list
+		    (object Module_Visibility_Relationship
+			quid       	"5AEC38650272"
+			supplier   	"Component View::user.php"
+			quidu      	"5AEC3865027D"
+			supplier_is_spec 	TRUE)
+		    (object Module_Visibility_Relationship
+			quid       	"5AEC38650273"
+			supplier   	"Component View::tranzaction.php"
+			quidu      	"5AEC38650280"
+			supplier_is_spec 	TRUE)
+		    (object Module_Visibility_Relationship
+			quid       	"5AEC38650274"
+			supplier   	"Component View::cash.php"
+			quidu      	"5AEC38650284"
+			supplier_is_spec 	TRUE)
+		    (object Module_Visibility_Relationship
+			quid       	"5AEC38650275"
+			supplier   	"Component View::cashMonth.php"
+			quidu      	"5AEC38650287"
+			supplier_is_spec 	TRUE)
+		    (object Module_Visibility_Relationship
+			quid       	"5AEC38650276"
+			supplier   	"Component View::forecash.php"
+			quidu      	"5AEC3865028A"
+			supplier_is_spec 	TRUE)
+		    (object Module_Visibility_Relationship
+			quid       	"5AEC38650277"
+			supplier   	"Component View::mail.php"
+			quidu      	"5AEC3865028D"
+			supplier_is_spec 	TRUE)
+		    (object Module_Visibility_Relationship
+			quid       	"5AEC38650278"
+			supplier   	"Component View::moveTo.php"
+			quidu      	"5AEC38650290"
+			supplier_is_spec 	TRUE)
+		    (object Module_Visibility_Relationship
+			quid       	"5AEC38650279"
+			supplier   	"Component View::LineChart.php"
+			quidu      	"5AEC38650293"
+			supplier_is_spec 	TRUE)
+		    (object Module_Visibility_Relationship
+			quid       	"5AEC3865027A"
+			supplier   	"Component View::report.php"
+			quidu      	"5AEC38650296"
+			supplier_is_spec 	TRUE)
+		    (object Module_Visibility_Relationship
+			quid       	"5AEC38D40104"
+			supplier   	"Component View::debt.php"
+			quidu      	"5AEC3865029E"
+			supplier_is_spec 	TRUE))
+		language   	"")
+	    (object module "tranzaction.php" "NotAModuleType" "NotAModulePart"
+		quid       	"5AEC38650280"
+		stereotype 	""
+		visible_modules 	(list dependency_list
+		    (object Module_Visibility_Relationship
+			quid       	"5AEC38650281"
+			supplier   	"Component View::db.php")
+		    (object Module_Visibility_Relationship
+			quid       	"5AEC39A2007B"
+			supplier   	"Component View::control_tranzaction.php"
+			quidu      	"5AEC392700C1"
+			supplier_is_spec 	TRUE))
+		language   	"")
+	    (object module "forecash.php" "NotAModuleType" "NotAModulePart"
+		quid       	"5AEC3865028A"
+		stereotype 	""
+		visible_modules 	(list dependency_list
+		    (object Module_Visibility_Relationship
+			quid       	"5AEC3ACC007B"
+			supplier   	"Component View::control_forecast.php"
+			quidu      	"5AEC3A6F0311"
+			supplier_is_spec 	TRUE))
+		language   	"")
+	    (object module "mail.php" "NotAModuleType" "NotAModulePart"
+		quid       	"5AEC3865028D"
+		stereotype 	""
+		visible_modules 	(list dependency_list
+		    (object Module_Visibility_Relationship
+			quid       	"5AEC3CB903BC"
+			supplier   	"Component View::controler_main_page.php"
+			quidu      	"5AEC3C4F02FB"
+			supplier_is_spec 	TRUE))
+		language   	"")
+	    (object module "moveTo.php" "NotAModuleType" "NotAModulePart"
+		quid       	"5AEC38650290"
+		stereotype 	""
+		language   	"")
+	    (object module "LineChart.php" "NotAModuleType" "NotAModulePart"
+		quid       	"5AEC38650293"
+		stereotype 	""
+		visible_modules 	(list dependency_list
+		    (object Module_Visibility_Relationship
+			quid       	"5AEC3CC30330"
+			supplier   	"Component View::control_report.php"
+			quidu      	"5AEC3AAC019C"
+			supplier_is_spec 	TRUE))
+		language   	"")
+	    (object module "Datebase" "NotAModuleType" "NotAModulePart"
+		quid       	"5AEC38650299"
+		stereotype 	"Database"
+		visible_modules 	(list dependency_list
+		    (object Module_Visibility_Relationship
+			quid       	"5AEC38650298"
+			supplier   	"Component View::RedBeanPHP"
+			quidu      	"5AEC3865026D"
+			supplier_is_spec 	TRUE))
+		language   	"")
+	    (object module "Програма Ledger" "SubType" "Main"
+		quid       	"5AEC3865029C"
+		stereotype 	"Main Program"
+		language   	"")
+	    (object module "user.php" "NotAModuleType" "NotAModulePart"
+		quid       	"5AEC3865027D"
+		stereotype 	""
+		visible_modules 	(list dependency_list
+		    (object Module_Visibility_Relationship
+			quid       	"5AEC399E0255"
+			supplier   	"Component View::control_tranzaction.php"
+			quidu      	"5AEC392700C1"
+			supplier_is_spec 	TRUE)
+		    (object Module_Visibility_Relationship
+			quid       	"5AEC3B8E00F3"
+			supplier   	"Component View::control_settings.php"
+			quidu      	"5AEC3A8C014B"
+			supplier_is_spec 	TRUE)
+		    (object Module_Visibility_Relationship
+			quid       	"5AEC3BBE03BD"
+			supplier   	"Component View::control_index.php"
+			quidu      	"5AEC3A5602F1"
+			supplier_is_spec 	TRUE)
+		    (object Module_Visibility_Relationship
+			quid       	"5AEC3C6D011D"
+			supplier   	"Component View::controler_main_page.php"
+			quidu      	"5AEC3C4F02FB"
+			supplier_is_spec 	TRUE))
+		language   	"")
+	    (object module "debt.php" "NotAModuleType" "NotAModulePart"
+		quid       	"5AEC3865029E"
+		stereotype 	""
+		visible_modules 	(list dependency_list
+		    (object Module_Visibility_Relationship
+			quid       	"5AEC3B4C02F2"
+			supplier   	"Component View::control_debt.php"
+			quidu      	"5AEC3A1801FD"
+			supplier_is_spec 	TRUE))
+		language   	"")
+	    (object module "cash.php" "NotAModuleType" "NotAModulePart"
+		quid       	"5AEC38650284"
+		stereotype 	""
+		visible_modules 	(list dependency_list
+		    (object Module_Visibility_Relationship
+			quid       	"5AEC39C80100"
+			supplier   	"Component View::control_tranzaction.php"
+			quidu      	"5AEC392700C1"
+			supplier_is_spec 	TRUE)
+		    (object Module_Visibility_Relationship
+			quid       	"5AEC39DB01C9"
+			supplier   	"Component View::controls_cash.php"
+			quidu      	"5AEC393601C1"
+			supplier_is_spec 	TRUE))
+		language   	"")
+	    (object module "cashMonth.php" "NotAModuleType" "NotAModulePart"
+		quid       	"5AEC38650287"
+		stereotype 	""
+		visible_modules 	(list dependency_list
+		    (object Module_Visibility_Relationship
+			quid       	"5AEC39A801E3"
+			supplier   	"Component View::control_tranzaction.php"
+			quidu      	"5AEC392700C1"
+			supplier_is_spec 	TRUE)
+		    (object Module_Visibility_Relationship
+			quid       	"5AEC39E00322"
+			supplier   	"Component View::controls_cash.php"
+			quidu      	"5AEC393601C1"
+			supplier_is_spec 	TRUE))
+		language   	"")
+	    (object module "report.php" "NotAModuleType" "NotAModulePart"
+		quid       	"5AEC38650296"
+		stereotype 	""
+		visible_modules 	(list dependency_list
+		    (object Module_Visibility_Relationship
+			quid       	"5AEC3BF00342"
+			supplier   	"Component View::control_report.php"
+			quidu      	"5AEC3AAC019C"
+			supplier_is_spec 	TRUE))
+		language   	"")
+	    (object module "control_tranzaction.php" "NotAModuleType" "NotAModulePart"
+		quid       	"5AEC392700C1"
+		stereotype 	""
+		language   	"")
+	    (object module "controls_cash.php" "NotAModuleType" "NotAModulePart"
+		quid       	"5AEC393601C1"
+		stereotype 	""
+		language   	"")
+	    (object module "control_debt.php" "NotAModuleType" "NotAModulePart"
+		quid       	"5AEC3A1801FD"
+		stereotype 	""
+		language   	"")
+	    (object module "control_index.php" "NotAModuleType" "NotAModulePart"
+		quid       	"5AEC3A5602F1"
+		stereotype 	""
+		language   	"")
+	    (object module "control_forecast.php" "NotAModuleType" "NotAModulePart"
+		quid       	"5AEC3A6F0311"
+		stereotype 	""
+		language   	"")
+	    (object module "control_settings.php" "NotAModuleType" "NotAModulePart"
+		quid       	"5AEC3A8C014B"
+		stereotype 	""
+		language   	"")
+	    (object module "control_report.php" "NotAModuleType" "NotAModulePart"
+		quid       	"5AEC3AAC019C"
+		stereotype 	""
+		visible_modules 	(list dependency_list
+		    (object Module_Visibility_Relationship
+			quid       	"5AEC3CC80313"
+			supplier   	"Component View::LineChart.php"
+			quidu      	"5AEC38650293"
+			supplier_is_spec 	TRUE))
+		language   	"")
+	    (object module "controler_main_page.php" "NotAModuleType" "NotAModulePart"
+		quid       	"5AEC3C4F02FB"
+		stereotype 	""
+		language   	"")
+	    (object module "cookie.php" "NotAModuleType" "NotAModulePart"
+		quid       	"5AEC3C940348"
+		stereotype 	""
+		visible_modules 	(list dependency_list
+		    (object Module_Visibility_Relationship
+			quid       	"5AEC3CA3005C"
+			supplier   	"Component View::moveTo.php"
+			quidu      	"5AEC38650290"
+			supplier_is_spec 	TRUE)
+		    (object Module_Visibility_Relationship
+			quid       	"5AEC3CB6014C"
+			supplier   	"Component View::controler_main_page.php"
+			quidu      	"5AEC3C4F02FB"
+			supplier_is_spec 	TRUE))
+		language   	"")
+	    (object module "index.php" "NotAModuleType" "NotAModulePart"
+		quid       	"5AEC3DB2005F"
+		stereotype 	""
+		language   	"")
+	    (object module "settings.php" "NotAModuleType" "NotAModulePart"
+		quid       	"5AEC3E1003BD"
+		stereotype 	""
+		language   	"")
+	    (object module "forecast.php" "NotAModuleType" "NotAModulePart"
+		quid       	"5AEC3E1802F3"
+		stereotype 	""
+		language   	"")
+	    (object SubSystem "Models"
+		quid       	"5AEC3713000A"
+		physical_models 	(list unit_reference_list)
+		physical_presentations 	(list unit_reference_list
+		    (object Module_Diagram "NewDiagram"
+			quid       	"5AEC374F013F"
+			title      	"NewDiagram"
+			zoom       	100
+			max_height 	28350
+			max_width  	21600
+			origin_x   	0
+			origin_y   	0
+			items      	(list diagram_item_list))))
+	    (object SubSystem "NewPackage"
+		quid       	"5AEC378F01EB"
+		physical_models 	(list unit_reference_list)
+		physical_presentations 	(list unit_reference_list))
+	    (object SubSystem "Controlers"
+		quid       	"5AEC390B019B"
+		physical_models 	(list unit_reference_list)
+		physical_presentations 	(list unit_reference_list
+		    (object Module_Diagram "Main"
+			quid       	"5AEC3B130022"
+			title      	"Main"
+			zoom       	100
+			max_height 	28350
+			max_width  	21600
+			origin_x   	0
+			origin_y   	0
+			items      	(list diagram_item_list))))
+	    (object SubSystem "Pages"
+		quid       	"5AEC3D980237"
+		physical_models 	(list unit_reference_list)
+		physical_presentations 	(list unit_reference_list)))
 	physical_presentations 	(list unit_reference_list
 	    (object Module_Diagram "Main"
 		quid       	"59AFA1580068"
@@ -29703,9 +30099,1237 @@
 		zoom       	100
 		max_height 	28350
 		max_width  	21600
-		origin_x   	0
-		origin_y   	0
-		items      	(list diagram_item_list)))
+		origin_x   	597
+		origin_y   	3420
+		items      	(list diagram_item_list
+		    (object SubSysView "Component View::Models" @1475
+			location   	(2444, 1260)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@1475
+			    location   	(1422, 753)
+			    fill_color 	13434879
+			    nlines     	2
+			    max_width  	2044
+			    justify    	0
+			    label      	"Models")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEC3713000A"
+			width      	2057
+			height     	1026)
+		    (object ModView "Component View::RedBeanPHP" "NotAModuleType" "NotAModulePart" @1476
+			location   	(3732, 361)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@1476
+			    location   	(3687, 336)
+			    fill_color 	13434879
+			    anchor_loc 	3
+			    nlines     	2
+			    max_width  	166
+			    justify    	1
+			    label      	"RedBeanPHP")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEC3865026D"
+			width      	298
+			autoResize 	TRUE
+			width      	298
+			height     	162)
+		    (object ModView "Component View::db.php" "NotAModuleType" "NotAModulePart" @1477
+			location   	(2963, 630)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@1477
+			    location   	(2918, 605)
+			    fill_color 	13434879
+			    anchor_loc 	3
+			    nlines     	2
+			    max_width  	166
+			    justify    	1
+			    label      	"db.php")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEC38650271"
+			width      	298
+			autoResize 	TRUE
+			width      	298
+			height     	162)
+		    (object ModView "Component View::tranzaction.php" "NotAModuleType" "NotAModulePart" @1478
+			location   	(2380, 1461)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@1478
+			    location   	(2338, 1436)
+			    fill_color 	13434879
+			    anchor_loc 	3
+			    nlines     	2
+			    max_width  	156
+			    justify    	1
+			    label      	"tranzaction.php")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEC38650280"
+			width      	280
+			autoResize 	TRUE
+			width      	280
+			height     	162)
+		    (object ModView "Component View::forecash.php" "NotAModuleType" "NotAModulePart" @1479
+			location   	(1938, 1534)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@1479
+			    location   	(1893, 1509)
+			    fill_color 	13434879
+			    anchor_loc 	3
+			    nlines     	2
+			    max_width  	166
+			    justify    	1
+			    label      	"forecash.php")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEC3865028A"
+			width      	298
+			autoResize 	TRUE
+			width      	298
+			height     	162)
+		    (object ModView "Component View::mail.php" "NotAModuleType" "NotAModulePart" @1480
+			location   	(2920, 3388)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@1480
+			    location   	(2875, 3363)
+			    fill_color 	13434879
+			    anchor_loc 	3
+			    nlines     	2
+			    max_width  	166
+			    justify    	1
+			    label      	"mail.php")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEC3865028D"
+			width      	298
+			autoResize 	TRUE
+			width      	298
+			height     	162)
+		    (object ModView "Component View::moveTo.php" "NotAModuleType" "NotAModulePart" @1481
+			location   	(2312, 3636)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@1481
+			    location   	(2250, 3609)
+			    fill_color 	13434879
+			    anchor_loc 	3
+			    nlines     	2
+			    max_width  	233
+			    justify    	1
+			    label      	"moveTo.php")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEC38650290"
+			width      	419
+			height     	181
+			autoResize 	TRUE
+			width      	419
+			height     	181)
+		    (object ModView "Component View::LineChart.php" "NotAModuleType" "NotAModulePart" @1482
+			location   	(3464, 3408)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@1482
+			    location   	(3419, 3383)
+			    fill_color 	13434879
+			    anchor_loc 	3
+			    nlines     	2
+			    max_width  	166
+			    justify    	1
+			    label      	"LineChart.php")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEC38650293"
+			width      	298
+			autoResize 	TRUE
+			width      	298
+			height     	162)
+		    (object ModView "Component View::Datebase" "NotAModuleType" "NotAModulePart" @1483
+			location   	(4866, 389)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@1483
+			    location   	(4865, 545)
+			    anchor_loc 	1
+			    nlines     	2
+			    max_width  	437
+			    justify    	0
+			    label      	"Datebase")
+			icon       	"Database"
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEC38650299"
+			width      	154
+			height     	154
+			autoResize 	TRUE
+			width      	154
+			height     	154)
+		    (object ModView "Component View::Програма Ledger" "SubType" "Main" @1484
+			location   	(747, 787)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@1484
+			    location   	(644, 591)
+			    anchor_loc 	3
+			    nlines     	1
+			    max_width  	414
+			    justify    	1
+			    label      	"Програма Ledger")
+			icon       	"Main Program"
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEC3865029C"
+			autoResize 	TRUE
+			width      	210
+			height     	312)
+		    (object ModView "Component View::user.php" "NotAModuleType" "NotAModulePart" @1485
+			location   	(1694, 1244)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@1485
+			    location   	(1649, 1219)
+			    fill_color 	13434879
+			    anchor_loc 	3
+			    nlines     	2
+			    max_width  	166
+			    justify    	1
+			    label      	"user.php")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEC3865027D"
+			width      	298
+			autoResize 	TRUE
+			width      	298
+			height     	162)
+		    (object ModView "Component View::debt.php" "NotAModuleType" "NotAModulePart" @1486
+			location   	(1660, 911)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@1486
+			    location   	(1625, 886)
+			    fill_color 	13434879
+			    anchor_loc 	3
+			    nlines     	2
+			    max_width  	128
+			    justify    	1
+			    label      	"debt.php")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEC3865029E"
+			width      	230
+			autoResize 	TRUE
+			width      	230
+			height     	162)
+		    (object ModView "Component View::cash.php" "NotAModuleType" "NotAModulePart" @1487
+			location   	(2770, 1478)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@1487
+			    location   	(2735, 1453)
+			    fill_color 	13434879
+			    anchor_loc 	3
+			    nlines     	2
+			    max_width  	128
+			    justify    	1
+			    label      	"cash.php")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEC38650284"
+			width      	230
+			autoResize 	TRUE
+			width      	230
+			height     	162)
+		    (object ModView "Component View::cashMonth.php" "NotAModuleType" "NotAModulePart" @1488
+			location   	(3155, 1480)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@1488
+			    location   	(3097, 1454)
+			    fill_color 	13434879
+			    anchor_loc 	3
+			    nlines     	2
+			    max_width  	215
+			    justify    	1
+			    label      	"cashMonth.php")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEC38650287"
+			width      	387
+			height     	169
+			autoResize 	TRUE
+			width      	387
+			height     	169)
+		    (object ModView "Component View::report.php" "NotAModuleType" "NotAModulePart" @1489
+			location   	(3280, 1021)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@1489
+			    location   	(3245, 996)
+			    fill_color 	13434879
+			    anchor_loc 	3
+			    nlines     	2
+			    max_width  	128
+			    justify    	1
+			    label      	"report.php")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEC38650296"
+			width      	230
+			autoResize 	TRUE
+			width      	230
+			height     	162)
+		    (object ModVisView "" @1490
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"5AEC364003B5"
+			client     	@1476
+			supplier   	@1477
+			vertices   	(list Points
+			    (3584, 410)
+			    (3107, 575))
+			line_style 	0)
+		    (object ModVisView "" @1491
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"5AEC377901F9"
+			client     	@1483
+			supplier   	@1476
+			vertices   	(list Points
+			    (4790, 385)
+			    (3876, 362))
+			line_style 	0)
+		    (object SubSysView "Component View::Controlers" @1492
+			location   	(2544, 2526)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@1492
+			    location   	(1278, 1897)
+			    fill_color 	13434879
+			    nlines     	2
+			    max_width  	2532
+			    justify    	0
+			    label      	"Controlers")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEC390B019B"
+			width      	2544
+			height     	1270)
+		    (object ModView "Component View::control_tranzaction.php" "NotAModuleType" "NotAModulePart" @1493
+			location   	(3315, 2546)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@1493
+			    location   	(3223, 2521)
+			    fill_color 	13434879
+			    anchor_loc 	3
+			    nlines     	2
+			    max_width  	347
+			    justify    	1
+			    label      	"control_tranzaction.php")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEC392700C1"
+			width      	625
+			height     	163
+			autoResize 	TRUE
+			width      	625
+			height     	163)
+		    (object ModView "Component View::controls_cash.php" "NotAModuleType" "NotAModulePart" @1494
+			location   	(3227, 2055)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@1494
+			    location   	(3155, 2029)
+			    fill_color 	13434879
+			    anchor_loc 	3
+			    nlines     	2
+			    max_width  	270
+			    justify    	1
+			    label      	"controls_cash.php")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEC393601C1"
+			width      	487
+			height     	169
+			autoResize 	TRUE
+			width      	487
+			height     	169)
+		    (object ModView "Component View::control_debt.php" "NotAModuleType" "NotAModulePart" @1495
+			location   	(1596, 2982)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@1495
+			    location   	(1535, 2956)
+			    fill_color 	13434879
+			    anchor_loc 	3
+			    nlines     	2
+			    max_width  	229
+			    justify    	1
+			    label      	"control_debt.php")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEC3A1801FD"
+			width      	413
+			height     	169
+			autoResize 	TRUE
+			width      	413
+			height     	169)
+		    (object ModView "Component View::control_index.php" "NotAModuleType" "NotAModulePart" @1496
+			location   	(1893, 2389)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@1496
+			    location   	(1822, 2362)
+			    fill_color 	13434879
+			    anchor_loc 	3
+			    nlines     	2
+			    max_width  	267
+			    justify    	1
+			    label      	"control_index.php")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEC3A5602F1"
+			width      	481
+			height     	175
+			autoResize 	TRUE
+			width      	481
+			height     	175)
+		    (object ModView "Component View::control_forecast.php" "NotAModuleType" "NotAModulePart" @1497
+			location   	(2052, 1994)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@1497
+			    location   	(1970, 1969)
+			    fill_color 	13434879
+			    anchor_loc 	3
+			    nlines     	2
+			    max_width  	309
+			    justify    	1
+			    label      	"control_forecast.php")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEC3A6F0311"
+			width      	557
+			autoResize 	TRUE
+			width      	557
+			height     	162)
+		    (object ModView "Component View::control_settings.php" "NotAModuleType" "NotAModulePart" @1498
+			location   	(2280, 2616)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@1498
+			    location   	(2199, 2589)
+			    fill_color 	13434879
+			    anchor_loc 	3
+			    nlines     	2
+			    max_width  	306
+			    justify    	1
+			    label      	"control_settings.php")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEC3A8C014B"
+			width      	551
+			height     	175
+			autoResize 	TRUE
+			width      	551
+			height     	175)
+		    (object ModView "Component View::control_report.php" "NotAModuleType" "NotAModulePart" @1499
+			location   	(3063, 2855)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@1499
+			    location   	(2996, 2830)
+			    fill_color 	13434879
+			    anchor_loc 	3
+			    nlines     	2
+			    max_width  	253
+			    justify    	1
+			    label      	"control_report.php")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEC3AAC019C"
+			width      	456
+			autoResize 	TRUE
+			width      	456
+			height     	162)
+		    (object ModVisView "" @1500
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"5AEC3ACC007B"
+			client     	@1479
+			supplier   	@1497
+			vertices   	(list Points
+			    (1954, 1612)
+			    (2029, 1913))
+			line_style 	0)
+		    (object ModVisView "" @1501
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"5AEC39A801E3"
+			client     	@1488
+			supplier   	@1493
+			vertices   	(list Points
+			    (3272, 1562)
+			    (3579, 1775)
+			    (3570, 2069)
+			    (3354, 2463))
+			line_style 	0)
+		    (object ModVisView "" @1502
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"5AEC39E00322"
+			client     	@1488
+			supplier   	@1494
+			vertices   	(list Points
+			    (3162, 1562)
+			    (3211, 1971))
+			line_style 	0)
+		    (object ModVisView "" @1503
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"5AEC39A2007B"
+			client     	@1478
+			supplier   	@1493
+			vertices   	(list Points
+			    (2382, 1539)
+			    (2410, 2004)
+			    (3172, 2464))
+			line_style 	0)
+		    (object ModVisView "" @1504
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"5AEC39C80100"
+			client     	@1487
+			supplier   	@1493
+			vertices   	(list Points
+			    (2757, 1556)
+			    (2707, 2029)
+			    (3212, 2465))
+			line_style 	0)
+		    (object ModVisView "" @1505
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"5AEC39DB01C9"
+			client     	@1487
+			supplier   	@1494
+			vertices   	(list Points
+			    (2832, 1556)
+			    (3155, 1971))
+			line_style 	0)
+		    (object ModVisView "" @1506
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"5AEC3666015E"
+			client     	@1477
+			supplier   	@1478
+			vertices   	(list Points
+			    (2903, 708)
+			    (2431, 1380))
+			line_style 	0)
+		    (object ModVisView "" @1507
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"5AEC36EB02CC"
+			client     	@1477
+			supplier   	@1479
+			vertices   	(list Points
+			    (2869, 708)
+			    (2022, 1454))
+			line_style 	0)
+		    (object ModVisView "" @1508
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"5AEC36530228"
+			client     	@1477
+			supplier   	@1485
+			vertices   	(list Points
+			    (2815, 698)
+			    (1838, 1169))
+			line_style 	0)
+		    (object ModVisView "" @1509
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"5AEC36E4015E"
+			client     	@1477
+			supplier   	@1487
+			vertices   	(list Points
+			    (2942, 708)
+			    (2785, 1398))
+			line_style 	0)
+		    (object ModVisView "" @1510
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"5AEC36E90237"
+			client     	@1477
+			supplier   	@1488
+			vertices   	(list Points
+			    (2979, 708)
+			    (3133, 1396))
+			line_style 	0)
+		    (object ModVisView "" @1511
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"5AEC36F402D9"
+			client     	@1477
+			supplier   	@1489
+			vertices   	(list Points
+			    (3025, 708)
+			    (3212, 939))
+			line_style 	0)
+		    (object ModVisView "" @1512
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"5AEC38D40104"
+			client     	@1477
+			supplier   	@1486
+			vertices   	(list Points
+			    (2816, 630)
+			    (1763, 647)
+			    (1690, 829))
+			line_style 	0)
+		    (object ModVisView "" @1513
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"5AEC3B4C02F2"
+			client     	@1486
+			supplier   	@1495
+			vertices   	(list Points
+			    (1546, 907)
+			    (1169, 907)
+			    (1175, 2843)
+			    (1394, 2913))
+			line_style 	0)
+		    (object ModVisView "" @1514
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"5AEC3BF00342"
+			client     	@1489
+			supplier   	@1499
+			vertices   	(list Points
+			    (3392, 1021)
+			    (3814, 1029)
+			    (3870, 2839)
+			    (3282, 2848))
+			line_style 	0)
+		    (object ModView "Component View::controler_main_page.php" "NotAModuleType" "NotAModulePart" @1515
+			location   	(2340, 2861)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@1515
+			    location   	(2273, 2836)
+			    fill_color 	13434879
+			    anchor_loc 	3
+			    nlines     	2
+			    max_width  	251
+			    justify    	1
+			    label      	"controler_main_page.php")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEC3C4F02FB"
+			width      	452
+			autoResize 	TRUE
+			width      	452
+			height     	162)
+		    (object ModVisView "" @1516
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"5AEC399E0255"
+			client     	@1485
+			supplier   	@1493
+			vertices   	(list Points
+			    (1694, 1322)
+			    (1710, 2151)
+			    (2417, 2176)
+			    (3112, 2465))
+			line_style 	0)
+		    (object ModVisView "" @1517
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"5AEC3B8E00F3"
+			client     	@1485
+			supplier   	@1498
+			vertices   	(list Points
+			    (1575, 1322)
+			    (1369, 1467)
+			    (1351, 2602)
+			    (2010, 2610))
+			line_style 	0)
+		    (object ModVisView "" @1518
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"5AEC3BBE03BD"
+			client     	@1485
+			supplier   	@1496
+			vertices   	(list Points
+			    (1619, 1322)
+			    (1451, 1520)
+			    (1476, 1961)
+			    (1802, 2300))
+			line_style 	0)
+		    (object ModVisView "" @1519
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"5AEC3C6D011D"
+			client     	@1485
+			supplier   	@1515
+			vertices   	(list Points
+			    (1547, 1244)
+			    (1226, 1245)
+			    (1232, 2721)
+			    (2116, 2830))
+			line_style 	0)
+		    (object ModView "Component View::cookie.php" "NotAModuleType" "NotAModulePart" @1520
+			location   	(2288, 3352)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@1520
+			    location   	(2230, 3325)
+			    fill_color 	13434879
+			    anchor_loc 	3
+			    nlines     	2
+			    max_width  	215
+			    justify    	1
+			    label      	"cookie.php")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEC3C940348"
+			width      	388
+			height     	175
+			autoResize 	TRUE
+			width      	388
+			height     	175)
+		    (object ModVisView "" @1521
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"5AEC3CA3005C"
+			client     	@1520
+			supplier   	@1481
+			vertices   	(list Points
+			    (2291, 3437)
+			    (2302, 3546))
+			line_style 	0)
+		    (object ModVisView "" @1522
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"5AEC3CB6014C"
+			client     	@1520
+			supplier   	@1515
+			vertices   	(list Points
+			    (2293, 3265)
+			    (2327, 2939))
+			line_style 	0)
+		    (object ModVisView "" @1523
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"5AEC3CB903BC"
+			client     	@1480
+			supplier   	@1515
+			vertices   	(list Points
+			    (2826, 3306)
+			    (2422, 2939))
+			line_style 	0)
+		    (object ModVisView "" @1524
+			stereotype 	TRUE
+			line_color 	3342489
+			quidu      	"5AEC3CC80313"
+			client     	@1499
+			supplier   	@1482
+			vertices   	(list Points
+			    (3117, 2933)
+			    (3403, 3328))
+			line_style 	0)
+		    (object SubSysView "Component View::Pages" @1525
+			location   	(2535, 4331)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@1525
+			    location   	(1685, 3909)
+			    fill_color 	13434879
+			    nlines     	2
+			    max_width  	1700
+			    justify    	0
+			    label      	"Pages")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEC3D980237"
+			width      	1713
+			height     	856)
+		    (object ModView "Component View::index.php" "NotAModuleType" "NotAModulePart" @1526
+			location   	(1930, 4209)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@1526
+			    location   	(1874, 4184)
+			    fill_color 	13434879
+			    anchor_loc 	3
+			    nlines     	2
+			    max_width  	208
+			    justify    	1
+			    label      	"index.php")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEC3DB2005F"
+			width      	375
+			autoResize 	TRUE
+			width      	375
+			height     	162)
+		    (object ModView "Component View::cash.php" "NotAModuleType" "NotAModulePart" @1527
+			location   	(2388, 4117)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@1527
+			    location   	(2337, 4092)
+			    fill_color 	13434879
+			    anchor_loc 	3
+			    nlines     	2
+			    max_width  	191
+			    justify    	1
+			    label      	"cash.php")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEC38650284"
+			width      	344
+			height     	163
+			autoResize 	TRUE
+			width      	344
+			height     	163)
+		    (object ModView "Component View::tranzaction.php" "NotAModuleType" "NotAModulePart" @1528
+			location   	(3076, 4085)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@1528
+			    location   	(3001, 4058)
+			    fill_color 	13434879
+			    anchor_loc 	3
+			    nlines     	2
+			    max_width  	284
+			    justify    	1
+			    label      	"tranzaction.php")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEC38650280"
+			width      	512
+			height     	175
+			autoResize 	TRUE
+			width      	512
+			height     	175)
+		    (object ModView "Component View::settings.php" "NotAModuleType" "NotAModulePart" @1529
+			location   	(1891, 4511)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@1529
+			    location   	(1844, 4486)
+			    fill_color 	13434879
+			    anchor_loc 	3
+			    nlines     	2
+			    max_width  	173
+			    justify    	1
+			    label      	"settings.php")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEC3E1003BD"
+			width      	312
+			autoResize 	TRUE
+			width      	312
+			height     	162)
+		    (object ModView "Component View::forecast.php" "NotAModuleType" "NotAModulePart" @1530
+			location   	(2348, 4498)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@1530
+			    location   	(2283, 4471)
+			    fill_color 	13434879
+			    anchor_loc 	3
+			    nlines     	2
+			    max_width  	243
+			    justify    	1
+			    label      	"forecast.php")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEC3E1802F3"
+			width      	438
+			height     	175
+			autoResize 	TRUE
+			width      	438
+			height     	175)
+		    (object ModView "Component View::report.php" "NotAModuleType" "NotAModulePart" @1531
+			location   	(2790, 4457)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@1531
+			    location   	(2737, 4430)
+			    fill_color 	13434879
+			    anchor_loc 	3
+			    nlines     	2
+			    max_width  	198
+			    justify    	1
+			    label      	"report.php")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEC38650296"
+			width      	357
+			height     	181
+			autoResize 	TRUE
+			width      	357
+			height     	181)
+		    (object ModView "Component View::debt.php" "NotAModuleType" "NotAModulePart" @1532
+			location   	(3168, 4511)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    charSet    	204
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			label      	(object ItemLabel
+			    Parent_View 	@1532
+			    location   	(3119, 4486)
+			    fill_color 	13434879
+			    anchor_loc 	3
+			    nlines     	2
+			    max_width  	181
+			    justify    	1
+			    label      	"debt.php")
+			icon_style 	"Icon"
+			line_color 	3342489
+			fill_color 	13434879
+			quidu      	"5AEC3865029E"
+			width      	325
+			height     	163
+			autoResize 	TRUE
+			width      	325
+			height     	163))))
 	category   	"Logical View"
 	quidu      	"59AFA157022E")
     process_structure 	(object Processes
