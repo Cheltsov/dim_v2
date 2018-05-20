@@ -2,13 +2,7 @@
 if(!isset($_COOKIE['SingIN'])){
     header('Location:../index.php');
 }
-require "../controlers/control_main_page.php";
 
-require "../controlers/control_setting.php";
-
-if(!isset($_COOKIE['SingIN'])){
-    header('Location:../index.php');
-}
 require "partpage.php";
 $part = new partPage();
 $part->PreLoader();
@@ -19,21 +13,33 @@ $part->arr_links("mainpage.css", "setting_style.css" );
 $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js", "../js/accordion.js", "../js/tabs.js", "../libs/cellSelection.min.js");
 ?>
 
-<div>
-    <button id="add_user">Добавить пользователя</button>
+<div style="margin-left: 25px;">
+	<div style='color:white'>
+	<h2>Изменение почтового адреса</h2>
+	<br>
+	<input type="text">
+    <button id="add_user">Изменить email</button>
+
+	</div>
+<br><br>
+<div style='color:white'>
+	<h2>Изменение пароля</h2>
+	<br>
+	<input type="text">
+    <button id="add_user">Изменить пароль</button>
+</div>
+<br><br>
+<div style='color:white'>
+    <button id="add_user">Удалить кэш программы</button>
+</div>
+<br><br>
+<div style='color:white'>
+    <button id="add_user">Удалить аккаунт</button>
+</div>
 </div>
 
-<div id="dialog">
-        <label for="">Введите email пользователя</label>
-        <input type="text" require id="email_us">
-        <br><br>
-        <!--<input type="submit" value="Add">-->
-        <button id="add_new_user">Add</button>
-</div>
 
-<div id="content">
-    sd
-</div>
+
 
 <script>
     $('#dialog').dialog({

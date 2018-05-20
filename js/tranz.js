@@ -57,10 +57,10 @@ $(document).ready(function(){
             },
             function(data){
                 //alert(data);
-                $("#minTable").append("<tr><th>Название</th><th>Кошелек</th><th>Сумма</th><th>Комментарий</th><th>Пользователь</th><th>Дата</th></tr>");
+                $("#minTable").append("<tr><th>Название</th><th>Кошелек</th><th>Сумма</th><th>Комментарий</th><th>Дата</th></tr>");
                 data = JSON.parse(data);
                 for(i=1,j=2,a=3,b=4,c=5,d=6,il=0;il<data.length;i+=7,j+=7,a+=7,b+=7,c+=7,d+=7,il+=7){
-                    $("#minTable").append("<tr id='"+data[il]+"' class='col'>" +"<td id='name'>"+data[i]+"&nbsp</td>" + "<td id='cash'>"+data[j]+"</td>"+ "<td>"+parseFloat(data[a]).toFixed(2)+"</td>"+  "<td>"+data[b]+"</td>" + "<td>"+data[c]+"</td>" +  "<td>"+data[d]+"</td>"+ "</tr>");
+                    $("#minTable").append("<tr id='"+data[il]+"' class='col'>" +"<td id='name'>"+data[i]+"&nbsp</td>" + "<td id='cash'>"+data[j]+"</td>"+ "<td>"+parseFloat(data[a]).toFixed(2)+"</td>"+  "<td>"+data[b]+"</td>"  +  "<td>"+data[d]+"</td>"+ "</tr>");
                 }
 
             });
@@ -71,10 +71,10 @@ $(document).ready(function(){
                 cash_index : id_cash
             },
             function(data){
-                $("#plusTable").append("<tr><th>Название</th><th>Кошелек</th><th>Сумма</th><th>Комментарий</th><th>Пользователь</th><th>Дата</th></tr>");
+                $("#plusTable").append("<tr><th>Название</th><th>Кошелек</th><th>Сумма</th><th>Комментарий</th><th>Дата</th></tr>");
                 data = JSON.parse(data);
                 for(i=1,j=2,a=3,b=4,c=5,d=6,il=0;il<data.length;i+=7,j+=7,a+=7,b+=7,c+=7,d+=7,il+=7){
-                    $("#plusTable").append("<tr id='"+data[il]+"' class='col'>" +"<td id='name'>"+data[i]+"&nbsp</td>" + "<td id='cash'>"+data[j]+"</td>"+ "<td>"+parseFloat(data[a]).toFixed(2)+"</td>"+  "<td>"+data[b]+"</td>" + "<td>"+data[c]+"</td>" +  "<td>"+data[d]+"</td>"+ "</tr>");
+                    $("#plusTable").append("<tr id='"+data[il]+"' class='col'>" +"<td id='name'>"+data[i]+"&nbsp</td>" + "<td id='cash'>"+data[j]+"</td>"+ "<td>"+parseFloat(data[a]).toFixed(2)+"</td>"+  "<td>"+data[b]+"</td>" + "<td>"+data[d]+"</td>"+ "</tr>");
                 }
             });
         $("#transTable").empty();
@@ -84,10 +84,10 @@ $(document).ready(function(){
                 cash_index : id_cash,
             },
             function(data){
-                $("#transTable").append("<tr><th>Название</th><th>Кошелек1</th><th>Снято</th><th>Кошелек2</th><th>Зачислено</th><th>Комментарий</th><th>Пользователь</th><th>Дата</th></tr>");
+                $("#transTable").append("<tr><th>Название</th><th>Кошелек1</th><th>Снято</th><th>Кошелек2</th><th>Зачислено</th><th>Комментарий</th><th>Дата</th></tr>");
                 data = JSON.parse(data);
                 for(i=1,j=2,a=3,b=4,c=5,d=6,e=7,f=8,il=0;il<data.length;i+=9,j+=9,a+=9,b+=9,c+=9,d+=9,il+=9,e+=9,f+=9){
-                    $("#transTable").append("<tr id='ts"+data[il]+"' class='col'>" +"<td id='name'>"+data[i]+"&nbsp</td>" + "<td id='cash'>"+data[a]+"</td>"+ "<td>"+parseFloat(data[b]).toFixed(2)+"</td>"+  "<td>"+data[c]+"</td>" + "<td>"+parseFloat(data[d]).toFixed(2)+"</td>" +  "<td>"+data[e]+"</td>"+ "<td>"+data[f]+"</td>"+"<td>"+data[j]+"</td>"+"</tr>");
+                    $("#transTable").append("<tr id='ts"+data[il]+"' class='col'>" +"<td id='name'>"+data[i]+"&nbsp</td>" + "<td id='cash'>"+data[a]+"</td>"+ "<td>"+parseFloat(data[b]).toFixed(2)+"</td>"+  "<td>"+data[c]+"</td>" + "<td>"+parseFloat(data[d]).toFixed(2)+"</td>" +  "<td>"+data[e]+"</td>"+"<td>"+data[j]+"</td>"+"</tr>");
                 }
             }
         );
@@ -298,39 +298,94 @@ $( "#up_cash_trans_sum" ).selectmenu({
 
 
 
+
+
 $(document).ready(function() {
     tmp_id="";
     index="";
 
     $(" #plusTable").on('click', ".col", function(){
-        $(".col").css("backgroundColor", 'white');
-        // index = "";
-        index= this.id;
-        flag_ts = "000";
-        what_tr = "plus";
-        document.getElementById(index).style.backgroundColor = "#009fe3";
+
+        if ($(this).css("background-color") == 'rgb(0, 159, 227)') {
+            var li = $(".col"), i = li.length;
+            while (i--) {
+                li[i].style.backgroundColor = i % 2 ? 'lightgrey' : 'white';
+                tmp_id = "";
+                index = "";
+            }
+            return false;
+        }
+        else {
+            var li = $(".col"), i = li.length;
+            while (i--) {
+                li[i].style.backgroundColor = i % 2 ? 'lightgrey' : 'white';
+            }
+            tmp_id = "";
+            index = "";
+            string = this.id;
+            str = string.split('');
+            index = string;
+            flag_ts = "000";
+            what_tr = "plus";
+            document.getElementById(string).style.backgroundColor = "#009fe3";
+        }
     });
 
     $("#minTable").on('click', ".col", function(){
-        $(".col").css("backgroundColor", 'white');
-        //index = "";
-        index= this.id;
-        flag_ts = "000";
-        what_tr = "min";
-        document.getElementById(index).style.backgroundColor = "#009fe3";
+
+        if ($(this).css("background-color") == 'rgb(0, 159, 227)') {
+            var li = $(".col"), i = li.length;
+            while (i--) {
+                li[i].style.backgroundColor = i % 2 ? 'lightgrey' : 'white';
+                tmp_id = "";
+                index = "";
+            }
+            return false;
+        }
+        else {
+            var li = $(".col"), i = li.length;
+            while (i--) {
+                li[i].style.backgroundColor = i % 2 ? 'lightgrey' : 'white';
+            }
+            tmp_id = "";
+            index = "";
+            string = this.id;
+            str = string.split('');
+            index = string;
+            flag_ts = "000";
+            what_tr = "min";
+            document.getElementById(string).style.backgroundColor = "#009fe3";
+        }
+
     });
 
     $("#transTable").on('click', ".col", function(){
-        $(".col").css("backgroundColor", 'white');
-        tmp_id ="";
-        index = "";
-        string =  this.id;
-        str = string.split('');
-        for(i=2;i<str.length;i++){
-            tmp_id += str[i];
+
+        if ($(this).css("background-color") == 'rgb(0, 159, 227)') {
+            var li = $(".col"), i = li.length;
+            while (i--) {
+                li[i].style.backgroundColor = i % 2 ? 'lightgrey' : 'white';
+                tmp_id = "";
+                index = "";
+            }
+            return false;
         }
-        flag_ts = "111";
-        document.getElementById(string).style.backgroundColor = "#009fe3";
+        else {
+            var li = $(".col"), i = li.length;
+            while (i--) {
+                li[i].style.backgroundColor = i % 2 ? 'lightgrey' : 'white';
+            }
+            tmp_id = "";
+            index = "";
+            string =  this.id;
+            str = string.split('');
+            for(i=2;i<str.length;i++){
+                tmp_id += str[i];
+            }
+            flag_ts = "111";
+            //what_tr = "plus";
+            document.getElementById(string).style.backgroundColor = "#009fe3";
+        }
 
     });
 
@@ -363,29 +418,29 @@ $(document).ready(function() {
                                 alert("Нельзя удалить");
                             }
                             else{
-                                location.reload(true);
                                 alert(data);
+                                location.reload(true);
+
                             }
                         }
                     );
                     flag_ts = "";
                 }
-
                 if(flag_ts == "000"){
-                    $.post("../controlers/control_tranzactions.php", {del_tr: "1", index: index},
+                    alert(index);
+                    $.post("../controlers/control_tranzactions.php", {del_tr: "1", id_tr: index},
                         function(data){
-                            if(data === "false"){
+                            if(data == "false"){
                                 alert("Нельзя удалить");
                             }
                             else{
-                                location.reload(true);
                                 alert(data);
+                                location.reload(true);
                             }
                         }
                     );
                     flag_ts="";
                 }
-
             });
 
             $("#no").click(function(){
@@ -393,8 +448,6 @@ $(document).ready(function() {
             });
         }
         else alert("Выберите транзакцию");
-
-
     });
 
 
@@ -412,10 +465,10 @@ $("#all_bal").click(function(){ // заполнение таблицы при н
         },
         function(data){
         //alert(data);
-            $("#minTable").append("<tr><th>Название</th><th>Кошелек</th><th>Сумма</th><th>Комментарий</th><th>Пользователь</th><th>Дата</th></tr>");
+            $("#minTable").append("<tr><th>Название</th><th>Кошелек</th><th>Сумма</th><th>Комментарий</th><th>Дата</th></tr>");
        data = JSON.parse(data);
             for(i=1,j=2,a=3,b=4,c=5,d=6,il=0;il<data.length;i+=7,j+=7,a+=7,b+=7,c+=7,d+=7,il+=7){
-                $("#minTable").append("<tr id='"+data[il]+"' class='col'>" +"<td id='name'>"+data[i]+"&nbsp</td>" + "<td id='cash'>"+data[j]+"</td>"+ "<td>"+parseFloat(data[a]).toFixed(2)+"</td>"+  "<td>"+data[b]+"</td>" + "<td>"+data[c]+"</td>" +  "<td>"+data[d]+"</td>"+ "</tr>");
+                $("#minTable").append("<tr id='"+data[il]+"' class='col'>" +"<td id='name'>"+data[i]+"&nbsp</td>" + "<td id='cash'>"+data[j]+"</td>"+ "<td>"+parseFloat(data[a]).toFixed(2)+"</td>"+  "<td>"+data[b]+"</td>" + "<td>"+data[d]+"</td>"+ "</tr>");
             }
         });
     $("#plusTable").empty();
@@ -424,10 +477,10 @@ $("#all_bal").click(function(){ // заполнение таблицы при н
             wanna_tr_plus : "1"
         },
         function(data){
-            $("#plusTable").append("<tr><th>Название</th><th>Кошелек</th><th>Сумма</th><th>Комментарий</th><th>Пользователь</th><th>Дата</th></tr>");
+            $("#plusTable").append("<tr><th>Название</th><th>Кошелек</th><th>Сумма</th><th>Комментарий</th><th>Дата</th></tr>");
             data = JSON.parse(data);
             for(i=1,j=2,a=3,b=4,c=5,d=6,il=0;il<data.length;i+=7,j+=7,a+=7,b+=7,c+=7,d+=7,il+=7){
-                $("#plusTable").append("<tr id='"+data[il]+"' class='col'>" +"<td id='name'>"+data[i]+"&nbsp</td>" + "<td id='cash'>"+data[j]+"</td>"+ "<td>"+parseFloat(data[a]).toFixed(2)+"</td>"+  "<td>"+data[b]+"</td>" + "<td>"+data[c]+"</td>" +  "<td>"+data[d]+"</td>"+ "</tr>");
+                $("#plusTable").append("<tr id='"+data[il]+"' class='col'>" +"<td id='name'>"+data[i]+"&nbsp</td>" + "<td id='cash'>"+data[j]+"</td>"+ "<td>"+parseFloat(data[a]).toFixed(2)+"</td>"+  "<td>"+data[b]+"</td>" + "<td>"+data[d]+"</td>"+ "</tr>");
 
             }
         });
@@ -438,15 +491,14 @@ $("#all_bal").click(function(){ // заполнение таблицы при н
         },
         function(data){
             //alert(data);
-            $("#transTable").append("<tr><th>Название</th><th>Кошелек1</th><th>Снято</th><th>Кошелек2</th><th>Зачислено</th><th>Комментарий</th><th>Пользователь</th><th>Дата</th></tr>");
+            $("#transTable").append("<tr><th>Название</th><th>Кошелек1</th><th>Снято</th><th>Кошелек2</th><th>Зачислено</th><th>Комментарий</th><th>Дата</th></tr>");
             data = JSON.parse(data);
             for(i=1,j=2,a=3,b=4,c=5,d=6,e=7,f=8,il=0;il<data.length;i+=9,j+=9,a+=9,b+=9,c+=9,d+=9,il+=9,e+=9,f+=9){
-                $("#transTable").append("<tr id='ts"+data[il]+"' class='col'>" +"<td id='name'>"+data[i]+"&nbsp</td>" + "<td id='cash'>"+data[a]+"</td>"+ "<td>"+parseFloat(data[b]).toFixed(2)+"</td>"+  "<td>"+data[c]+"</td>" + "<td>"+parseFloat(data[d]).toFixed(2)+"</td>" +  "<td>"+data[e]+"</td>"+ "<td>"+data[f]+"</td>"+"<td>"+data[j]+"</td>"+"</tr>");
+                $("#transTable").append("<tr id='ts"+data[il]+"' class='col'>" +"<td id='name'>"+data[i]+"&nbsp</td>" + "<td id='cash'>"+data[a]+"</td>"+ "<td>"+parseFloat(data[b]).toFixed(2)+"</td>"+  "<td>"+data[c]+"</td>" + "<td>"+parseFloat(data[d]).toFixed(2)+"</td>" +  "<td>"+data[e]+"</td>"+ "<td>"+data[j]+"</td>"+"</tr>");
             }
         }
     );
 });
-
 
 $("#tr_form_minus").submit(function(){
 
@@ -459,7 +511,7 @@ $("#tr_form_minus").submit(function(){
             data_trMin : $("#add_data").val()
         },
         function(data){
-            if(data) alert("Транзакция успешно добавлена!");
+            if(data == "1") alert("Транзакция успешно добавлена!");
             else alert("Транзакция не добавлена!");
         });
 });
@@ -707,6 +759,100 @@ $("#up_trans_from").submit(function(){
         },
         function(data){
             alert("Транзакция обновлена!");
+        }
+    );
+});
+
+$("#test_tr").click(function(){
+    //Запрос на добавление дополнительной транзакции
+    $.post(
+        "../controlers/control_tranzactions.php",
+        {test_event: "1"},
+        function(data){
+            alert(data);
+            location.reload();
+        }
+    );
+});
+
+$(document).ready(function(){
+    $.post(
+        "../controlers/control_tranzactions.php",
+        {wanna_cash_month: "1"},
+        function(data){
+            $("#but_forCash_month").trigger("click");
+            $("#but_forCash_month_card").trigger("click");
+            data = JSON.parse(data);
+            for(i=0,n=1,tm=2,tc=3,b=4;i<data.length;i+=5,n+=5,tm+=5,tc+=5,b+=5){
+                if(data[tc]==1){
+
+                    $("#hands_month").append("<li><button class='type' id='cashm_"+data[i]+"'>"+data[n]+":"+data[b]+" ("+data[tm]+") </button></li>");
+                }
+                if(data[tc]==2){
+                    $("#cards_month").append("<li><button class='type' id='cashm_"+data[i]+"'>"+data[n]+":"+data[b]+" ("+data[tm]+") </button></li>");
+                }
+            }
+        }
+    );
+});
+
+$('#dialog_conv').dialog({
+    autoOpen: false,
+    show: {
+        effect: 'drop',
+        duration: 500
+    },
+    hide: {
+        effect: 'clip',
+        duration: 500
+    },
+    width: 500
+});
+
+$("#conversion").click(function(){
+    $.post("../controlers/control_tranzactions.php",
+        {conv : "1"},
+        function(data){
+            var obj = JSON.parse(data);
+            for(i=0,j=2,v=3,b=5;i<obj.length;i+=10,j+=10,v+=10,b+=10){
+                $("#name_cash").append("<label>"+obj[j]+"("+obj[v]+")</label>&nbsp<input type='number' id='cov"+obj[i]+"' class='in_conv' step='any' name='cov_bal' value='"+obj[b]+"'><br><br>");
+            }
+            $("#name_cash").append("<button id = 'add_conv'>Добавить</button>");
+        }
+    );
+    $("#dialog_conv").dialog('open');
+});
+
+var ary = [];
+cashs_json = "";
+
+$("#name_cash").on("click keyup",".in_conv",function(){
+
+    id_cash = $(this).attr("id").substring(3);
+    bal = $(this).val();
+    var obj = {};
+    obj[id_cash] = bal;
+    ary.push(obj);
+    for (var key in ary) {
+        for (var key2 in ary[key]){
+            console.log("k= "+key2+" rr="+ary[key][key2]);
+            if(key2 == id_cash){
+                ary[key][key2] = bal;
+            }
+        }
+    }
+    cashs_json = JSON.stringify(ary);
+});
+
+$("#name_cash").on("click","#add_conv",function(){
+    $("#name_cash").empty();
+    alert(cashs_json);
+    $.post(
+        "../controlers/control_tranzactions.php",
+        { na_cashs_josn : cashs_json},
+        function(data){
+            alert(data);
+            //location.reload();
         }
     );
 });

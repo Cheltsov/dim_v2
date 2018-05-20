@@ -277,6 +277,11 @@
 
 <script src="js/move.js"></script>
 <script>
+	$(document).ready(function(){
+		func2();
+	});
+
+
     var forr3 = document.getElementById("on3_fro");
     var forr2 = document.getElementById("on2_fro");
     var forr1 = document.getElementById("on_fro");

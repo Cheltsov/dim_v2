@@ -412,10 +412,10 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
             {getTrMinFromData : "1",data_tr_start : start_data, data_tr_end: end_data},
             function(data){
                 $("#minTable").empty();
-                $("#minTable").append("<tr><th>Название</th><th>Кошелек</th><th>Сумма</th><th>Комментарий</th><th>Пользователь</th><th>Дата</th></tr>");
+                $("#minTable").append("<tr><th>Название</th><th>Кошелек</th><th>Сумма</th><th>Комментарий</th><th>Дата</th></tr>");
                 data = JSON.parse(data);
                 for(i=1,j=2,a=3,b=4,c=5,d=6,il=0;i<data.length;i+=7,j+=7,a+=7,b+=7,c+=7,d+=7,il+=7){
-                    $("#minTable").append("<tr id='"+data[il]+"' class='col'>" +"<td id='name'>"+data[i]+"&nbsp</td>" + "<td id='cash'>"+data[j]+"</td>"+ "<td>"+parseFloat(data[a]).toFixed(2)+"</td>"+  "<td>"+data[b]+"</td>" + "<td>"+data[c]+"</td>" +  "<td>"+data[d]+"</td>"+ "</tr>");
+                    $("#minTable").append("<tr id='"+data[il]+"' class='col'>" +"<td id='name'>"+data[i]+"&nbsp</td>" + "<td id='cash'>"+data[j]+"</td>"+ "<td>"+parseFloat(data[a]).toFixed(2)+"</td>"+  "<td>"+data[b]+"</td>" + "<td>"+data[d]+"</td>"+ "</tr>");
                 }
             }
         );
@@ -423,10 +423,10 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
             {getTrPlusFromData : "1",data_tr_start :start_data, data_tr_end: end_data},
             function(data){
                 $("#plusTable").empty();
-                $("#plusTable").append("<tr><th>Название</th><th>Кошелек</th><th>Сумма</th><th>Комментарий</th><th>Пользователь</th><th>Дата</th></tr>");
+                $("#plusTable").append("<tr><th>Название</th><th>Кошелек</th><th>Сумма</th><th>Комментарий</th><th>Дата</th></tr>");
                 data = JSON.parse(data);
                 for(i=1,j=2,a=3,b=4,c=5,d=6,il=0;i<data.length;i+=7,j+=7,a+=7,b+=7,c+=7,d+=7,il+=7){
-                    $("#plusTable").append("<tr id='"+data[il]+"' class='col'>" +"<td id='name'>"+data[i]+"&nbsp</td>" + "<td id='cash'>"+data[j]+"</td>"+ "<td>"+parseFloat(data[a]).toFixed(2)+"</td>"+  "<td>"+data[b]+"</td>" + "<td>"+data[c]+"</td>" +  "<td>"+data[d]+"</td>"+ "</tr>");
+                    $("#plusTable").append("<tr id='"+data[il]+"' class='col'>" +"<td id='name'>"+data[i]+"&nbsp</td>" + "<td id='cash'>"+data[j]+"</td>"+ "<td>"+parseFloat(data[a]).toFixed(2)+"</td>"+  "<td>"+data[b]+"</td>" + "<td>"+data[d]+"</td>"+ "</tr>");
                 }
             }
         );
@@ -434,10 +434,10 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
             {getTransFromData : "1", data_tr_start : start_data, data_tr_end: end_data},
             function(data){
                 $("#transTable").empty();
-                $("#transTable").append("<tr><th>Название</th><th>Кошелек1</th><th>Снято</th><th>Кошелек2</th><th>Зачислено</th><th>Комментарий</th><th>Пользователь</th><th>Дата</th></tr>");
+                $("#transTable").append("<tr><th>Название</th><th>Кошелек1</th><th>Снято</th><th>Кошелек2</th><th>Зачислено</th><th>Комментарий</th><th>Дата</th></tr>");
                 data = JSON.parse(data);
                 for(i=1,j=2,a=3,b=4,c=5,d=6,e=7,f=8,il=0;i<data.length;i+=9,j+=9,a+=9,b+=9,c+=9,d+=9,il+=9,e+=9,f+=9){
-                    $("#transTable").append("<tr id='ts"+data[il]+"' class='col'>" +"<td id='name'>"+data[i]+"&nbsp</td>" + "<td id='cash'>"+data[a]+"</td>"+ "<td>"+parseFloat(data[b]).toFixed(2)+"</td>"+  "<td>"+data[c]+"</td>" + "<td>"+parseFloat(data[d]).toFixed(2)+"</td>" +  "<td>"+data[e]+"</td>"+ "<td>"+data[f]+"</td>"+"<td>"+data[j]+"</td>"+"</tr>");
+                    $("#transTable").append("<tr id='ts"+data[il]+"' class='col'>" +"<td id='name'>"+data[i]+"&nbsp</td>" + "<td id='cash'>"+data[a]+"</td>"+ "<td>"+parseFloat(data[b]).toFixed(2)+"</td>" + "<td>"+parseFloat(data[d]).toFixed(2)+"</td>" +  "<td>"+data[e]+"</td>"+ "<td>"+data[f]+"</td>"+"<td>"+data[j]+"</td>"+"</tr>");
                 }
             }
         );

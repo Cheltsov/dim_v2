@@ -4,6 +4,8 @@ require_once "../class/user.php";
 require_once "../class/tranzaction.php";
 require_once "../class/linechart.php";
 
+require_once "../class/libs/tcpdf/tcpdf.php";
+
 $con = new Datebase();
 
 $user = new User();
@@ -36,16 +38,15 @@ if(isset($_POST['wanna_info_tr_plus']) && isset($_POST['data'])){
 }
 
 if(isset($_POST['wanna_info_tr_min']) && isset($_POST["data"])){
-
-    $rez_1 = '';
+$rez_1 = '';
     $arr_tr_min =array();
     $tmp =array();
     $traz->setUser_Id($id_cur_user);
     $traz->setStatus("minus");
-    //$data_tr_min = $traz->getDataByTranz(); // получить даты транзакций плюс
     $traz->setData($_POST['data']);
     $datas = $traz->getBalanceByData();
     echo (json_encode($datas));
+
 }
 
 if(isset($_POST['cont'])){
@@ -83,3 +84,4 @@ if(isset($_POST['getMinus']) && isset ($_POST['getPlus'])){
     echo json_encode($arr_tmp);
     //echo($_POST['month_tr']);
 }
+

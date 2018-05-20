@@ -90,12 +90,32 @@ class Tranzaction extends Datebase{
 
     public function AddTranz(){
         try{
+            $tr_course1 = $this->getCourseCash();
+            $tr = R::dispense("tranzaction");
+            $tr->name = $this->name;
+            $tr->cash = $this->cash;
+            $tr->balance = $this->balance;
+            $tr->course = round($tr_course1,2);
+            $tr->comment = $this->comment;
+            $tr->userId = $this->user_id;
+            if(!isset($this->data)) $tr->data = date("Y-m-d H:m");
+            else $tr->data = $this->data;
+            $tr->status = $this->status;
+            R::store($tr);
+            return true;
+        }
+        catch(Exception $e){
+            echo($e);
+        }
+        R::close();
+    }
+
+    public function getCourseCash(){
             $tr_course = 0;
             $cash = R::find("cash","id = $this->cash");
             foreach($cash as $item){
                 $cash_type_money = $item->type_money;
             }
-
             $date = date_create($this->data);
             $tr_day = date_format($date,"Y-m-d");
             $dayli_course = R::findAll("courses","day = '$tr_day'");
@@ -109,29 +129,11 @@ class Tranzaction extends Datebase{
                     }
                 }
             }
-
             if($tr_course == 0){
                 $course = getOneCourse($cash_type_money);
                 $tr_course = $course['sale'];
             }
-
-            $tr = R::dispense("tranzaction");
-            $tr->name = $this->name;
-            $tr->cash = $this->cash;
-            $tr->balance = $this->balance;
-            $tr->course = round($tr_course,2);
-            $tr->comment = $this->comment;
-            $tr->userId = $this->user_id;
-            if(!isset($this->data)) $tr->data = date("Y-m-d H:m");
-            else $tr->data = $this->data;
-            $tr->status = $this->status;
-            R::store($tr);
-            return true;
-        }
-        catch(Exception $e){
-            echo($e);
-        }
-        R::close();
+            return $tr_course;
     }
 
     public function ExtraTranzaction(){
@@ -231,6 +233,30 @@ class Tranzaction extends Datebase{
             }
         }
         echo(json_encode($arr_tmp));
+        R::close();
+    }
+
+    public function getTranzNotJSON($hid_month){
+        $arr_tmp = array();
+        $name_cash = "";
+        $tr = R::findAll('tranzaction',"user_id = $this->user_id and month(data) = $hid_month order by data");
+        foreach($tr as $item){
+            if($item->status == $this->status){
+                $cash = R::findAll('cash',"id = $item->cash");
+                foreach($cash as $tmp){
+                    $name_cash = $tmp->name;
+                    $valuta = $tmp->type_money;
+                }
+                $us = R::findAll('users',"id = $item->user_id");
+                foreach($us as $tmp_us){
+                    $us_name = $tmp_us->login;
+                }
+                if($name_cash=="")  $name_cash="Удален";
+                array_push($arr_tmp,$item->id,$item->name,$name_cash,$item->balance,$item->comment,$us_name,$item->data, $valuta);
+                $name_cash="";
+            }
+        }
+        return $arr_tmp;
         R::close();
     }
 
@@ -517,6 +543,6 @@ class Tranzaction extends Datebase{
         }
         R::close();
     }
-    
+
 
 }

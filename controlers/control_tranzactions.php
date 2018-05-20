@@ -43,6 +43,10 @@ if(isset($_POST['want_id_cash'])){
 }
 
 if(isset($_POST['name_trMin']) && isset($_POST['cash_trMin']) && isset($_POST['balance_trMin']) && isset($_POST['comment_trMin'])){
+    AddTr($traz,$cashmonth,$cash,$id_cur_user);
+}
+
+function AddTr($traz,$cashmonth,$cash,$id_cur_user){
     $traz->setName($_POST['name_trMin']);
     $traz->setCash_Tr($_POST['cash_trMin']);
     $traz->setBalance($_POST['balance_trMin']);

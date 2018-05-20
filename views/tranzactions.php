@@ -265,8 +265,6 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
                 <select name="cash_minus" id="cash_minus_sel" required >
                 </select>
                 <br><br>
-
-
                 <p>Сумма:</p>
                 <input type="number" required step="any" name="balance_minus"> <br><br>
                 <p>Комментарий:</p>
@@ -343,8 +341,6 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
             <select name="cash_minus" id="up_cash_minus_sel" required >
             </select>
             <br><br>
-
-
             <p>Сумма:</p>
             <input type="number" required step="any" name="up_balance_minus"> <br><br>
             <p>Комментарий:</p>
@@ -399,133 +395,10 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
 
 </div>
 
-
 </div>
 
 
 
-<style>
-
-</style>
-<script>
-
-
-    //-------------------------------------------------------------------------------------
-
-    $("#test_tr").click(function(){
-        //Запрос на добавление дополнительной транзакции
-        $.post(
-            "../controlers/control_tranzactions.php",
-            {test_event: "1"},
-            function(data){
-                alert(data);
-                location.reload();
-            }
-        );
-
-
-    });
-
-    $(document).ready(function(){
-        $.post(
-            "../controlers/control_tranzactions.php",
-            {wanna_cash_month: "1"},
-            function(data){
-                $("#but_forCash_month").trigger("click");
-                $("#but_forCash_month_card").trigger("click");
-                data = JSON.parse(data);
-                for(i=0,n=1,tm=2,tc=3,b=4;i<data.length;i+=5,n+=5,tm+=5,tc+=5,b+=5){
-                    if(data[tc]==1){
-
-                        $("#hands_month").append("<li><button class='type' id='cashm_"+data[i]+"'>"+data[n]+":"+data[b]+" ("+data[tm]+") </button></li>");
-                    }
-                    if(data[tc]==2){
-                        $("#cards_month").append("<li><button class='type' id='cashm_"+data[i]+"'>"+data[n]+":"+data[b]+" ("+data[tm]+") </button></li>");
-                    }
-                }
-            }
-        );
-    });
-
-    $('#dialog_conv').dialog({
-        autoOpen: false,
-        show: {
-            effect: 'drop',
-            duration: 500
-        },
-        hide: {
-            effect: 'clip',
-            duration: 500
-        },
-        width: 500
-    });
-
-    $("#conversion").click(function(){
-        $.post("../controlers/control_tranzactions.php",
-            {conv : "1"},
-            function(data){
-                var obj = JSON.parse(data);
-                for(i=0,j=2,v=3,b=5;i<obj.length;i+=10,j+=10,v+=10,b+=10){
-                    $("#name_cash").append("<label>"+obj[j]+"("+obj[v]+")</label>&nbsp<input type='number' id='cov"+obj[i]+"' class='in_conv' step='any' name='cov_bal' value='"+obj[b]+"'><br><br>");
-                }
-                $("#name_cash").append("<button id = 'add_conv'>Добавить</button>");
-            }
-        );
-        $("#dialog_conv").dialog('open');
-    });
-
-    var ary = [];
-    cashs_json = "";
-
-    $("#name_cash").on("click keyup",".in_conv",function(){
-
-
-        id_cash = $(this).attr("id").substring(3);
-        bal = $(this).val();
-
-        var obj = {};
-        obj[id_cash] = bal;
-        ary.push(obj);
-        for (var key in ary) {
-            for (var key2 in ary[key]){
-                console.log("k= "+key2+" rr="+ary[key][key2]);
-                if(key2 == id_cash){
-                    ary[key][key2] = bal;
-                }
-            }
-        }
-
-
-
-
-
-        cashs_json = JSON.stringify(ary);
-    });
-
-
-
-
-    $("#name_cash").on("click","#add_conv",function(){
-        $("#name_cash").empty();
-        alert(cashs_json);
-        $.post(
-            "../controlers/control_tranzactions.php",
-            { na_cashs_josn : cashs_json},
-            function(data){
-                alert(data);
-                //location.reload();
-            }
-        );
-    });
-
-
-
-
-
-
-
-
-</script>
 
 <?php
 $part->script_links("../js/tranz.js");

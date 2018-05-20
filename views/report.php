@@ -4,7 +4,6 @@ if(!isset($_COOKIE['SingIN'])){
 }
 require "../controlers/control_main_page.php";
 
-
 require "partpage.php";
 $part = new partPage();
 $part->PreLoader();
@@ -17,6 +16,12 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
 
     <select id="month" style="position:relative; top:-40px">
     </select>
+
+    <form action="../controlers/create_pdf.php" method="post">
+        <input type="submit" value="REPORT" name="create_pdf">
+        <input type="hidden" value="" id="hid" name="hid_month">
+    </form>
+
 <div>
     <select id="chose">
         <option value="1">Расходы</option>
@@ -52,6 +57,9 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
     <script>
 
         $("#month").change(function(){
+
+            $("#hid").val($("#month").val());
+
             if($("#chose_schedule").val()==1){
                 if( $("#chose").val() == 1){
                     myLineChart.data.datasets[0].data = [];
@@ -123,6 +131,7 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
                     for(i=0;i<obj.length;i++){
                         $("#month").append("<option value='"+(i+1)+"'>"+monthNames[parseInt(obj[i])-1]+"</option>");
                         $("#month").val((i+1));
+                        $("#hid").val((i+1));
                     }
                 });
 
@@ -231,6 +240,7 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
                myLineChart.data.datasets[0].label =  "Расход";
 
                $("#month").val(last_month);
+               $("#hid").val(last_month);
                $.post(
                    "../controlers/control_report.php",
                    {
@@ -290,6 +300,8 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
                 myLineChart.data.datasets[0].label =  "Расход";
 
                 $("#month").val(last_month);
+                $("#hid").val(last_month);
+
                 $.post(
                     "../controlers/control_report.php",
                     {
@@ -411,6 +423,8 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
         }
 
     </script>
+
+
 <?php
 $part->script_links("../js/report.js");
 $part->foot();
