@@ -34,6 +34,7 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
 <link rel="stylesheet" href="../libs/node_modules_call/pg-calendar/dist/css/pignose.calendar.css">
 <script src="../libs/node_modules_call/pg-calendar/dist/js/pignose.calendar.full.js"></script>
 <style>
+
     .pignose-calendar-top{
         padding:20px 0; !important
     }
@@ -41,7 +42,6 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
         padding: 1em 0; !important
     }
     .calender{
-        border:1px solid red;
         height:320px;
         font-size:10pt;
         margin-top:30px;
@@ -54,7 +54,6 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
     }
     .courses{
         background-color:white;
-        border:1px solid red;
         margin-top:0px;
         width:100%
     }
@@ -65,6 +64,7 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
         margin-left:20px;
         margin-top:30px;
         max-height: 640px;
+        font-family: 'Roboto_black',sans-serif;
     }
 
     .courses td{
@@ -73,14 +73,17 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
         width:80px;
         height: 50px;
         text-align: center;
+        font-family: 'Roboto_black',sans-serif;
     }
     .menu th{
         padding:6px;
+        font-family: 'Roboto_black',sans-serif;
     }
     .menu td{
         border:1px solid black;
         padding:6px;
-        text-align:center
+        text-align:center;
+        font-family: 'Roboto_black',sans-serif;
     }
     .menu tr:nth-child(2n+1) {
         background: lightgrey;
@@ -95,6 +98,7 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
     #fragment-1, #fragment-2, #fragment-3{
         max-height: 560px;
         overflow: auto;
+        font-family: 'Roboto_black',sans-serif;
     }
     .ui-tabs .ui-tabs-nav{
         margin-bottom: 15px; !important
@@ -103,12 +107,12 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
         padding:0 1.4em;
     }
 </style>
-<div style="border:2px solid green; width:19%; float:left">
+<div style=" width:19%; float:left">
     <div class="calender"></div>
 
-    <div class="all_balance" style="border:1px solid red; height:100px; background-color:white">
+    <div class="all_balance" style=" font-family: 'Roboto_black',sans-serif; height:55px; margin-bottom:44px; background-color:white" id="tool" title="tretret">
         <br>
-        <p>Общий счет: <span id="all_sum"></span></p>
+        <p >Общий счет: <span id="all_sum"></span>&nbsp(UAH)</p>
     </div>
 
     <table class="courses">
@@ -149,7 +153,8 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
     }
     .operations button{
         width:90px;
-        height:30px
+        height:30px;
+        font-family: 'Roboto_black',sans-serif;
     }
 </style>
 <div class="operations">
@@ -347,7 +352,7 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
             function(data){
                 data = parseFloat(data).toFixed(2);
                 $("#all_sum").empty();
-                $("#all_sum").append(data+" (UAH)");
+                $("#all_sum").append(data);
             }
         );
     });
@@ -414,8 +419,8 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
                 $("#minTable").empty();
                 $("#minTable").append("<tr><th>Название</th><th>Кошелек</th><th>Сумма</th><th>Комментарий</th><th>Дата</th></tr>");
                 data = JSON.parse(data);
-                for(i=1,j=2,a=3,b=4,c=5,d=6,il=0;i<data.length;i+=7,j+=7,a+=7,b+=7,c+=7,d+=7,il+=7){
-                    $("#minTable").append("<tr id='"+data[il]+"' class='col'>" +"<td id='name'>"+data[i]+"&nbsp</td>" + "<td id='cash'>"+data[j]+"</td>"+ "<td>"+parseFloat(data[a]).toFixed(2)+"</td>"+  "<td>"+data[b]+"</td>" + "<td>"+data[d]+"</td>"+ "</tr>");
+                for(i=1,j=2,a=3,b=4,c=5,d=6,il=0,val=7;i<data.length;i+=8,j+=8,a+=8,b+=8,c+=8,d+=8,il+=8,val+=8){
+                    $("#minTable").append("<tr id='"+data[il]+"' class='col'>" +"<td id='name'>"+data[i]+"&nbsp</td>" + "<td id='cash'>"+data[j]+"</td>"+ "<td>"+parseFloat(data[a]).toFixed(2)+" ("+data[val]+")</td>"+  "<td>"+data[b]+"</td>" + "<td>"+data[d]+"</td>"+ "</tr>");
                 }
             }
         );
@@ -425,8 +430,8 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
                 $("#plusTable").empty();
                 $("#plusTable").append("<tr><th>Название</th><th>Кошелек</th><th>Сумма</th><th>Комментарий</th><th>Дата</th></tr>");
                 data = JSON.parse(data);
-                for(i=1,j=2,a=3,b=4,c=5,d=6,il=0;i<data.length;i+=7,j+=7,a+=7,b+=7,c+=7,d+=7,il+=7){
-                    $("#plusTable").append("<tr id='"+data[il]+"' class='col'>" +"<td id='name'>"+data[i]+"&nbsp</td>" + "<td id='cash'>"+data[j]+"</td>"+ "<td>"+parseFloat(data[a]).toFixed(2)+"</td>"+  "<td>"+data[b]+"</td>" + "<td>"+data[d]+"</td>"+ "</tr>");
+                for(i=1,j=2,a=3,b=4,c=5,d=6,il=0,val=7;i<data.length;i+=8,j+=8,a+=8,b+=8,c+=8,d+=8,il+=8,val+=8){
+                    $("#plusTable").append("<tr id='"+data[il]+"' class='col'>" +"<td id='name'>"+data[i]+"&nbsp</td>" + "<td id='cash'>"+data[j]+"</td>"+ "<td>"+parseFloat(data[a]).toFixed(2)+" ("+data[val]+")</td>"+  "<td>"+data[b]+"</td>" + "<td>"+data[d]+"</td>"+ "</tr>");
                 }
             }
         );
@@ -436,13 +441,12 @@ echo('<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness
                 $("#transTable").empty();
                 $("#transTable").append("<tr><th>Название</th><th>Кошелек1</th><th>Снято</th><th>Кошелек2</th><th>Зачислено</th><th>Комментарий</th><th>Дата</th></tr>");
                 data = JSON.parse(data);
-                for(i=1,j=2,a=3,b=4,c=5,d=6,e=7,f=8,il=0;i<data.length;i+=9,j+=9,a+=9,b+=9,c+=9,d+=9,il+=9,e+=9,f+=9){
-                    $("#transTable").append("<tr id='ts"+data[il]+"' class='col'>" +"<td id='name'>"+data[i]+"&nbsp</td>" + "<td id='cash'>"+data[a]+"</td>"+ "<td>"+parseFloat(data[b]).toFixed(2)+"</td>" + "<td>"+parseFloat(data[d]).toFixed(2)+"</td>" +  "<td>"+data[e]+"</td>"+ "<td>"+data[f]+"</td>"+"<td>"+data[j]+"</td>"+"</tr>");
+                for(i=1,j=2,a=3,b=4,c=5,d=6,e=7,f=8,il=0,val1=9,val2=10;i<data.length;i+=11,j+=11,a+=11,b+=11,c+=11,d+=11,il+=11,e+=11,f+=11,val1+=11,val2+=11){
+                    $("#transTable").append("<tr id='ts"+data[il]+"' class='col'>" +"<td id='name'>"+data[i]+"&nbsp</td>" + "<td id='cash'>"+data[a]+"</td>"+ "<td>"+parseFloat(data[b]).toFixed(2)+"<br>("+data[val1]+")</td><td>" +data[c]+ "</td><td>"+parseFloat(data[d]).toFixed(2)+"<br>("+data[val2]+")</td>" +  "<td>"+data[e]+"</td>"+"<td>"+data[j]+"</td>"+"</tr>");
                 }
             }
         );
     }
-
 
 
 

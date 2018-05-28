@@ -121,7 +121,7 @@
                     <input type="submit"  value="Отправить" name="singIn" id="logUp">
                 </form>
 
-                <div id="dificultPas" style="display: none; width:100px; position: absolute; top:100px; border: 1px solid red; color:white">
+                <div id="dificultPas" style="display: none; width:100px; position: absolute; top:320px; left:1265; color:white">
                     Пароли не одинаковые
                 </div>
             </div>
@@ -206,55 +206,7 @@
 
 
 
-    <div class="for_nine-screen" style="position: relative; top: -110px"></div>
-    <div class="nine-screen">
-        <h2 id="nine_text">Отзывы клиентов о нашей работе</h2>
-        <div class='nine_flex'>
-            <div class="arow-six left_two" style="margin-right: 50px;float:left; background: url(im/arow_left.png); "></div>
 
-                <div class="container-wrap_two">
-                    <div class="container_two">
-
-
-                        <div class="block_two wow fadeIn" data-wow-duration="1s" data-wow-delay="0.1s">
-                            <img src="im/person5.png" alt="">
-                            <p class="name">Михаил Шевчик</p>
-                            <p class="data">23.12.2016</p>
-                            <p class="text_pastdata">Рыбатекст используется дизайнерами, проектировщиками и фронтендерами, когда нужно быстро заполнить<br>макеты или прототипы содержимым. Это тестовый контент, который не должен нести никакого смысла, <br>лишь показать наличие самого текста или продемонстрировать типографику в деле.</p>
-                        </div>
-                        <div class="block_two">
-                            <img src="im/person2.png" alt="">
-                            <p class="name">Александр Мишук</p>
-                            <p class="data">15.10.2016</p>
-                            <p class="text_pastdata">Срочно требовался одностраничник, до этого никогда с лендингами не работал, на сайте конверсии практически не было. Сделано все быстро и четко. Лендос работает, клиентов ведет.</p>
-                        </div>
-                        <div class="block_two">
-                            <img src="im/person3.png" alt="">
-                            <p class="name">Алексей Никулин</p>
-                            <p class="data">28.03.2017</p>
-                            <p class="text_pastdata">Лендинг был делан в срок - 1 неделя. Дизайн крутой. Показал свой LP друзьям-предпринимателям, оценили на 5, по пятибальной шкале. Конверсия по факту 5-7%.</p>
-                        </div>
-                        <div class="block_two">
-                            <img src="im/person4.png" alt="">
-                            <p class="name">Юрий Соколов</p>
-                            <p class="data">06.04.2017</p>
-                            <p class="text_pastdata">Бизнес-аналитики общались со мной более часа и только после этого я принял решение работать с этой компанией, т.к. увидел реальную помощь и профессионализм. <br>Сроки исполнения идеальные, команда подобрана четко! <br>Результат идеальный, глядя на мой лендос, знакомые воспользовались услугами этой компании.</p>
-                        </div>
-                        <div class="block_two">
-                            <img src="im/person5.png" alt="">
-                            <p class="name">Виталий Горошко</p>
-                            <p class="data">02.10.2017</p>
-                            <p class="text_pastdata">Мне изготовили лендинг, который в первую неделю показал конверсию в 10,71% благодаря этому заявок стало в 3 раза больше прежнего. Особая благодарность за внимание к деталям и ответственное устранение всех замечаний.</p>
-                        </div>
-
-                    </div>
-                </div>
-
-            <div class="arow-six right_two" style="margin-left: 50px;float:left; background: url(im/arow_right.png); "></div>
-        </div>
-
-    </div>
-</div>
 
 <div class="foot">
     <img src="im/logo.png" alt="" id="log">

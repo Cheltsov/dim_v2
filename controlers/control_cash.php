@@ -4,13 +4,11 @@ require_once "../class/user.php";
 require_once "../class/cash.php";
 require_once "../class/cashmonth.php";
 require_once "../class/tranzaction.php";
-//require_once "getCourse.php";
 
 $user = new User();
 $cash = new Cash();
 $cashmonth = new CashMonth();
 $traz = new Tranzaction();
-
 
 $id_cur_user = $user->getUserId_Cookie();
 
@@ -18,9 +16,6 @@ if(isset($_POST['wanna_info_cash'])){
     $cash->setId_User($id_cur_user);
     $cash->getListCashFromId_User();
 }
-
- // Получить кошельки по id пользователя return массив
-
 
 if(isset($_POST['name_cash_add'])){
     try{
@@ -48,20 +43,6 @@ if(isset($_POST['name_cash_add'])){
         echo($e);
     }
 }
-
-
-
-
-//$temp = $con->getCash($id_cur_user);
-
-
-/*
-function getTempCash(){
-    return $GLOBALS['temp'];
-}*/
-
-
-
 if(isset($_POST['id_but'])){
     $cash->setId($_POST['id_but']);
     $tmp = $cash->getCashFromId();
@@ -77,12 +58,6 @@ if(isset($_POST['num_id'])){
     $cashmonth->setId($id);
     $cashmonth->delCashMonth_FromId_Cash();
 }
-/*
-if(isset($_POST['queryBut'])){
-    $tp = $GLOBALS['temp'];
-    echo(json_encode($tp));
-}*/
-
 if(isset($_POST['up_cash'])){
     $cash->setId($_POST['up_cash']);
     $row_cash = $cash->getCashFromId();
@@ -114,18 +89,11 @@ if(isset($_POST['id_cash'])){
 }
 
 if(isset($_POST['val'])){
-
     $last_course = $_POST['last_course'];
     $cur_course = $_POST['val'];
     $cur_balance = $_POST['bal'];
-
     $cur_course_val = getOneCourse($last_course);
-
     $new_cur_course_val = getOneCourse($cur_course);
-
-
-
-    //$new_bal = 0;
 
     if($last_course == "UAH"){
         $new_bal = $cur_balance * $new_cur_course_val['sale'];
@@ -142,14 +110,7 @@ if(isset($_POST['val'])){
         echo($new_bal);
         exit;
     }
-    /*
-    echo($cur_balance);
-    echo('---');
-    echo($new_bal);*/
-
-
 }
-
 
 if(isset($_POST['get_traz_del_cash'])){
     $traz->setUser_Id($id_cur_user);

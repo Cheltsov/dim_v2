@@ -1,30 +1,16 @@
 <?php
-require_once "../class/db.php";
 require_once "../class/user.php";
 require_once "../class/tranzaction.php";
 require_once "../class/linechart.php";
 
 require_once "../class/libs/tcpdf/tcpdf.php";
 
-$con = new Datebase();
-
 $user = new User();
 $traz = new Tranzaction();
 
 $id_cur_user = $user->getUserId_Cookie();
 
-//$temp = $con->getCash($id_cur_user);
-/*
-if(isset($_POST['wanna_info_tr'])){
-    $all_balance = 0;
-    $id_cur_user = $con->findIdUser();
-    $all_tr = $con->getTranzFromID_user( $id_cur_user);
-    $tmp = json_decode($all_tr);
-    for ($i = 3; $i < count($tmp); $i+=7) {
-        $all_balance += $tmp[$i];
-    }
-    echo($all_balance);
-}*/
+
 if(isset($_POST['wanna_info_tr_plus']) && isset($_POST['data'])){
     $rez_1 = '';
     $arr_tr_min =array();

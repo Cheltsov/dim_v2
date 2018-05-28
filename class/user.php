@@ -56,7 +56,6 @@ class User extends Datebase{
     public function AddUser(){
         try{
             $password = md5($this->password);
-
             $users = R::dispense("users");
             $users->login =$this->login;
             $users->email=$this->email;
@@ -87,7 +86,7 @@ class User extends Datebase{
             if($name == $_COOKIE['SingIN'])
                 $idUser = ($item->id);
         }
-        return  $idUser;
+        return $idUser;
     }
 
     public function getIdUserFromEmail(){
@@ -102,11 +101,33 @@ class User extends Datebase{
             $usersAll = R::load("users", $this->id);
             $usersAll->password = md5($this->password);
             R::store($usersAll);
+            return true;
         }
         catch(Exception $e){
             echo($e);
         }
         R::close();
+    }
+
+    public function NewEmail(){
+        try{
+            $usersAll = R::load("users", $this->id);
+            $usersAll->email = $this->email;
+            R::store($usersAll);
+            return true;
+        }
+        catch(Exception $e){
+            echo($e);
+        }
+        R::close();
+    }
+
+    public function Del_Cash_Prog(){
+        $this->delUserByProg($this->getId);
+    }
+
+    public function Del_user(){
+        $this->delUser($this->getId);
     }
 
     public function CheckUserLogin(){

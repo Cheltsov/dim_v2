@@ -7,5 +7,9 @@
  */
 
 if(isset($_POST['exit'])){
-   setcookie("SingIN", "", time()-3600, "/");
+   delCook();
+}
+
+function delCook(){
+	setcookie("SingIN", "", time()-3600, "/");
 }

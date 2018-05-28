@@ -668,13 +668,12 @@ $("#add_pay_one_p").click(function(){
                     debt_id:tmp_id
                 },
                 function(data){
-
                     $("#minTable").empty();
                     $("#minTable").append("<tr><th>Название</th><th>Кошелек</th><th>Сумма</th><th>Комментарий</th><th>Дата</th></tr>");
                     data = JSON.parse(data);
                     for(item=0;item<data.length;item++){
-                        for(i=1,j=2,a=3,b=4,c=7,d=6,il=0;il<data.length;i+=7,j+=7,a+=7,b+=7,c+=7,d+=7,il+=7){
-                            $("#minTable").append("<tr id='tr"+data[item][il]+"' class='col'>" +"<td id='name'>"+ucFirst(data[item][i])+"&nbsp</td>" + "<td id='cash'>"+ucFirst(data[item][j])+"</td>"+ "<td>"+parseFloat(data[item][a]).toFixed(2)+"</td>"+  "<td>"+ucFirst(data[item][b])+"</td>" + "<td>"+data[item][d]+"</td>"+"</tr>");
+                        for(i=1,j=2,a=3,b=4,c=7,d=6,il=0,val=8;il<data.length;i+=8,j+=8,a+=8,b+=8,c+=8,d+=8,il+=8){
+                            $("#minTable").append("<tr id='tr"+data[item][il]+"' class='col'>" +"<td id='name'>"+ucFirst(data[item][i])+"&nbsp</td>" + "<td id='cash'>"+ucFirst(data[item][j])+"</td>"+ "<td>"+parseFloat(data[item][a]).toFixed(2)+"("+data[item][val]+")</td>"+  "<td>"+ucFirst(data[item][b])+"</td>" + "<td>"+data[item][d]+"</td>"+"</tr>");
                         }
                     }
 

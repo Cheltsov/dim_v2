@@ -1,16 +1,19 @@
 <?php
 	require_once '../class/mail.php';
 	require_once '../class/user.php';
+	require_once '../class/cash.php';
 
 	$mail = new Mail();
 	$user = new User();
+	$cash = new Cash();
 
 
 if(isset($_POST['first_email']) && isset($_POST['pass'])){
     $user->setLogin($_POST['first_email']);
     $user->setPassword($_POST['pass']);
-   $tmp =  $user->SingIn_User();
-   echo($tmp);
+    $tmp =  $user->SingIn_User();
+    if($tmp) echo(1);
+    else echo(0);
 }
 
 if(isset($_POST['login']) && isset($_POST['email']) && isset($_POST['password'])){
@@ -19,7 +22,18 @@ if(isset($_POST['login']) && isset($_POST['email']) && isset($_POST['password'])
         $user->setEmail($_POST['email']);
         if($user->getIdUserFromEmail() == 0){
             $tmp = $user->AddUser();
-            if($tmp) echo("Регистрация прошла успешно!");
+
+            $user->setEmail($_POST['email']);
+            $id_user = $user->getIdUserFromEmail();
+            $cash->setId_User($id_user);
+            $cash->setName("Копилка");
+            $cash->setType_Money("UAH");
+            $cash->setType_Cash(1);
+            $cash->setBalance(0);
+            $cash->setComment("Первый кошелек");
+            $tmp2 = $cash->Create_Cash();
+
+            if($tmp && $tmp2) echo("Регистрация прошла успешно!");
             else echo("При регистрации возникли ошибки");
         }
         else echo("Такой пользователь уже есть!");

@@ -28,7 +28,7 @@ class PartPage
 
                 <div class="display_one">
                     <div class="header">
-                    <img src="../im/logo.png" alt="">
+                    <a href="index.php"><img src="../im/logo.png" alt=""></a>
 
                     <ul type="none">
                         <li><a href="index.php" class="go_to" id="main">Главная</a></li>

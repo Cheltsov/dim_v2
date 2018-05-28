@@ -18,8 +18,9 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
     </select>
 
     <form action="../controlers/create_pdf.php" method="post">
-        <input type="submit" value="REPORT" name="create_pdf">
+        <input type="submit" value="Создать PDF" name="create_pdf">
         <input type="hidden" value="" id="hid" name="hid_month">
+        <input type="hidden" value="" id="hid_image" name="hid_image">
     </form>
 
 <div>
@@ -28,8 +29,8 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
         <option value="2">Доходы</option>
     </select>
     <select id="chose_schedule">
-        <option value="1">Line</option>
-        <option value="2">Pie</option>
+        <option value="1">Линейный график</option>
+        <option value="2">Круговой график</option>
     </select>
 
 </div>
@@ -42,17 +43,6 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
 </div>
     <div id="tranzaction_label" style="max-height:488px; overflow:auto; background-color:white; float:right; color:black; margin-right:30px; width:30%; font-size:12pt;  border-radius:10px;">
     </div>
-
-    <!--
-    <div id="content" style="color:black;">
-        <h3>При нажатии на вершину графика вывести в блок имени транзакции, а также дополнительные параметры</h3>
-        <h3>При получении баланса конвертировать валюту</h3>
-        <h3>При наведении на вершину убрать квадрат</h3>
-        <h3>Добавить круговой график</h3>
-</div>
--->
-
-
 
     <script>
 
@@ -83,6 +73,7 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
                                // $("#content").append("name = "+ucFirst(obj[i]['name'])+" || data = "+obj[i]['date']+" || balance = "+obj[i]["balance"]+"<br>");
                             }
                             myLineChart.update();
+                            $("#hid_image").val(myLineChart.toBase64Image());
                         }
                     );
                 }
@@ -107,6 +98,7 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
                                // $("#content").append("name = "+ucFirst(obj[i]['name'])+" || data = "+obj[i]['date']+" || balance = "+obj[i]["balance"]+"<br>");
                             }
                             myLineChart.update();
+                            $("#hid_image").val(myLineChart.toBase64Image());
                         }
                     );
                 }
@@ -117,8 +109,8 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
         });
 
         $(document).ready(function(){
-            var monthNames = ["January", "February", "March", "April", "May", "June",
-                "July", "August", "September", "October", "November", "December"
+            var monthNames = ["Январь", "Февраль", "Март", "Апрель", "Май", "Июнь",
+                "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"
             ];
             //day = new Date();
            // $("#month").append("<option selected value="+(day.getMonth()+1)+">"+monthNames[parseInt(day.getMonth())]+"</option>");
@@ -142,9 +134,7 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
 
 
     <script>
-        $(document).ready(function(){
-            $( "#chose" ).trigger( "change" );
-        });
+
         var canvas = $('#myChart');
         var data = {
             //labels: ["January", "February", "March", "April", "May", "June", "July"],
@@ -224,6 +214,11 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
             }
         });
 
+        $(document).ready(function(){
+            $( "#chose" ).trigger( "change" );
+            $("#hid_image").val(myLineChart.toBase64Image());
+        });
+
 
         $("#chose").change(function(){
             $("#chose_schedule").val("1");
@@ -256,6 +251,7 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
                            $("#content").append("name = "+ucFirst(obj[i]['name'])+" || data = "+obj[i]['date']+" || balance = "+obj[i]["balance"]+"<br>");
                        }
                        myLineChart.update();
+                       $("#hid_image").val(myLineChart.toBase64Image());
                    }
                );
             }
@@ -281,6 +277,7 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
                            myLineChart.data.datasets[0].data[i] = obj[i]["balance"];
                        }
                        myLineChart.update();
+                       $("#hid_image").val(myLineChart.toBase64Image());
                    }
                );
            }
@@ -317,6 +314,7 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
                           //  $("#content").append("name = "+ucFirst(obj[i]['name'])+" || data = "+obj[i]['date']+" || balance = "+obj[i]["balance"]+"<br>");
                         }
                         myLineChart.update();
+                        $("#hid_image").val(myLineChart.toBase64Image());
                     }
                 );
             }

@@ -1,13 +1,10 @@
 <?php
-require_once "../class/db.php";
 require_once 'getCourse.php';
 require_once "../class/user.php";
 require_once "../class/cash.php";
 require_once "../class/cashmonth.php";
 require_once "../class/tranzaction.php";
 require_once "../class/translate.php";
-
-$con = new Datebase();
 
 $cash = new Cash();
 $cashmonth = new CashMonth();
@@ -16,8 +13,6 @@ $tras = new Translate();
 
 $user = new User();
 $id_cur_user = $user->getUserId_Cookie();
-
-$temp = $con->getCash($id_cur_user);
 
 function Del_cookie(){
 
@@ -89,11 +84,6 @@ if(isset($_POST['name_trSum']) && isset($_POST['cash_trSum']) && isset($_POST['b
     if($tmp1 && $tmp3 && $tmp2 ) echo 1;
     else echo 0;
 }
-/*
-if(isset($_POST['tmper'])){
-    $id_cur_user = $con->findIdUser();
-    $con->getTranz($id_cur_user);
-}*/
 
 if(isset($_POST['del_tr']) && isset($_POST['id_tr'])){
     $traz->setId($_POST['id_tr']);
@@ -183,13 +173,6 @@ if(isset($_POST['del_trans']) && isset($_POST['index_trans'])){
         echo("false");
     }
 }
-/*
-if(isset($_POST['on_cash'])){
-    $id_cur_user = $con->findIdUser();
-    $id_cashON = $_POST['id_cash'];
-
-    $con->getTrFromCash($id_cashON);
-}*/
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 if(isset($_POST['wanna_tr_min'])){
@@ -218,29 +201,7 @@ if(isset($_POST['wanna_tr_plus_fromID'])){
     $traz->getTranzFrom_Cash_User();
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-if(isset($_POST['test'])){
-    $con->getUser_nameFromId(2);
-}
 
-if(isset($_POST['update_tr']) && isset($_POST['index'])){
-
- /*   $traz->setId($_POST['index']);
-    $rez = $traz->getTranzFrom_Id_and_CurMonth();
-*/
-    //$rez = $con->getTranzFromID($_POST['index']);
-    //echo(json_encode($rez));
-}
-
-if(isset($_POST['getCashList'])){
-    //$id_cur_user = $con->findIdUser();
-    //$con->getCashList($id_cur_user);
-
-}
-
-if(isset($_POST['want_id_cashDouble'])){
-   // $id_cur_user = $con->findIdUser();
-   // $con->getCashNEWDouble( $id_cur_user);
-}
 //&& isset($_POST['date_trans']) && isset($_POST['cash_min_trans']) && isset($_POST['cash_min_trans'])
 if(isset($_POST['name_trans']) ){
     try{
@@ -432,8 +393,6 @@ if(isset($_POST['up_trans_index'])){
 }
 
 if(isset($_POST['conv'])){
-   // $con->getCashList($id_cur_user);
-
     $cash->setId_User($id_cur_user);
     $cash->getListCashFromId_User();
 }
@@ -460,12 +419,9 @@ if(isset($_POST['test_event'])){
             $traz->setBalance(round($rez_from_month, 2));
             $traz->setStatus("minus");
             $traz->ExtraTranzaction();
-            //$con->extraTranz($id_cur_user,$rez_from_month,"minus");
             echo("Добавлена Дополнительная транзакция");
         }
         if ($rez_from_month > 0) {
-            //Создать буферную транзакцию за прошлый месяц со статусом плюс
-            //$con->extraTranz($id_cur_user,round($rez_from_month,2),"plus");
 
             $traz->setBalance(round($rez_from_month, 2));
             $traz->setStatus("plus");
@@ -477,14 +433,17 @@ if(isset($_POST['test_event'])){
     }
 }
 
-if(isset($_POST['na_cashs_josn'])){
-    //newBalance($id_user,$id_cash,$balance)
-    $tmp = json_decode($_POST['na_cashs_josn'],true);
-
-   foreach($tmp as $item){
-       foreach($item as $key=>$value){
-           echo($key."= ".$value.'|');
-       }
-
-   }
+if(isset($_POST['ed'])){
+    foreach($_POST as $key=>$value){
+        if(preg_match("/^cov_bal/",$key)){
+            $tmp_key = substr($key, 7);
+            $cash->setId($tmp_key);
+            $cash->setBalance($value);
+            $rez = $cash->UpdateCash_Balance();
+            if(!$rez){
+                echo("false"); exit;
+            }
+        }
+    }
+    echo("true");
 }

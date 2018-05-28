@@ -183,12 +183,13 @@ class Tranzaction extends Datebase{
             $cash = R::findAll('cash',"id = $item->cash");
             foreach($cash as $tmp){
                 $name_cash = $tmp->name;
+                $name_val = $tmp->type_money;
             }
             if($name_cash=="")  $name_cash="Удален";
 
             if($item['status'] == 'minus') $st = "Расход";
             if($item['status'] == 'plus') $st = "Доход";
-            array_push($arr_tmp, $item->id, $item->name, $name_cash, $item->balance, $item->comment, $item->user_id, $item->data, $st);
+            array_push($arr_tmp, $item->id, $item->name, $name_cash, $item->balance, $item->comment, $item->user_id, $item->data, $st,$name_val);
         }
         R::close();
         return $arr_tmp;
@@ -222,13 +223,14 @@ class Tranzaction extends Datebase{
                 $cash = R::findAll('cash',"id = $item->cash");
                 foreach($cash as $tmp){
                     $name_cash = $tmp->name;
+                    $name_val = $tmp->type_money;
                 }
                 $us = R::findAll('users',"id = $item->user_id");
                 foreach($us as $tmp_us){
                     $us_name = $tmp_us->login;
                 }
                 if($name_cash=="")  $name_cash="Удален";
-                array_push($arr_tmp,$item->id,$item->name,$name_cash,$item->balance,$item->comment,$us_name,$item->data);
+                array_push($arr_tmp,$item->id,$item->name,$name_cash,$item->balance,$item->comment,$us_name,$item->data,$name_val);
                 $name_cash="";
             }
         }
@@ -269,13 +271,14 @@ class Tranzaction extends Datebase{
                 $cash = R::findAll('cash',"id = $item->cash");
                 foreach($cash as $tmp){
                     $name_cash = $tmp->name;
+                    $name_valute = $tmp->type_money;
                 }
                 $us = R::findAll('users',"id = $item->user_id");
                 foreach($us as $tmp_us){
                     $us_name = $tmp_us->login;
                 }
                 if($name_cash=="")  $name_cash="Удален";
-                array_push($arr_tmp,$item->id,$item->name,$name_cash,$item->balance,$item->comment,$us_name,$item->data);
+                array_push($arr_tmp,$item->id,$item->name,$name_cash,$item->balance,$item->comment,$us_name,$item->data,$name_valute);
                 $name_cash="";
             }
         }
@@ -292,13 +295,14 @@ class Tranzaction extends Datebase{
                 $cash = R::findAll('cash',"id = $item->cash");
                 foreach($cash as $tmp){
                     $name_cash = $tmp->name;
+                    $name_cash_val = $tmp->type_money;
                 }
                 $us = R::findAll('users',"id = $item->user_id");
                 foreach($us as $tmp_us){
                     $us_name = $tmp_us->login;
                 }
                 if($name_cash=="")  $name_cash="Удален";
-                array_push($arr_tmp,$item->id,$item->name,$name_cash,$item->balance,$item->comment,$us_name,$item->data);
+                array_push($arr_tmp,$item->id,$item->name,$name_cash,$item->balance,$item->comment,$us_name,$item->data,$name_cash_val);
                 $name_cash="";
             }
         }

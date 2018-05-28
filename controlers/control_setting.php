@@ -1,24 +1,45 @@
 <?php
-require_once "class/db.php";
-require_once 'getCourse.php';
+require_once "../class/user.php";
+require_once "../class/cash.php";
+require_once "exit.php";
 
-$con = new Datebase();
-$con->Connection();
+$user = new User;
+$cash = new Cash;
+$user->setId($user->getUserId_Cookie());
 
-$id_cur_user = $con->findIdUser();
-
-$temp = $con->getCash($id_cur_user);
-
-if(isset($_POST['getUsId'])){
-   $rex =  $con->getUsers();
-   echo(json_encode($rex));
+if(isset($_POST['change_password'])){
+	$user->setPassword($_POST['change_password']);
+	$tmp = $user->NewPassword();
+	if($tmp) echo("Пароль изменен");
+	else echo("Ошибка при изменении пароля");
 }
 
-if(isset($_POST['addUser'])){
-    $id_guest = $con->findIdUserFromEmail($_POST['addUser']);
-    $con->addUserGroup($id_cur_user,$id_guest);
+if(isset($_POST['change_email'])){
+	$user->setEmail($_POST['change_email']);
+	$tmp = $user->NewEmail();
+	if($tmp) echo("Email изменен");
+	else echo("Ошибка при изменении email");
 }
 
-/*$arr_tmp = array($id_cur_user,"2");
-   for($i=0;$i<count($arr_tmp);$i++)
-        $con->getCashList($arr_tmp[$i]);*/
+if(isset($_POST['del_cash_prog'])){
+	$tmp = $user->Del_Cash_Prog();
+	if($tmp){
+		$cash->setId_User($user->getId());
+        $cash->setName("Копилка");
+        $cash->setType_Money("UAH");
+        $cash->setType_Cash("1");
+        $cash->setBalance(0);
+		$tmp2 = $cash->Create_Cash();
+		if($tmp2) echo("Данные удалены");
+	}
+	else echo("Ошибка при удалении данных");
+}
+
+if(isset($_POST['del_cash_prog'])){
+	$tmp = $user->Del_user();
+	if($tmp){
+		delCook();
+	}
+	else echo("0");
+}
+

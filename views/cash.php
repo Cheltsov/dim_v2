@@ -2,11 +2,7 @@
 if(!isset($_COOKIE['SingIN'])){
     header('Location:../index.php');
 }
-//require "../controlers/db.php";
-
 require "../controlers/control_main_page.php";
-
-
     require "partpage.php";
     $part = new partPage();
     $part->PreLoader();
@@ -88,11 +84,6 @@ require "../controlers/control_main_page.php";
 </div>
 
     <div id="content" style="width:800px;float:left"></div>
-
-
-
-
-
 
     <div style="margin-top:50px;float:right">
         <button id="add_cash" >Добавить</button>
@@ -191,7 +182,6 @@ require "../controlers/control_main_page.php";
 ?>
 
 <script>
-
     $("#dia_form").submit(function(){ //Добавить Кошелек
         $.ajax({
             type: 'POST',
@@ -208,8 +198,6 @@ require "../controlers/control_main_page.php";
 
 
 </script>
-
-
 
 <?php
     $part->script_links("../js/cash.js");

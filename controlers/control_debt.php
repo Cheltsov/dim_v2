@@ -110,7 +110,8 @@ if(isset($_POST['getEnumTr'])){
         $traz->setId($item);
         $traz->setUser_Id($id_cur_user);
         $tmp = $traz->getTranzacionById();
-        array_push($arr_rez,$tmp);
+        if($tmp != null)
+            array_push($arr_rez,$tmp);
     }
     echo(json_encode($arr_rez));
 }

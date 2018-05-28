@@ -199,7 +199,13 @@ class Cash extends Datebase
         $cash->balance += $this->balance;
         R::store($cash);
         return true;
+    }
 
+    public function UpdateCash_Balance(){
+        $cash = R::load("cash", $this->id);
+        $cash->balance = $this->balance;
+        R::store($cash);
+        return true;
     }
 
     function getBalance_FromId_Cash($id_cash){ //whatBalance

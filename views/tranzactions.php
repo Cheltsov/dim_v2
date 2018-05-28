@@ -213,8 +213,6 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
     <button id="del_tr">Удалить</button>
     <br>
     <br>
-    <button id="test_tr">Test</button>
-    <br>
 </div>
 
 
@@ -230,7 +228,7 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
 
 
 <div id="dialog_conv">
-    <h3>Пересчетать финансовые стредства</h3>
+    <h3>Пересчетать финансовые средства</h3>
     <br>
     <form action="" id="name_cash">
 
@@ -396,7 +394,6 @@ $part->script_links("https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jque
 </div>
 
 </div>
-
 
 
 

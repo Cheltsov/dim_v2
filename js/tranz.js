@@ -467,8 +467,8 @@ $("#all_bal").click(function(){ // заполнение таблицы при н
         //alert(data);
             $("#minTable").append("<tr><th>Название</th><th>Кошелек</th><th>Сумма</th><th>Комментарий</th><th>Дата</th></tr>");
        data = JSON.parse(data);
-            for(i=1,j=2,a=3,b=4,c=5,d=6,il=0;il<data.length;i+=7,j+=7,a+=7,b+=7,c+=7,d+=7,il+=7){
-                $("#minTable").append("<tr id='"+data[il]+"' class='col'>" +"<td id='name'>"+data[i]+"&nbsp</td>" + "<td id='cash'>"+data[j]+"</td>"+ "<td>"+parseFloat(data[a]).toFixed(2)+"</td>"+  "<td>"+data[b]+"</td>" + "<td>"+data[d]+"</td>"+ "</tr>");
+            for(i=1,j=2,a=3,b=4,c=5,d=6,il=0,valute=7;il<data.length;i+=8,j+=8,a+=8,b+=8,c+=8,d+=8,il+=8,valute+=8){
+                $("#minTable").append("<tr id='"+data[il]+"' class='col'>" +"<td id='name'>"+data[i]+"&nbsp</td>" + "<td id='cash'>"+data[j]+"</td>"+ "<td>"+parseFloat(data[a]).toFixed(2)+" ("+data[valute]+")</td>"+  "<td>"+data[b]+"</td>" + "<td>"+data[d]+"</td>"+ "</tr>");
             }
         });
     $("#plusTable").empty();
@@ -479,8 +479,8 @@ $("#all_bal").click(function(){ // заполнение таблицы при н
         function(data){
             $("#plusTable").append("<tr><th>Название</th><th>Кошелек</th><th>Сумма</th><th>Комментарий</th><th>Дата</th></tr>");
             data = JSON.parse(data);
-            for(i=1,j=2,a=3,b=4,c=5,d=6,il=0;il<data.length;i+=7,j+=7,a+=7,b+=7,c+=7,d+=7,il+=7){
-                $("#plusTable").append("<tr id='"+data[il]+"' class='col'>" +"<td id='name'>"+data[i]+"&nbsp</td>" + "<td id='cash'>"+data[j]+"</td>"+ "<td>"+parseFloat(data[a]).toFixed(2)+"</td>"+  "<td>"+data[b]+"</td>" + "<td>"+data[d]+"</td>"+ "</tr>");
+            for(i=1,j=2,a=3,b=4,c=5,d=6,il=0,valute=7;il<data.length;i+=8,j+=8,a+=8,b+=8,c+=8,d+=8,il+=8,valute+=8){
+                $("#plusTable").append("<tr id='"+data[il]+"' class='col'>" +"<td id='name'>"+data[i]+"&nbsp</td>" + "<td id='cash'>"+data[j]+"</td>"+ "<td>"+parseFloat(data[a]).toFixed(2)+" ("+data[valute]+")</td>"+  "<td>"+data[b]+"</td>" + "<td>"+data[d]+"</td>"+ "</tr>");
 
             }
         });
@@ -493,8 +493,8 @@ $("#all_bal").click(function(){ // заполнение таблицы при н
             //alert(data);
             $("#transTable").append("<tr><th>Название</th><th>Кошелек1</th><th>Снято</th><th>Кошелек2</th><th>Зачислено</th><th>Комментарий</th><th>Дата</th></tr>");
             data = JSON.parse(data);
-            for(i=1,j=2,a=3,b=4,c=5,d=6,e=7,f=8,il=0;il<data.length;i+=9,j+=9,a+=9,b+=9,c+=9,d+=9,il+=9,e+=9,f+=9){
-                $("#transTable").append("<tr id='ts"+data[il]+"' class='col'>" +"<td id='name'>"+data[i]+"&nbsp</td>" + "<td id='cash'>"+data[a]+"</td>"+ "<td>"+parseFloat(data[b]).toFixed(2)+"</td>"+  "<td>"+data[c]+"</td>" + "<td>"+parseFloat(data[d]).toFixed(2)+"</td>" +  "<td>"+data[e]+"</td>"+ "<td>"+data[j]+"</td>"+"</tr>");
+            for(i=1,j=2,a=3,b=4,c=5,d=6,e=7,f=8,il=0,val1=9,val2=10;il<data.length;i+=11,j+=11,a+=11,b+=11,c+=11,d+=11,il+=11,e+=11,f+=11,val1+=11,val2+=11){
+                $("#transTable").append("<tr id='ts"+data[il]+"' class='col'>" +"<td id='name'>"+data[i]+"&nbsp</td>" + "<td id='cash'>"+data[a]+"</td>"+ "<td>"+parseFloat(data[b]).toFixed(2)+"<br>("+data[val1]+")</td>"+  "<td>"+data[c]+"</td>" + "<td>"+parseFloat(data[d]).toFixed(2)+"<br>("+data[val2]+")</td>" +  "<td>"+data[e]+"</td>"+ "<td>"+data[j]+"</td>"+"</tr>");
             }
         }
     );
@@ -810,53 +810,32 @@ $('#dialog_conv').dialog({
 });
 
 $("#conversion").click(function(){
+    $("#name_cash").empty();
     $.post("../controlers/control_tranzactions.php",
         {conv : "1"},
         function(data){
+            $("#name_cash").append("<input name='ed' type='hidden' value='1'>");
             var obj = JSON.parse(data);
             for(i=0,j=2,v=3,b=5;i<obj.length;i+=10,j+=10,v+=10,b+=10){
-                $("#name_cash").append("<label>"+obj[j]+"("+obj[v]+")</label>&nbsp<input type='number' id='cov"+obj[i]+"' class='in_conv' step='any' name='cov_bal' value='"+obj[b]+"'><br><br>");
+                $("#name_cash").append("<label>"+obj[j]+"("+obj[v]+")</label>&nbsp<input type='number' id='cov"+obj[i]+"' class='in_conv' step='any' name='cov_bal"+obj[i]+"' value='"+obj[b]+"'><br><br>");
             }
+
             $("#name_cash").append("<button id = 'add_conv'>Добавить</button>");
         }
     );
     $("#dialog_conv").dialog('open');
 });
 
-var ary = [];
-cashs_json = "";
-
-$("#name_cash").on("click keyup",".in_conv",function(){
-
-    id_cash = $(this).attr("id").substring(3);
-    bal = $(this).val();
-    var obj = {};
-    obj[id_cash] = bal;
-    ary.push(obj);
-    for (var key in ary) {
-        for (var key2 in ary[key]){
-            console.log("k= "+key2+" rr="+ary[key][key2]);
-            if(key2 == id_cash){
-                ary[key][key2] = bal;
-            }
-        }
-    }
-    cashs_json = JSON.stringify(ary);
-});
-
 $("#name_cash").on("click","#add_conv",function(){
-    $("#name_cash").empty();
-    alert(cashs_json);
-    $.post(
-        "../controlers/control_tranzactions.php",
-        { na_cashs_josn : cashs_json},
-        function(data){
-            alert(data);
-            //location.reload();
-        }
-    );
+    $.ajax({
+        type: 'POST',
+        url: "../controlers/control_tranzactions.php",
+        data: $("#name_cash").serialize(),
+    }).done(function(data){
+        if(data == "true") alert("Счета пересчитаны");
+        else alert("Счета не пересчитаны");
+    });
 });
-
 
 function ucFirst(str) {
     if (!str) return str;
